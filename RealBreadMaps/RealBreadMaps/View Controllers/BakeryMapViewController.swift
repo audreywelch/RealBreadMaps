@@ -18,6 +18,8 @@ class BakeryMapViewController: UIViewController {
     
     var didFindMyLocation = false
     
+    var bakeries = [BakeryIDS.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .w, .x, .y, .z, .aa, .bb, .cc, .dd, .ee, .ff, .gg, .hh, .ii, .jj, .kk]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +34,19 @@ class BakeryMapViewController: UIViewController {
         ibisMarker.snippet = "Kansas City, Missouri"
         ibisMarker.map = mapView
         
+        for eachBakeryID in bakeries {
+            BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
+                marker.title = "\(BakeryModelController.shared.bakery?.name)"
+                marker.snippet = "\(BakeryModelController.shared.bakery?.formattedAddress)"
+                marker.map = self.mapView
+            }
+        }
+        //BakeryModelController.shared.searchForBakery(with: "ChIJsyPVS2jwwIcRgxML7BXE7eQ") { (error) in
+           
+        //}
+        
         //locationManager.delegate = self
         
 //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -44,16 +59,16 @@ class BakeryMapViewController: UIViewController {
 
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if !didFindMyLocation {
-//            //let myLocation: CLLocation = change![NSKeyValueChangeKey] as CLLocation
-//            mapView.camera = GMSCameraPosition.camera(withTarget: myLocation.coordinate, zoom: 10.0)
-//            mapView.settings.myLocationButton = true
-//
-//            didFindMyLocation = true
-        }
-    }
-    
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        if !didFindMyLocation {
+////            //let myLocation: CLLocation = change![NSKeyValueChangeKey] as CLLocation
+////            mapView.camera = GMSCameraPosition.camera(withTarget: myLocation.coordinate, zoom: 10.0)
+////            mapView.settings.myLocationButton = true
+////
+////            didFindMyLocation = true
+//        }
+//    }
+
     
 }
 

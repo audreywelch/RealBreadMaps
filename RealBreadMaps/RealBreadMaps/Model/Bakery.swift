@@ -29,35 +29,36 @@ import CoreLocation
 //
 //}
 
-struct Bakery {
+struct Bakery: Codable {
     
     let name: String
-    let coordinate: Geometry
+    let geometry: Geometry
     let formattedAddress: String
-    let placeID: String
+    //let placeID: String
     let website: String
     let openingHours: OpeningHours
-    let photoReferences: [PhotoReferences]
+    let photos: [PhotoReferences]
     
 }
 
-struct Geometry {
+struct Geometry: Codable {
     let location: Location
 }
 
-struct Location {
-    let lat, long: Double
+struct Location: Codable {
+    let lat: Double
+    let lng: Double
 }
 
-struct OpeningHours {
+struct OpeningHours: Codable {
     let weekdayText: [String]
 }
 
-struct PhotoReferences {
+struct PhotoReferences: Codable {
     let photoReference: String
 }
 
-struct BakeryResult {
+struct BakeryResult: Codable {
     let result: Bakery
 }
 

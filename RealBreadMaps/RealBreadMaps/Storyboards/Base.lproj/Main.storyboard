@@ -283,7 +283,20 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vH1-EO-nXN" customClass="GMSMapView">
                                 <rect key="frame" x="8" y="472.5" width="359" height="137.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nau-fh-I0n">
+                                        <rect key="frame" x="245" y="8" width="106" height="30"/>
+                                        <state key="normal" title=" Get Directions "/>
+                                        <connections>
+                                            <segue destination="h3d-dS-Shm" kind="show" id="nS8-Ya-S9f"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Nau-fh-I0n" firstAttribute="top" secondItem="vH1-EO-nXN" secondAttribute="top" constant="8" id="8xO-uJ-McA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nau-fh-I0n" secondAttribute="trailing" constant="8" id="rWm-u5-HwX"/>
+                                </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cen-SB-Ane">
                                 <rect key="frame" x="8" y="404.5" width="359" height="60"/>
@@ -398,12 +411,59 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="B5G-c6-aUx"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bakeryAddressLabel" destination="t0G-Jn-eDx" id="dqZ-yF-ThX"/>
+                        <outlet property="bakeryHoursLabel" destination="Hns-E2-H9f" id="9j4-vb-779"/>
+                        <outlet property="bakeryNameLabel" destination="Yhp-xI-k3L" id="eel-xh-gka"/>
+                        <outlet property="bakeryWebsiteLabel" destination="ytw-hv-ohn" id="TKK-nY-nIz"/>
                         <outlet property="collectionView" destination="6dc-hS-ZeM" id="E3t-Pe-9th"/>
+                        <outlet property="descriptionTextView" destination="cen-SB-Ane" id="UDZ-ez-TA6"/>
+                        <outlet property="mapView" destination="vH1-EO-nXN" id="QGv-ry-scw"/>
+                        <outlet property="milledInHouseImageView" destination="jUl-5a-rXK" id="fLo-p7-pez"/>
+                        <outlet property="milledInHouseLabel" destination="a01-Cy-4D8" id="P7w-y0-OKE"/>
+                        <outlet property="organicImageView" destination="ehk-di-T5S" id="zzs-QR-eNp"/>
+                        <outlet property="organicLabel" destination="ZAy-mH-H5D" id="zoY-JY-lkX"/>
+                        <outlet property="sellsLoavesImageView" destination="BEg-Qp-hyu" id="LGt-dI-RNJ"/>
+                        <outlet property="sellsLoavesLabel" destination="ZFB-AL-6xO" id="Q9V-XU-380"/>
+                        <outlet property="servesFoodImageView" destination="rVr-RT-Tmu" id="Dy5-e1-C5E"/>
+                        <outlet property="servesFoodLabel" destination="kO4-i9-9P6" id="toE-2Y-1Qj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkF-42-dps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3440.8000000000002" y="160.56971514242881"/>
+        </scene>
+        <!--Name-->
+        <scene sceneID="6Am-Q4-L2e">
+            <objects>
+                <viewController id="h3d-dS-Shm" customClass="DirectionsViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MJP-yE-DuI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8Z-lH-xsZ" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IZl-3s-lHO" firstAttribute="bottom" secondItem="S8Z-lH-xsZ" secondAttribute="bottom" id="0wR-7m-NcS"/>
+                            <constraint firstItem="IZl-3s-lHO" firstAttribute="trailing" secondItem="S8Z-lH-xsZ" secondAttribute="trailing" id="3Eh-BT-euJ"/>
+                            <constraint firstItem="S8Z-lH-xsZ" firstAttribute="top" secondItem="IZl-3s-lHO" secondAttribute="top" id="3NL-2s-bh8"/>
+                            <constraint firstItem="S8Z-lH-xsZ" firstAttribute="leading" secondItem="IZl-3s-lHO" secondAttribute="leading" id="9rY-TS-DIR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IZl-3s-lHO"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Name" id="UGu-qe-hCR">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="9mx-0x-4uw"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="getDirectionsMapView" destination="S8Z-lH-xsZ" id="cSr-HE-eQr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xL-ih-Epd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4118" y="158"/>
         </scene>
         <!--What is "real bread"?-->
         <scene sceneID="8oi-Rg-KuK">
@@ -571,6 +631,6 @@
         <image name="organic red" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sZW-9R-uZA"/>
+        <segue reference="8Fq-C9-IJ4"/>
     </inferredMetricsTieBreakers>
 </document>

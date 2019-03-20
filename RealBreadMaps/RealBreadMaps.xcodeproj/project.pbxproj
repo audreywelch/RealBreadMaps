@@ -20,6 +20,10 @@
 		84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604B22415716007892A1 /* BakeryImageCollectionViewCell.swift */; };
 		84F7604E22416125007892A1 /* Bakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604D22416125007892A1 /* Bakery.swift */; };
 		84F76050224194EA007892A1 /* SuggestedBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604F224194EA007892A1 /* SuggestedBakery.swift */; };
+		84F76052224295DC007892A1 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F76051224295DC007892A1 /* DirectionsViewController.swift */; };
+		84F760552242B07C007892A1 /* PhotosFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760542242B07B007892A1 /* PhotosFetch.swift */; };
+		84F760572242B08A007892A1 /* PlaceDetailsFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760562242B08A007892A1 /* PlaceDetailsFetch.swift */; };
+		84F760592242B0F7007892A1 /* PlaceSearchFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760582242B0F7007892A1 /* PlaceSearchFetch.swift */; };
 		E4A127FBFB5A5F4D1E7DEC1F /* Pods_RealBreadMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2686082C9812CD6E54A0FC8 /* Pods_RealBreadMaps.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +43,10 @@
 		84F7604B22415716007892A1 /* BakeryImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F7604D22416125007892A1 /* Bakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bakery.swift; sourceTree = "<group>"; };
 		84F7604F224194EA007892A1 /* SuggestedBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedBakery.swift; sourceTree = "<group>"; };
+		84F76051224295DC007892A1 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
+		84F760542242B07B007892A1 /* PhotosFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFetch.swift; sourceTree = "<group>"; };
+		84F760562242B08A007892A1 /* PlaceDetailsFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsFetch.swift; sourceTree = "<group>"; };
+		84F760582242B0F7007892A1 /* PlaceSearchFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchFetch.swift; sourceTree = "<group>"; };
 		B2686082C9812CD6E54A0FC8 /* Pods_RealBreadMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealBreadMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49860229D3B8EF737DE6B54 /* Pods-RealBreadMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealBreadMaps.debug.xcconfig"; path = "Target Support Files/Pods-RealBreadMaps/Pods-RealBreadMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		E2552FF741871ACA41EF96D3 /* Pods-RealBreadMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealBreadMaps.release.xcconfig"; path = "Target Support Files/Pods-RealBreadMaps/Pods-RealBreadMaps.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 			children = (
 				84F7602E22404731007892A1 /* Info.plist */,
 				84F7603B22415358007892A1 /* Model */,
+				84F760532242B061007892A1 /* Networking */,
 				84F7603A22415353007892A1 /* Views */,
 				84F760392241534C007892A1 /* View Controllers */,
 				84F7603822415345007892A1 /* Storyboards */,
@@ -104,6 +113,7 @@
 				84F76045224155D1007892A1 /* InfoViewController.swift */,
 				84F7604722415611007892A1 /* SubmissionsViewController.swift */,
 				84F7604922415642007892A1 /* BakeryDetailViewController.swift */,
+				84F76051224295DC007892A1 /* DirectionsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -133,6 +143,16 @@
 				84F7602922404731007892A1 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		84F760532242B061007892A1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				84F760582242B0F7007892A1 /* PlaceSearchFetch.swift */,
+				84F760562242B08A007892A1 /* PlaceDetailsFetch.swift */,
+				84F760542242B07B007892A1 /* PhotosFetch.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		8C40BDC4D6358E46F059F671 /* Frameworks */ = {
@@ -306,8 +326,12 @@
 				84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */,
 				84F76037224068E3007892A1 /* BakeryMapViewController.swift in Sources */,
 				84F7604822415611007892A1 /* SubmissionsViewController.swift in Sources */,
+				84F760592242B0F7007892A1 /* PlaceSearchFetch.swift in Sources */,
+				84F760552242B07C007892A1 /* PhotosFetch.swift in Sources */,
 				84F760232240472F007892A1 /* AppDelegate.swift in Sources */,
 				84F76046224155D1007892A1 /* InfoViewController.swift in Sources */,
+				84F760572242B08A007892A1 /* PlaceDetailsFetch.swift in Sources */,
+				84F76052224295DC007892A1 /* DirectionsViewController.swift in Sources */,
 				84F7604E22416125007892A1 /* Bakery.swift in Sources */,
 				84F7604A22415642007892A1 /* BakeryDetailViewController.swift in Sources */,
 				84F7604422415528007892A1 /* BakeryListTableViewController.swift in Sources */,

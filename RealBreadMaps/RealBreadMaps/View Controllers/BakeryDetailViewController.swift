@@ -7,10 +7,32 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class BakeryDetailViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
+    // MARK: Properties
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var bakeryNameLabel: UILabel!
+    @IBOutlet weak var bakeryAddressLabel: UILabel!
+    @IBOutlet weak var bakeryHoursLabel: UILabel!
+    @IBOutlet weak var bakeryWebsiteLabel: UILabel!
+    
+    @IBOutlet weak var sellsLoavesImageView: UIImageView!
+    @IBOutlet weak var milledInHouseImageView: UIImageView!
+    @IBOutlet weak var organicImageView: UIImageView!
+    @IBOutlet weak var servesFoodImageView: UIImageView!
+    
+    @IBOutlet weak var sellsLoavesLabel: UILabel!
+    @IBOutlet weak var milledInHouseLabel: UILabel!
+    @IBOutlet weak var organicLabel: UILabel!
+    @IBOutlet weak var servesFoodLabel: UILabel!
+    
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBOutlet weak var mapView: GMSMapView!
     
     // Flow properties
     let targetDimension: CGFloat = 120
@@ -32,8 +54,27 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegateFlow
         
         // Set the direction of the user's scrolling to be swiping horizontally
         layout.scrollDirection = .horizontal
+        
+        mapViewSetUp()
+    }
+    
+    func mapViewSetUp() {
+        
+        // Set initial view to the bakery
+        let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
+        mapView.camera = camera
+        
+        // Create a marker for Ibis Bakery
+        let ibisMarker = GMSMarker()
+        ibisMarker.position = CLLocationCoordinate2D(latitude: 39.0934894, longitude: -94.5815152)
+        ibisMarker.title = "Messenger Coffee Co. + Ibis Bakery"
+        ibisMarker.snippet = "1624 Grand Boulevard, Kansas City, MO 64108"
+        ibisMarker.map = mapView
+        
     }
 }
+
+
 
 extension BakeryDetailViewController: UICollectionViewDataSource {
     

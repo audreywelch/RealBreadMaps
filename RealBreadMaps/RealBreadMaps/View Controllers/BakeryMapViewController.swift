@@ -45,32 +45,33 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                 if BakeryModelController.shared.bakery != nil {
                     let marker = GMSMarker()
                     marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
+                    marker.icon = GMSMarker.markerImage(with: .ibisRed)
                     marker.title = "\(BakeryModelController.shared.bakery!.name)" ?? ""
                     marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" ?? ""
                     marker.map = self.mapView
+                    
                 }
             }
         }
-//        for eachPhotoReference in BakeryModelController.shared.photoReferences {
-//            BakeryModelController.shared.fetchPhotos(with: eachPhotoReference.photoReference) { (error) in
-//            }
-//        }
-
-
     }
     
 
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         //marker.position
-        
+
         //bakeryDetailViewController.bakery =
+        
+        BakeryModelController.shared.currentBakeryName = marker.title
         
         performSegue(withIdentifier: "showDetailViewController", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard let destination = segue.destination as? BakeryDetailViewController else { return }
+        
+        
     }
     
 }

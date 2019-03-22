@@ -62,9 +62,16 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         guard let destinationVC = segue.destination as? BakeryDetailViewController,
             let indexPath = tableView.indexPathForSelectedRow else { return }
         
-        let bakery = bakeries[indexPath.row]
+        if searchBarIsEmpty() == false {
+            let bakery = filteredBakeries[indexPath.row]
+            destinationVC.bakery = bakery
+        }
         
+        let bakery = bakeries[indexPath.row]
         destinationVC.bakery = bakery
+        //let bakery = bakeries[indexPath.row]
+        
+        
     }
     
     // MARK: - UI Search Bar

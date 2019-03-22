@@ -18,7 +18,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var bakeryNameLabel: UILabel!
     @IBOutlet weak var bakeryAddressLabel: UILabel!
     @IBOutlet weak var bakeryHoursLabel: UILabel!
-    @IBOutlet weak var bakeryWebsiteLabel: UILabel!
+    @IBOutlet weak var bakeryWebsiteLabel: UIButton!
     
     @IBOutlet weak var sellsLoavesImageView: UIImageView!
     @IBOutlet weak var milledInHouseImageView: UIImageView!
@@ -38,7 +38,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     var imageURLs: [URL]?
     var imageURLStrings: [String] = []
-    var bakeryImages: [UIImage] = []
+    var bakeryImages: [UIImage] = [UIImage(named: "bread1")!, UIImage(named: "bread2")!, UIImage(named: "bread3")!, UIImage(named: "bread4")!, UIImage(named: "bread5")!, UIImage(named: "bread6")!, UIImage(named: "bread7")!, UIImage(named: "bread8")!, UIImage(named: "bread9")!, UIImage(named: "bread10")!, UIImage(named: "bread11")!,]
 
     // Flow properties
     let targetDimension: CGFloat = 120
@@ -46,6 +46,12 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         mapView.delegate = self
+        
+        for eachBakery in BakeryModelController.shared.bakeries {
+            if eachBakery.name == BakeryModelController.shared.currentBakeryName {
+                self.bakery = eachBakery
+            }
+        }
         
         self.title = bakery?.name
         
@@ -73,6 +79,13 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         labelSetUp()
     }
+    
+    @IBAction func websiteURLTapped(_ sender: Any) {
+        if let url = URL(string: (bakeryWebsiteLabel.titleLabel?.text)!) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
     
     @IBAction func done(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
@@ -135,6 +148,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             
             // Create a marker for Ibis Bakery
             let marker = GMSMarker()
+            marker.icon = GMSMarker.markerImage(with: .ibisRed)
             marker.position = CLLocationCoordinate2D(latitude: bakery?.geometry.location.lat ?? 0, longitude: bakery?.geometry.location.lng ?? 0)
             marker.title = "\(bakery!.name)"
             marker.snippet = "Get Directions 👆"
@@ -149,7 +163,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         let hoursString = bakery?.openingHours.weekdayText.joined(separator: "\n")
         bakeryHoursLabel.text = hoursString
-        bakeryWebsiteLabel.text = bakery?.website
+        //bakeryWebsiteLabel.titleLabel?.text = bakery?.website
+        bakeryWebsiteLabel.setTitle(bakery?.website, for: .normal)
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
@@ -159,7 +174,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-    
 }
 
 
@@ -172,29 +186,14 @@ extension BakeryDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return BakeryModelController.shared.photoReferences.count
-        return imageURLStrings.count
+        //return imageURLStrings.count
+        return bakeryImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BakeryImageCollectionViewCell.reuseIdentier, for: indexPath) as! BakeryImageCollectionViewCell
-        
-        if imageURLStrings != nil {
-            for imageURLString in imageURLStrings {
-                
-                guard let imageURL = URL(string: imageURLString) else {
-                    fatalError("Can't convert string to URL")
-                }
-                
-                guard let imageData = try? Data(contentsOf: imageURL) else {
-                    print("Cannot convert URL to data")
-                    return cell }
-                
-                bakeryImages.append(UIImage(data: imageData) ?? UIImage(named: "bread gray")!)
-            }
-            cell.bakeryImageView.image = bakeryImages[indexPath.row]
-            
-        }
-        
+
 //        if imageURLs != nil {
 //
 //            for imageURL in imageURLs! {
@@ -207,10 +206,7 @@ extension BakeryDetailViewController: UICollectionViewDataSource {
 //
 //        }
         
-
-        
-        //cell.bakeryImageView.image =
-        
+        cell.bakeryImageView.image = bakeryImages[indexPath.row]
         return cell
     }
     

@@ -55,26 +55,26 @@ class DirectionsViewController: UIViewController, GMSMapViewDelegate {
     
 }
 
-extension DirectionsViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            locationManager.requestLocation()
-            getDirectionsMapView.isMyLocationEnabled = true
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
-        if let firstLocation = locations.first {
-            print("Location: \(firstLocation)")
-            
-            directionsViewController.location = location
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error: \(error)")
-    }
-}
+//extension DirectionsViewController: CLLocationManagerDelegate {
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        if status == .authorizedWhenInUse {
+//            locationManager.requestLocation()
+//            getDirectionsMapView.isMyLocationEnabled = true
+//        }
+//    }
+//    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        location = locations.first?.coordinate
+//        if let firstLocation = locations.first {
+//            print("Location: \(firstLocation)")
+//            
+//            directionsViewController.location = location
+//        }
+//    }
+//    
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print("Error: \(error)")
+//    }
+//}
 
 

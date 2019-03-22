@@ -20,6 +20,9 @@ class BakeryModelController {
     // Holds the search result returned
     var bakery: Bakery?
     
+    // Holds current bakery in focus
+    var currentBakeryName: String?
+    
     // Array to hold saved bakeries
     var bakeries: [Bakery] = []
     

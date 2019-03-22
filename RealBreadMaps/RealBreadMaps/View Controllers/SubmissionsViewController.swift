@@ -21,6 +21,8 @@ class SubmissionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        submitButton.tintColor = .ibisRed
+        
         self.hideKeyboard()
     }
     

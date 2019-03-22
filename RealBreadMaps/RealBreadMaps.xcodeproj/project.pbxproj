@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 841DC8FB22454AFC00756504 /* Futura Light BT.ttf */; };
+		841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */; };
+		841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC8FF22454C7300756504 /* AppearanceHelper.swift */; };
+		8425C53A224546C7006E1DAC /* UIColors + Custom Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */; };
 		84F760232240472F007892A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760222240472F007892A1 /* AppDelegate.swift */; };
 		84F760282240472F007892A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F760262240472F007892A1 /* Main.storyboard */; };
 		84F7602A22404731007892A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F7602922404731007892A1 /* Assets.xcassets */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841DC8FB22454AFC00756504 /* Futura Light BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Light BT.ttf"; sourceTree = "<group>"; };
+		841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "futura-condensed-pt-medium.otf"; sourceTree = "<group>"; };
+		841DC8FF22454C7300756504 /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
+		8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors + Custom Colors.swift"; sourceTree = "<group>"; };
 		84F7601F2240472F007892A1 /* RealBreadMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBreadMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F760222240472F007892A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F760272240472F007892A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8425C538224546A8006E1DAC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */,
+				841DC8FF22454C7300756504 /* AppearanceHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		84F760162240472F007892A1 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				84F7602E22404731007892A1 /* Info.plist */,
+				8425C538224546A8006E1DAC /* Helpers */,
 				84F7603B22415358007892A1 /* Model */,
 				84F760532242B061007892A1 /* Networking */,
 				84F7603A22415353007892A1 /* Views */,
@@ -144,6 +162,8 @@
 			children = (
 				84F760222240472F007892A1 /* AppDelegate.swift */,
 				84F76034224048A9007892A1 /* GoogleService-Info.plist */,
+				841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */,
+				841DC8FB22454AFC00756504 /* Futura Light BT.ttf */,
 				84F7602922404731007892A1 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -237,9 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F7602D22404731007892A1 /* LaunchScreen.storyboard in Resources */,
+				841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */,
 				84F7602A22404731007892A1 /* Assets.xcassets in Resources */,
 				84F76035224048A9007892A1 /* GoogleService-Info.plist in Resources */,
 				84F760282240472F007892A1 /* Main.storyboard in Resources */,
+				841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F76050224194EA007892A1 /* SuggestedBakery.swift in Sources */,
+				841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */,
 				84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */,
 				84F7605B2242D911007892A1 /* BakeryIDs.swift in Sources */,
 				84F76037224068E3007892A1 /* BakeryMapViewController.swift in Sources */,
@@ -339,6 +362,7 @@
 				84F7604E22416125007892A1 /* Bakery.swift in Sources */,
 				84F7604A22415642007892A1 /* BakeryDetailViewController.swift in Sources */,
 				84F7604422415528007892A1 /* BakeryListTableViewController.swift in Sources */,
+				8425C53A224546C7006E1DAC /* UIColors + Custom Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

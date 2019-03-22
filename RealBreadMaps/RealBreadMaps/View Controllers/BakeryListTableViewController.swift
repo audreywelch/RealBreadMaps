@@ -16,16 +16,32 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         super.viewDidLoad()
         
         bakerySearchBar.delegate = self
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return BakeryModelController.shared.bakeries.count
+        //return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bakeryCell", for: indexPath)
         
+        //let bakery = BakeryModelController.shared.bakeries[indexPath.row]
+        
+        cell.textLabel?.text = BakeryModelController.shared.bakeries[indexPath.row].name
+        cell.detailTextLabel?.text = BakeryModelController.shared.bakeries[indexPath.row].formattedAddress
+        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? BakeryDetailViewController,
+            let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        let bakery = BakeryModelController.shared.bakeries[indexPath.row]
+        
+        destinationVC.bakery = bakery
     }
     
     // MARK: - UI Search Bar

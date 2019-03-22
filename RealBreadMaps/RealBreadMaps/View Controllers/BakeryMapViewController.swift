@@ -9,9 +9,11 @@
 import UIKit
 import GoogleMaps
 
-class BakeryMapViewController: UIViewController {
+class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
+    
+    let bakeryDetailViewController = BakeryDetailViewController()
     
     // Use a CLLocation manager to show the user's location
     var locationManager = CLLocationManager()
@@ -23,11 +25,13 @@ class BakeryMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
+        
         // Set initial view to the United States
         let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
         mapView.camera = camera
         
-        // Creaet a marker for Ibis Bakery
+        // Create a marker for Ibis Bakery
         let ibisMarker = GMSMarker()
         ibisMarker.position = CLLocationCoordinate2D(latitude: 39.0934894, longitude: -94.5815152)
         ibisMarker.title = "Ibis Bakery"
@@ -43,15 +47,14 @@ class BakeryMapViewController: UIViewController {
                     marker.title = "\(BakeryModelController.shared.bakery!.name)" ?? ""
                     marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" ?? ""
                     marker.map = self.mapView
-                } else {
-                    
                 }
-
             }
         }
-        //BakeryModelController.shared.searchForBakery(with: "ChIJsyPVS2jwwIcRgxML7BXE7eQ") { (error) in
-           
-        //}
+//        for eachPhotoReference in BakeryModelController.shared.photoReferences {
+//            BakeryModelController.shared.fetchPhotos(with: eachPhotoReference.photoReference) { (error) in
+//            }
+//        }
+
         
         //locationManager.delegate = self
         
@@ -64,6 +67,21 @@ class BakeryMapViewController: UIViewController {
         //mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
 
     }
+    
+
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        //marker.position
+        
+        //bakeryDetailViewController.bakery =
+        
+        performSegue(withIdentifier: "showDetailViewController", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? BakeryDetailViewController else { return }
+    }
+    
     
 //    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 //        if !didFindMyLocation {

@@ -248,8 +248,8 @@
                                     <outlet property="dataSource" destination="AbL-3S-ek4" id="UdX-fA-owJ"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-Ux-Ofn">
-                                <rect key="frame" x="8" y="330.5" width="235.5" height="144.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-Ux-Ofn">
+                                <rect key="frame" x="8" y="330.5" width="235.5" height="148.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday Tuesday Wednesday Thursday Friday Saturday Sunday" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hns-E2-H9f">
                                         <rect key="frame" x="0.0" y="0.0" width="235.5" height="117"/>
@@ -258,7 +258,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytw-hv-ohn">
-                                        <rect key="frame" x="0.0" y="125" width="235.5" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="129" width="235.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -266,7 +266,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vH1-EO-nXN" customClass="GMSMapView">
-                                <rect key="frame" x="8" y="483" width="359" height="127"/>
+                                <rect key="frame" x="8" y="487" width="359" height="123"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ouM-rZ-hPZ">
@@ -463,10 +463,23 @@
                     <view key="view" contentMode="scaleToFill" id="u8X-3K-DuM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agl-gt-hEh">
+                                <rect key="frame" x="125" y="318" width="125" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="http://itsjane.com/"/>
+                                <connections>
+                                    <action selector="webButton:" destination="CRJ-tN-UJZ" eventType="touchUpInside" id="4gK-OB-iDH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5Kf-ZP-wgL"/>
                     </view>
                     <navigationItem key="navigationItem" title="What is &quot;real bread&quot;?" id="7ei-GK-1Qj"/>
+                    <connections>
+                        <outlet property="webButtonOutlet" destination="agl-gt-hEh" id="qcD-UF-gM3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0U-Ch-TpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

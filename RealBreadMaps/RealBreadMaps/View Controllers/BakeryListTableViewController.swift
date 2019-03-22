@@ -16,11 +16,12 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     var bakeries: [Bakery] = []
     
-    var filteredBakeries: [Bakery] = [] {
-        didSet {
-            self.bakeries = filteredBakeries
-        }
-    }
+    var filteredBakeries: [Bakery] = []
+//    {
+//        didSet {
+//            self.bakeries = filteredBakeries
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +37,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchBarIsEmpty() == false {
+            return filteredBakeries.count
+        }
         return bakeries.count
-        //return BakeryModelController.shared.bakeries.count
-
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,9 +48,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         //let bakery = BakeryModelController.shared.bakeries[indexPath.row]
         
-        cell.textLabel?.text = bakeries[indexPath.row].name
-        cell.detailTextLabel?.text = bakeries[indexPath.row].formattedAddress
-        
+        if searchBarIsEmpty() == false {
+            cell.textLabel?.text = filteredBakeries[indexPath.row].name
+            cell.detailTextLabel?.text = filteredBakeries[indexPath.row].formattedAddress
+        } else {
+            cell.textLabel?.text = bakeries[indexPath.row].name
+            cell.detailTextLabel?.text = bakeries[indexPath.row].formattedAddress
+        }
         return cell
     }
     
@@ -65,10 +71,16 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     // Tell the delegate that the search button was tapped
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Dismiss the keyboard
+        
         searchBar.resignFirstResponder()
         
         filterBakeries()
+        
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.tableView.reloadData()
     }
     
     func filterBakeries() {
@@ -88,9 +100,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             // Set the value of the filteredBakeries to the results of the filter
             self.filteredBakeries = matchingBakeries
             
-            self.tableView.reloadData()
+         self.tableView.reloadData()
         }
-        
-        
     }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return bakerySearchBar.text?.isEmpty ?? true
+    }
+
 }

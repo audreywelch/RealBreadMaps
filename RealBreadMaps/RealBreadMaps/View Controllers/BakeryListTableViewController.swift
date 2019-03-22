@@ -17,11 +17,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     var bakeries: [Bakery] = []
     
     var filteredBakeries: [Bakery] = []
-//    {
-//        didSet {
-//            self.bakeries = filteredBakeries
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +41,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bakeryCell", for: indexPath)
         
-        //let bakery = BakeryModelController.shared.bakeries[indexPath.row]
-        
         if searchBarIsEmpty() == false {
             cell.textLabel?.text = filteredBakeries[indexPath.row].name
             cell.detailTextLabel?.text = filteredBakeries[indexPath.row].formattedAddress
@@ -68,10 +61,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         }
         
         let bakery = bakeries[indexPath.row]
-        destinationVC.bakery = bakery
-        //let bakery = bakeries[indexPath.row]
-        
-        
+        destinationVC.bakery = bakery  
     }
     
     // MARK: - UI Search Bar

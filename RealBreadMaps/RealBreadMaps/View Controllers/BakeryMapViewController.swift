@@ -39,6 +39,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         ibisMarker.map = mapView
         
         for eachBakeryID in bakeries {
+            
             BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
                 
                 if BakeryModelController.shared.bakery != nil {
@@ -55,16 +56,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
 //            }
 //        }
 
-        
-        //locationManager.delegate = self
-        
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//
-//        locationManager.requestWhenInUseAuthorization()
-//
-//        locationManager.requestLocation()
-        
-        //mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
 
     }
     
@@ -82,25 +73,4 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         guard let destination = segue.destination as? BakeryDetailViewController else { return }
     }
     
-    
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        if !didFindMyLocation {
-////            //let myLocation: CLLocation = change![NSKeyValueChangeKey] as CLLocation
-////            mapView.camera = GMSCameraPosition.camera(withTarget: myLocation.coordinate, zoom: 10.0)
-////            mapView.settings.myLocationButton = true
-////
-////            didFindMyLocation = true
-//        }
-//    }
-
-    
 }
-
-//extension BakeryMapViewController: CLLocationManagerDelegate {
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        if status == .authorizedWhenInUse {
-//            locationManager.requestLocation()
-//            mapView.isMyLocationEnabled = true
-//        }
-//    }
-//}

@@ -23,8 +23,13 @@ This app helps users find killer bread - bread that is made with only the good s
 2. Google Places Details API
 3. Firebase SDK
 
-! [Image Homepage] (appImages/1-mapView)
-! [Image Homepage] (appImages/2-tableView)
-! [Image Homepage] (appImages/3-realBreadExplained)
-! [Image Homepage] (appImages/4-detailView)
-! [Image Homepage] (appImages/5-submissionForm)
+
+<img width="439" alt="1-mapView" src="https://user-images.githubusercontent.com/26590934/57958919-240a7180-78c7-11e9-925e-4d87516202bb.png">
+
+<img width="448" alt="2-tableView" src="https://user-images.githubusercontent.com/26590934/57958927-279df880-78c7-11e9-9dd7-c06430172fdd.png">
+
+<img width="475" alt="3-realBreadExplained" src="https://user-images.githubusercontent.com/26590934/57958932-2b317f80-78c7-11e9-8162-c9363db00142.png">
+
+<img width="334" alt="4-detailView" src="https://user-images.githubusercontent.com/26590934/57958946-35537e00-78c7-11e9-961b-6becc7151dd1.png">
+
+<img width="450" alt="5-submissionForm" src="https://user-images.githubusercontent.com/26590934/57958952-397f9b80-78c7-11e9-825f-7a901cd81e61.png">

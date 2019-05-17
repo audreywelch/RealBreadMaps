@@ -1,6 +1,6 @@
 # RealBreadMaps
 
-! [Image Homepage] (appImages/0-loading)
+![0-loading](https://user-images.githubusercontent.com/26590934/57958844-d988f500-78c6-11e9-9621-a23127b3239d.png)
 
 ## Overview
 This app helps users find killer bread - bread that is made with only the good stuff: flour, water, and salt.

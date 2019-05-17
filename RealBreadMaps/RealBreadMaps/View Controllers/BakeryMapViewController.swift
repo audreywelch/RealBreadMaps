@@ -43,12 +43,17 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
             BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
                 
                 if BakeryModelController.shared.bakery != nil {
-                    let marker = GMSMarker()
-                    marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
-                    marker.icon = GMSMarker.markerImage(with: .ibisRed)
-                    marker.title = "\(BakeryModelController.shared.bakery!.name)" ?? ""
-                    marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" ?? ""
-                    marker.map = self.mapView
+                    
+                    DispatchQueue.main.async {
+                        let marker = GMSMarker()
+                        marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
+                        marker.icon = GMSMarker.markerImage(with: .ibisRed)
+                        marker.title = "\(BakeryModelController.shared.bakery!.name)" ?? ""
+                        marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" ?? ""
+                        marker.map = self.mapView
+                    }
+                    
+                    
                     
                 }
             }

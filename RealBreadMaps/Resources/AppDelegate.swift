@@ -5,7 +5,7 @@
 //  Created by Audrey Welch on 3/18/19.
 //  Copyright © 2019 Audrey Welch. All rights reserved.
 //
-// API KEY: AIzaSyDjYLsWqI-kiu5bT15GfSVR0JxxJcSZuoc
+// API KEY: GMSServicesApiKey
 // "To use this key in your application, pass it with the key=API_KEY parameter."
 
 
@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("AIzaSyDjYLsWqI-kiu5bT15GfSVR0JxxJcSZuoc")
-        GMSPlacesClient.provideAPIKey("AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ")
+        GMSServices.provideAPIKey(GMSServicesApiKey)
+        GMSPlacesClient.provideAPIKey(GMSPlacesClientApiKey)
         
         Appearance.setupTheme()
         

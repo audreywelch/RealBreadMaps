@@ -12,9 +12,10 @@ class BakeryImageCollectionViewCell: UICollectionViewCell {
     
     static let reuseIdentier = "imageCell"
     
+    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var bakeryImageView: UIImageView!
     
-    func displayContent(image: UIImage) {
-        bakeryImageView.image = image
-    }
+//    func displayContent(image: UIImage) {
+//        bakeryImageView.image = image
+//    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GMSMapViewDelegate {
+class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GMSMapViewDelegate {
     
     // MARK: Properties
     
@@ -38,14 +38,19 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     var imageURLs: [URL]?
     var imageURLStrings: [String] = []
-    var bakeryImages: [UIImage] = [UIImage(named: "bread1")!, UIImage(named: "bread2")!, UIImage(named: "bread3")!, UIImage(named: "bread4")!, UIImage(named: "bread5")!, UIImage(named: "bread6")!, UIImage(named: "bread7")!, UIImage(named: "bread8")!, UIImage(named: "bread9")!, UIImage(named: "bread10")!, UIImage(named: "bread11")!,]
+    var bakeryImages: [UIImage] = []
+    //[UIImage(named: "bread2")!, UIImage(named: "bread1")!, UIImage(named: "bread3")!, UIImage(named: "bread4")!, UIImage(named: "bread5")!, UIImage(named: "bread6")!, UIImage(named: "bread7")!, UIImage(named: "bread8")!, UIImage(named: "bread9")!, UIImage(named: "bread10")!, UIImage(named: "bread11")!]
 
     // Flow properties
     let targetDimension: CGFloat = 120
     let insetAmount: CGFloat = 32
     
     override func viewDidLoad() {
+        
         mapView.delegate = self
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         for eachBakery in BakeryModelController.shared.bakeries {
             if eachBakery.name == BakeryModelController.shared.currentBakeryName {
@@ -56,6 +61,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         self.title = bakery?.name
         
         getImages()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,19 +71,58 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             fatalError("Unable to retrieve layout")
         }
-        
-        // Set the inset to 32
-        layout.sectionInset = UIEdgeInsets(top: insetAmount, left: insetAmount, bottom: insetAmount, right: insetAmount)
-        
-        // Set the smallest line spacing to the largest of all the images
-        layout.minimumLineSpacing = .greatestFiniteMagnitude
-        
+
+        // THIS IS WHAT WAS BREAKING MY COLLECTION VIEW
+//        // Set the inset to 32
+//        layout.sectionInset = UIEdgeInsets(top: insetAmount, left: insetAmount, bottom: insetAmount, right: insetAmount)
+//
+//        // Set the smallest line spacing to the largest of all the images
+//        layout.minimumLineSpacing = .greatestFiniteMagnitude
+//
         // Set the direction of the user's scrolling to be swiping horizontally
         layout.scrollDirection = .horizontal
         
         mapViewSetUp()
         
         labelSetUp()
+    }
+    
+    // MARK: - Collection View Data Source Methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //return BakeryModelController.shared.photoReferences.count
+        return imageURLStrings.count
+        //return bakeryImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BakeryImageCollectionViewCell.reuseIdentier, for: indexPath) as! BakeryImageCollectionViewCell
+        
+//        if imageURLs != nil {
+//
+//            for imageURL in imageURLs! {
+//                guard let imageData = try? Data(contentsOf: imageURL) else { return cell }
+//                //cell.bakeryImageView.image = UIImage(data: imageData)
+//                bakeryImages.append(UIImage(data: imageData) ?? UIImage(named: "bread gray")!)
+//            }
+//
+//            cell.bakeryImageView.image = bakeryImages[indexPath.row]
+//
+//        }
+        
+        if imageURLStrings != nil {
+            for imageURL in imageURLStrings {
+                guard let url = URL(string: imageURL) else { return cell }
+                guard let imageData = try? Data(contentsOf: url) else { return cell }
+                bakeryImages.append(UIImage(data: imageData) ?? UIImage(named: "bread gray")!)
+            }
+            //cell.bakeryImageView.image = bakeryImages[indexPath.row]
+        }
+        
+        cell.bakeryImageView.image = bakeryImages[indexPath.row]
+        
+        return cell
     }
     
     @IBAction func websiteURLTapped(_ sender: Any) {
@@ -130,8 +175,15 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                 //imageURLs?.append(requestURL)
                 //print(imageURLs)
                 
-                imageURLStrings.append("\(baseURL)https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
+            imageURLStrings.append("\(baseURL)https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
                 
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+                
+                print(imageURLStrings)
+                
+
             }
             
         }
@@ -178,36 +230,36 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
 
 
 
-extension BakeryDetailViewController: UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return BakeryModelController.shared.photoReferences.count
-        //return imageURLStrings.count
-        return bakeryImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BakeryImageCollectionViewCell.reuseIdentier, for: indexPath) as! BakeryImageCollectionViewCell
-
-//        if imageURLs != nil {
+//extension BakeryDetailViewController: UICollectionViewDataSource {
 //
-//            for imageURL in imageURLs! {
-//                guard let imageData = try? Data(contentsOf: imageURL) else { return cell }
-//                //cell.bakeryImageView.image = UIImage(data: imageData)
-//                bakeryImages.append(UIImage(data: imageData) ?? UIImage(named: "bread gray")!)
-//            }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
 //
-//            cell.bakeryImageView.image = bakeryImages[indexPath.row]
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        //return BakeryModelController.shared.photoReferences.count
+//        //return imageURLStrings.count
+//        return bakeryImages.count
+//    }
 //
-//        }
-        
-        cell.bakeryImageView.image = bakeryImages[indexPath.row]
-        return cell
-    }
-    
-}
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BakeryImageCollectionViewCell.reuseIdentier, for: indexPath) as! BakeryImageCollectionViewCell
+//
+////        if imageURLs != nil {
+////
+////            for imageURL in imageURLs! {
+////                guard let imageData = try? Data(contentsOf: imageURL) else { return cell }
+////                //cell.bakeryImageView.image = UIImage(data: imageData)
+////                bakeryImages.append(UIImage(data: imageData) ?? UIImage(named: "bread gray")!)
+////            }
+////
+////            cell.bakeryImageView.image = bakeryImages[indexPath.row]
+////
+////        }
+//
+//        cell.bakeryImageView.image = bakeryImages[indexPath.row]
+//        return cell
+//    }
+//
+//}

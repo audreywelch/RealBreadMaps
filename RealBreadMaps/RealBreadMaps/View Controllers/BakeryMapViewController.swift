@@ -32,18 +32,18 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.camera = camera
         
         // Create a marker for Ibis Bakery
-        let ibisMarker = GMSMarker()
-        ibisMarker.position = CLLocationCoordinate2D(latitude: 39.0934894, longitude: -94.5815152)
-        ibisMarker.title = "Ibis Bakery"
-        ibisMarker.snippet = "Kansas City, Missouri"
-        ibisMarker.map = mapView
+//        let ibisMarker = GMSMarker()
+//        ibisMarker.position = CLLocationCoordinate2D(latitude: 39.0934894, longitude: -94.5815152)
+//        ibisMarker.title = "Ibis Bakery"
+//        ibisMarker.snippet = "Kansas City, Missouri"
+//        ibisMarker.map = mapView
         
         for eachBakeryID in bakeries {
             
             BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
                 
                 if BakeryModelController.shared.bakery != nil {
-                    
+
                     DispatchQueue.main.async {
                         let marker = GMSMarker()
                         marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
@@ -52,11 +52,12 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                         marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" ?? ""
                         marker.map = self.mapView
                     }
-                    
-                    
-                    
+
+
+
                 }
             }
+        
         }
     }
     

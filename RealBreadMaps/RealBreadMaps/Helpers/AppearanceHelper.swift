@@ -10,7 +10,7 @@ import UIKit
 
 enum Appearance {
     
-    static let mainTextFontTitles = UIFont(name: "Futura Condensed PT", size: 50)
+    static let mainTextFontTitles = UIFont(name: "Futura Condensed PT", size: 36)
     
     static func setupTheme() {
         

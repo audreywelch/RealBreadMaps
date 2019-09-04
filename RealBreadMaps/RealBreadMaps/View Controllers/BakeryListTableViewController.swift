@@ -25,7 +25,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         for eachBakeryID in bakeryMapViewController.bakeries {
             BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
-                
+
                 self.bakeries = BakeryModelController.shared.bakeries
             }
         }

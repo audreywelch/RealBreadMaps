@@ -39,7 +39,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     var imageURLs: [URL]?
     var imageURLStrings: [String] = []
     var bakeryImages: [UIImage] = []
-    //[UIImage(named: "bread2")!, UIImage(named: "bread1")!, UIImage(named: "bread3")!, UIImage(named: "bread4")!, UIImage(named: "bread5")!, UIImage(named: "bread6")!, UIImage(named: "bread7")!, UIImage(named: "bread8")!, UIImage(named: "bread9")!, UIImage(named: "bread10")!, UIImage(named: "bread11")!]
+    // [UIImage(named: "bread2")!, UIImage(named: "bread1")!, UIImage(named: "bread3")!, UIImage(named: "bread4")!, UIImage(named: "bread5")!, UIImage(named: "bread6")!, UIImage(named: "bread7")!, UIImage(named: "bread8")!, UIImage(named: "bread9")!, UIImage(named: "bread10")!, UIImage(named: "bread11")!]
 
     // Flow properties
     let targetDimension: CGFloat = 120
@@ -110,17 +110,28 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
 //            cell.bakeryImageView.image = bakeryImages[indexPath.row]
 //
 //        }
+//        if imageURLStrings != nil {
+//            for imageURL in imageURLStrings {
+//
+//                // Create a URL from the URLString
+//                guard let url = URL(string: imageURL) else { return cell }
+//
+//                cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
+//
+////                guard let imageData = try? Data(contentsOf: url) else { return cell }
+////                bakeryImages.append(UIImage(data: imageData) ?? UIImage(named: "bread gray")!)
+//
+//            }
+//        }
+        let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
         
-        if imageURLStrings != nil {
-            for imageURL in imageURLStrings {
-                guard let url = URL(string: imageURL) else { return cell }
-                guard let imageData = try? Data(contentsOf: url) else { return cell }
-                bakeryImages.append(UIImage(data: imageData) ?? UIImage(named: "bread gray")!)
-            }
-            //cell.bakeryImageView.image = bakeryImages[indexPath.row]
-        }
+        //cell.bakeryImageView.load(url: URL(string: defaultImageURL)!)
         
-        cell.bakeryImageView.image = bakeryImages[indexPath.row]
+        cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row])!)
+        //?? URL(string: defaultImageURL)!)
+        
+        //cell.bakeryImageView.image = bakeryImages[indexPath.row]
+        print(bakeryImages)
         
         return cell
     }
@@ -175,20 +186,14 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                 //imageURLs?.append(requestURL)
                 //print(imageURLs)
                 
-            imageURLStrings.append("\(baseURL)https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
+            imageURLStrings.append("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
                 
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
+            //imageURLStrings.append("\(baseURL)https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
                 
                 print(imageURLStrings)
-                
-
             }
             
         }
-        
-        
     }
     
     func mapViewSetUp() {
@@ -228,6 +233,19 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     }
 }
 
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 //extension BakeryDetailViewController: UICollectionViewDataSource {

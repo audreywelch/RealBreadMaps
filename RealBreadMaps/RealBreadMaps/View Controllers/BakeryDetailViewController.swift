@@ -127,8 +127,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         //cell.bakeryImageView.load(url: URL(string: defaultImageURL)!)
         
-        cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row])!)
-        //?? URL(string: defaultImageURL)!)
+        cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
         
         //cell.bakeryImageView.image = bakeryImages[indexPath.row]
         print(bakeryImages)
@@ -154,12 +153,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         let apiKey = "AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
         
-        //        guard let bakery = BakeryModelController.shared.bakery else {
-        //            print("There is no bakery object available")
-        //            return
-        //
-        //        }
-        
         if BakeryModelController.shared.bakery != nil {
             
             for eachReference in BakeryModelController.shared.bakery!.photos {
@@ -182,13 +175,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                 }
                 
                 print(requestURL)
-                
-                //imageURLs?.append(requestURL)
-                //print(imageURLs)
-                
-            imageURLStrings.append("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
-                
-            //imageURLStrings.append("\(baseURL)https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
+            imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
                 
                 print(imageURLStrings)
             }

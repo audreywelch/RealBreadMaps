@@ -11,6 +11,7 @@
 		841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */; };
 		841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC8FF22454C7300756504 /* AppearanceHelper.swift */; };
 		8425C53A224546C7006E1DAC /* UIColors + Custom Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */; };
+		84B874C9232722A200061FD4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B874C8232722A200061FD4 /* Constants.swift */; };
 		84F760232240472F007892A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760222240472F007892A1 /* AppDelegate.swift */; };
 		84F760282240472F007892A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F760262240472F007892A1 /* Main.storyboard */; };
 		84F7602A22404731007892A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F7602922404731007892A1 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "futura-condensed-pt-medium.otf"; sourceTree = "<group>"; };
 		841DC8FF22454C7300756504 /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors + Custom Colors.swift"; sourceTree = "<group>"; };
+		84B874C8232722A200061FD4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = RealBreadMaps/Helpers/Constants.swift; sourceTree = "<group>"; };
 		84F7601F2240472F007892A1 /* RealBreadMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBreadMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F760222240472F007892A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F760272240472F007892A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		84F760162240472F007892A1 = {
 			isa = PBXGroup;
 			children = (
+				84B874C8232722A200061FD4 /* Constants.swift */,
 				84F760212240472F007892A1 /* RealBreadMaps */,
 				84F7603C22415367007892A1 /* Resources */,
 				84F760202240472F007892A1 /* Products */,
@@ -347,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B874C9232722A200061FD4 /* Constants.swift in Sources */,
 				84F76050224194EA007892A1 /* SuggestedBakery.swift in Sources */,
 				841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */,
 				84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */,

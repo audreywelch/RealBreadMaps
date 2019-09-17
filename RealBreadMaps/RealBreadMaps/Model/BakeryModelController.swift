@@ -52,7 +52,7 @@ class BakeryModelController {
             return
         }
         
-        //print(requestURL)
+        print(requestURL)
         
         var request = URLRequest(url: requestURL)
         request.httpMethod = "GET"

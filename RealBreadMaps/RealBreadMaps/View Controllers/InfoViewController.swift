@@ -41,7 +41,7 @@ class InfoViewController: UIViewController {
                 
                 self.animationTextLabel.alpha = 0
                 
-                self.animationTextLabel.text = "... but we believe real bread can be made from 3..."
+                self.animationTextLabel.text = "... but some believe real bread can be made from 3..."
                 
                 self.animationTextLabel.alpha = 1
                 

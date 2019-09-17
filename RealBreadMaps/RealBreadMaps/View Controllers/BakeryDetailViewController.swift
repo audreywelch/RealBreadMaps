@@ -205,8 +205,14 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         bakeryNameLabel.text = bakery?.name
         bakeryAddressLabel.text = bakery?.formattedAddress
         
-        let hoursString = bakery?.openingHours.weekdayText.joined(separator: "\n")
-        bakeryHoursLabel.text = hoursString
+        if bakery?.openingHours?.weekdayText != nil {
+            let hoursString = bakery?.openingHours?.weekdayText.joined(separator: "\n")
+            bakeryHoursLabel.text = hoursString
+        } else {
+            bakeryHoursLabel.text = "Please visit website for hours."
+        }
+        
+        
         //bakeryWebsiteLabel.titleLabel?.text = bakery?.website
         bakeryWebsiteLabel.setTitle(bakery?.website, for: .normal)
     }

@@ -27,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Appearance.setupTheme()
         
+        // Find names of custom fonts
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: "Futura")
+            print("Family: \(family) Font names: \(names)")
+            }
+        
         return true
     }
 

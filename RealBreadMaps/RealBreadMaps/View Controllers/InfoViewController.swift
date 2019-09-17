@@ -12,8 +12,15 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var animationTextLabel: UILabel!
     
+    @IBOutlet weak var realBreadExplainedLabel: UILabel!
+    
+    @IBOutlet weak var aboutMeExplainedLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        realBreadExplainedLabel.font = Appearance.thinFont
+        aboutMeExplainedLabel.font = Appearance.thinFont
         
     }
     

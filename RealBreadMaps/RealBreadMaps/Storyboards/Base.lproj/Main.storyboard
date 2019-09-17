@@ -587,7 +587,7 @@
             </objects>
             <point key="canvasLocation" x="1982" y="157"/>
         </scene>
-        <!--Info View Controller-->
+        <!--Real Bread-->
         <scene sceneID="0RM-wN-2ig">
             <objects>
                 <viewController id="ytU-iM-jjO" customClass="InfoViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
@@ -599,7 +599,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="1387"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLV-g6-Tag" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1083"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1103.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is &quot;Real Bread&quot;?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUh-aF-HJ6">
                                                 <rect key="frame" x="102" y="12" width="171.5" height="22.5"/>
@@ -633,14 +633,14 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfj-Oa-zo9">
-                                                <rect key="frame" x="30" y="839" width="315" height="162.5"/>
-                                                <mutableString key="text">My sister and I started a bakery together, and the most common question we were asked was, "Where else can I find bread like this?" Nowadays I don't make bread, I make apps. I still love bread and so I want to celebrate the bakers taking the time to make real bread.</mutableString>
+                                                <rect key="frame" x="30" y="839" width="315" height="183"/>
+                                                <mutableString key="text">My sister and I started a bakery together, and the most common question we were asked was, "Where else can I find bread like this?"  Nowadays I don't make bread, I make apps. I still love bread and so I want to celebrate the bakers taking the time to make real bread.</mutableString>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The FDA allows for 38 different ingredients in its definition of bread..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxI-yL-PsI">
-                                                <rect key="frame" x="12" y="1031.5" width="351" height="39.5"/>
+                                                <rect key="frame" x="12" y="1052" width="351" height="39.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -695,10 +695,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N62-c4-2u5"/>
                     </view>
-                    <navigationItem key="navigationItem" id="t4O-9W-cDo"/>
+                    <navigationItem key="navigationItem" title="Real Bread" id="t4O-9W-cDo"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="aboutMeExplainedLabel" destination="Wfj-Oa-zo9" id="IC4-Jp-Fo5"/>
                         <outlet property="animationTextLabel" destination="dxI-yL-PsI" id="kvK-by-XKU"/>
+                        <outlet property="realBreadExplainedLabel" destination="qVN-L1-lfY" id="WZh-QI-Crc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PP5-NP-Duf" userLabel="First Responder" sceneMemberID="firstResponder"/>

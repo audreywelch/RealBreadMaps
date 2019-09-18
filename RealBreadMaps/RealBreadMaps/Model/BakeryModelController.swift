@@ -107,29 +107,32 @@ class BakeryModelController {
             
         }
         
-        for eachReference in bakery.photos {
-            
-            print(eachReference.photoReference)
-            
-            let photosURL = baseURL.appendingPathComponent("photo")
-            
-            var components = URLComponents(url: photosURL, resolvingAgainstBaseURL: true)
-            
-            let widthQueryItem = URLQueryItem(name: "maxwidth", value: "400")
-            let searchQueryItem = URLQueryItem(name: "photoreference", value: eachReference.photoReference)
-            let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
-            
-            components?.queryItems = [widthQueryItem, searchQueryItem, apiKeyQueryItem]
-            
-            guard let requestURL = components?.url else {
-                NSLog("Couldn't make requestURL from \(components)")
-                completion(NSError())
-                return
+        if bakery.photos != nil {
+            for eachReference in bakery.photos! {
+                
+                print(eachReference.photoReference)
+                
+                let photosURL = baseURL.appendingPathComponent("photo")
+                
+                var components = URLComponents(url: photosURL, resolvingAgainstBaseURL: true)
+                
+                let widthQueryItem = URLQueryItem(name: "maxwidth", value: "400")
+                let searchQueryItem = URLQueryItem(name: "photoreference", value: eachReference.photoReference)
+                let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
+                
+                components?.queryItems = [widthQueryItem, searchQueryItem, apiKeyQueryItem]
+                
+                guard let requestURL = components?.url else {
+                    NSLog("Couldn't make requestURL from \(components)")
+                    completion(NSError())
+                    return
+                }
+                
+                print(requestURL)
+                
             }
-            
-            print(requestURL)
-            
         }
+
         
         completion(nil)
         

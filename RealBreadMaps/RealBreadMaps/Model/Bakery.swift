@@ -37,7 +37,7 @@ struct Bakery: Codable {
     //let placeID: String
     let website: String
     let openingHours: OpeningHours?
-    let photos: [PhotoReferences]
+    let photos: [PhotoReferences]?
     
 }
 

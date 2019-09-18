@@ -127,7 +127,12 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         //cell.bakeryImageView.load(url: URL(string: defaultImageURL)!)
         
-        cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
+        if BakeryModelController.shared.bakery!.photos != nil {
+            cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
+        } else {
+            cell.bakeryImageView.image = UIImage(named: "no_image_available")
+        }
+        
         
         //cell.bakeryImageView.image = bakeryImages[indexPath.row]
         print(bakeryImages)
@@ -153,9 +158,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         let apiKey = "AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
         
-        if BakeryModelController.shared.bakery != nil {
+        if BakeryModelController.shared.bakery != nil && BakeryModelController.shared.bakery!.photos != nil {
             
-            for eachReference in BakeryModelController.shared.bakery!.photos {
+            for eachReference in BakeryModelController.shared.bakery!.photos! {
                 
                 print(eachReference.photoReference)
                 
@@ -209,7 +214,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             let hoursString = bakery?.openingHours?.weekdayText.joined(separator: "\n")
             bakeryHoursLabel.text = hoursString
         } else {
-            bakeryHoursLabel.text = "Please visit website for hours."
+            bakeryHoursLabel.text = "Please visit website for hours.\n\n\n"
         }
         
         

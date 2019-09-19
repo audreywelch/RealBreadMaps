@@ -14,6 +14,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     let bakeryMapViewController = BakeryMapViewController()
     
+    //var bakeries = BakeryModelController.shared.bakeries
     var bakeries: [Bakery] = []
     
     var filteredBakeries: [Bakery] = []
@@ -23,19 +24,24 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         bakerySearchBar.delegate = self
         
-        for eachBakeryID in bakeryMapViewController.bakeries {
-            BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
-
-                self.bakeries = BakeryModelController.shared.bakeries
-            }
-        }
+        self.bakeries = BakeryModelController.shared.bakeries
+        
+//        for eachBakeryID in bakeryMapViewController.bakeryIDs {
+//            BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
+//
+//                self.bakeries = BakeryModelController.shared.bakeries
+//
+//            }
+//        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if searchBarIsEmpty() == false {
             return filteredBakeries.count
         }
-        return bakeries.count
+
+        return self.bakeries.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

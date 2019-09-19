@@ -38,19 +38,12 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     var imageURLs: [URL]?
     var imageURLStrings: [String] = []
-    var bakeryImages: [UIImage] = []
-    // [UIImage(named: "bread2")!, UIImage(named: "bread1")!, UIImage(named: "bread3")!, UIImage(named: "bread4")!, UIImage(named: "bread5")!, UIImage(named: "bread6")!, UIImage(named: "bread7")!, UIImage(named: "bread8")!, UIImage(named: "bread9")!, UIImage(named: "bread10")!, UIImage(named: "bread11")!]
-    
-    var photoReferences = BakeryModelController.shared.photoReferences
-
-    // Flow properties
-    let targetDimension: CGFloat = 120
-    let insetAmount: CGFloat = 32
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
+        // Delegates
         mapView.delegate = self
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         

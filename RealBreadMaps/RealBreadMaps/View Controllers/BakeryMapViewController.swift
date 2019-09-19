@@ -20,7 +20,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     
     var didFindMyLocation = false
     
-    var bakeries = [BakeryIDS.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .w, .x, .y, .z, .aa, .bb, .cc, .dd, .ee, .ff, .gg, .hh, .ii, .jj, .kk]
+    var bakeryIDs = [BakeryIDS.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .w, .x, .y, .z, .aa, .bb, .cc, .dd, .ee, .ff, .gg, .hh, .ii, .jj, .kk]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
         mapView.camera = camera
         
-        // Create a marker for Ibis Bakery
-//        let ibisMarker = GMSMarker()
-//        ibisMarker.position = CLLocationCoordinate2D(latitude: 39.0934894, longitude: -94.5815152)
-//        ibisMarker.title = "Ibis Bakery"
-//        ibisMarker.snippet = "Kansas City, Missouri"
-//        ibisMarker.map = mapView
-        
-        for eachBakeryID in bakeries {
+        for eachBakeryID in bakeryIDs {
             
             BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
                 
@@ -48,20 +41,14 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                         let marker = GMSMarker()
                         marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
                         marker.icon = GMSMarker.markerImage(with: .ibisRed)
-                        marker.title = "\(BakeryModelController.shared.bakery!.name)" ?? ""
-                        marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" ?? ""
+                        marker.title = "\(BakeryModelController.shared.bakery!.name)" 
+                        marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" 
                         marker.map = self.mapView
                     }
-
-
-
                 }
             }
-        
         }
     }
-    
-
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         //marker.position
@@ -76,8 +63,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let destination = segue.destination as? BakeryDetailViewController else { return }
-        
-        
     }
     
 }

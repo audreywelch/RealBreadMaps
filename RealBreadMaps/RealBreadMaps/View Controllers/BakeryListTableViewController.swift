@@ -61,7 +61,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         }
         
         let bakery = bakeries[indexPath.row]
-        destinationVC.bakery = bakery  
+        destinationVC.bakery = bakery
+        
+        // Detail View Controller uses currentBakeryName to confirm which bakery to show - it needs to be reset to reflect the correct bakery after a detail view screen has been shown via map view selection
+        BakeryModelController.shared.currentBakeryName = bakery.name
     }
     
     // MARK: - UI Search Bar

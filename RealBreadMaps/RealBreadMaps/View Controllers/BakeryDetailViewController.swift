@@ -74,13 +74,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             fatalError("Unable to retrieve layout")
         }
 
-        // THIS IS WHAT WAS BREAKING MY COLLECTION VIEW
-//        // Set the inset to 32
-//        layout.sectionInset = UIEdgeInsets(top: insetAmount, left: insetAmount, bottom: insetAmount, right: insetAmount)
-//
-//        // Set the smallest line spacing to the largest of all the images
-//        layout.minimumLineSpacing = .greatestFiniteMagnitude
-//
         // Set the direction of the user's scrolling to be swiping horizontally
         layout.scrollDirection = .horizontal
         
@@ -98,9 +91,15 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     // MARK: - Collection View Data Source Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return BakeryModelController.shared.photoReferences.count
-        return imageURLStrings.count
-        //return bakeryImages.count
+        
+        // If bakery.photos was not nil, create enough items as there are photos
+        if imageURLStrings.count > 0 {
+            return imageURLStrings.count
+            
+        // If bakery.photos was nil, imageURLStrings will be empty - return items to hold the "image not available" image
+        } else {
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -134,11 +133,13 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
         
         //cell.bakeryImageView.load(url: URL(string: defaultImageURL)!)
-        
-        if BakeryModelController.shared.bakery!.photos != nil {
-            cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
-        } else {
+        if self.bakery?.photos == nil {
+            print("SELF.BAKERY.PHOTOS IS NILL")
             cell.bakeryImageView.image = UIImage(named: "no_image_available")
+        }
+        
+        if self.bakery!.photos != nil {
+            cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
         }
         
         

@@ -30,8 +30,8 @@ class BakeryModelController {
     var photoReferences: [PhotoReferences] = []
     
     let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
-    
-    let apiKey = "AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
+
+    let apiKey = GMSPlacesClientApiKey
     
     func searchForBakery(with placeID: String, completion: @escaping (Error?) -> Void) {
         
@@ -76,8 +76,8 @@ class BakeryModelController {
             do {
                 let decodedBakery = try jsonDecoder.decode(BakeryResult.self, from: data)
                 self.bakery = decodedBakery.result
-                //print(self.bakery)
                 
+                // If photos is not nil, put the photo references returned into the photoReferences array
                 if self.bakery?.photos != nil {
                     self.photoReferences = (self.bakery?.photos)!
                     //print(self.photoReferences)
@@ -97,7 +97,7 @@ class BakeryModelController {
         
     }
     
-    //  https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAdlELUNn90Ic77d0GYqUo7v0d0_acu6zM1swdy607ebNlRA8dsGzJ8Fpz0EMoEPjUejrFZxqqxrFYjkD9ebgniXxaWR5qQfpJCWXo-sWSv2HEqhDRDc5YxVsZQgU8U0rwEhCE2Oj-LFjkXcHNbSpyVIIcGhRaB1rK41n4OOcttBLKyyl8wJJ7Rg&key=AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ
+    //  https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAdlELUNn90Ic77d0GYqUo7v0d0_acu6zM1swdy607ebNlRA8dsGzJ8Fpz0EMoEPjUejrFZxqqxrFYjkD9ebgniXxaWR5qQfpJCWXo-sWSv2HEqhDRDc5YxVsZQgU8U0rwEhCE2Oj-LFjkXcHNbSpyVIIcGhRaB1rK41n4OOcttBLKyyl8wJJ7Rg&key=APIKEYGOESHERE
     
     func fetchPhotos(with photoReference: String, completion: @escaping (Error?) -> Void) {
         
@@ -133,34 +133,7 @@ class BakeryModelController {
             }
         }
 
-        
         completion(nil)
-        
-//        var request = URLRequest(url: requestURL)
-//        request.httpMethod = "GET"
-//
-//        URLSession.shared.dataTask(with: request) { (data, _, error) in
-//            if let error = error {
-//                NSLog("Error fetching photos: \(error)")
-//                completion(error)
-//                return
-//            }
-//
-//            guard let data = data else {
-//                NSLog("No photos returned from data task")
-//                completion(NSError())
-//                return
-//            }
-//
-//            let imageURL = data
-//            print(imageURL)
-//
-//            completion(nil)
-//
-//            // add imageURLs into an array
-//
-//
-//            }.resume()
         
     }
 }

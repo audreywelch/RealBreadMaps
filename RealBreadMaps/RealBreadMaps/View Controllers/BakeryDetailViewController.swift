@@ -40,6 +40,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     var imageURLStrings: [String] = []
     var bakeryImages: [UIImage] = []
     // [UIImage(named: "bread2")!, UIImage(named: "bread1")!, UIImage(named: "bread3")!, UIImage(named: "bread4")!, UIImage(named: "bread5")!, UIImage(named: "bread6")!, UIImage(named: "bread7")!, UIImage(named: "bread8")!, UIImage(named: "bread9")!, UIImage(named: "bread10")!, UIImage(named: "bread11")!]
+    
+    var photoReferences = BakeryModelController.shared.photoReferences
 
     // Flow properties
     let targetDimension: CGFloat = 120
@@ -60,7 +62,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         self.title = bakery?.name
         
-        getImages()
+        createImageURLStrings()
         
     }
     
@@ -85,6 +87,12 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         mapViewSetUp()
         
         labelSetUp()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        imageURLStrings = []
     }
     
     // MARK: - Collection View Data Source Methods
@@ -151,41 +159,22 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    
-    func getImages() {
+    // Create URL Strings from each photoReference
+    func createImageURLStrings() {
         
         let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
         
-        let apiKey = "AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
+        let apiKey = GMSPlacesClientApiKey
         
-        if BakeryModelController.shared.bakery != nil && BakeryModelController.shared.bakery!.photos != nil {
+        guard self.bakery?.photos != nil else { return }
             
-            for eachReference in BakeryModelController.shared.bakery!.photos! {
+        for eachReference in self.bakery!.photos! {
+        //for eachReference in BakeryModelController.shared.bakery!.photos! {
+        imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
                 
-                print(eachReference.photoReference)
-                
-                let photosURL = baseURL.appendingPathComponent("photo")
-                
-                var components = URLComponents(url: photosURL, resolvingAgainstBaseURL: true)
-                
-                let widthQueryItem = URLQueryItem(name: "maxwidth", value: "400")
-                let searchQueryItem = URLQueryItem(name: "photoreference", value: eachReference.photoReference)
-                let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
-                
-                components?.queryItems = [widthQueryItem, searchQueryItem, apiKeyQueryItem]
-                
-                guard let requestURL = components?.url else {
-                    NSLog("Couldn't make requestURL from \(components)")
-                    return
-                }
-                
-                print(requestURL)
-            imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
-                
-                print(imageURLStrings)
-            }
-            
+            print(imageURLStrings)
         }
+        
     }
     
     func mapViewSetUp() {
@@ -214,7 +203,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             let hoursString = bakery?.openingHours?.weekdayText.joined(separator: "\n")
             bakeryHoursLabel.text = hoursString
         } else {
-            bakeryHoursLabel.text = "Please visit website for hours.\n\n\n"
+            bakeryHoursLabel.text = "Please visit website for hours."
         }
         
         

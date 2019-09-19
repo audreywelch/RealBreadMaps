@@ -57,6 +57,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         createImageURLStrings()
         
+        mapView.layer.borderWidth = 0.5
+        mapView.layer.borderColor = UIColor.lightGray.cgColor
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -29,6 +29,9 @@ class SubmissionsViewController: UIViewController, MFMailComposeViewControllerDe
         reasonsTextView.delegate = self
         
         submitButton.tintColor = .ibisRed
+        reasonsTextView.layer.borderWidth = 0.3
+        reasonsTextView.layer.borderColor = UIColor.lightGray.cgColor
+        reasonsTextView.layer.cornerRadius = 7
         
         self.hideKeyboard()
     }

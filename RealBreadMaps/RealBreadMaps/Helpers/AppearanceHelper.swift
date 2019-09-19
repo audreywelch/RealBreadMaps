@@ -13,6 +13,7 @@ enum Appearance {
     static let mainTextFontTitles = UIFont(name: "FuturaCondensedPT-Medium", size: 36)
     //(name: "Futura Condensed PT", size: 36)
     static let thinFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)
+    static let navigationFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)
     
     static func setupTheme() {
         
@@ -20,6 +21,7 @@ enum Appearance {
         
         UINavigationBar.appearance().barTintColor = .ibisRed
         UIBarButtonItem.appearance().tintColor = .white
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: navigationFont], for: .normal)
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: mainTextFontTitles]
         UINavigationBar.appearance().titleTextAttributes = textAttributes

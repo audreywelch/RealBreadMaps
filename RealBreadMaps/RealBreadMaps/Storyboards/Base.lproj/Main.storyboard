@@ -78,13 +78,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-jZ-ofb">
-                                                <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
-                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMS-IW-t2r">
-                                                <rect key="frame" x="97" y="0.0" width="254" height="30"/>
+                                                <rect key="frame" x="88" y="0.0" width="263" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -95,13 +95,13 @@
                                         <rect key="frame" x="0.0" y="38" width="351" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-ih-Ip8">
-                                                <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
-                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xZc-zE-0KT">
-                                                <rect key="frame" x="97" y="0.0" width="254" height="30"/>
+                                                <rect key="frame" x="88" y="0.0" width="263" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -112,13 +112,13 @@
                                         <rect key="frame" x="0.0" y="76" width="351" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzQ-ts-BkQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
-                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcH-LA-qrn">
-                                                <rect key="frame" x="97" y="0.0" width="254" height="30"/>
+                                                <rect key="frame" x="88" y="0.0" width="263" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -129,13 +129,13 @@
                                         <rect key="frame" x="0.0" y="114" width="351" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-Vu-g3Z">
-                                                <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
-                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sRu-xB-52F">
-                                                <rect key="frame" x="97" y="0.0" width="254" height="30"/>
+                                                <rect key="frame" x="88" y="0.0" width="263" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -433,7 +433,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="787"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-1N-dNf" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="843.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="846.5"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8AJ-wG-nph">
                                                 <rect key="frame" x="8" y="8" width="359" height="128"/>
@@ -498,7 +498,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mv-bd-6cM">
-                                                <rect key="frame" x="12" y="430.5" width="351" height="30"/>
+                                                <rect key="frame" x="12" y="430.5" width="351" height="33"/>
+                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="17"/>
                                                 <state key="normal" title="Website"/>
                                                 <connections>
                                                     <action selector="websiteURLTapped:" destination="zGJ-4H-o08" eventType="touchUpInside" id="0CE-c0-Brb"/>
@@ -598,7 +599,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3Z-LR-ZEz" customClass="GMSMapView">
-                                                <rect key="frame" x="12" y="472.5" width="351" height="351"/>
+                                                <rect key="frame" x="12" y="475.5" width="351" height="351"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="P3Z-LR-ZEz" secondAttribute="height" id="p0l-T9-cWl"/>

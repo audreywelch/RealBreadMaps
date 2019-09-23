@@ -42,24 +42,22 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Delegates
-        mapView.delegate = self
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
+        self.title = bakery?.name
+    
         for eachBakery in BakeryModelController.shared.bakeries {
             if eachBakery.name == BakeryModelController.shared.currentBakeryName {
                 self.bakery = eachBakery
             }
         }
         
-        self.title = bakery?.name
-        
         createImageURLStrings()
         
-        mapView.layer.borderWidth = 0.5
-        mapView.layer.borderColor = UIColor.lightGray.cgColor
+        self.setupLabelTap()
         
+        // Delegates
+        mapView.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,16 +115,22 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
     
-    // Leave the app to go to the bakery's website
-    @IBAction func websiteURLTapped(_ sender: Any) {
-        if let url = URL(string: (bakeryWebsiteLabel.titleLabel?.text)!) {
-            UIApplication.shared.open(url, options: [:])
+    // MARK: - View Setup
+    
+    // Populate the labels with corresponding information
+    func labelSetUp() {
+        
+        bakeryNameLabel.text = bakery?.name
+        bakeryAddressLabel.text = bakery?.formattedAddress
+        
+        if bakery?.openingHours?.weekdayText != nil {
+            let hoursString = bakery?.openingHours?.weekdayText.joined(separator: "\n")
+            bakeryHoursLabel.text = hoursString
+        } else {
+            bakeryHoursLabel.text = "Please visit website for hours."
         }
-    }
-    
-    
-    @IBAction func done(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        bakeryWebsiteLabel.setTitle(bakery?.website, for: .normal)
     }
     
     // Create URL Strings from each photoReference
@@ -144,10 +148,15 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                 
             print(imageURLStrings)
         }
-        
     }
     
+    // MARK: - Map Setup
+    
+    // Set up the map view
     func mapViewSetUp() {
+        
+        mapView.layer.borderWidth = 0.5
+        mapView.layer.borderColor = UIColor.lightGray.cgColor
         
         if bakery != nil {
             // Set initial view to the bakery
@@ -164,25 +173,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
-    func labelSetUp() {
-        
-        bakeryNameLabel.text = bakery?.name
-        bakeryAddressLabel.text = bakery?.formattedAddress
-        
-        if bakery?.openingHours?.weekdayText != nil {
-            let hoursString = bakery?.openingHours?.weekdayText.joined(separator: "\n")
-            bakeryHoursLabel.text = hoursString
-        } else {
-            bakeryHoursLabel.text = "Please visit website for hours."
-        }
-        
-        
-        //bakeryWebsiteLabel.titleLabel?.text = bakery?.website
-        bakeryWebsiteLabel.setTitle(bakery?.website, for: .normal)
-    }
-    
+    // Map window tapped
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        //performSegue(withIdentifier: "getDirectionsSegue", sender: nil)
         
         // https://www.google.com/maps/dir/?api=1&destination=Lodge+Bread+Company
         
@@ -192,10 +184,41 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
             UIApplication.shared.open(url, options: [:])
         }
-        
     }
     
+    // MARK: - Clickable Functionality
+    
+    // When label is tapped, go to google maps
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+        guard let nameForURL = self.bakery?.name.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
+        
+        print(nameForURL)
+        
+        if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    // Create a UITapGestureRecognizer that calls the labelTapped() function
+    func setupLabelTap() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        self.bakeryAddressLabel.isUserInteractionEnabled = true
+        self.bakeryAddressLabel.addGestureRecognizer(labelTap)
+    }
+    
+    // Leave the app to go to the bakery's website
+    @IBAction func websiteURLTapped(_ sender: Any) {
+        if let url = URL(string: (bakeryWebsiteLabel.titleLabel?.text)!) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    // When 'Done' is tapped, return to root view controller
+    @IBAction func done(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
+
 
 // Extension of UIImageView to load URLS, convert to data, then convert to a UIImage in a background queue, but load it to the image view on the main thread
 extension UIImageView {

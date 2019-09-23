@@ -49,6 +49,8 @@ enum BakeryIDS: String {
     case ii = "ChIJSdy60tZx5kcR0F5YEiQhLcI"
     case jj = "ChIJf-TiLiwqCUgReRgbpfkq-GI"
     case kk = "ChIJo_WoXfemyxIRU_7AlbTM6-E"
+    case ll = "ChIJgdfmyLmAhYARS6fhSFcVbcY" // Jane the Bakery
+    case mm = "ChIJtz3yZ2I1joAR4RzTnkzbwv8" // Manresa Bread Cafe
 
 }
 
@@ -65,8 +67,8 @@ enum BakeryIDS: String {
 //i    case TartineManufactory = "ChIJu9EujzB-j4ARoyuqElfT14g"
 //j    case Josey = "ChIJtRxoLrCAhYARX61oY6HVO9w"
 //k    case Mill = "ChIJVzS3LbCAhYAR6Dw2KqlhWhg"
-//l    case Manresa = "ChIJT4g8Mu6wj4AR7vGGJK5E0XE"
-//m    case ManresaNSantaCruz = "ChIJ_3-FKPA1joAR4oJuHqtgoeQ"
+//l    case ManresaLosAltos = "ChIJT4g8Mu6wj4AR7vGGJK5E0XE"
+//m    case ManresaLosGatos = "ChIJ_3-FKPA1joAR4oJuHqtgoeQ"
 //n    case Lodge = "ChIJERNbcWy6woARfDzciYUJCVM"
 //o    case Barrio = "ChIJAQAAAFdw1oYR-r2WQhhBLNA"
 //p    case Babettes = "ChIJcw0sWRt5bIcRTSIHd4Xp5zQ"
@@ -91,5 +93,7 @@ enum BakeryIDS: String {
 //ii    case Poilane = "ChIJSdy60tZx5kcR0F5YEiQhLcI"
 //jj    case BoulangerieBio = "ChIJf-TiLiwqCUgReRgbpfkq-GI"
 //kk    case LaPaline = "ChIJo_WoXfemyxIRU_7AlbTM6-E"
+//ll    case JaneBakery = "ChIJgdfmyLmAhYARS6fhSFcVbcY"
+//mm    case ManresaBreadCafe = "ChIJtz3yZ2I1joAR4RzTnkzbwv8"
 //
 //}

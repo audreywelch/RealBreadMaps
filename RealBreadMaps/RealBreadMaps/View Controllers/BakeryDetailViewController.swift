@@ -43,6 +43,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         
         self.title = bakery?.name
+        
+        setupTheme()
     
         for eachBakery in BakeryModelController.shared.bakeries {
             if eachBakery.name == BakeryModelController.shared.currentBakeryName {
@@ -165,7 +167,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             
             // Create a marker for Ibis Bakery
             let marker = GMSMarker()
-            marker.icon = GMSMarker.markerImage(with: .ibisRed)
+            marker.icon = GMSMarker.markerImage(with: .roseRed)
             marker.position = CLLocationCoordinate2D(latitude: bakery?.geometry.location.lat ?? 0, longitude: bakery?.geometry.location.lng ?? 0)
             marker.title = "\(bakery!.name)"
             marker.snippet = "Get Directions 👆"
@@ -216,6 +218,26 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     // When 'Done' is tapped, return to root view controller
     @IBAction func done(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    // Icon Color Adjustments
+    func setupTheme() {
+        
+        let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        milledInHouseImageView.tintColor = .roseRed
+        milledInHouseImageView.image = milledIcon
+        
+        let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        organicImageView.tintColor = .roseRed
+        organicImageView.image = organicIcon
+        
+        let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        servesFoodImageView.tintColor = .roseRed
+        servesFoodImageView.image = servesFoodIcon
+        
+        let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        sellsLoavesImageView.tintColor = .roseRed
+        sellsLoavesImageView.image = sellsLoavesIcon
     }
 }
 

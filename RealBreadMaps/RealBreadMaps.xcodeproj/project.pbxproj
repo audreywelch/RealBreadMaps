@@ -13,6 +13,8 @@
 		8425C53A224546C7006E1DAC /* UIColors + Custom Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */; };
 		847709F62331941C00FFE238 /* Futura-Light-BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 847709F52331941C00FFE238 /* Futura-Light-BT.ttf */; };
 		84B874C9232722A200061FD4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B874C8232722A200061FD4 /* Constants.swift */; };
+		84F53426233ED58F00BE25B6 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F53425233ED58F00BE25B6 /* LandingViewController.swift */; };
+		84F53428233EDAB600BE25B6 /* bread-art-edit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */; };
 		84F760232240472F007892A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760222240472F007892A1 /* AppDelegate.swift */; };
 		84F760282240472F007892A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F760262240472F007892A1 /* Main.storyboard */; };
 		84F7602A22404731007892A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F7602922404731007892A1 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors + Custom Colors.swift"; sourceTree = "<group>"; };
 		847709F52331941C00FFE238 /* Futura-Light-BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light-BT.ttf"; sourceTree = "<group>"; };
 		84B874C8232722A200061FD4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = RealBreadMaps/Helpers/Constants.swift; sourceTree = "<group>"; };
+		84F53425233ED58F00BE25B6 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bread-art-edit.mp4"; sourceTree = "<group>"; };
 		84F7601F2240472F007892A1 /* RealBreadMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBreadMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F760222240472F007892A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F760272240472F007892A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		84F760392241534C007892A1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84F53425233ED58F00BE25B6 /* LandingViewController.swift */,
 				84F76036224068E3007892A1 /* BakeryMapViewController.swift */,
 				84F7604322415528007892A1 /* BakeryListTableViewController.swift */,
 				84F76045224155D1007892A1 /* InfoViewController.swift */,
@@ -171,6 +176,7 @@
 				847709F52331941C00FFE238 /* Futura-Light-BT.ttf */,
 				841DC8FB22454AFC00756504 /* Futura Light BT.ttf */,
 				84F7602922404731007892A1 /* Assets.xcassets */,
+				84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				84F7602D22404731007892A1 /* LaunchScreen.storyboard in Resources */,
 				847709F62331941C00FFE238 /* Futura-Light-BT.ttf in Resources */,
 				841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */,
+				84F53428233EDAB600BE25B6 /* bread-art-edit.mp4 in Resources */,
 				84F7602A22404731007892A1 /* Assets.xcassets in Resources */,
 				84F76035224048A9007892A1 /* GoogleService-Info.plist in Resources */,
 				84F760282240472F007892A1 /* Main.storyboard in Resources */,
@@ -370,6 +377,7 @@
 				84F7604E22416125007892A1 /* Bakery.swift in Sources */,
 				84F7604A22415642007892A1 /* BakeryDetailViewController.swift in Sources */,
 				84F7604422415528007892A1 /* BakeryListTableViewController.swift in Sources */,
+				84F53426233ED58F00BE25B6 /* LandingViewController.swift in Sources */,
 				8425C53A224546C7006E1DAC /* UIColors + Custom Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,7 +525,8 @@
 			baseConfigurationReference = D49860229D3B8EF737DE6B54 /* Pods-RealBreadMaps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Audrey Welch (JXA24GT8S3)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BH59G2VDQ6;
 				INFOPLIST_FILE = RealBreadMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -527,6 +536,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.audreywelch.RealBreadMaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = RealBreadDevelopmentProfile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -537,7 +547,8 @@
 			baseConfigurationReference = E2552FF741871ACA41EF96D3 /* Pods-RealBreadMaps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Audrey Welch (JXA24GT8S3)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BH59G2VDQ6;
 				INFOPLIST_FILE = RealBreadMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -547,6 +558,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.audreywelch.RealBreadMaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = RealBreadDevelopmentProfile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

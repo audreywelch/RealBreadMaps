@@ -10,7 +10,6 @@ import Foundation
 
 enum BakeryIDS: String {
 
-    //case a = "ChIJsyPVS2jwwIcRgxML7BXE7eQ&key=AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
     case a = "ChIJsyPVS2jwwIcRgxML7BXE7eQ"
     case b = "ChIJazvA__OglVQRSNySeFVV5XA"
     case c = "ChIJNSdXBPcJlVQRqh8kKeRI2Xo"
@@ -28,8 +27,7 @@ enum BakeryIDS: String {
     case o = "ChIJAQAAAFdw1oYR-r2WQhhBLNA"
     case p = "ChIJcw0sWRt5bIcRTSIHd4Xp5zQ"
     case q = "ChIJ_9VAjTi3XlMR87sAHwNToOk"
-    //case r = "ChIJY5e8p-03QlMRQO-1W8LuhXc" // No name
-    case r = "ChIJwRlPliRPRVMRrAj0uQIj5Uc"
+    case r = "ChIJtz3yZ2I1joAR4RzTnkzbwv8" // Manresa Bread Cafe
     case s = "ChIJy2X4Eaxov4cRKOc8UGdIs1U"
     case t = "ChIJoz6jgU_wwIcRgmwNMKC-sdY"
     case u = "ChIJW4FqNKmUwIcRDtDZHMN3rV8"
@@ -42,15 +40,14 @@ enum BakeryIDS: String {
     case bb = "ChIJG4QuEU5awokR_FUDp-FxZtA"
     case cc = "ChIJdZRkeE9n54kRUfv-U3CYWkE"
     case dd = "ChIJC3rZCES5tUwRVNgIiqzVZD0"
-    case ee = "ChIJV-Av3CPyi0gRY64Hp2FmiKg"
-    case ff = "ChIJbes-wWEHh0gRO_hoCuLDJ10"
-    case gg = "ChIJyfO7CkcyeUgRC9YJaDa_vus"
-    case hh = "ChIJ7eOohLx2dEgRxNvvlSVCXI0"
-    case ii = "ChIJSdy60tZx5kcR0F5YEiQhLcI"
-    case jj = "ChIJf-TiLiwqCUgReRgbpfkq-GI"
-    case kk = "ChIJo_WoXfemyxIRU_7AlbTM6-E"
-    case ll = "ChIJgdfmyLmAhYARS6fhSFcVbcY" // Jane the Bakery
-    case mm = "ChIJtz3yZ2I1joAR4RzTnkzbwv8" // Manresa Bread Cafe
+    case ee = "ChIJbes-wWEHh0gRO_hoCuLDJ10"
+    case ff = "ChIJyfO7CkcyeUgRC9YJaDa_vus"
+    case gg = "ChIJ7eOohLx2dEgRxNvvlSVCXI0"
+    case hh = "ChIJSdy60tZx5kcR0F5YEiQhLcI"
+    case ii = "ChIJf-TiLiwqCUgReRgbpfkq-GI"
+    case jj = "ChIJo_WoXfemyxIRU_7AlbTM6-E" // previously Lapaline
+    case kk = "ChIJgdfmyLmAhYARS6fhSFcVbcY" // Jane the Bakery
+    case ll = "ChIJVVVkjosNdEgRpT_POsmyJPE"
 
 }
 
@@ -73,7 +70,7 @@ enum BakeryIDS: String {
 //o    case Barrio = "ChIJAQAAAFdw1oYR-r2WQhhBLNA"
 //p    case Babettes = "ChIJcw0sWRt5bIcRTSIHd4Xp5zQ"
 //q    case RedRooster = "ChIJ_9VAjTi3XlMR87sAHwNToOk"
-//r    case BigSky = "ChIJY5e8p-03QlMRQO-1W8LuhXc" // No name // corrected to: ChIJwRlPliRPRVMRrAj0uQIj5Uc
+//r    case ManresaBreadCafe = "ChIJtz3yZ2I1joAR4RzTnkzbwv8"
 //s    case Barker = "ChIJy2X4Eaxov4cRKOc8UGdIs1U"
 //t    case Fervere = "ChIJoz6jgU_wwIcRgmwNMKC-sdY"
 //u    case Blackdog = "ChIJW4FqNKmUwIcRDtDZHMN3rV8"
@@ -86,14 +83,13 @@ enum BakeryIDS: String {
 //bb    case BienCuit = "ChIJG4QuEU5awokR_FUDp-FxZtA"
 //cc    case Berkshire = "ChIJdZRkeE9n54kRUfv-U3CYWkE"
 //dd    case Elmore = "ChIJC3rZCES5tUwRVNgIiqzVZD0"
-//ee    case IslandBakery = "ChIJV-Av3CPyi0gRY64Hp2FmiKg"
-//ff    case Bostock = "ChIJbes-wWEHh0gRO_hoCuLDJ10"
-//gg    case Haxby = "ChIJyfO7CkcyeUgRC9YJaDa_vus"
-//hh    case Hoxton = "ChIJ7eOohLx2dEgRxNvvlSVCXI0"
-//ii    case Poilane = "ChIJSdy60tZx5kcR0F5YEiQhLcI"
-//jj    case BoulangerieBio = "ChIJf-TiLiwqCUgReRgbpfkq-GI"
-//kk    case LaPaline = "ChIJo_WoXfemyxIRU_7AlbTM6-E"
-//ll    case JaneBakery = "ChIJgdfmyLmAhYARS6fhSFcVbcY"
-//mm    case ManresaBreadCafe = "ChIJtz3yZ2I1joAR4RzTnkzbwv8"
+//ee    case Bostock = "ChIJbes-wWEHh0gRO_hoCuLDJ10"
+//ff    case Haxby = "ChIJyfO7CkcyeUgRC9YJaDa_vus"
+//gg    case HoxtonSouthampton = "ChIJ7eOohLx2dEgRxNvvlSVCXI0"
+//hh    case Poilane = "ChIJSdy60tZx5kcR0F5YEiQhLcI"
+//ii    case BoulangerieBio = "ChIJf-TiLiwqCUgReRgbpfkq-GI"
+//jj    case LaPainLore = "ChIJo_WoXfemyxIRU_7AlbTM6-E" previously Lapaline
+//kk    case JaneBakery = "ChIJgdfmyLmAhYARS6fhSFcVbcY"
+//ll    case HoxtonWinchester = "ChIJVVVkjosNdEgRpT_POsmyJPE"
 //
 //}

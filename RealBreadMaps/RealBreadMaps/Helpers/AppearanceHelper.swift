@@ -19,8 +19,9 @@ enum Appearance {
         
         // Navigation Bar
         
-        UINavigationBar.appearance().barTintColor = .ibisRed
+        UINavigationBar.appearance().barTintColor = .ibisRed //.roseRed
         UIBarButtonItem.appearance().tintColor = .white
+        UINavigationBar.appearance().isTranslucent = false
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: navigationFont], for: .normal)
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: mainTextFontTitles]
@@ -28,7 +29,7 @@ enum Appearance {
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         
         // Tab Bar
-        UITabBar.appearance().tintColor = .ibisRed
+        UITabBar.appearance().tintColor = .ibisRed // .roseRed
 
     }
 }

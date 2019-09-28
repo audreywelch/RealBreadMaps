@@ -15,6 +15,7 @@
 		84B874C9232722A200061FD4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B874C8232722A200061FD4 /* Constants.swift */; };
 		84F53426233ED58F00BE25B6 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F53425233ED58F00BE25B6 /* LandingViewController.swift */; };
 		84F53428233EDAB600BE25B6 /* bread-art-edit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */; };
+		84F5342B233EEC1800BE25B6 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F5342A233EEC1800BE25B6 /* style.json */; };
 		84F760232240472F007892A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760222240472F007892A1 /* AppDelegate.swift */; };
 		84F760282240472F007892A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F760262240472F007892A1 /* Main.storyboard */; };
 		84F7602A22404731007892A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F7602922404731007892A1 /* Assets.xcassets */; };
@@ -43,8 +44,9 @@
 		8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors + Custom Colors.swift"; sourceTree = "<group>"; };
 		847709F52331941C00FFE238 /* Futura-Light-BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light-BT.ttf"; sourceTree = "<group>"; };
 		84B874C8232722A200061FD4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = RealBreadMaps/Helpers/Constants.swift; sourceTree = "<group>"; };
-		84F53425233ED58F00BE25B6 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		84F53425233ED58F00BE25B6 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bread-art-edit.mp4"; sourceTree = "<group>"; };
+		84F5342A233EEC1800BE25B6 /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		84F7601F2240472F007892A1 /* RealBreadMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBreadMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F760222240472F007892A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F760272240472F007892A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		84F7602C22404731007892A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84F7602E22404731007892A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F76034224048A9007892A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		84F76036224068E3007892A1 /* BakeryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryMapViewController.swift; sourceTree = "<group>"; };
+		84F76036224068E3007892A1 /* BakeryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryMapViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		84F7604322415528007892A1 /* BakeryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryListTableViewController.swift; sourceTree = "<group>"; };
 		84F76045224155D1007892A1 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		84F7604722415611007892A1 /* SubmissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionsViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		84F53429233EEA2700BE25B6 /* JSON Files */ = {
+			isa = PBXGroup;
+			children = (
+				84F5342A233EEC1800BE25B6 /* style.json */,
+			);
+			path = "JSON Files";
+			sourceTree = "<group>";
+		};
 		84F760162240472F007892A1 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				84F7602E22404731007892A1 /* Info.plist */,
+				84F53429233EEA2700BE25B6 /* JSON Files */,
 				8425C538224546A8006E1DAC /* Helpers */,
 				84F7603B22415358007892A1 /* Model */,
 				84F760532242B061007892A1 /* Networking */,
@@ -271,6 +282,7 @@
 				84F7602D22404731007892A1 /* LaunchScreen.storyboard in Resources */,
 				847709F62331941C00FFE238 /* Futura-Light-BT.ttf in Resources */,
 				841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */,
+				84F5342B233EEC1800BE25B6 /* style.json in Resources */,
 				84F53428233EDAB600BE25B6 /* bread-art-edit.mp4 in Resources */,
 				84F7602A22404731007892A1 /* Assets.xcassets in Resources */,
 				84F76035224048A9007892A1 /* GoogleService-Info.plist in Resources */,

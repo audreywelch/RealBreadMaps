@@ -27,6 +27,17 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         
         mapView.delegate = self
         
+        // Set the map style by passing the URL of the local file
+        do {
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
         // Set initial view to the United States
         let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
         mapView.camera = camera
@@ -40,7 +51,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                     DispatchQueue.main.async {
                         let marker = GMSMarker()
                         marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
-                        marker.icon = GMSMarker.markerImage(with: .ibisRed)
+                        marker.icon = GMSMarker.markerImage(with: .roseRed)
                         marker.title = "\(BakeryModelController.shared.bakery!.name)" 
                         marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" 
                         marker.map = self.mapView

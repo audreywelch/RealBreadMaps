@@ -21,6 +21,13 @@ class LandingViewController: UIViewController {
         
         view.backgroundColor = UIColor.breadColor
         
+        findBreadButton.backgroundColor = .clear
+//        findBreadButton.backgroundColor = UIColor.roseRed
+        findBreadButton.tintColor = UIColor.white
+        findBreadButton.layer.borderColor = UIColor.white.cgColor
+        findBreadButton.layer.borderWidth = 0.5
+//        findBreadButton.layer.cornerRadius = 5
+        
         // Load the video from the app bundle
         let videoURL: NSURL = Bundle.main.url(forResource: "bread-art-edit", withExtension: "mp4")! as NSURL
         

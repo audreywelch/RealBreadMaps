@@ -9,7 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Futura-Light-BT.ttf">
+        <array key="Amiri-Bold.ttf">
+            <string>Amiri-Bold</string>
+        </array>
+        <array key="Amiri-Regular.ttf">
+            <string>Amiri-Regular</string>
+        </array>
+        <array key="Futura Light BT.ttf">
             <string>FuturaBT-Light</string>
         </array>
         <array key="futura-condensed-pt-medium.otf">
@@ -40,6 +46,7 @@
                         <viewLayoutGuide key="safeArea" id="S0s-cU-5Cx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Real Bread" id="EOQ-vj-fhM">
+                        <barButtonItem key="backBarButtonItem" title=" " id="vBF-AJ-j6N"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JR9-WM-LQu">
                             <connections>
                                 <segue destination="3Jd-2d-ERK" kind="show" id="8Fq-C9-IJ4"/>
@@ -184,6 +191,7 @@
                         <viewLayoutGuide key="safeArea" id="aBW-wi-2wv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Submissions" id="87R-oo-jSU">
+                        <barButtonItem key="backBarButtonItem" title=" " id="whk-vC-Bgv"/>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="WSP-CH-xM3">
                             <connections>
                                 <action selector="done:" destination="3Jd-2d-ERK" id="u8f-Tz-Bbq"/>
@@ -212,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6dc-hS-ZeM">
-                                <rect key="frame" x="8" y="8" width="375" height="128"/>
+                                <rect key="frame" x="8" y="8" width="193" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="EbG-UY-hhY"/>
@@ -225,7 +233,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="3rm-Hm-Vbn" customClass="BakeryImageCollectionViewCell" customModule="RealBreadMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                        <rect key="frame" x="34" y="0.0" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -261,26 +269,26 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-Ux-Ofn">
-                                <rect key="frame" x="12" y="235" width="227.5" height="159.5"/>
+                                <rect key="frame" x="12" y="235" width="45.5" height="243.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday Tuesday Wednesday Thursday Friday Saturday Sunday" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hns-E2-H9f">
-                                        <rect key="frame" x="0.0" y="0.0" width="227.5" height="117.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="201.5"/>
                                         <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSb-f7-qaB">
-                                        <rect key="frame" x="0.0" y="129.5" width="227.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="213.5" width="45.5" height="30"/>
                                         <state key="normal" title="Website"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vH1-EO-nXN" customClass="GMSMapView">
-                                <rect key="frame" x="12" y="402.5" width="351" height="256.5"/>
+                                <rect key="frame" x="12" y="486.5" width="169" height="172.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ouM-rZ-hPZ">
-                                <rect key="frame" x="247.5" y="235" width="115.5" height="104"/>
+                                <rect key="frame" x="65.5" y="235" width="115.5" height="104"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KWM-HX-dep">
                                         <rect key="frame" x="0.0" y="0.0" width="115.5" height="20"/>
@@ -357,7 +365,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messenger Café" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-xI-k3L">
-                                <rect key="frame" x="12" y="144" width="351" height="24"/>
+                                <rect key="frame" x="12" y="144" width="169" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="ORI-hY-q53"/>
                                 </constraints>
@@ -366,7 +374,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1624 Grand Blvd Kansas City, MO 64106" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0G-Jn-eDx">
-                                <rect key="frame" x="12" y="176" width="351" height="41"/>
+                                <rect key="frame" x="12" y="176" width="169" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="MmY-1y-tut"/>
                                 </constraints>
@@ -427,7 +435,7 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="775"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-1N-dNf" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="846.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="865"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8AJ-wG-nph">
                                                 <rect key="frame" x="8" y="8" width="359" height="128"/>
@@ -479,20 +487,20 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messenger Café" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ys-mf-qWN">
-                                                <rect key="frame" x="12" y="156" width="351" height="24"/>
-                                                <fontDescription key="fontDescription" name="FuturaCondensedPT-Medium" family="Futura Condensed PT" pointSize="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messenger Café" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0ys-mf-qWN">
+                                                <rect key="frame" x="12" y="156" width="351" height="42.5"/>
+                                                <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1624 Grand Blvd Kansas City, MO 64106" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ol-PU-Y1I">
-                                                <rect key="frame" x="12" y="188" width="351" height="41"/>
+                                                <rect key="frame" x="12" y="206.5" width="351" height="41"/>
                                                 <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mv-bd-6cM">
-                                                <rect key="frame" x="12" y="430.5" width="351" height="33"/>
+                                                <rect key="frame" x="12" y="449" width="351" height="33"/>
                                                 <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="17"/>
                                                 <state key="normal" title="Website"/>
                                                 <connections>
@@ -500,7 +508,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XHF-Yk-QXY" userLabel="Tags Stack 1">
-                                                <rect key="frame" x="12" y="241" width="115.5" height="48"/>
+                                                <rect key="frame" x="12" y="259.5" width="115.5" height="48"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0gd-7B-uEY">
                                                         <rect key="frame" x="0.0" y="0.0" width="115.5" height="20"/>
@@ -541,7 +549,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3ib-1H-POm" userLabel="Tags Stack 2">
-                                                <rect key="frame" x="139.5" y="241" width="98.5" height="48"/>
+                                                <rect key="frame" x="139.5" y="259.5" width="98.5" height="48"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iu3-Kf-CbP">
                                                         <rect key="frame" x="0.0" y="0.0" width="98.5" height="20"/>
@@ -582,7 +590,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="E1c-uQ-St8" userLabel="Hours and Website Stack">
-                                                <rect key="frame" x="12" y="301" width="351" height="117.5"/>
+                                                <rect key="frame" x="12" y="319.5" width="351" height="117.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday Tuesday Wednesday Thursday Friday Saturday Sunday" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWw-h0-Tb9">
                                                         <rect key="frame" x="0.0" y="0.0" width="351" height="117.5"/>
@@ -593,7 +601,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3Z-LR-ZEz" customClass="GMSMapView">
-                                                <rect key="frame" x="12" y="475.5" width="351" height="351"/>
+                                                <rect key="frame" x="12" y="494" width="351" height="351"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="P3Z-LR-ZEz" secondAttribute="height" id="p0l-T9-cWl"/>
@@ -649,7 +657,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JCr-M0-sci"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aK8-be-lhl"/>
+                    <navigationItem key="navigationItem" id="aK8-be-lhl">
+                        <barButtonItem key="backBarButtonItem" title=" " id="kDl-GP-Afn"/>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="bakeryAddressLabel" destination="4ol-PU-Y1I" id="SAh-sb-vmA"/>
@@ -843,6 +853,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Real Bread" id="hTX-aD-RHn">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qZ9-lE-ZLx"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dHh-tM-AGe">
                             <connections>
                                 <segue destination="3Jd-2d-ERK" kind="show" id="sZW-9R-uZA"/>
@@ -965,7 +976,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N62-c4-2u5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Real Bread" id="t4O-9W-cDo"/>
+                    <navigationItem key="navigationItem" title="Real Bread" id="t4O-9W-cDo">
+                        <barButtonItem key="backBarButtonItem" title=" " id="9bt-hu-L8C"/>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="aboutMeExplainedLabel" destination="Wfj-Oa-zo9" id="IC4-Jp-Fo5"/>
@@ -986,31 +999,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5n-zW-k3U">
-                                <rect key="frame" x="20" y="239" width="335" height="69"/>
-                                <fontDescription key="fontDescription" name="FuturaCondensedPT-Medium" family="Futura Condensed PT" pointSize="48"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="9"/>
+                                <rect key="frame" x="20" y="232" width="335" height="83"/>
+                                <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="40"/>
                                 <state key="normal" title="Find Real Bread"/>
                                 <connections>
                                     <action selector="findBreadTapped:" destination="Cds-oz-9Ha" eventType="touchUpInside" id="rFt-0Z-mb5"/>
                                     <segue destination="r92-DC-LyP" kind="show" id="H0p-yx-Sg7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzY-zF-5YY">
+                                <rect key="frame" x="20" y="232" width="335" height="83"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="m5n-zW-k3U" firstAttribute="leading" secondItem="fqi-4g-YDM" secondAttribute="leading" constant="20" id="CUv-Nu-2kW"/>
                             <constraint firstItem="m5n-zW-k3U" firstAttribute="centerY" secondItem="bw0-Cg-8xz" secondAttribute="centerY" constant="-60" id="Izb-7a-ooE"/>
+                            <constraint firstItem="lzY-zF-5YY" firstAttribute="leading" secondItem="m5n-zW-k3U" secondAttribute="leading" id="P9X-Xb-sFO"/>
+                            <constraint firstItem="lzY-zF-5YY" firstAttribute="top" secondItem="m5n-zW-k3U" secondAttribute="top" id="Wqv-c2-xnn"/>
                             <constraint firstItem="fqi-4g-YDM" firstAttribute="trailing" secondItem="m5n-zW-k3U" secondAttribute="trailing" constant="20" id="bpV-WO-56Y"/>
+                            <constraint firstItem="m5n-zW-k3U" firstAttribute="bottom" secondItem="lzY-zF-5YY" secondAttribute="bottom" id="qYB-94-MLp"/>
+                            <constraint firstItem="m5n-zW-k3U" firstAttribute="trailing" secondItem="lzY-zF-5YY" secondAttribute="trailing" id="srF-0M-ac1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fqi-4g-YDM"/>
                     </view>
                     <connections>
                         <outlet property="findBreadButton" destination="m5n-zW-k3U" id="vtF-B1-C57"/>
+                        <outlet property="transparencyLabel" destination="lzY-zF-5YY" id="L3N-dv-bw9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qa4-kK-gTb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-263" y="164"/>
+            <point key="canvasLocation" x="-263.19999999999999" y="163.26836581709148"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lqQ-CL-eLT">

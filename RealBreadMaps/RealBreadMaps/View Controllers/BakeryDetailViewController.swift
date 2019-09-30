@@ -42,19 +42,25 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = bakery?.name
+        //self.title = bakery?.name
+        self.title = BakeryModelController.shared.currentBakeryName
         
-        setupTheme()
-    
+        // Show the correct bakery
         for eachBakery in BakeryModelController.shared.bakeries {
-            if eachBakery.name == BakeryModelController.shared.currentBakeryName {
+            if eachBakery.name == BakeryModelController.shared.currentBakeryName && eachBakery.formattedAddress == BakeryModelController.shared.currentBakeryAddress {
                 self.bakery = eachBakery
             }
         }
         
+        setupTheme()
+        
+        labelSetUp()
+        
+        mapViewSetUp()
+        
         createImageURLStrings()
         
-        self.setupLabelTap()
+        setupLabelTap()
         
         // Delegates
         mapView.delegate = self
@@ -72,10 +78,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
 
         // Set the direction of the user's scrolling to be swiping horizontally
         layout.scrollDirection = .horizontal
-        
-        mapViewSetUp()
-        
-        labelSetUp()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -223,6 +225,28 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     // Icon Color Adjustments
     func setupTheme() {
         
+        // Navigation Bar
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        titleLabel.text = self.title
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = Appearance.titleFontBoldAmiri
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.textAlignment = .center
+        self.navigationItem.titleView = titleLabel
+        
+        // Map - Set the map style by passing the URL of the local file
+        do {
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
+        // Icons
         let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         milledInHouseImageView.tintColor = .roseRed
         milledInHouseImageView.image = milledIcon

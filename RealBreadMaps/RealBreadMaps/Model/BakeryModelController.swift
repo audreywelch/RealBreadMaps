@@ -22,6 +22,7 @@ class BakeryModelController {
     
     // Holds current bakery in focus
     var currentBakeryName: String?
+    var currentBakeryAddress: String?
     
     // Array to hold saved bakeries
     var bakeries: [Bakery] = []

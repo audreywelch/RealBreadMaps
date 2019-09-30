@@ -67,6 +67,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         //bakeryDetailViewController.bakery =
         
         BakeryModelController.shared.currentBakeryName = marker.title
+        BakeryModelController.shared.currentBakeryAddress = marker.snippet
         
         performSegue(withIdentifier: "showDetailViewController", sender: nil)
     }

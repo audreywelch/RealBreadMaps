@@ -8,6 +8,11 @@
 	<array>
 		<string>futura-condensed-pt-medium.otf</string>
 		<string>Futura Light BT.ttf</string>
+		<string>Kokoro.otf</string>
+		<string>PlayfairDisplay-Regular.ttf</string>
+		<string>OldStandardTT-Regular.ttf</string>
+		<string>Amiri-Regular.ttf</string>
+		<string>Amiri-Bold.ttf</string>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>

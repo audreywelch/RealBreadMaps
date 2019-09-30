@@ -15,6 +15,14 @@ enum Appearance {
     static let thinFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)
     static let navigationFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)
     
+    static let titleFontKokoro = UIFont(name: "KokoroMinchoutai", size: 24)
+    static let titleFontPTSerif = UIFont(name: "PTSerif-Regular", size: 24)
+    static let titleFontPlayfair = UIFont(name: "PlayfairDisplay-Regular", size: 24)
+    static let titleFontOldStandard = UIFont(name: "OldStandardTT-Regular", size: 24)
+    static let titleFontAmiri = UIFont(name: "Amiri-Regular", size: 24)
+    static let titleFontBoldAmiri = UIFont(name: "Amiri-Bold", size: 24)
+    
+    
     static func setupTheme() {
         
         // Navigation Bar
@@ -24,7 +32,7 @@ enum Appearance {
         UINavigationBar.appearance().isTranslucent = false
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: navigationFont], for: .normal)
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: mainTextFontTitles]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: titleFontBoldAmiri]
         UINavigationBar.appearance().titleTextAttributes = textAttributes
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         

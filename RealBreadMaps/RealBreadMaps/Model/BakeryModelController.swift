@@ -26,13 +26,50 @@ class BakeryModelController {
     
     // Array to hold saved bakeries
     var bakeries: [Bakery] = []
+    var firebaseBakeries: [FirebaseBakery] = []
     
     // Array to hold saved photo references
     var photoReferences: [PhotoReferences] = []
     
     let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
+    let firebaseBaseURL = URL(string: "https://realbreadmaps.firebaseio.com/")!
 
     let apiKey = GMSPlacesClientApiKey
+    
+    typealias CompletionHandler = (Error?) -> Void
+    
+    func fetchAllBakeries(completion: @escaping CompletionHandler = { _ in }) {
+        
+        let requestURL = firebaseBaseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestURL) { ( data, _, error ) in
+            
+            if let error = error {
+                NSLog("Error fetching placeIDs from Firebase: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned from fetch for placeIDs.")
+                completion(NSError())
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                
+                let decodedResponse = try jsonDecoder.decode(FirebaseBakery.self, from: data)
+                
+                self.firebaseBakeries.append(decodedResponse)
+                
+            } catch {
+                NSLog("Error decoding FirebaseObject: \(error)")
+                completion(error)
+            }
+        }.resume()
+    }
     
     func searchForBakery(with placeID: String, completion: @escaping (Error?) -> Void) {
         

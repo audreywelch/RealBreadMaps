@@ -21,10 +21,12 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         view.backgroundColor = UIColor.breadColor
         
-//        transparencyLabel.backgroundColor = .roseRed
-//        transparencyLabel.alpha = 0.5
+        transparencyLabel.backgroundColor = .roseRed
+        transparencyLabel.alpha = 0.5
         
         findBreadButton.backgroundColor = .clear
 //        findBreadButton.backgroundColor = UIColor.roseRed
@@ -54,6 +56,17 @@ class LandingViewController: UIViewController {
         
         // Loop video
         NotificationCenter.default.addObserver(self, selector: #selector(loopVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+            BakeryModelController.shared.searchForBakery(with: eachFirebaseBakery.placeID) { (error) in
+                    
+                
+            }
+        }
     }
     
     @objc func loopVideo() {

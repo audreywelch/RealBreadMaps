@@ -32,6 +32,7 @@ import CoreLocation
 struct Bakery: Codable {
     
     let name: String
+    let placeId: String
     let geometry: Geometry
     let formattedAddress: String
     //let placeID: String

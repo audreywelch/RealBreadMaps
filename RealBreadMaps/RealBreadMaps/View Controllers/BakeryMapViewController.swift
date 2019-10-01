@@ -42,23 +42,32 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
         mapView.camera = camera
         
-        for eachBakeryID in bakeryIDs {
-            
-            BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
-                
-                if BakeryModelController.shared.bakery != nil {
-
-                    DispatchQueue.main.async {
-                        let marker = GMSMarker()
-                        marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
-                        marker.icon = GMSMarker.markerImage(with: .roseRed)
-                        marker.title = "\(BakeryModelController.shared.bakery!.name)" 
-                        marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)" 
-                        marker.map = self.mapView
-                    }
-                }
-            }
+        for eachBakery in BakeryModelController.shared.bakeries {
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
+            marker.icon = GMSMarker.markerImage(with: .roseRed)
+            marker.title = "\(eachBakery.name)"
+            marker.snippet = "\(eachBakery.formattedAddress)"
+            marker.map = self.mapView
         }
+        
+//        for eachBakeryID in bakeryIDs {
+//
+//            BakeryModelController.shared.searchForBakery(with: eachBakeryID.rawValue) { (error) in
+//
+//                if BakeryModelController.shared.bakery != nil {
+//
+//                    DispatchQueue.main.async {
+//                        let marker = GMSMarker()
+//                        marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
+//                        marker.icon = GMSMarker.markerImage(with: .roseRed)
+//                        marker.title = "\(BakeryModelController.shared.bakery!.name)"
+//                        marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)"
+//                        marker.map = self.mapView
+//                    }
+//                }
+//            }
+//        }
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {

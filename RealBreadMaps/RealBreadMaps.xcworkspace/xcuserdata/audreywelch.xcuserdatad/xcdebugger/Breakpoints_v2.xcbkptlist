@@ -87,7 +87,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6B22406E-BC55-4BC6-90C1-986BED069A8E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealBreadMaps/View Controllers/LandingViewController.swift"

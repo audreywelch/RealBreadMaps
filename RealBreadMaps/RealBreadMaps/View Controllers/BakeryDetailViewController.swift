@@ -150,7 +150,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         //for eachReference in BakeryModelController.shared.bakery!.photos! {
         imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
                 
-            print(imageURLStrings)
+            //print(imageURLStrings)
         }
     }
     
@@ -183,7 +183,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // https://www.google.com/maps/dir/?api=1&destination=Lodge+Bread+Company
         
         guard let nameForURL = self.bakery?.name.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
-        print(nameForURL)
+        //print(nameForURL)
         
         if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
             UIApplication.shared.open(url, options: [:])
@@ -196,7 +196,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         guard let nameForURL = self.bakery?.name.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
         
-        print(nameForURL)
+        //print(nameForURL)
         
         if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
             UIApplication.shared.open(url, options: [:])

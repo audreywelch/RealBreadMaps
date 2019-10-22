@@ -42,6 +42,8 @@ class BakeryModelController {
         
         let requestURL = firebaseBaseURL.appendingPathExtension("json")
         
+        print(requestURL)
+        
         URLSession.shared.dataTask(with: requestURL) { ( data, _, error ) in
             
             if let error = error {
@@ -60,9 +62,14 @@ class BakeryModelController {
             
             do {
                 
-                let decodedResponse = try jsonDecoder.decode(FirebaseBakery.self, from: data)
+                let responseDictionary = try jsonDecoder.decode([String: FirebaseBakery].self, from: data)
                 
-                self.firebaseBakeries.append(decodedResponse)
+                var decodedResponse = responseDictionary.map( {$0.value} )
+                    
+                
+                //print(decodedResponse)
+                
+                self.firebaseBakeries = decodedResponse
                 
             } catch {
                 NSLog("Error decoding FirebaseObject: \(error)")
@@ -71,7 +78,7 @@ class BakeryModelController {
         }.resume()
     }
     
-    func searchForBakery(with placeID: String, completion: @escaping (Error?) -> Void) {
+    func getBakeryInfo(with placeID: String, completion: @escaping (Error?) -> Void) {
         
         var bakeryURL = baseURL.appendingPathComponent("details")
         
@@ -90,7 +97,7 @@ class BakeryModelController {
             return
         }
         
-        print(requestURL)
+        //print(requestURL)
         
         var request = URLRequest(url: requestURL)
         request.httpMethod = "GET"
@@ -121,9 +128,24 @@ class BakeryModelController {
                     //print(self.photoReferences)
                 }
                 
-                
                 self.bakeries.append(self.bakery!)
-                //print(self.bakeries)
+                
+                for eachFirebaseBakery in self.firebaseBakeries {
+                    
+                    var tempFirebaseBakeries: [FirebaseBakery] = []
+                    var temp = eachFirebaseBakery
+                    
+                    temp.bakeryInfo = self.bakery
+                    tempFirebaseBakeries.append(temp)
+                    
+                    self.firebaseBakeries = tempFirebaseBakeries
+                    
+                }
+                
+                print(self.firebaseBakeries)
+                
+                //self.firebaseBakeries.map( {self.bakery = $0.bakeryInfo} )
+                
                 completion(nil)
                 return
             } catch {
@@ -148,7 +170,7 @@ class BakeryModelController {
         if bakery.photos != nil {
             for eachReference in bakery.photos! {
                 
-                print(eachReference.photoReference)
+                //print(eachReference.photoReference)
                 
                 let photosURL = baseURL.appendingPathComponent("photo")
                 
@@ -166,7 +188,7 @@ class BakeryModelController {
                     return
                 }
                 
-                print(requestURL)
+                //print(requestURL)
                 
             }
         }

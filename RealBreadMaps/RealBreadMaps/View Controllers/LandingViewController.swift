@@ -21,7 +21,7 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        //BakeryModelController.shared.fetchAllBakeries()
         
         view.backgroundColor = UIColor.breadColor
         
@@ -61,12 +61,7 @@ class LandingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-            BakeryModelController.shared.searchForBakery(with: eachFirebaseBakery.placeID) { (error) in
-                    
-                
-            }
-        }
+
     }
     
     @objc func loopVideo() {

@@ -47,6 +47,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         // Show the correct bakery
         for eachBakery in BakeryModelController.shared.bakeries {
+            
             if eachBakery.name == BakeryModelController.shared.currentBakeryName && eachBakery.formattedAddress == BakeryModelController.shared.currentBakeryAddress {
                 self.bakery = eachBakery
             }
@@ -55,6 +56,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         setupTheme()
         
         labelSetUp()
+        
+        populateTags()
         
         mapViewSetUp()
         
@@ -154,6 +157,138 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
+    func populateTags() {
+        
+        for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+            if self.bakery?.placeId == eachFirebaseBakery.placeID {
+                
+                var selectedBakery = eachFirebaseBakery
+                
+                // Icon Color Adjustments
+                
+                // Organic
+                if selectedBakery.organic == true {
+                    
+                    let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    organicImageView.tintColor = .roseRed
+                    organicImageView.image = organicIcon
+                    
+                    organicLabel.textColor = .black
+                    
+                } else if selectedBakery.organic == nil {
+                    
+                    let organicIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    organicImageView.tintColor = .lightGray
+                    organicImageView.image = organicIcon
+                    
+                    organicLabel.textColor = .lightGray
+                    
+                } else {
+                    
+                    let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    organicImageView.tintColor = .gray
+                    organicImageView.image = organicIcon
+                    
+                    let attrString = NSAttributedString(string: "Sells Loaves", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                                             NSAttributedString.Key.strikethroughColor: UIColor.lightGray])
+                    organicLabel.attributedText = attrString
+                    organicLabel.textColor = .gray
+                    
+                }
+                
+                // Milled In-House
+                if selectedBakery.milledInHouse == true {
+                    
+                    let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    milledInHouseImageView.tintColor = .roseRed
+                    milledInHouseImageView.image = milledIcon
+                    
+                    milledInHouseLabel.textColor = .black
+                    
+                } else if selectedBakery.milledInHouse == nil {
+                    
+                    let milledIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    milledInHouseImageView.tintColor = .lightGray
+                    milledInHouseImageView.image = milledIcon
+                    
+                    milledInHouseLabel.textColor = .lightGray
+                    
+                } else {
+                    
+                    let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    milledInHouseImageView.tintColor = .gray
+                    milledInHouseImageView.image = milledIcon
+                    
+                    let attrsString = NSAttributedString(string: "Milled In-house", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                                                 NSAttributedString.Key.strikethroughColor: UIColor.gray])
+                    milledInHouseLabel.attributedText = attrsString
+                    milledInHouseLabel.textColor = .gray
+                    
+                }
+                
+                // Serves Food
+                if selectedBakery.servesFood == true {
+                    
+                    let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    servesFoodImageView.tintColor = .roseRed
+                    servesFoodImageView.image = servesFoodIcon
+                    
+                    servesFoodLabel.textColor = .black
+                    
+                } else if selectedBakery.servesFood == nil {
+                    
+                    let servesFoodIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    servesFoodImageView.tintColor = .lightGray
+                    servesFoodImageView.image = servesFoodIcon
+                    
+                    servesFoodLabel.textColor = .lightGray
+                    
+                } else {
+                    
+                    let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    servesFoodImageView.tintColor = .gray
+                    servesFoodImageView.image = servesFoodIcon
+                    
+                    let attrsString = NSAttributedString(string: "Serves Food", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                                                 NSAttributedString.Key.strikethroughColor: UIColor.gray])
+                    servesFoodLabel.attributedText = attrsString
+                    servesFoodLabel.textColor = .gray
+                }
+                
+                // Sells Loaves
+                if selectedBakery.sellsLoaves == true {
+                    
+                    let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    sellsLoavesImageView.tintColor = .roseRed
+                    sellsLoavesImageView.image = sellsLoavesIcon
+                    
+                    sellsLoavesLabel.textColor = .black
+                    
+                } else if selectedBakery.sellsLoaves == nil {
+                    
+                    let sellsLoavesIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    sellsLoavesImageView.tintColor = .lightGray
+                    sellsLoavesImageView.image = sellsLoavesIcon
+                    
+                    sellsLoavesLabel.textColor = .lightGray
+                    
+                } else {
+                    
+                    let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    sellsLoavesImageView.tintColor = .gray
+                    sellsLoavesImageView.image = sellsLoavesIcon
+                    
+                    let attrsString = NSAttributedString(string: "Sells Loaves", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                                                 NSAttributedString.Key.strikethroughColor: UIColor.gray])
+                    sellsLoavesLabel.attributedText = attrsString
+                    sellsLoavesLabel.textColor = .gray
+                    
+                }
+                
+            }
+        }
+    }
+    
     // MARK: - Map Setup
     
     // Set up the map view
@@ -222,7 +357,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    // Icon Color Adjustments
+    // Label and Map appearance
     func setupTheme() {
         
         // Navigation Bar
@@ -245,23 +380,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         } catch {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
-        
-        // Icons
-        let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        milledInHouseImageView.tintColor = .roseRed
-        milledInHouseImageView.image = milledIcon
-        
-        let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        organicImageView.tintColor = .roseRed
-        organicImageView.image = organicIcon
-        
-        let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        servesFoodImageView.tintColor = .roseRed
-        servesFoodImageView.image = servesFoodIcon
-        
-        let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        sellsLoavesImageView.tintColor = .roseRed
-        sellsLoavesImageView.image = sellsLoavesIcon
     }
 }
 

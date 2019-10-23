@@ -14,6 +14,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     
     let bakeryDetailViewController = BakeryDetailViewController()
+    var newArray: [FirebaseBakery] = []
     
     // Use a CLLocation manager to show the user's location
     var locationManager = CLLocationManager()
@@ -42,34 +43,44 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
         mapView.camera = camera
         
-        
-        for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+        // Perform the fetch on a background queue
+        DispatchQueue.global(qos: .userInitiated).async {
             
-            BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: eachFirebaseBakery.bakeryInfo?.geometry.location.lat ?? 0, longitude: eachFirebaseBakery.bakeryInfo?.geometry.location.lng ?? 0)
-                marker.icon = GMSMarker.markerImage(with: .roseRed)
-                marker.title = "\(eachFirebaseBakery.bakeryInfo?.name)"
-                marker.snippet = "\(eachFirebaseBakery.bakeryInfo?.formattedAddress)"
-                marker.map = self.mapView
+            // For each bakery in the firebaseBakeries array
+            for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
                 
+                // Use the placeID to make the GooglePlaces API call
+                BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
+
+                    // Switch to main thread for UI
+                    DispatchQueue.main.async {
+                        
+                        // Populate the map with all the bakeries in the Bakeries array
+                        for eachBakery in BakeryModelController.shared.bakeries {
+                            let marker = GMSMarker()
+                            marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
+                            marker.icon = GMSMarker.markerImage(with: .roseRed)
+                            marker.title = "\(eachBakery.name)"
+                            marker.snippet = "\(eachBakery.formattedAddress)"
+                            marker.map = self.mapView
+                            
+                        }
+                    }
+                }
             }
         }
+
+
         
-//        for eachBakery in BakeryModelController.shared.bakeries {
-//
-//            BakeryModelController.shared.getBakeryInfo(with: eachBakery.firebaseBakery?.placeID ?? "") { (error) in
-//
+//        for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+//            for eachBakery in BakeryModelController.shared.bakeries {
+//                var temp = eachFirebaseBakery
+//                temp.bakeryInfo = eachBakery
+//                BakeryModelController.shared.tempFirebaseBakeries.append(temp)
 //            }
-//
-//            let marker = GMSMarker()
-//            marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
-//            marker.icon = GMSMarker.markerImage(with: .roseRed)
-//            marker.title = "\(eachBakery.name)"
-//            marker.snippet = "\(eachBakery.formattedAddress)"
-//            marker.map = self.mapView
 //        }
+//        print("TEMP ARRAY: \(BakeryModelController.shared.tempFirebaseBakeries)")
+        
         
 //        for eachBakeryID in bakeryIDs {
 //
@@ -91,9 +102,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        //marker.position
-
-        //bakeryDetailViewController.bakery =
         
         BakeryModelController.shared.currentBakeryName = marker.title
         BakeryModelController.shared.currentBakeryAddress = marker.snippet

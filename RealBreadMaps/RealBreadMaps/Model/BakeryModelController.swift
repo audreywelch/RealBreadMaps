@@ -28,6 +28,9 @@ class BakeryModelController {
     var bakeries: [Bakery] = []
     var firebaseBakeries: [FirebaseBakery] = []
     
+    // Create a temporary array to hold FirebaseBakery objects
+    var tempFirebaseBakeries: [FirebaseBakery] = []
+    
     // Array to hold saved photo references
     var photoReferences: [PhotoReferences] = []
     
@@ -66,11 +69,10 @@ class BakeryModelController {
                 
                 var decodedResponse = responseDictionary.map( {$0.value} )
                     
-                
                 //print(decodedResponse)
                 
                 self.firebaseBakeries = decodedResponse
-                
+
             } catch {
                 NSLog("Error decoding FirebaseObject: \(error)")
                 completion(error)
@@ -127,23 +129,45 @@ class BakeryModelController {
                     self.photoReferences = (self.bakery?.photos)!
                     //print(self.photoReferences)
                 }
+
                 
+                // Add the bakery object to the bakeries array
                 self.bakeries.append(self.bakery!)
                 
-                for eachFirebaseBakery in self.firebaseBakeries {
-                    
-                    var tempFirebaseBakeries: [FirebaseBakery] = []
-                    var temp = eachFirebaseBakery
-                    
-                    temp.bakeryInfo = self.bakery
-                    tempFirebaseBakeries.append(temp)
-                    
-                    self.firebaseBakeries = tempFirebaseBakeries
-                    
-                }
+//                for eachFirebaseBakery in self.firebaseBakeries {
+//                    for eachBakery in self.bakeries {
+//                        var temp = eachFirebaseBakery
+//                        temp.bakeryInfo = eachBakery
+//                        self.tempFirebaseBakeries.append(temp)
+//                        print("FIREBASE BAKERIES WITH ADDITIONAL INFO: \(self.tempFirebaseBakeries)")
+//                    }
+//                }
                 
-                print(self.firebaseBakeries)
+                //self.tempFirebaseBakeries.append(self.bakery!)
                 
+//                // Loop through the array of firebaseBakeries (these objects were added in the initial fetchAllBakeries func
+//                for eachFirebaseBakery in self.firebaseBakeries {
+//
+//                    if eachFirebaseBakery.placeID == self.bakery?.placeId {
+//
+//                        // Will need to change the constant, so give it a temporary variable
+//                        var temp = eachFirebaseBakery
+//
+//                        // bakeryInfo is of the type `bakery` - assign the bakery object that is being decoded
+//                        // to the firebaseBakery object's bakeryInfo variable
+//                        temp.bakeryInfo = self.bakery
+//
+//                        // Append the object that now includes the additional bakeryInfo from GooglePlaces API to the temp array
+//                        self.tempFirebaseBakeries.append(temp)
+//
+//                        // Replace the array of bakeries that previously had nil bakeryInfo with an array of objects that
+//                        // contain all the information needed
+//                        self.firebaseBakeries = self.tempFirebaseBakeries
+//                    }
+//
+//                }
+                
+
                 //self.firebaseBakeries.map( {self.bakery = $0.bakeryInfo} )
                 
                 completion(nil)
@@ -154,6 +178,9 @@ class BakeryModelController {
                 return
             }
         }.resume()
+        
+
+        
         
     }
     

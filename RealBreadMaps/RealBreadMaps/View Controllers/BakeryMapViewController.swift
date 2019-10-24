@@ -44,7 +44,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.camera = camera
         
         // Perform the fetch on a background queue
-        DispatchQueue.global(qos: .userInitiated).async {
+        //DispatchQueue.global(qos: .userInitiated).async {
             
             // For each bakery in the firebaseBakeries array
             for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
@@ -68,7 +68,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                     }
                 }
             }
-        }
+        //}
 
 
         

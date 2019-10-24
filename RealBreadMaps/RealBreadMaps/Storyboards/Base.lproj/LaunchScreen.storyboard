@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,28 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ibis_screenshot" translatesAutoresizingMaskIntoConstraints="NO" id="D49-px-OdY">
-                                <rect key="frame" x="60" y="80" width="255" height="255"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="real-bread-launch" translatesAutoresizingMaskIntoConstraints="NO" id="D49-px-OdY">
+                                <rect key="frame" x="12" y="98" width="351" height="351"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="D49-px-OdY" secondAttribute="height" id="ejC-Br-aYy"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ibis_logo_screenshot" translatesAutoresizingMaskIntoConstraints="NO" id="UKO-5H-R44">
-                                <rect key="frame" x="60" y="265" width="255" height="255"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="UKO-5H-R44" secondAttribute="height" id="AYE-gw-JIW"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="D49-px-OdY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="60" id="4PJ-LD-6B3"/>
-                            <constraint firstItem="D49-px-OdY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="ajE-BE-3US"/>
-                            <constraint firstItem="UKO-5H-R44" firstAttribute="top" secondItem="D49-px-OdY" secondAttribute="bottom" constant="-70" id="gg9-sD-8ff"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UKO-5H-R44" secondAttribute="trailing" constant="60" id="j0H-hj-Mva"/>
+                            <constraint firstItem="D49-px-OdY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="12" id="4PJ-LD-6B3"/>
+                            <constraint firstItem="D49-px-OdY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-60" id="aPc-nV-qmH"/>
                             <constraint firstItem="D49-px-OdY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kjW-Li-dfO"/>
-                            <constraint firstAttribute="trailing" secondItem="D49-px-OdY" secondAttribute="trailing" constant="60" id="ssx-yJ-PrS"/>
-                            <constraint firstItem="UKO-5H-R44" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="v2e-NI-7fx"/>
+                            <constraint firstAttribute="trailing" secondItem="D49-px-OdY" secondAttribute="trailing" constant="12" id="ssx-yJ-PrS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -50,7 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ibis_logo_screenshot" width="506" height="394"/>
-        <image name="ibis_screenshot" width="548" height="522"/>
+        <image name="real-bread-launch" width="727" height="722"/>
     </resources>
 </document>

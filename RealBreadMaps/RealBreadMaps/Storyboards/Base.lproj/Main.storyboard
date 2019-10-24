@@ -12,10 +12,7 @@
         <array key="Amiri-Bold.ttf">
             <string>Amiri-Bold</string>
         </array>
-        <array key="Amiri-Regular.ttf">
-            <string>Amiri-Regular</string>
-        </array>
-        <array key="Futura Light BT.ttf">
+        <array key="Futura-Light-BT.ttf">
             <string>FuturaBT-Light</string>
         </array>
         <array key="futura-condensed-pt-medium.otf">
@@ -999,8 +996,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5n-zW-k3U">
-                                <rect key="frame" x="20" y="232" width="335" height="83"/>
-                                <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="40"/>
+                                <rect key="frame" x="20" y="540" width="335" height="67"/>
+                                <fontDescription key="fontDescription" name="FuturaCondensedPT-Medium" family="Futura Condensed PT" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="Find Real Bread"/>
                                 <connections>
                                     <action selector="findBreadTapped:" destination="Cds-oz-9Ha" eventType="touchUpInside" id="rFt-0Z-mb5"/>
@@ -1019,7 +1017,7 @@
                             <constraint firstItem="lzY-zF-5YY" firstAttribute="top" secondItem="bw0-Cg-8xz" secondAttribute="top" id="4ZN-K2-T6Q"/>
                             <constraint firstAttribute="bottom" secondItem="lzY-zF-5YY" secondAttribute="bottom" id="6Kg-Jy-se9"/>
                             <constraint firstItem="m5n-zW-k3U" firstAttribute="leading" secondItem="fqi-4g-YDM" secondAttribute="leading" constant="20" id="CUv-Nu-2kW"/>
-                            <constraint firstItem="m5n-zW-k3U" firstAttribute="centerY" secondItem="bw0-Cg-8xz" secondAttribute="centerY" constant="-60" id="Izb-7a-ooE"/>
+                            <constraint firstItem="fqi-4g-YDM" firstAttribute="bottom" secondItem="m5n-zW-k3U" secondAttribute="bottom" constant="60" id="FuX-Is-6Zi"/>
                             <constraint firstAttribute="trailing" secondItem="lzY-zF-5YY" secondAttribute="trailing" id="OXm-cE-D9z"/>
                             <constraint firstItem="fqi-4g-YDM" firstAttribute="trailing" secondItem="m5n-zW-k3U" secondAttribute="trailing" constant="20" id="bpV-WO-56Y"/>
                             <constraint firstItem="lzY-zF-5YY" firstAttribute="leading" secondItem="bw0-Cg-8xz" secondAttribute="leading" id="g79-oY-tko"/>

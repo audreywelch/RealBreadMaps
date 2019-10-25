@@ -50,14 +50,18 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         guard let destinationVC = segue.destination as? BakeryDetailViewController,
             let indexPath = tableView.indexPathForSelectedRow else { return }
         
+        var bakery: Bakery
+        
         if searchBarIsEmpty() == false {
-            let bakery = filteredBakeries[indexPath.row]
+            bakery = filteredBakeries[indexPath.row]
+            destinationVC.bakery = bakery
+
+        } else {
+            
+            bakery = bakeries[indexPath.row]
             destinationVC.bakery = bakery
         }
-        
-        let bakery = bakeries[indexPath.row]
-        destinationVC.bakery = bakery
-        
+
         // Detail View Controller uses currentBakeryName to confirm which bakery to show - it needs to be reset to reflect the correct bakery after a detail view screen has been shown via map view selection
         BakeryModelController.shared.currentBakeryName = bakery.name
         BakeryModelController.shared.currentBakeryAddress = bakery.formattedAddress
@@ -84,14 +88,14 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         DispatchQueue.main.async {
             
             // Grab the text, make sure it's not empty
-            guard let searchTerm = self.bakerySearchBar.text, !searchTerm.isEmpty else {
+            guard let searchTerm = self.bakerySearchBar.text?.lowercased(), !searchTerm.isEmpty else {
                 // If no search term, display all of the bakeries
                 self.filteredBakeries = self.bakeries
                 return
             }
             
             // Filter through the array of bakeries to see if name of bakery or address contain the text entered by user
-            let matchingBakeries = self.bakeries.filter({ $0.name.contains(searchTerm) || $0.formattedAddress.contains(searchTerm) })
+            let matchingBakeries = self.bakeries.filter({ $0.name.lowercased().contains(searchTerm) || $0.formattedAddress.lowercased().contains(searchTerm) })
             
             // Set the value of the filteredBakeries to the results of the filter
             self.filteredBakeries = matchingBakeries

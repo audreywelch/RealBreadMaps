@@ -11,10 +11,7 @@
 		841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */; };
 		841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC8FF22454C7300756504 /* AppearanceHelper.swift */; };
 		8425C53A224546C7006E1DAC /* UIColors + Custom Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */; };
-		842ECE852341469B00F831BD /* Kokoro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE842341469B00F831BD /* Kokoro.otf */; };
-		842ECE8923414D3F00F831BD /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE8823414D3F00F831BD /* PlayfairDisplay-Regular.ttf */; };
 		842ECE932341518800F831BD /* Amiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE8E2341518800F831BD /* Amiri-Regular.ttf */; };
-		842ECE9C2341519800F831BD /* OldStandardTT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE982341519800F831BD /* OldStandardTT-Regular.ttf */; };
 		842ECE9F2341535600F831BD /* Amiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE9E2341535600F831BD /* Amiri-Bold.ttf */; };
 		842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ECEA02342C07800F831BD /* FirebaseBakery.swift */; };
 		846248A42361287D006F1957 /* bread gif v1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 846248A32361287D006F1957 /* bread gif v1.mov */; };
@@ -47,10 +44,7 @@
 		841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "futura-condensed-pt-medium.otf"; sourceTree = "<group>"; };
 		841DC8FF22454C7300756504 /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors + Custom Colors.swift"; sourceTree = "<group>"; };
-		842ECE842341469B00F831BD /* Kokoro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kokoro.otf; sourceTree = "<group>"; };
-		842ECE8823414D3F00F831BD /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		842ECE8E2341518800F831BD /* Amiri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amiri-Regular.ttf"; sourceTree = "<group>"; };
-		842ECE982341519800F831BD /* OldStandardTT-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Regular.ttf"; sourceTree = "<group>"; };
 		842ECE9E2341535600F831BD /* Amiri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amiri-Bold.ttf"; sourceTree = "<group>"; };
 		842ECEA02342C07800F831BD /* FirebaseBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBakery.swift; sourceTree = "<group>"; };
 		846248A32361287D006F1957 /* bread gif v1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "bread gif v1.mov"; sourceTree = "<group>"; };
@@ -192,12 +186,9 @@
 			children = (
 				84F760222240472F007892A1 /* AppDelegate.swift */,
 				84F76034224048A9007892A1 /* GoogleService-Info.plist */,
-				842ECE8823414D3F00F831BD /* PlayfairDisplay-Regular.ttf */,
-				842ECE842341469B00F831BD /* Kokoro.otf */,
 				841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */,
 				847709F52331941C00FFE238 /* Futura-Light-BT.ttf */,
 				841DC8FB22454AFC00756504 /* Futura Light BT.ttf */,
-				842ECE982341519800F831BD /* OldStandardTT-Regular.ttf */,
 				842ECE8E2341518800F831BD /* Amiri-Regular.ttf */,
 				842ECE9E2341535600F831BD /* Amiri-Bold.ttf */,
 				84F7602922404731007892A1 /* Assets.xcassets */,
@@ -291,10 +282,7 @@
 				841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */,
 				84F5342B233EEC1800BE25B6 /* style.json in Resources */,
 				842ECE932341518800F831BD /* Amiri-Regular.ttf in Resources */,
-				842ECE9C2341519800F831BD /* OldStandardTT-Regular.ttf in Resources */,
 				84F7602A22404731007892A1 /* Assets.xcassets in Resources */,
-				842ECE852341469B00F831BD /* Kokoro.otf in Resources */,
-				842ECE8923414D3F00F831BD /* PlayfairDisplay-Regular.ttf in Resources */,
 				84F76035224048A9007892A1 /* GoogleService-Info.plist in Resources */,
 				846248CC2362672B006F1957 /* real-bread-launch.png in Resources */,
 				846248A42361287D006F1957 /* bread gif v1.mov in Resources */,

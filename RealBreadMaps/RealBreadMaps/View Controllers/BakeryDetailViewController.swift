@@ -37,7 +37,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     var bakery: Bakery?
     
-    var imageURLs: [URL]?
     var imageURLStrings: [String] = []
     
     override func viewDidLoad() {
@@ -109,7 +108,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // Cast cell as a custom collection view cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BakeryImageCollectionViewCell.reuseIdentier, for: indexPath) as! BakeryImageCollectionViewCell
         
-        let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=AIzaSyBRMVPW8u3LagIW0t_geAdChN9BAKwb2yQ"
+        let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=\(GMSPlacesClientApiKey)"
         
         // If the bakery has no photos, display an "image unavailable" photo
         if self.bakery?.photos == nil {
@@ -154,13 +153,10 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
         
-        let apiKey = GMSPlacesClientApiKey
-        
         guard self.bakery?.photos != nil else { return }
             
         for eachReference in self.bakery!.photos! {
-        //for eachReference in BakeryModelController.shared.bakery!.photos! {
-        imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
+            imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(GMSPlacesClientApiKey)")
 
         }
     }
@@ -418,7 +414,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
 }
 
 
-// Extension of UIImageView to load URLS, convert to data, then convert to a UIImage in a background queue, but load it to the image view on the main thread
+// Extension of UIImageView to load URLs, convert to data, then convert to a UIImage in a background queue, but load it to the image view on the main thread
 extension UIImageView {
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in

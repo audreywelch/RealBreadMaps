@@ -120,23 +120,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         pageControl?.currentPage = Int(page)
     }
     
-    func networkCallToGoogleAPI() {
-        
-        // Perform the fetch on a background queue
-        //DispatchQueue.global(qos: .userInitiated).async {
-            
-            // For each bakery in the firebaseBakeries array
-            for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-                
-                // Use the placeID to make the GooglePlaces API call
-                BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-
-                }
-            }
-        //}
-        
-    }
-    
 
     
 }

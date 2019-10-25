@@ -110,3 +110,19 @@ class InfoViewController: UIViewController {
     
     }
 }
+
+//extension UILabel {
+//    func animate(textString: String, duration: Double) {
+//        let characters = textString.map { $0 }
+//        var index = 0
+//        Timer.scheduledTimer(withTimeInterval: duration, repeats: true, block: { [weak self] timer in
+//            if index < textString.count {
+//                let char = characters[index]
+//                self?.text! += "\(char)"
+//                index += 1
+//            } else {
+//                timer.invalidate()
+//            }
+//        })
+//    }
+//}

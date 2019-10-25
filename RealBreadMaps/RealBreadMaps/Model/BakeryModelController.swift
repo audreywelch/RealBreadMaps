@@ -128,8 +128,6 @@ class BakeryModelController {
                     self.photoReferences = (self.bakery?.photos)!
                     //print(self.photoReferences)
                 }
-                
-                print(self.bakery?.internationalPhoneNumber)
 
                 // Add the bakery object to the bakeries array
                 self.bakeries.append(self.bakery!)

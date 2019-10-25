@@ -943,11 +943,16 @@
                                 <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="Find Real Bread">
-                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="r92-DC-LyP" kind="presentation" modalPresentationStyle="fullScreen" id="LfZ-3F-524"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-Ss-4bJ">
                                 <rect key="frame" x="20" y="539" width="335" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.99215686270000003" green="0.86747908880000002" blue="0.77406823729999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.99215686270000003" green="0.75556457779999997" blue="0.68098293089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="pageChanged:" destination="Ors-Ge-vb9" eventType="valueChanged" id="Syi-oO-gci"/>
                                 </connections>

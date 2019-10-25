@@ -43,10 +43,13 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
         
-        view.backgroundColor = .roseRed
+        view.backgroundColor = .white
         
         findRealBreadBtn.layer.borderWidth = 0.25
-        findRealBreadBtn.layer.borderColor = UIColor.white.cgColor
+        findRealBreadBtn.layer.borderColor = UIColor.roseRed.cgColor
+        
+        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.9921568627, green: 0.8674790888, blue: 0.7740682373, alpha: 1)
+        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.9921568627, green: 0.7555645778, blue: 0.6809829309, alpha: 1)
         
         // Create the slides and add them
         var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -113,4 +116,8 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         pageControl?.currentPage = Int(page)
     }
     
+
+    
 }
+
+

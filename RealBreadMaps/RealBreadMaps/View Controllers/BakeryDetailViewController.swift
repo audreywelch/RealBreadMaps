@@ -18,7 +18,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var bakeryNameLabel: UILabel!
     @IBOutlet weak var bakeryAddressLabel: UILabel!
     @IBOutlet weak var bakeryHoursLabel: UILabel!
-    @IBOutlet weak var bakeryWebsiteLabel: UIButton!
+    @IBOutlet weak var bakeryWebsiteButton: UIButton!
+    @IBOutlet weak var bakeryPhoneNumberButton: UIButton!
     
     @IBOutlet weak var sellsLoavesImageView: UIImageView!
     @IBOutlet weak var milledInHouseImageView: UIImageView!
@@ -130,6 +131,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         bakeryNameLabel.text = bakery?.name
         bakeryAddressLabel.text = bakery?.formattedAddress
         
+        
         if bakery?.openingHours?.weekdayText != nil {
             let hoursString = bakery?.openingHours?.weekdayText.joined(separator: "\n")
             bakeryHoursLabel.text = hoursString
@@ -137,7 +139,14 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             bakeryHoursLabel.text = "Please visit website for hours."
         }
         
-        bakeryWebsiteLabel.setTitle(bakery?.website, for: .normal)
+        bakeryWebsiteButton.setTitle(bakery?.website, for: .normal)
+        
+        if bakery?.internationalPhoneNumber != nil {
+            bakeryPhoneNumberButton.setTitle(bakery?.internationalPhoneNumber, for: .normal)
+        } else {
+            bakeryPhoneNumberButton.setTitle("Phone number unavailable", for: .normal)
+        }
+        
     }
     
     // Create URL Strings from each photoReference
@@ -152,11 +161,11 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         for eachReference in self.bakery!.photos! {
         //for eachReference in BakeryModelController.shared.bakery!.photos! {
         imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference.photoReference)&key=\(apiKey)")
-                
-            //print(imageURLStrings)
+
         }
     }
     
+    // Adjust tag images and labels to account for information in Firebase
     func populateTags() {
         
         for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
@@ -347,10 +356,35 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     // Leave the app to go to the bakery's website
     @IBAction func websiteURLTapped(_ sender: Any) {
-        if let url = URL(string: (bakeryWebsiteLabel.titleLabel?.text)!) {
+        if let url = URL(string: (bakeryWebsiteButton.titleLabel?.text)!) {
             UIApplication.shared.open(url, options: [:])
         }
     }
+    
+    // Call the phone number when tapped
+    @IBAction func phoneNumberTapped(_ sender: Any) {
+        
+        // Format current phone number
+        let formattedNumber = self.bakery?.internationalPhoneNumber?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
+        
+        // Unwrap phone number
+        guard let unwrappedFormattedNumber = formattedNumber else { return }
+        
+        // Call phone number
+        if let phoneCallURL = URL(string: "telprompt://\(unwrappedFormattedNumber)") {
+            let application: UIApplication = UIApplication.shared
+            if application.canOpenURL(phoneCallURL) {
+                if #available(iOS 13.0, *) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                } else {
+                    // Fallback on earlier versions
+                    application.open(phoneCallURL as URL)
+                }
+            }
+        }
+        
+    }
+    
     
     // When 'Done' is tapped, return to root view controller
     @IBAction func done(_ sender: Any) {

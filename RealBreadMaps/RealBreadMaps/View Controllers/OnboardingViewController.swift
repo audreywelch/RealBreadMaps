@@ -39,17 +39,22 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         // Assign delegates
         self.scrollView.delegate = self
         
+        // Get Location information for next screen
+        //networkCallToGoogleAPI()
+        
+        // Scroll View
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
         
-        view.backgroundColor = .white
-        
-        findRealBreadBtn.layer.borderWidth = 0.25
-        findRealBreadBtn.layer.borderColor = UIColor.roseRed.cgColor
-        
+        // Page Control UI
         pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.9921568627, green: 0.8674790888, blue: 0.7740682373, alpha: 1)
         pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.9921568627, green: 0.7555645778, blue: 0.6809829309, alpha: 1)
+        
+        // Button UI
+        view.backgroundColor = .white
+        findRealBreadBtn.layer.borderWidth = 0.25
+        findRealBreadBtn.layer.borderColor = UIColor.roseRed.cgColor
         
         // Create the slides and add them
         var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -78,7 +83,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             descriptionText.numberOfLines = 3
             descriptionText.adjustsFontSizeToFitWidth = true
             //descriptionText.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: NSLayoutConstraint.Axis.horizontal)
-                
             //descriptionText.adjustsFontForContentSizeCategory = true
             descriptionText.font = Appearance.thinFont
             descriptionText.text = descriptions[index]
@@ -114,6 +118,23 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         let page = (scrollView?.contentOffset.x)! / scrollWidth
         
         pageControl?.currentPage = Int(page)
+    }
+    
+    func networkCallToGoogleAPI() {
+        
+        // Perform the fetch on a background queue
+        //DispatchQueue.global(qos: .userInitiated).async {
+            
+            // For each bakery in the firebaseBakeries array
+            for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+                
+                // Use the placeID to make the GooglePlaces API call
+                BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
+
+                }
+            }
+        //}
+        
     }
     
 

@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3B9C0681-E89D-4E68-8173-9A3546612B35"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RealBreadMaps/Model/BakeryModelController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "fetchAllBakeries(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3B9C0681-E89D-4E68-8173-9A3546612B35 - d5a16d7b3c548dd4"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in default argument 0 of RealBreadMaps.BakeryModelController.fetchAllBakeries(completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "RealBreadMaps"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/audreywelch/Dropbox/Lambda%20School/iOS%20Dev%20Core/Project%20Week/RealBreadMaps/RealBreadMaps/RealBreadMaps/Model/BakeryModelController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  uuid = "3B9C0681-E89D-4E68-8173-9A3546612B35 - ec813bd3b08ef8bb"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RealBreadMaps.BakeryModelController.fetchAllBakeries(completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "RealBreadMaps"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/audreywelch/Dropbox/Lambda%20School/iOS%20Dev%20Core/Project%20Week/RealBreadMaps/RealBreadMaps/RealBreadMaps/Model/BakeryModelController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "152">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6B22406E-BC55-4BC6-90C1-986BED069A8E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -65,22 +17,6 @@
             startingLineNumber = "67"
             endingLineNumber = "67"
             landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F7B508D2-12EC-475F-91BB-187EAF88CD4F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RealBreadMaps/Model/BakeryModelController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "getBakeryInfo(with:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

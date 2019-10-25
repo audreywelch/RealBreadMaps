@@ -15,5 +15,5 @@ struct FirebaseBakery: Codable {
     let sellsLoaves: Bool?
     let servesFood: Bool?
     let info: String?
-    var bakeryInfo: Bakery?
+    //var bakeryInfo: Bakery?
 }

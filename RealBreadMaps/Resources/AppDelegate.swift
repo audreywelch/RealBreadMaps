@@ -29,6 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         BakeryModelController.shared.fetchAllBakeries()
         
+//        BakeryModelController.shared.fetchAllBakeries { (error) in
+//            // Perform the fetch on a background queue
+//            DispatchQueue.global(qos: .userInitiated).async {
+//
+//                // For each bakery in the firebaseBakeries array
+//                for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+//
+//                    // Use the placeID to make the GooglePlaces API call
+//                    BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
+//
+//                    }
+//                }
+//            }
+//        }
+        
         // Find names of custom fonts
 //        for family in UIFont.familyNames.sorted() {
 //            let names = UIFont.fontNames(forFamilyName: "Futura")

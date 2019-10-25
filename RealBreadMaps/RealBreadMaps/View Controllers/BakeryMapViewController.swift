@@ -14,11 +14,9 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     
     let bakeryDetailViewController = BakeryDetailViewController()
-    var newArray: [FirebaseBakery] = []
     
-    // Use a CLLocation manager to show the user's location
+    // Use a CLLocation manager to show user's location
     var locationManager = CLLocationManager()
-    
     var didFindMyLocation = false
     
     var bakeryIDs = [BakeryIDS.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .w, .x, .y, .z, .aa, .bb, .cc, .dd, .ee, .ff, .gg, .hh, .ii, .jj, .kk, .ll]
@@ -44,17 +42,17 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.camera = camera
         
         // Perform the fetch on a background queue
-        //DispatchQueue.global(qos: .userInitiated).async {
-            
+        DispatchQueue.global(qos: .userInitiated).async {
+        
             // For each bakery in the firebaseBakeries array
             for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-                
+        
                 // Use the placeID to make the GooglePlaces API call
                 BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-
+        
                     // Switch to main thread for UI
                     DispatchQueue.main.async {
-                        
+        
                         // Populate the map with all the bakeries in the Bakeries array
                         for eachBakery in BakeryModelController.shared.bakeries {
                             let marker = GMSMarker()
@@ -63,12 +61,33 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                             marker.title = "\(eachBakery.name)"
                             marker.snippet = "\(eachBakery.formattedAddress)"
                             marker.map = self.mapView
-                            
+        
                         }
                     }
                 }
             }
-        //}
+        }
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        
+        BakeryModelController.shared.currentBakeryName = marker.title
+        BakeryModelController.shared.currentBakeryAddress = marker.snippet
+        
+        performSegue(withIdentifier: "showDetailViewController", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let destination = segue.destination as? BakeryDetailViewController else { return }
+    }
+    
+}
+
+
+
+
+
 
 
         
@@ -99,19 +118,3 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
 //                }
 //            }
 //        }
-    }
-    
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        
-        BakeryModelController.shared.currentBakeryName = marker.title
-        BakeryModelController.shared.currentBakeryAddress = marker.snippet
-        
-        performSegue(withIdentifier: "showDetailViewController", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let destination = segue.destination as? BakeryDetailViewController else { return }
-    }
-    
-}

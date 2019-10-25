@@ -21,9 +21,6 @@
 		846248A623612887006F1957 /* bread gif v2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 846248A523612887006F1957 /* bread gif v2.mov */; };
 		846248CC2362672B006F1957 /* real-bread-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248CB2362672B006F1957 /* real-bread-launch.png */; };
 		846248CE23626A1E006F1957 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846248CD23626A1E006F1957 /* OnboardingViewController.swift */; };
-		846248D023627465006F1957 /* bread1.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248CF23627464006F1957 /* bread1.png */; };
-		846248D22362746B006F1957 /* bread4.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248D12362746B006F1957 /* bread4.png */; };
-		846248D42362747A006F1957 /* bread8.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248D32362747A006F1957 /* bread8.png */; };
 		847709F62331941C00FFE238 /* Futura-Light-BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 847709F52331941C00FFE238 /* Futura-Light-BT.ttf */; };
 		84F10B6123481096002A2EF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F10B6023481096002A2EF0 /* Constants.swift */; };
 		84F53426233ED58F00BE25B6 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F53425233ED58F00BE25B6 /* LandingViewController.swift */; };
@@ -40,11 +37,7 @@
 		84F7604A22415642007892A1 /* BakeryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604922415642007892A1 /* BakeryDetailViewController.swift */; };
 		84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604B22415716007892A1 /* BakeryImageCollectionViewCell.swift */; };
 		84F7604E22416125007892A1 /* Bakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604D22416125007892A1 /* Bakery.swift */; };
-		84F76050224194EA007892A1 /* SuggestedBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604F224194EA007892A1 /* SuggestedBakery.swift */; };
-		84F76052224295DC007892A1 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F76051224295DC007892A1 /* DirectionsViewController.swift */; };
-		84F760552242B07C007892A1 /* PhotosFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760542242B07B007892A1 /* PhotosFetch.swift */; };
 		84F760572242B08A007892A1 /* BakeryModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760562242B08A007892A1 /* BakeryModelController.swift */; };
-		84F760592242B0F7007892A1 /* PlaceSearchFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760582242B0F7007892A1 /* PlaceSearchFetch.swift */; };
 		84F7605B2242D911007892A1 /* BakeryIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7605A2242D911007892A1 /* BakeryIDs.swift */; };
 		E4A127FBFB5A5F4D1E7DEC1F /* Pods_RealBreadMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2686082C9812CD6E54A0FC8 /* Pods_RealBreadMaps.framework */; };
 /* End PBXBuildFile section */
@@ -64,9 +57,6 @@
 		846248A523612887006F1957 /* bread gif v2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "bread gif v2.mov"; sourceTree = "<group>"; };
 		846248CB2362672B006F1957 /* real-bread-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "real-bread-launch.png"; sourceTree = "<group>"; };
 		846248CD23626A1E006F1957 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		846248CF23627464006F1957 /* bread1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread1.png; sourceTree = "<group>"; };
-		846248D12362746B006F1957 /* bread4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread4.png; sourceTree = "<group>"; };
-		846248D32362747A006F1957 /* bread8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread8.png; sourceTree = "<group>"; };
 		847709F52331941C00FFE238 /* Futura-Light-BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light-BT.ttf"; sourceTree = "<group>"; };
 		84F10B6023481096002A2EF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		84F53425233ED58F00BE25B6 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -85,11 +75,7 @@
 		84F7604922415642007892A1 /* BakeryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryDetailViewController.swift; sourceTree = "<group>"; };
 		84F7604B22415716007892A1 /* BakeryImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F7604D22416125007892A1 /* Bakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bakery.swift; sourceTree = "<group>"; };
-		84F7604F224194EA007892A1 /* SuggestedBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedBakery.swift; sourceTree = "<group>"; };
-		84F76051224295DC007892A1 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
-		84F760542242B07B007892A1 /* PhotosFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFetch.swift; sourceTree = "<group>"; };
 		84F760562242B08A007892A1 /* BakeryModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryModelController.swift; sourceTree = "<group>"; };
-		84F760582242B0F7007892A1 /* PlaceSearchFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchFetch.swift; sourceTree = "<group>"; };
 		84F7605A2242D911007892A1 /* BakeryIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryIDs.swift; sourceTree = "<group>"; };
 		B2686082C9812CD6E54A0FC8 /* Pods_RealBreadMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealBreadMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49860229D3B8EF737DE6B54 /* Pods-RealBreadMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealBreadMaps.debug.xcconfig"; path = "Target Support Files/Pods-RealBreadMaps/Pods-RealBreadMaps.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,13 +135,12 @@
 			isa = PBXGroup;
 			children = (
 				84F7602E22404731007892A1 /* Info.plist */,
-				84F53429233EEA2700BE25B6 /* JSON Files */,
-				8425C538224546A8006E1DAC /* Helpers */,
+				84F7603822415345007892A1 /* Storyboards */,
 				84F7603B22415358007892A1 /* Model */,
-				84F760532242B061007892A1 /* Networking */,
 				84F7603A22415353007892A1 /* Views */,
 				84F760392241534C007892A1 /* View Controllers */,
-				84F7603822415345007892A1 /* Storyboards */,
+				84F53429233EEA2700BE25B6 /* JSON Files */,
+				8425C538224546A8006E1DAC /* Helpers */,
 			);
 			path = RealBreadMaps;
 			sourceTree = "<group>";
@@ -173,13 +158,12 @@
 			isa = PBXGroup;
 			children = (
 				846248CD23626A1E006F1957 /* OnboardingViewController.swift */,
-				84F53425233ED58F00BE25B6 /* LandingViewController.swift */,
 				84F76036224068E3007892A1 /* BakeryMapViewController.swift */,
 				84F7604322415528007892A1 /* BakeryListTableViewController.swift */,
 				84F76045224155D1007892A1 /* InfoViewController.swift */,
 				84F7604722415611007892A1 /* SubmissionsViewController.swift */,
 				84F7604922415642007892A1 /* BakeryDetailViewController.swift */,
-				84F76051224295DC007892A1 /* DirectionsViewController.swift */,
+				84F53425233ED58F00BE25B6 /* LandingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -199,7 +183,6 @@
 				842ECEA02342C07800F831BD /* FirebaseBakery.swift */,
 				84F7605A2242D911007892A1 /* BakeryIDs.swift */,
 				84F760562242B08A007892A1 /* BakeryModelController.swift */,
-				84F7604F224194EA007892A1 /* SuggestedBakery.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,23 +201,11 @@
 				842ECE8E2341518800F831BD /* Amiri-Regular.ttf */,
 				842ECE9E2341535600F831BD /* Amiri-Bold.ttf */,
 				84F7602922404731007892A1 /* Assets.xcassets */,
-				846248D12362746B006F1957 /* bread4.png */,
-				846248D32362747A006F1957 /* bread8.png */,
-				846248CF23627464006F1957 /* bread1.png */,
 				846248CB2362672B006F1957 /* real-bread-launch.png */,
 				846248A32361287D006F1957 /* bread gif v1.mov */,
 				846248A523612887006F1957 /* bread gif v2.mov */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		84F760532242B061007892A1 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				84F760582242B0F7007892A1 /* PlaceSearchFetch.swift */,
-				84F760542242B07B007892A1 /* PhotosFetch.swift */,
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		8C40BDC4D6358E46F059F671 /* Frameworks */ = {
@@ -320,20 +291,17 @@
 				841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */,
 				84F5342B233EEC1800BE25B6 /* style.json in Resources */,
 				842ECE932341518800F831BD /* Amiri-Regular.ttf in Resources */,
-				846248D023627465006F1957 /* bread1.png in Resources */,
 				842ECE9C2341519800F831BD /* OldStandardTT-Regular.ttf in Resources */,
 				84F7602A22404731007892A1 /* Assets.xcassets in Resources */,
 				842ECE852341469B00F831BD /* Kokoro.otf in Resources */,
 				842ECE8923414D3F00F831BD /* PlayfairDisplay-Regular.ttf in Resources */,
 				84F76035224048A9007892A1 /* GoogleService-Info.plist in Resources */,
 				846248CC2362672B006F1957 /* real-bread-launch.png in Resources */,
-				846248D42362747A006F1957 /* bread8.png in Resources */,
 				846248A42361287D006F1957 /* bread gif v1.mov in Resources */,
 				846248A623612887006F1957 /* bread gif v2.mov in Resources */,
 				84F760282240472F007892A1 /* Main.storyboard in Resources */,
 				842ECE9F2341535600F831BD /* Amiri-Bold.ttf in Resources */,
 				841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */,
-				846248D22362746B006F1957 /* bread4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +387,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F76050224194EA007892A1 /* SuggestedBakery.swift in Sources */,
 				841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */,
 				84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */,
 				84F7605B2242D911007892A1 /* BakeryIDs.swift in Sources */,
@@ -427,12 +394,9 @@
 				842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */,
 				84F7604822415611007892A1 /* SubmissionsViewController.swift in Sources */,
 				846248CE23626A1E006F1957 /* OnboardingViewController.swift in Sources */,
-				84F760592242B0F7007892A1 /* PlaceSearchFetch.swift in Sources */,
-				84F760552242B07C007892A1 /* PhotosFetch.swift in Sources */,
 				84F760232240472F007892A1 /* AppDelegate.swift in Sources */,
 				84F76046224155D1007892A1 /* InfoViewController.swift in Sources */,
 				84F760572242B08A007892A1 /* BakeryModelController.swift in Sources */,
-				84F76052224295DC007892A1 /* DirectionsViewController.swift in Sources */,
 				84F7604E22416125007892A1 /* Bakery.swift in Sources */,
 				84F10B6123481096002A2EF0 /* Constants.swift in Sources */,
 				84F7604A22415642007892A1 /* BakeryDetailViewController.swift in Sources */,

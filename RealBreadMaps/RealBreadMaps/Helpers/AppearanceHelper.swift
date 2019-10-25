@@ -38,6 +38,10 @@ enum Appearance {
         
         // Tab Bar
         UITabBar.appearance().tintColor = .roseRed // .ibisRed
+        
+        // Text Fields / Views
+        UITextField.appearance().font = thinFont
+        UITextView.appearance().font = thinFont
 
     }
 }

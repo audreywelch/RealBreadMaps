@@ -33,6 +33,8 @@ class SubmissionsViewController: UIViewController, MFMailComposeViewControllerDe
         reasonsTextView.layer.borderColor = UIColor.lightGray.cgColor
         reasonsTextView.layer.cornerRadius = 7
         
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: Appearance.thinFont], for: .normal)
+        
         self.hideKeyboard()
     }
     

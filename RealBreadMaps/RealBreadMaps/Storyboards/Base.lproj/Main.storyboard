@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cds-oz-9Ha">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ors-Ge-vb9">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,6 +11,9 @@
     <customFonts key="customFonts">
         <array key="Amiri-Bold.ttf">
             <string>Amiri-Bold</string>
+        </array>
+        <array key="Amiri-Regular.ttf">
+            <string>Amiri-Regular</string>
         </array>
         <array key="Futura-Light-BT.ttf">
             <string>FuturaBT-Light</string>
@@ -25,11 +28,11 @@
             <objects>
                 <viewController id="mYQ-fo-A15" customClass="BakeryMapViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eE8-aN-BzH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBx-XE-q9N" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="56" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -64,17 +67,17 @@
             <objects>
                 <viewController id="3Jd-2d-ERK" customClass="SubmissionsViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ftb-UP-P4B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know of some real bread not on my list? I'd love to hear about it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzM-mL-FC2">
-                                <rect key="frame" x="12" y="68" width="351" height="48"/>
+                                <rect key="frame" x="12" y="56" width="351" height="48"/>
                                 <fontDescription key="fontDescription" name="FuturaCondensedPT-Medium" family="Futura Condensed PT" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nR0-D5-e7A">
-                                <rect key="frame" x="12" y="128" width="351" height="160"/>
+                                <rect key="frame" x="12" y="116" width="351" height="160"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PY1-F2-BhT">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="34"/>
@@ -148,18 +151,18 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell me what you love about it:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzn-R1-m9a">
-                                <rect key="frame" x="12" y="308" width="351" height="20"/>
+                                <rect key="frame" x="12" y="296" width="351" height="20"/>
                                 <fontDescription key="fontDescription" name="FuturaCondensedPT-Medium" family="Futura Condensed PT" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="flo-sL-zM7">
-                                <rect key="frame" x="12" y="336" width="351" height="198"/>
+                                <rect key="frame" x="12" y="324" width="351" height="230"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9b-id-4gm">
-                                <rect key="frame" x="167.5" y="546" width="40" height="32"/>
+                                <rect key="frame" x="167.5" y="566" width="40" height="32"/>
                                 <fontDescription key="fontDescription" name="FuturaCondensedPT-Medium" family="Futura Condensed PT" pointSize="20"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
@@ -422,11 +425,11 @@
             <objects>
                 <viewController id="zGJ-4H-o08" customClass="BakeryDetailViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dbt-Pb-5jo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="880"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ii3-Un-bEy">
-                                <rect key="frame" x="0.0" y="56" width="375" height="775"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="807"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-1N-dNf" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="865"/>
@@ -699,7 +702,7 @@
             <objects>
                 <tableViewController id="XQa-g9-im2" customClass="BakeryListTableViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tYn-lc-blq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="ZRy-Vz-bpM">
@@ -765,11 +768,11 @@
             <objects>
                 <viewController id="ytU-iM-jjO" customClass="InfoViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WRL-zM-dUK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6i-0o-RjS">
-                                <rect key="frame" x="0.0" y="56" width="375" height="1375"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="1407"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLV-g6-Tag" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1111.5"/>
@@ -897,7 +900,6 @@
                                 <state key="normal" title="Find Real Bread"/>
                                 <connections>
                                     <action selector="findBreadTapped:" destination="Cds-oz-9Ha" eventType="touchUpInside" id="rFt-0Z-mb5"/>
-                                    <segue destination="r92-DC-LyP" kind="show" id="H0p-yx-Sg7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzY-zF-5YY">
@@ -926,7 +928,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qa4-kK-gTb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-263.19999999999999" y="163.26836581709148"/>
+            <point key="canvasLocation" x="4969" y="-537"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="ysI-np-Gvw">
+            <objects>
+                <viewController id="Ors-Ge-vb9" customClass="OnboardingViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jk6-Qm-32A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0V-Ra-Bj5">
+                                <rect key="frame" x="20" y="584" width="335" height="63"/>
+                                <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="24"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                <state key="normal" title="Find Real Bread">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-Ss-4bJ">
+                                <rect key="frame" x="20" y="539" width="335" height="37"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="Ors-Ge-vb9" eventType="valueChanged" id="Syi-oO-gci"/>
+                                </connections>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cw8-zY-GUR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="491"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="j4M-ne-hkk"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="MVF-YG-yCe"/>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0Wc-ns-jFj" firstAttribute="bottom" secondItem="K0V-Ra-Bj5" secondAttribute="bottom" constant="20" id="3Sa-ON-57p"/>
+                            <constraint firstItem="K0V-Ra-Bj5" firstAttribute="leading" secondItem="0Wc-ns-jFj" secondAttribute="leading" constant="20" id="CZQ-1V-lcC"/>
+                            <constraint firstItem="0Wc-ns-jFj" firstAttribute="trailing" secondItem="CbK-Ss-4bJ" secondAttribute="trailing" constant="20" id="DFS-fd-h2H"/>
+                            <constraint firstItem="0Wc-ns-jFj" firstAttribute="trailing" secondItem="K0V-Ra-Bj5" secondAttribute="trailing" constant="20" id="KGB-Zi-IeD"/>
+                            <constraint firstItem="CbK-Ss-4bJ" firstAttribute="leading" secondItem="0Wc-ns-jFj" secondAttribute="leading" constant="20" id="LpQ-T2-Uws"/>
+                            <constraint firstItem="K0V-Ra-Bj5" firstAttribute="top" secondItem="CbK-Ss-4bJ" secondAttribute="bottom" constant="8" id="QVJ-hO-9bC"/>
+                            <constraint firstItem="Cw8-zY-GUR" firstAttribute="top" secondItem="0Wc-ns-jFj" secondAttribute="top" id="eoH-AX-mSB"/>
+                            <constraint firstItem="Cw8-zY-GUR" firstAttribute="trailing" secondItem="0Wc-ns-jFj" secondAttribute="trailing" id="gLb-Eb-goe"/>
+                            <constraint firstItem="Cw8-zY-GUR" firstAttribute="leading" secondItem="0Wc-ns-jFj" secondAttribute="leading" id="lIk-3C-wy4"/>
+                            <constraint firstItem="CbK-Ss-4bJ" firstAttribute="top" secondItem="Cw8-zY-GUR" secondAttribute="bottom" constant="8" id="ncn-rd-hDW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Wc-ns-jFj"/>
+                    </view>
+                    <connections>
+                        <outlet property="findRealBreadBtn" destination="K0V-Ra-Bj5" id="RSn-vc-dhS"/>
+                        <outlet property="pageControl" destination="CbK-Ss-4bJ" id="CpD-DX-WDF"/>
+                        <outlet property="scrollView" destination="Cw8-zY-GUR" id="7XR-n4-ssz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfl-OJ-fZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-182" y="157"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lqQ-CL-eLT">
@@ -957,7 +1011,7 @@
                     <tabBarItem key="tabBarItem" title="Map" image="map24" id="IHV-wU-h4F"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7lF-G1-xjM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -976,7 +1030,7 @@
                     <tabBarItem key="tabBarItem" title="List" image="list24" id="Hj5-Pl-4eW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W28-UV-QQh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -995,7 +1049,7 @@
                     <tabBarItem key="tabBarItem" title="Info" image="info24" id="8hG-cK-UaZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nHh-Dl-gCR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

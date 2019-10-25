@@ -17,15 +17,16 @@
 		842ECE9C2341519800F831BD /* OldStandardTT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE982341519800F831BD /* OldStandardTT-Regular.ttf */; };
 		842ECE9F2341535600F831BD /* Amiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE9E2341535600F831BD /* Amiri-Bold.ttf */; };
 		842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ECEA02342C07800F831BD /* FirebaseBakery.swift */; };
-		846248A2236121B5006F1957 /* bread-art-v2-edit.mov in Resources */ = {isa = PBXBuildFile; fileRef = 846248A1236121B5006F1957 /* bread-art-v2-edit.mov */; };
 		846248A42361287D006F1957 /* bread gif v1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 846248A32361287D006F1957 /* bread gif v1.mov */; };
 		846248A623612887006F1957 /* bread gif v2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 846248A523612887006F1957 /* bread gif v2.mov */; };
-		846248CA2362635E006F1957 /* bread-icon-white-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248C92362635E006F1957 /* bread-icon-white-background.png */; };
 		846248CC2362672B006F1957 /* real-bread-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248CB2362672B006F1957 /* real-bread-launch.png */; };
+		846248CE23626A1E006F1957 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846248CD23626A1E006F1957 /* OnboardingViewController.swift */; };
+		846248D023627465006F1957 /* bread1.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248CF23627464006F1957 /* bread1.png */; };
+		846248D22362746B006F1957 /* bread4.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248D12362746B006F1957 /* bread4.png */; };
+		846248D42362747A006F1957 /* bread8.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248D32362747A006F1957 /* bread8.png */; };
 		847709F62331941C00FFE238 /* Futura-Light-BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 847709F52331941C00FFE238 /* Futura-Light-BT.ttf */; };
 		84F10B6123481096002A2EF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F10B6023481096002A2EF0 /* Constants.swift */; };
 		84F53426233ED58F00BE25B6 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F53425233ED58F00BE25B6 /* LandingViewController.swift */; };
-		84F53428233EDAB600BE25B6 /* bread-art-edit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */; };
 		84F5342B233EEC1800BE25B6 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F5342A233EEC1800BE25B6 /* style.json */; };
 		84F760232240472F007892A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760222240472F007892A1 /* AppDelegate.swift */; };
 		84F760282240472F007892A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F760262240472F007892A1 /* Main.storyboard */; };
@@ -59,15 +60,16 @@
 		842ECE982341519800F831BD /* OldStandardTT-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Regular.ttf"; sourceTree = "<group>"; };
 		842ECE9E2341535600F831BD /* Amiri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amiri-Bold.ttf"; sourceTree = "<group>"; };
 		842ECEA02342C07800F831BD /* FirebaseBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBakery.swift; sourceTree = "<group>"; };
-		846248A1236121B5006F1957 /* bread-art-v2-edit.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "bread-art-v2-edit.mov"; sourceTree = "<group>"; };
 		846248A32361287D006F1957 /* bread gif v1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "bread gif v1.mov"; sourceTree = "<group>"; };
 		846248A523612887006F1957 /* bread gif v2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "bread gif v2.mov"; sourceTree = "<group>"; };
-		846248C92362635E006F1957 /* bread-icon-white-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bread-icon-white-background.png"; sourceTree = "<group>"; };
 		846248CB2362672B006F1957 /* real-bread-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "real-bread-launch.png"; sourceTree = "<group>"; };
+		846248CD23626A1E006F1957 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		846248CF23627464006F1957 /* bread1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread1.png; sourceTree = "<group>"; };
+		846248D12362746B006F1957 /* bread4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread4.png; sourceTree = "<group>"; };
+		846248D32362747A006F1957 /* bread8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread8.png; sourceTree = "<group>"; };
 		847709F52331941C00FFE238 /* Futura-Light-BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light-BT.ttf"; sourceTree = "<group>"; };
 		84F10B6023481096002A2EF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		84F53425233ED58F00BE25B6 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bread-art-edit.mp4"; sourceTree = "<group>"; };
 		84F5342A233EEC1800BE25B6 /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		84F7601F2240472F007892A1 /* RealBreadMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBreadMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F760222240472F007892A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		84F760392241534C007892A1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				846248CD23626A1E006F1957 /* OnboardingViewController.swift */,
 				84F53425233ED58F00BE25B6 /* LandingViewController.swift */,
 				84F76036224068E3007892A1 /* BakeryMapViewController.swift */,
 				84F7604322415528007892A1 /* BakeryListTableViewController.swift */,
@@ -215,12 +218,12 @@
 				842ECE8E2341518800F831BD /* Amiri-Regular.ttf */,
 				842ECE9E2341535600F831BD /* Amiri-Bold.ttf */,
 				84F7602922404731007892A1 /* Assets.xcassets */,
+				846248D12362746B006F1957 /* bread4.png */,
+				846248D32362747A006F1957 /* bread8.png */,
+				846248CF23627464006F1957 /* bread1.png */,
 				846248CB2362672B006F1957 /* real-bread-launch.png */,
-				846248C92362635E006F1957 /* bread-icon-white-background.png */,
 				846248A32361287D006F1957 /* bread gif v1.mov */,
 				846248A523612887006F1957 /* bread gif v2.mov */,
-				84F53427233EDAB600BE25B6 /* bread-art-edit.mp4 */,
-				846248A1236121B5006F1957 /* bread-art-v2-edit.mov */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -317,20 +320,20 @@
 				841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */,
 				84F5342B233EEC1800BE25B6 /* style.json in Resources */,
 				842ECE932341518800F831BD /* Amiri-Regular.ttf in Resources */,
+				846248D023627465006F1957 /* bread1.png in Resources */,
 				842ECE9C2341519800F831BD /* OldStandardTT-Regular.ttf in Resources */,
-				84F53428233EDAB600BE25B6 /* bread-art-edit.mp4 in Resources */,
 				84F7602A22404731007892A1 /* Assets.xcassets in Resources */,
 				842ECE852341469B00F831BD /* Kokoro.otf in Resources */,
 				842ECE8923414D3F00F831BD /* PlayfairDisplay-Regular.ttf in Resources */,
 				84F76035224048A9007892A1 /* GoogleService-Info.plist in Resources */,
-				846248CA2362635E006F1957 /* bread-icon-white-background.png in Resources */,
 				846248CC2362672B006F1957 /* real-bread-launch.png in Resources */,
+				846248D42362747A006F1957 /* bread8.png in Resources */,
 				846248A42361287D006F1957 /* bread gif v1.mov in Resources */,
-				846248A2236121B5006F1957 /* bread-art-v2-edit.mov in Resources */,
 				846248A623612887006F1957 /* bread gif v2.mov in Resources */,
 				84F760282240472F007892A1 /* Main.storyboard in Resources */,
 				842ECE9F2341535600F831BD /* Amiri-Bold.ttf in Resources */,
 				841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */,
+				846248D22362746B006F1957 /* bread4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +426,7 @@
 				84F76037224068E3007892A1 /* BakeryMapViewController.swift in Sources */,
 				842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */,
 				84F7604822415611007892A1 /* SubmissionsViewController.swift in Sources */,
+				846248CE23626A1E006F1957 /* OnboardingViewController.swift in Sources */,
 				84F760592242B0F7007892A1 /* PlaceSearchFetch.swift in Sources */,
 				84F760552242B07C007892A1 /* PhotosFetch.swift in Sources */,
 				84F760232240472F007892A1 /* AppDelegate.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct FirebaseBakery: Codable {
     let milledInHouse: Bool?
@@ -15,5 +16,5 @@ struct FirebaseBakery: Codable {
     let sellsLoaves: Bool?
     let servesFood: Bool?
     let info: String?
-    //var bakeryInfo: Bakery?
+
 }

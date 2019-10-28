@@ -81,6 +81,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
 
         // Set the direction of the user's scrolling to be swiping horizontally
         layout.scrollDirection = .horizontal
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

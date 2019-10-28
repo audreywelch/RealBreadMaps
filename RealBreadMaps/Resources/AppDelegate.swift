@@ -21,28 +21,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Firebase configuration
         FirebaseApp.configure()
+        
+        // API Key protection
         GMSServices.provideAPIKey(GMSServicesApiKey)
         GMSPlacesClient.provideAPIKey(GMSPlacesClientApiKey)
         
+        // Set up UI theming app-wide
         Appearance.setupTheme()
         
+        // Fetch bakeries from Firebase
         BakeryModelController.shared.fetchAllBakeries()
         
-//        BakeryModelController.shared.fetchAllBakeries { (error) in
-//            // Perform the fetch on a background queue
-//            DispatchQueue.global(qos: .userInitiated).async {
-//
-//                // For each bakery in the firebaseBakeries array
-//                for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-//
-//                    // Use the placeID to make the GooglePlaces API call
-//                    BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-//
-//                    }
-//                }
-//            }
-//        }
+        // Save boolean for whether or not user has already used the app
+        // Only show the onboarding screen if it's a first time use
+        if let rootViewController = self.window?.rootViewController {
+            
+            let defaults = UserDefaults.standard
+            let hasSeenTutorial = defaults.bool(forKey: "hasSeenTutorial") // will be false the first time
+            defaults.set(true, forKey: "hasSeenTutorial")
+            
+            if hasSeenTutorial == false {
+                let vc = rootViewController.storyboard!.instantiateViewController(withIdentifier: "InitialViewController")
+                self.window!.rootViewController = vc
+            } else {
+                let vc = rootViewController.storyboard!.instantiateViewController(withIdentifier: "TabBarController")
+                self.window!.rootViewController = vc
+            }
+        }
         
         // Find names of custom fonts
 //        for family in UIFont.familyNames.sorted() {

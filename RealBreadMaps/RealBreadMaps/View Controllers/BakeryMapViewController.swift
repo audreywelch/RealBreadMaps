@@ -15,12 +15,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     
     let bakeryDetailViewController = BakeryDetailViewController()
     
-    // Use a CLLocation manager to show user's location
-    var locationManager = CLLocationManager()
-    var didFindMyLocation = false
-    
-    var bakeryIDs = [BakeryIDS.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .w, .x, .y, .z, .aa, .bb, .cc, .dd, .ee, .ff, .gg, .hh, .ii, .jj, .kk, .ll]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +35,9 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
         mapView.camera = camera
         
+        // Set color for icon
+        let markerImage = GMSMarker.markerImage(with: .roseRed)
+        
         // Perform the fetch on a background queue
         DispatchQueue.global(qos: .userInitiated).async {
         
@@ -49,26 +46,34 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         
                 // Use the placeID to make the GooglePlaces API call
                 BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-        
+                    
                     // Switch to main thread for UI
                     DispatchQueue.main.async {
         
                         // Populate the map with all the bakeries in the Bakeries array
                         for eachBakery in BakeryModelController.shared.bakeries {
+                            
                             let marker = GMSMarker()
                             marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
-                            marker.icon = GMSMarker.markerImage(with: .roseRed)
+                            marker.icon = markerImage
                             marker.title = "\(eachBakery.name)"
                             marker.snippet = "\(eachBakery.formattedAddress)"
                             marker.map = self.mapView
+                            
+                            // MARK: - TODO
+                            // Add the following information to markers
+                            guard let distanceFromUser = eachBakery.distanceFromUser else { return }
+                            print("DISTANCE FROM \(eachBakery.name) is \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles.")
         
                         }
                     }
                 }
             }
         }
+
     }
     
+
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         BakeryModelController.shared.currentBakeryName = marker.title
@@ -80,6 +85,26 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let destination = segue.destination as? BakeryDetailViewController else { return }
+    }
+    
+    
+    // Helper function to convert and format distances
+    static func convertMetersToMiles(of distance: CLLocationDistance) -> String {
+        
+        // Local variable to hold distance in order to be manipulated
+        var currentDistance = distance
+        
+        // Convert meters to miles
+        currentDistance = currentDistance / 1609.344
+        
+        // Number Formatter
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 1
+        let formattedDistance = formatter.string(from: currentDistance as NSNumber)!
+        
+        return formattedDistance
+        
     }
     
 }
@@ -100,7 +125,8 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
 //        }
 //        print("TEMP ARRAY: \(BakeryModelController.shared.tempFirebaseBakeries)")
         
-        
+// var bakeryIDs = [BakeryIDS.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .w, .x, .y, .z, .aa, .bb, .cc, .dd, .ee, .ff, .gg, .hh, .ii, .jj, .kk, .ll]
+
 //        for eachBakeryID in bakeryIDs {
 //
 //            BakeryModelController.shared.getBakeryInfo(with: eachBakeryID.rawValue) { (error) in

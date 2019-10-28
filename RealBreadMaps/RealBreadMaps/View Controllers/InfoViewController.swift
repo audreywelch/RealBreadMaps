@@ -7,20 +7,35 @@
 //
 
 import UIKit
+import CoreLocation
 
-class InfoViewController: UIViewController {
+class InfoViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var animationTextLabel: UILabel!
-    
     @IBOutlet weak var realBreadExplainedLabel: UILabel!
-    
     @IBOutlet weak var aboutMeExplainedLabel: UILabel!
+    
+    // Use a CLLocation manager to show user's location
+    var locationManager = CLLocationManager()
+    var didFindMyLocation = false
+    
+    var location: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Real Bread"
+        self.tabBarItem.title = "info"
+        
         realBreadExplainedLabel.font = Appearance.thinFont
         aboutMeExplainedLabel.font = Appearance.thinFont
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
         
     }
     
@@ -28,6 +43,19 @@ class InfoViewController: UIViewController {
         super.viewWillAppear(animated)
         
         animateLabel()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        location = locations.first?.coordinate
+        
+        manager.stopUpdatingLocation()
+        
+        if let startingLocation = locations.first {
+            print("Location: \(startingLocation)")
+            
+            BakeryModelController.shared.userLocation = location
+        }
     }
     
     func animateLabel() {

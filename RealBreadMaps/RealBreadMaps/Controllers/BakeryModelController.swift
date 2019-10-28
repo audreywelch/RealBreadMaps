@@ -8,6 +8,7 @@
 // https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJsyPVS2jwwIcRgxML7BXE7eQ&key=APIKEYGOESHERE
 
 import UIKit
+import CoreLocation
 
 class BakeryModelController {
     
@@ -18,6 +19,13 @@ class BakeryModelController {
     // Holds the search result returned
     var bakery: Bakery?
     
+    // Holds the user's location
+    var userLocation: CLLocationCoordinate2D!
+    
+    // Holds locations needed for Bakery computed property
+    var locationOfBakery: CLLocation?
+    var locationOfUser: CLLocation?
+    
     // Holds current bakery in focus
     var currentBakeryName: String?
     var currentBakeryAddress: String?
@@ -25,7 +33,7 @@ class BakeryModelController {
     // Array to hold saved bakeries
     var bakeries: [Bakery] = []
     var firebaseBakeries: [FirebaseBakery] = []
-    
+
     // Array to hold saved photo references
     var photoReferences: [PhotoReferences] = []
     

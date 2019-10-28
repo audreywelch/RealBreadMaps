@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class BakeryListTableViewController: UITableViewController, UISearchBarDelegate {
     
@@ -22,7 +23,26 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         bakerySearchBar.delegate = self
         
         self.bakeries = BakeryModelController.shared.bakeries
+        
+        sortByDistance()
+        
+        //BakeryMapViewController.convertMetersToMiles(of: bakeries[0].distanceFromUser!)
+ 
     }
+    
+    // Sort the bakeries by distance away from user and reload the table view
+    func sortByDistance() {
+        
+        bakeries.sort { (l1, l2) -> Bool in
+            return Double(l1.distanceFromUser!) < Double(l2.distanceFromUser!)
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Table View Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

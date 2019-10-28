@@ -60,7 +60,19 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                             marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
                             marker.icon = markerImageColor
                             marker.title = "\(eachBakery.name)"
-                            marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles away"
+                            
+                            // If the bakery is in the USA, Liberia, or Myanmar, use miles
+                            if eachBakery.formattedAddress.contains("USA")
+                                || eachBakery.formattedAddress.contains("Liberia")
+                                || eachBakery.formattedAddress.contains("Myanmar") {
+                                
+                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles away"
+                                
+                            // Otherwise, use kilometers
+                            } else {
+                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToKilometers(of: distanceFromUser)) kilometers away"
+                            }
+
                             marker.map = self.mapView
 
                         }
@@ -103,6 +115,23 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         
         return formattedDistance
         
+    }
+    
+    static func convertMetersToKilometers(of distance: CLLocationDistance) -> String {
+        
+        // Local variable to hold distance in order to be manipulated
+        var currentDistance = distance
+        
+        // Convert meters to miles
+        currentDistance = currentDistance / 1000
+        
+        // Number Formatter
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 1
+        let formattedDistance = formatter.string(from: currentDistance as NSNumber)!
+        
+        return formattedDistance
     }
     
 }

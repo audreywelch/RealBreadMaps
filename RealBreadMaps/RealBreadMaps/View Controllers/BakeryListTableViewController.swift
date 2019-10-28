@@ -22,12 +22,42 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         bakerySearchBar.delegate = self
         
-        self.bakeries = BakeryModelController.shared.bakeries
+        bakeryFetch()
         
-        sortByDistance()
+//        self.bakeries = BakeryModelController.shared.bakeries
+        
+        //sortByDistance()
         
         //BakeryMapViewController.convertMetersToMiles(of: bakeries[0].distanceFromUser!)
  
+    }
+    
+    // Fetch function if user taps on List View before Map View
+    func bakeryFetch() {
+        
+        if BakeryModelController.shared.bakeries.count == 0 {
+            
+            // Perform the fetch on a background queue
+            DispatchQueue.global(qos: .userInitiated).async {
+
+                // For each bakery in the firebaseBakeries array
+                for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+
+                    // Use the placeID to make the GooglePlaces API call
+                    BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
+                        self.bakeries = BakeryModelController.shared.bakeries
+
+                        DispatchQueue.main.async {
+                            self.sortByDistance()
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        } else {
+            bakeries = BakeryModelController.shared.bakeries
+            sortByDistance()
+        }
     }
     
     // Sort the bakeries by distance away from user and reload the table view

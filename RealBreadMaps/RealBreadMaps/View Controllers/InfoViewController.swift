@@ -95,6 +95,7 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
                 })
             }
         }
+        
 //
 //        UIView.animate(withDuration: 3.0) {
 //
@@ -137,6 +138,8 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
 //        }
     
     }
+
+
 }
 
 //extension UILabel {

@@ -40,29 +40,29 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         
         // Perform the fetch on a background queue
         DispatchQueue.global(qos: .userInitiated).async {
-        
+
             // For each bakery in the firebaseBakeries array
             for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-        
+
                 // Use the placeID to make the GooglePlaces API call
                 BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-                    
+
                     // Switch to main thread for UI
                     DispatchQueue.main.async {
-        
+
                         // Populate the map with all the bakeries in the Bakeries array
                         for eachBakery in BakeryModelController.shared.bakeries {
-                            
+
                             guard let distanceFromUser = eachBakery.distanceFromUser else { return }
                             print("DISTANCE FROM \(eachBakery.name) is \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles.")
-                            
+
                             let marker = GMSMarker()
                             marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
                             marker.icon = markerImageColor
                             marker.title = "\(eachBakery.name)"
                             marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles away"
                             marker.map = self.mapView
-                            
+
                         }
                     }
                 }

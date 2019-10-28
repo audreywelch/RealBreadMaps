@@ -87,7 +87,8 @@ class BakeryModelController {
     
     // Fetches additional info from Google using the placeID of each fetched FirebaseBakery
     // Saves the info as a Bakery object in the Bakeries array
-    func getBakeryInfo(with placeID: String, completion: @escaping (Error?) -> Void) {
+    //func getBakeryInfo(with placeID: String, completion: @escaping (Error?) -> Void) {
+    func getBakeryInfo(with placeID: String, completion: @escaping CompletionHandler = { _ in }) {
         
         var bakeryURL = baseURL.appendingPathComponent("details")
         

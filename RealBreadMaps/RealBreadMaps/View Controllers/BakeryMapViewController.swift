@@ -32,7 +32,12 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         }
         
         // Set initial view to the United States
-        let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
+        //let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
+        
+        // Set initial view to the the user's location
+        let camera = GMSCameraPosition.camera(withLatitude: BakeryModelController.shared.userLocation.latitude,
+                                              longitude: BakeryModelController.shared.userLocation.longitude,
+                                              zoom: 5.0)
         mapView.camera = camera
         
         // Set color for icon
@@ -52,26 +57,30 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
 
                         // Populate the map with all the bakeries in the Bakeries array
                         for eachBakery in BakeryModelController.shared.bakeries {
-
-                            guard let distanceFromUser = eachBakery.distanceFromUser else { return }
-                            print("DISTANCE FROM \(eachBakery.name) is \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles.")
-
+                            
                             let marker = GMSMarker()
                             marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
                             marker.icon = markerImageColor
                             marker.title = "\(eachBakery.name)"
+                            marker.snippet = "\(eachBakery.formattedAddress)"
                             
-                            // If the bakery is in the USA, Liberia, or Myanmar, use miles
-                            if eachBakery.formattedAddress.contains("USA")
-                                || eachBakery.formattedAddress.contains("Liberia")
-                                || eachBakery.formattedAddress.contains("Myanmar") {
-                                
-                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles away"
-                                
-                            // Otherwise, use kilometers
-                            } else {
-                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToKilometers(of: distanceFromUser)) kilometers away"
-                            }
+                            // MARK: - TODO
+                            // Come up with new way to add the distance because I need the snippet to be only the address
+                            
+//                            // Unwrap the distance from user
+//                            guard let distanceFromUser = eachBakery.distanceFromUser else { return }
+//
+//                            // If the bakery is in the USA, Liberia, or Myanmar, use miles
+//                            if eachBakery.formattedAddress.contains("USA")
+//                                || eachBakery.formattedAddress.contains("Liberia")
+//                                || eachBakery.formattedAddress.contains("Myanmar") {
+//
+//                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles away"
+//
+//                            // Otherwise, use kilometers
+//                            } else {
+//                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToKilometers(of: distanceFromUser)) kilometers away"
+//                            }
 
                             marker.map = self.mapView
 
@@ -90,11 +99,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         BakeryModelController.shared.currentBakeryAddress = marker.snippet
         
         performSegue(withIdentifier: "showDetailViewController", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let destination = segue.destination as? BakeryDetailViewController else { return }
     }
     
     

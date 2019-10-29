@@ -10,6 +10,12 @@ import UIKit
 
 class BakeryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var bakeryNameLabel: UILabel!
+    @IBOutlet weak var bakeryDistanceLabel: UILabel!
+    @IBOutlet weak var bakeryAddressLabel: UILabel!
+    
+    @IBOutlet weak var bakeryImageView: UIImageView!
+    
     static let reuseIdentier = "bakeryCell"
     
     @IBOutlet weak var containerView: UIView! {
@@ -19,9 +25,9 @@ class BakeryTableViewCell: UITableViewCell {
             containerView.layer.cornerRadius = 10
             containerView.layer.shadowOpacity = 1
             containerView.layer.shadowRadius = 2
-            containerView.layer.shadowColor = UIColor.roseRed.cgColor
+            containerView.layer.shadowColor = UIColor.lightGray.cgColor
             containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
-            containerView.backgroundColor = UIColor.systemGray
+            containerView.backgroundColor = UIColor.white
         }
     }
 

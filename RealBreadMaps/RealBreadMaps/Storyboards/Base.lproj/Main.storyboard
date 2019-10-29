@@ -15,7 +15,7 @@
         <array key="Amiri-Regular.ttf">
             <string>Amiri-Regular</string>
         </array>
-        <array key="Futura Light BT.ttf">
+        <array key="Futura-Light-BT.ttf">
             <string>FuturaBT-Light</string>
         </array>
         <array key="futura-condensed-pt-medium.otf">
@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6dc-hS-ZeM">
-                                <rect key="frame" x="8" y="8" width="193" height="128"/>
+                                <rect key="frame" x="8" y="8" width="375" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="EbG-UY-hhY"/>
@@ -233,7 +233,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="3rm-Hm-Vbn" customClass="BakeryImageCollectionViewCell" customModule="RealBreadMaps" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="0.0" width="125" height="125"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -269,26 +269,26 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-Ux-Ofn">
-                                <rect key="frame" x="12" y="235" width="45.5" height="243.5"/>
+                                <rect key="frame" x="12" y="235" width="227.5" height="159.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday Tuesday Wednesday Thursday Friday Saturday Sunday" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hns-E2-H9f">
-                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="201.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="227.5" height="117.5"/>
                                         <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSb-f7-qaB">
-                                        <rect key="frame" x="0.0" y="213.5" width="45.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="129.5" width="227.5" height="30"/>
                                         <state key="normal" title="Website"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vH1-EO-nXN" customClass="GMSMapView">
-                                <rect key="frame" x="12" y="486.5" width="169" height="172.5"/>
+                                <rect key="frame" x="12" y="402.5" width="351" height="256.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ouM-rZ-hPZ">
-                                <rect key="frame" x="65.5" y="235" width="115.5" height="104"/>
+                                <rect key="frame" x="247.5" y="235" width="115.5" height="104"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KWM-HX-dep">
                                         <rect key="frame" x="0.0" y="0.0" width="115.5" height="20"/>
@@ -365,7 +365,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messenger Café" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-xI-k3L">
-                                <rect key="frame" x="12" y="144" width="169" height="24"/>
+                                <rect key="frame" x="12" y="144" width="351" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="ORI-hY-q53"/>
                                 </constraints>
@@ -374,7 +374,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1624 Grand Blvd Kansas City, MO 64106" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0G-Jn-eDx">
-                                <rect key="frame" x="12" y="176" width="169" height="41"/>
+                                <rect key="frame" x="12" y="176" width="351" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="MmY-1y-tut"/>
                                 </constraints>
@@ -708,30 +708,76 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bakeryCell" textLabel="Nuh-MP-wcv" detailTextLabel="XmT-tz-FgF" style="IBUITableViewCellStyleSubtitle" id="AAD-bf-3eN">
-                                <rect key="frame" x="0.0" y="72" width="375" height="62.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bakeryCell" rowHeight="105" id="AAD-bf-3eN" customClass="BakeryTableViewCell" customModule="RealBreadMaps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AAD-bf-3eN" id="gS1-Io-PKT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nuh-MP-wcv">
-                                            <rect key="frame" x="16" y="9" width="31.5" height="22.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XmT-tz-FgF">
-                                            <rect key="frame" x="16" y="34.5" width="42.5" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssM-0f-byq" userLabel="Container View">
+                                            <rect key="frame" x="12" y="12" width="351" height="81"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Bakery Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-Mq-AuS">
+                                                    <rect key="frame" x="12" y="12" width="327" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-s0-wm2">
+                                                    <rect key="frame" x="12" y="20" width="215" height="49"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15 miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGl-fz-rMr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="215" height="27"/>
+                                                            <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="5518 Via Marisol, Los Angeles" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H21-xD-9pa">
+                                                            <rect key="frame" x="0.0" y="32" width="215" height="17"/>
+                                                            <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICg-oX-dmX">
+                                                    <rect key="frame" x="239" y="20" width="100" height="49"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ICg-oX-dmX" secondAttribute="height" id="A2a-9i-2Mt"/>
+                                                        <constraint firstAttribute="height" constant="100" id="p6p-0u-xMA"/>
+                                                        <constraint firstAttribute="width" constant="100" id="tQI-QD-vCO"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ICg-oX-dmX" secondAttribute="trailing" constant="12" id="2EJ-Ph-Mrb"/>
+                                                <constraint firstItem="HYE-s0-wm2" firstAttribute="leading" secondItem="ssM-0f-byq" secondAttribute="leading" constant="12" id="96Q-QL-z6W"/>
+                                                <constraint firstItem="ICg-oX-dmX" firstAttribute="leading" secondItem="HYE-s0-wm2" secondAttribute="trailing" constant="12" id="Gfj-vg-FsC"/>
+                                                <constraint firstAttribute="bottom" secondItem="HYE-s0-wm2" secondAttribute="bottom" constant="12" id="UBf-Tx-SX5"/>
+                                                <constraint firstAttribute="trailing" secondItem="W4S-Mq-AuS" secondAttribute="trailing" constant="12" id="YMr-0j-usg"/>
+                                                <constraint firstItem="W4S-Mq-AuS" firstAttribute="leading" secondItem="ssM-0f-byq" secondAttribute="leading" constant="12" id="b8y-Tk-f4v"/>
+                                                <constraint firstItem="HYE-s0-wm2" firstAttribute="top" secondItem="W4S-Mq-AuS" secondAttribute="bottom" constant="8" id="cNF-hM-cu0"/>
+                                                <constraint firstItem="W4S-Mq-AuS" firstAttribute="top" secondItem="ssM-0f-byq" secondAttribute="top" constant="12" id="d5L-OB-Sea"/>
+                                                <constraint firstItem="ICg-oX-dmX" firstAttribute="top" secondItem="W4S-Mq-AuS" secondAttribute="bottom" constant="8" id="dcs-Bf-Qxc"/>
+                                                <constraint firstAttribute="bottom" secondItem="ICg-oX-dmX" secondAttribute="bottom" constant="12" id="g3z-l5-7LF"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ssM-0f-byq" secondAttribute="bottom" constant="12" id="Jjm-JO-g6F"/>
+                                        <constraint firstItem="ssM-0f-byq" firstAttribute="leading" secondItem="gS1-Io-PKT" secondAttribute="leading" constant="12" id="MCe-Kl-CGc"/>
+                                        <constraint firstItem="ssM-0f-byq" firstAttribute="top" secondItem="gS1-Io-PKT" secondAttribute="top" constant="12" id="j0S-fm-1Jn"/>
+                                        <constraint firstAttribute="trailing" secondItem="ssM-0f-byq" secondAttribute="trailing" constant="12" id="nPE-q7-sMQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bakeryAddressLabel" destination="H21-xD-9pa" id="sgf-5P-VuU"/>
+                                    <outlet property="bakeryDistanceLabel" destination="IGl-fz-rMr" id="dvD-yu-dBY"/>
+                                    <outlet property="bakeryImageView" destination="ICg-oX-dmX" id="qKR-NW-G2N"/>
+                                    <outlet property="bakeryNameLabel" destination="W4S-Mq-AuS" id="rhg-0B-LkY"/>
+                                    <outlet property="containerView" destination="ssM-0f-byq" id="UU2-SB-gH8"/>
                                     <segue destination="zGJ-4H-o08" kind="show" id="XPO-xh-c7j"/>
                                 </connections>
                             </tableViewCell>
@@ -755,7 +801,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GiI-Or-c8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982" y="205"/>
+            <point key="canvasLocation" x="1981.5999999999999" y="204.64767616191907"/>
         </scene>
         <!--Real Bread-->
         <scene sceneID="0RM-wN-2ig">

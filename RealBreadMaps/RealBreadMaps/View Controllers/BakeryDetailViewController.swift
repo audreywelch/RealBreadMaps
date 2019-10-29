@@ -133,21 +133,23 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     // Populate the labels with corresponding information
     func labelSetUp() {
         
-        bakeryNameLabel.text = bakery?.name
-        bakeryAddressLabel.text = bakery?.formattedAddress
+        guard let bakery = bakery else { return }
         
+        // Make sure name of bakery displayed is specific to its location
+        bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: bakery)
+        bakeryAddressLabel.text = bakery.formattedAddress
         
-        if bakery?.openingHours?.weekdayText != nil {
-            let hoursString = bakery?.openingHours?.weekdayText.joined(separator: "\n")
+        if bakery.openingHours?.weekdayText != nil {
+            let hoursString = bakery.openingHours?.weekdayText.joined(separator: "\n")
             bakeryHoursLabel.text = hoursString
         } else {
             bakeryHoursLabel.text = "Please visit website for hours."
         }
         
-        bakeryWebsiteButton.setTitle(bakery?.website, for: .normal)
+        bakeryWebsiteButton.setTitle(bakery.website, for: .normal)
         
-        if bakery?.internationalPhoneNumber != nil {
-            bakeryPhoneNumberButton.setTitle(bakery?.internationalPhoneNumber, for: .normal)
+        if bakery.internationalPhoneNumber != nil {
+            bakeryPhoneNumberButton.setTitle(bakery.internationalPhoneNumber, for: .normal)
         } else {
             bakeryPhoneNumberButton.setTitle("Phone number unavailable", for: .normal)
         }

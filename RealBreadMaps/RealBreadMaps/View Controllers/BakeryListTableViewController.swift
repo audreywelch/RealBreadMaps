@@ -96,15 +96,14 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
         
-        
-        
         bakeryCell.bakeryDistanceLabel.adjustsFontForContentSizeCategory = true
         bakeryCell.imageView?.layer.cornerRadius = 10
         bakeryCell.imageView?.layer.masksToBounds = true
         
         // Searched-for bakeries
         if searchBarIsEmpty() == false {
-            bakeryCell.bakeryNameLabel.text = filteredBakeries[indexPath.row].name
+            //bakeryCell.bakeryNameLabel.text = filteredBakeries[indexPath.row].name
+            bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: filteredBakeries[indexPath.row])
             
             let splitAddressArray = filteredBakeries[indexPath.row].formattedAddress.split(separator: ",", maxSplits: 1).map(String.init)
             bakeryCell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
@@ -125,7 +124,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         // Full list of bakeries
         } else {
-            bakeryCell.bakeryNameLabel.text = bakeries[indexPath.row].name
+            //bakeryCell.bakeryNameLabel.text = bakeries[indexPath.row].name
+            bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: bakeries[indexPath.row])
             
             let splitAddressArray = bakeries[indexPath.row].formattedAddress.split(separator: ",", maxSplits: 1).map(String.init)
             bakeryCell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
@@ -147,6 +147,25 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             }
         }
         return bakeryCell
+    }
+    
+    static func bakeryNameSpecifications(bakery: Bakery) -> String {
+        
+        if bakery.name == "Manresa Bread" {
+            if bakery.formattedAddress.contains("Los Gatos") {
+                return "Manresa Bread - Los Gatos"
+            } else if bakery.formattedAddress.contains("Los Altos") {
+                return "Manresa Bread - Los Altos"
+            } else if bakery.formattedAddress.contains("Campbell") {
+                return "Manresa Bread - Campbell All Day"
+            }
+        } else if bakery.name == "Lodge Bread Company" {
+            if bakery.formattedAddress.contains("Woodland Hills") {
+                return "Lodge Bread Company - Woodland Hills"
+            }
+        }
+            
+        return bakery.name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

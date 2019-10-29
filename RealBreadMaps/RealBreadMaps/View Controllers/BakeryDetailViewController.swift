@@ -48,7 +48,11 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // Show the correct bakery
         for eachBakery in BakeryModelController.shared.bakeries {
             
-            if eachBakery.name == BakeryModelController.shared.currentBakeryName && eachBakery.formattedAddress == BakeryModelController.shared.currentBakeryAddress {
+            // Compare using name & address b/c can't pass an object from the map view
+            // and need to account for multiple bakery locations with the same name
+            if eachBakery.name == BakeryModelController.shared.currentBakeryName
+                && eachBakery.formattedAddress == BakeryModelController.shared.currentBakeryAddress {
+                
                 self.bakery = eachBakery
             }
         }
@@ -168,7 +172,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
             if self.bakery?.placeId == eachFirebaseBakery.placeID {
                 
-                var selectedBakery = eachFirebaseBakery
+                let selectedBakery = eachFirebaseBakery
                 
                 // Icon Color Adjustments
                 
@@ -195,8 +199,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                     organicImageView.tintColor = .gray
                     organicImageView.image = organicIcon
                     
-                    let attrString = NSAttributedString(string: "Sells Loaves", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                                                                                             NSAttributedString.Key.strikethroughColor: UIColor.lightGray])
+                    let attrString = NSAttributedString(string: "Sells Loaves",
+                                                        attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                     NSAttributedString.Key.strikethroughColor: UIColor.lightGray])
                     organicLabel.attributedText = attrString
                     organicLabel.textColor = .gray
                     
@@ -225,8 +230,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                     milledInHouseImageView.tintColor = .gray
                     milledInHouseImageView.image = milledIcon
                     
-                    let attrsString = NSAttributedString(string: "Milled In-house", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                                                                                                 NSAttributedString.Key.strikethroughColor: UIColor.gray])
+                    let attrsString = NSAttributedString(string: "Milled In-house",
+                                                         attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                      NSAttributedString.Key.strikethroughColor: UIColor.gray])
                     milledInHouseLabel.attributedText = attrsString
                     milledInHouseLabel.textColor = .gray
                     
@@ -255,8 +261,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                     servesFoodImageView.tintColor = .gray
                     servesFoodImageView.image = servesFoodIcon
                     
-                    let attrsString = NSAttributedString(string: "Serves Food", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                                                                                                 NSAttributedString.Key.strikethroughColor: UIColor.gray])
+                    let attrsString = NSAttributedString(string: "Serves Food",
+                                                         attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                      NSAttributedString.Key.strikethroughColor: UIColor.gray])
                     servesFoodLabel.attributedText = attrsString
                     servesFoodLabel.textColor = .gray
                 }
@@ -284,8 +291,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                     sellsLoavesImageView.tintColor = .gray
                     sellsLoavesImageView.image = sellsLoavesIcon
                     
-                    let attrsString = NSAttributedString(string: "Sells Loaves", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                                                                                                 NSAttributedString.Key.strikethroughColor: UIColor.gray])
+                    let attrsString = NSAttributedString(string: "Sells Loaves",
+                                                         attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                                                                      NSAttributedString.Key.strikethroughColor: UIColor.gray])
                     sellsLoavesLabel.attributedText = attrsString
                     sellsLoavesLabel.textColor = .gray
                     
@@ -305,7 +313,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         if bakery != nil {
             // Set initial view to the bakery
-            let camera = GMSCameraPosition.camera(withLatitude: bakery?.geometry.location.lat ?? 0, longitude: bakery?.geometry.location.lng ?? 0, zoom: 5)
+            let camera = GMSCameraPosition.camera(withLatitude: bakery?.geometry.location.lat ?? 0, longitude: bakery?.geometry.location.lng ?? 0, zoom: 10)
             mapView.camera = camera
             
             // Create a marker for Ibis Bakery

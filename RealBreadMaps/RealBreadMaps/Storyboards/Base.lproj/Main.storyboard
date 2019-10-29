@@ -432,7 +432,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="807"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-1N-dNf" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="904"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="928"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8AJ-wG-nph">
                                                 <rect key="frame" x="8" y="8" width="359" height="128"/>
@@ -605,8 +605,14 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messenger Café" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pxy-Gm-KnG">
+                                                <rect key="frame" x="12" y="527" width="351" height="18"/>
+                                                <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3Z-LR-ZEz" customClass="GMSMapView">
-                                                <rect key="frame" x="12" y="533" width="351" height="351"/>
+                                                <rect key="frame" x="12" y="557" width="351" height="351"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="P3Z-LR-ZEz" secondAttribute="height" id="p0l-T9-cWl"/>
@@ -627,14 +633,17 @@
                                             <constraint firstAttribute="trailing" secondItem="0ys-mf-qWN" secondAttribute="trailing" constant="12" id="RU7-MP-V7c"/>
                                             <constraint firstItem="4Mv-bd-6cM" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="Rcl-EJ-qnP"/>
                                             <constraint firstAttribute="trailing" secondItem="4ol-PU-Y1I" secondAttribute="trailing" constant="12" id="S28-WM-FLW"/>
+                                            <constraint firstItem="pxy-Gm-KnG" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="ThC-7R-aO0"/>
                                             <constraint firstItem="E1c-uQ-St8" firstAttribute="top" secondItem="XHF-Yk-QXY" secondAttribute="bottom" constant="14" id="b38-ga-U4A"/>
+                                            <constraint firstAttribute="trailing" secondItem="pxy-Gm-KnG" secondAttribute="trailing" constant="12" id="beO-xx-kMt"/>
                                             <constraint firstItem="3ib-1H-POm" firstAttribute="leading" secondItem="XHF-Yk-QXY" secondAttribute="trailing" constant="12" id="cLH-No-qNL"/>
                                             <constraint firstAttribute="trailing" secondItem="P3Z-LR-ZEz" secondAttribute="trailing" constant="12" id="ejf-mq-Hkf"/>
                                             <constraint firstItem="4ol-PU-Y1I" firstAttribute="top" secondItem="0ys-mf-qWN" secondAttribute="bottom" constant="8" id="hML-1i-x1z"/>
                                             <constraint firstItem="8AJ-wG-nph" firstAttribute="top" secondItem="wIN-1N-dNf" secondAttribute="top" constant="8" id="iff-j4-GKP"/>
+                                            <constraint firstItem="pxy-Gm-KnG" firstAttribute="top" secondItem="4Mv-bd-6cM" secondAttribute="bottom" constant="6" id="j5e-Jz-R0J"/>
                                             <constraint firstItem="XHF-Yk-QXY" firstAttribute="top" secondItem="AJR-h9-FXd" secondAttribute="bottom" constant="12" id="lzY-I7-oiN"/>
+                                            <constraint firstItem="P3Z-LR-ZEz" firstAttribute="top" secondItem="pxy-Gm-KnG" secondAttribute="bottom" constant="12" id="nbu-sc-BcS"/>
                                             <constraint firstItem="P3Z-LR-ZEz" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="nzD-ec-1IO"/>
-                                            <constraint firstItem="P3Z-LR-ZEz" firstAttribute="top" secondItem="4Mv-bd-6cM" secondAttribute="bottom" constant="12" id="oml-lT-JGj"/>
                                             <constraint firstItem="0ys-mf-qWN" firstAttribute="top" secondItem="8AJ-wG-nph" secondAttribute="bottom" constant="20" id="sQg-rp-3fY"/>
                                             <constraint firstItem="4Mv-bd-6cM" firstAttribute="top" secondItem="E1c-uQ-St8" secondAttribute="bottom" constant="12" id="tuM-Xz-5rB"/>
                                             <constraint firstItem="AJR-h9-FXd" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="uyR-dn-roY"/>
@@ -676,6 +685,7 @@
                         <outlet property="bakeryPhoneNumberButton" destination="AJR-h9-FXd" id="RRG-Ke-S9z"/>
                         <outlet property="bakeryWebsiteButton" destination="4Mv-bd-6cM" id="SA7-w2-dnX"/>
                         <outlet property="collectionView" destination="8AJ-wG-nph" id="AKr-U3-hkN"/>
+                        <outlet property="infoLabel" destination="pxy-Gm-KnG" id="wRW-rV-MvG"/>
                         <outlet property="mapView" destination="P3Z-LR-ZEz" id="YK0-ck-2ox"/>
                         <outlet property="milledInHouseImageView" destination="zmJ-Su-ENJ" id="wXa-pR-Ysa"/>
                         <outlet property="milledInHouseLabel" destination="I2Y-BZ-oRU" id="OOT-0n-gsm"/>

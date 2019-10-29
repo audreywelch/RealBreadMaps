@@ -88,7 +88,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bakeryCell", for: indexPath) as! BakeryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bakeryCell", for: indexPath)
+            
+        guard let bakeryCell = cell as? BakeryTableViewCell else { return cell }
         
         let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=\(GMSPlacesClientApiKey)"
         
@@ -96,55 +98,55 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         
         
-        cell.bakeryDistanceLabel.adjustsFontForContentSizeCategory = true
-        cell.imageView?.layer.cornerRadius = 10
-        cell.imageView?.layer.masksToBounds = true
+        bakeryCell.bakeryDistanceLabel.adjustsFontForContentSizeCategory = true
+        bakeryCell.imageView?.layer.cornerRadius = 10
+        bakeryCell.imageView?.layer.masksToBounds = true
         
         // Searched-for bakeries
         if searchBarIsEmpty() == false {
-            cell.bakeryNameLabel.text = filteredBakeries[indexPath.row].name
+            bakeryCell.bakeryNameLabel.text = filteredBakeries[indexPath.row].name
             
             let splitAddressArray = filteredBakeries[indexPath.row].formattedAddress.split(separator: ",", maxSplits: 1).map(String.init)
-            cell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
+            bakeryCell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
             
             if let unwrappedDistance = filteredBakeries[indexPath.row].distanceFromUser {
-                cell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
+                bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
             } else {
-                cell.bakeryDistanceLabel.isHidden = true
+                bakeryCell.bakeryDistanceLabel.isHidden = true
             }
             
             if filteredBakeries[indexPath.row].photos == nil {
-                cell.bakeryImageView.image = UIImage(named: "no_image_available")
+                bakeryCell.bakeryImageView.image = UIImage(named: "no_image_available")
     
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0].photoReference)&key=\(GMSPlacesClientApiKey)"
-                cell.bakeryImageView.load(url: URL(string: imageURLString)!)
+                bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
             }
         
         // Full list of bakeries
         } else {
-            cell.bakeryNameLabel.text = bakeries[indexPath.row].name
+            bakeryCell.bakeryNameLabel.text = bakeries[indexPath.row].name
             
             let splitAddressArray = bakeries[indexPath.row].formattedAddress.split(separator: ",", maxSplits: 1).map(String.init)
-            cell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
+            bakeryCell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
             
             
             if let unwrappedDistance = bakeries[indexPath.row].distanceFromUser {
-                cell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
+                bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
             } else {
-                cell.bakeryDistanceLabel.isHidden = true
+                bakeryCell.bakeryDistanceLabel.isHidden = true
             }
 
             if bakeries[indexPath.row].photos == nil {
-                cell.bakeryImageView.image = UIImage(named: "no_image_available")
+                bakeryCell.bakeryImageView.image = UIImage(named: "no_image_available")
                 
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(bakeries[indexPath.row].photos![0].photoReference)&key=\(GMSPlacesClientApiKey)"
-                cell.bakeryImageView.load(url: URL(string: imageURLString)!)
+                bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
                 
             }
         }
-        return cell
+        return bakeryCell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

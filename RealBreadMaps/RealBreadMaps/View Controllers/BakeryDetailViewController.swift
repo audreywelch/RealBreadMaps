@@ -20,6 +20,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var bakeryHoursLabel: UILabel!
     @IBOutlet weak var bakeryWebsiteButton: UIButton!
     @IBOutlet weak var bakeryPhoneNumberButton: UIButton!
+    @IBOutlet weak var infoLabel: UILabel!
     
     @IBOutlet weak var sellsLoavesImageView: UIImageView!
     @IBOutlet weak var milledInHouseImageView: UIImageView!
@@ -173,6 +174,12 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             if self.bakery?.placeId == eachFirebaseBakery.placeID {
                 
                 let selectedBakery = eachFirebaseBakery
+                
+                if selectedBakery.info == nil {
+                    infoLabel.isHidden = true
+                } else {
+                    infoLabel.text = selectedBakery.info
+                }
                 
                 // Icon Color Adjustments
                 

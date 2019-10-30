@@ -39,9 +39,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         // Assign delegates
         self.scrollView.delegate = self
         
-        // Get Location information for next screen
-        //networkCallToGoogleAPI()
-        
         // Scroll View
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
@@ -71,14 +68,15 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             imageView.contentMode = .scaleAspectFit
             imageView.center = CGPoint(x: scrollWidth/2, y: scrollHeight/2 - 50)
             
-            let titleText = UILabel.init(frame: CGRect(x: 32, y: imageView.frame.maxY + 30, width: scrollWidth - 64, height: 30))
+            let titleText = UILabel.init(frame: CGRect(x: 12, y: imageView.frame.maxY + 30, width: scrollWidth - 24, height: 30))
             titleText.textAlignment = .center
             titleText.numberOfLines = 0
             //titleText.adjustsFontSizeToFitWidth = true
-            titleText.font = Appearance.titleFontBoldAmiri
+            //titleText.lineBreakMode = .byWordWrapping
+            titleText.font = UIFont(name: "Amiri-Bold", size: 22)
             titleText.text = titles[index]
             
-            let descriptionText = UILabel.init(frame: CGRect(x: 32, y: titleText.frame.maxY + 10, width: scrollWidth - 64, height: 50))
+            let descriptionText = UILabel.init(frame: CGRect(x: 32, y: titleText.frame.maxY + 10, width: scrollWidth - 64, height: 60))
             descriptionText.textAlignment = .center
             descriptionText.numberOfLines = 3
             descriptionText.adjustsFontSizeToFitWidth = true

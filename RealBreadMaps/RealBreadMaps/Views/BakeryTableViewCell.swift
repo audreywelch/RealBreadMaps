@@ -14,14 +14,6 @@ class BakeryTableViewCell: UITableViewCell {
     @IBOutlet weak var bakeryDistanceLabel: UILabel!
     @IBOutlet weak var bakeryAddressLabel: UILabel!
     
-    @IBOutlet weak var colorStripeView: UIView! {
-        didSet {
-            colorStripeView.backgroundColor = .roseRed
-            colorStripeView.layer.cornerRadius = 10
-            colorStripeView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        }
-    }
-    
     @IBOutlet weak var bakeryImageView: UIImageView!
     
     static let reuseIdentier = "bakeryCell"
@@ -38,5 +30,13 @@ class BakeryTableViewCell: UITableViewCell {
             containerView.backgroundColor = UIColor.white
         }
     }
+    
+    //    @IBOutlet weak var colorStripeView: UIView! {
+    //        didSet {
+    //            colorStripeView.backgroundColor = .roseRed
+    //            colorStripeView.layer.cornerRadius = 10
+    //            colorStripeView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+    //        }
+    //    }
 
 }

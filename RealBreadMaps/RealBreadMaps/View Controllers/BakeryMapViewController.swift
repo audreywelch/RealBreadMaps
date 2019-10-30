@@ -30,16 +30,22 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         } catch {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
-        
-        // Set initial view to the United States
-        //let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
-        
-        // Set initial view to the the user's location
-        let camera = GMSCameraPosition.camera(withLatitude: BakeryModelController.shared.userLocation.latitude,
-                                              longitude: BakeryModelController.shared.userLocation.longitude,
-                                              zoom: 5.0)
-        mapView.camera = camera
-        
+             
+        // Set initial view to the the user's location if it's not nil
+        if BakeryModelController.shared.userLocation != nil {
+            
+            let camera = GMSCameraPosition.camera(withLatitude: BakeryModelController.shared.userLocation.latitude,
+                                                      longitude: BakeryModelController.shared.userLocation.longitude,
+                                                      zoom: 5.0)
+            mapView.camera = camera
+         
+        // Otherwise set initial view to the United States
+        } else {
+            
+            let camera = GMSCameraPosition.camera(withLatitude: 39.0934894, longitude: -94.5815152, zoom: 3.0)
+            mapView.camera = camera
+        }
+
         // Set color for icon
         let markerImageColor = GMSMarker.markerImage(with: .roseRed)
         
@@ -140,38 +146,3 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
     
 }
 
-
-
-
-
-
-
-        
-//        for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-//            for eachBakery in BakeryModelController.shared.bakeries {
-//                var temp = eachFirebaseBakery
-//                temp.bakeryInfo = eachBakery
-//                BakeryModelController.shared.tempFirebaseBakeries.append(temp)
-//            }
-//        }
-//        print("TEMP ARRAY: \(BakeryModelController.shared.tempFirebaseBakeries)")
-        
-// var bakeryIDs = [BakeryIDS.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .w, .x, .y, .z, .aa, .bb, .cc, .dd, .ee, .ff, .gg, .hh, .ii, .jj, .kk, .ll]
-
-//        for eachBakeryID in bakeryIDs {
-//
-//            BakeryModelController.shared.getBakeryInfo(with: eachBakeryID.rawValue) { (error) in
-//
-//                if BakeryModelController.shared.bakery != nil {
-//
-//                    DispatchQueue.main.async {
-//                        let marker = GMSMarker()
-//                        marker.position = CLLocationCoordinate2D(latitude: BakeryModelController.shared.bakery?.geometry.location.lat ?? 0, longitude: BakeryModelController.shared.bakery?.geometry.location.lng ?? 0)
-//                        marker.icon = GMSMarker.markerImage(with: .roseRed)
-//                        marker.title = "\(BakeryModelController.shared.bakery!.name)"
-//                        marker.snippet = "\(BakeryModelController.shared.bakery!.formattedAddress)"
-//                        marker.map = self.mapView
-//                    }
-//                }
-//            }
-//        }

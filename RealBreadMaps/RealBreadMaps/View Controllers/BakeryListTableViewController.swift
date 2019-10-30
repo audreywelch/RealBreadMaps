@@ -51,10 +51,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                     BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
                         self.bakeries = BakeryModelController.shared.bakeries
 
-                        DispatchQueue.main.async {
-                            self.sortByDistance()
-                            //self.tableView.reloadData()
+                        if BakeryModelController.shared.userLocation != nil {
+                            DispatchQueue.main.async {
+                                self.sortByDistance()
+                                //self.tableView.reloadData()
+                            }
                         }
+                       
                     }
                 }
             }
@@ -67,13 +70,18 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     // Sort the bakeries by distance away from user and reload the table view
     func sortByDistance() {
         
-        bakeries.sort { (l1, l2) -> Bool in
-            return Double(l1.distanceFromUser!) < Double(l2.distanceFromUser!)
+        if BakeryModelController.shared.userLocation == nil {
+            return
+        } else {
+            bakeries.sort { (l1, l2) -> Bool in
+                return Double(l1.distanceFromUser!) < Double(l2.distanceFromUser!)
+            }
+                
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+  
     }
     
     // MARK: - Table View Data Source Methods
@@ -105,8 +113,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             //bakeryCell.bakeryNameLabel.text = filteredBakeries[indexPath.row].name
             bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: filteredBakeries[indexPath.row])
             
-            let splitAddressArray = filteredBakeries[indexPath.row].formattedAddress.split(separator: ",", maxSplits: 1).map(String.init)
-            bakeryCell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
+            let splitAddressArray = filteredBakeries[indexPath.row].formattedAddress.components(separatedBy: ", ")
+            bakeryCell.bakeryAddressLabel.text = determineAddressFormatting(array: splitAddressArray)
             
             if let unwrappedDistance = filteredBakeries[indexPath.row].distanceFromUser {
                 bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
@@ -127,10 +135,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             //bakeryCell.bakeryNameLabel.text = bakeries[indexPath.row].name
             bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: bakeries[indexPath.row])
             
-            let splitAddressArray = bakeries[indexPath.row].formattedAddress.split(separator: ",", maxSplits: 1).map(String.init)
-            bakeryCell.bakeryAddressLabel.text = " \(splitAddressArray[0])\n\(splitAddressArray[1])"
-            
-            
+            let splitAddressArray = bakeries[indexPath.row].formattedAddress.components(separatedBy: ", ")
+            bakeryCell.bakeryAddressLabel.text = determineAddressFormatting(array: splitAddressArray)
+
             if let unwrappedDistance = bakeries[indexPath.row].distanceFromUser {
                 bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
             } else {
@@ -149,6 +156,31 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         return bakeryCell
     }
     
+    func determineAddressFormatting(array: [String]) -> String {
+        
+        switch array.count {
+        case 2:
+            return "\(array[0])\n\(array[1])"
+        case 3:
+            return """
+            \(array[0])
+            \(array[1]), \(array[2])
+            """
+        case 4:
+            return """
+            \(array[0])
+            \(array[1]), \(array[2]), \(array[3])
+            """
+        case 5:
+            return """
+            \(array[0]), \(array[1])
+            \(array[2]), \(array[3]), \(array[4])
+            """
+        default:
+            return array.joined(separator: ", ")
+        }
+    }
+    
     static func bakeryNameSpecifications(bakery: Bakery) -> String {
         
         if bakery.name == "Manresa Bread" {
@@ -162,6 +194,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         } else if bakery.name == "Lodge Bread Company" {
             if bakery.formattedAddress.contains("Woodland Hills") {
                 return "Lodge Bread Company - Woodland Hills"
+            }
+        } else if bakery.name == "Tartine" {
+            if bakery.formattedAddress.contains("Los Angeles") {
+                return "Tartine - The Manufactory"
             }
         }
             

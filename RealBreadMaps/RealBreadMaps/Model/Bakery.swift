@@ -24,8 +24,11 @@ struct Bakery: Codable {
     var distanceFromUser: CLLocationDistance? {
         BakeryModelController.shared.locationOfBakery = CLLocation(latitude: self.geometry.location.lat, longitude: self.geometry.location.lng)
         
-        BakeryModelController.shared.locationOfUser = CLLocation(latitude: BakeryModelController.shared.userLocation.latitude,
-                                    longitude: BakeryModelController.shared.userLocation.longitude)
+        if BakeryModelController.shared.userLocation != nil {
+            BakeryModelController.shared.locationOfUser = CLLocation(latitude: BakeryModelController.shared.userLocation.latitude,
+                                                                     longitude: BakeryModelController.shared.userLocation.longitude)
+        }
+        
 
         
         return BakeryModelController.shared.locationOfUser?.distance(from: BakeryModelController.shared.locationOfBakery!)

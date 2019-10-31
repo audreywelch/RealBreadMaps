@@ -67,6 +67,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                             let marker = GMSMarker()
                             marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
                             marker.icon = markerImageColor
+                            
                             marker.title = "\(eachBakery.name)"
                             marker.snippet = "\(eachBakery.formattedAddress)"
                             
@@ -97,7 +98,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         }
 
     }
-    
 
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
@@ -143,6 +143,22 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         
         return formattedDistance
     }
+    
+//    func addBottomSheetView() {
+//
+//        // Initialize the bottom sheet view controller
+//        let bottomSheetVC = BottomSheetViewController()
+//
+//        // Add Bottom Sheet as a child view
+//        self.addChild(bottomSheetVC)
+//        self.view.addSubview(bottomSheetVC.view)
+//        bottomSheetVC.didMove(toParent: self)
+//
+//        // Adjust bottom sheet frame and initial position
+//        let height = view.frame.height
+//        let width = view.frame.width
+//        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+//    }
     
 }
 

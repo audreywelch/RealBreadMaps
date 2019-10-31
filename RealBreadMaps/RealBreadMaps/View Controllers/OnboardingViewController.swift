@@ -72,7 +72,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             titleText.textAlignment = .center
             titleText.numberOfLines = 0
             //titleText.adjustsFontSizeToFitWidth = true
-            //titleText.lineBreakMode = .byWordWrapping
             titleText.font = UIFont(name: "Amiri-Bold", size: 22)
             titleText.text = titles[index]
             
@@ -80,8 +79,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             descriptionText.textAlignment = .center
             descriptionText.numberOfLines = 3
             descriptionText.adjustsFontSizeToFitWidth = true
-            //descriptionText.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: NSLayoutConstraint.Axis.horizontal)
-            //descriptionText.adjustsFontForContentSizeCategory = true
             descriptionText.font = Appearance.thinFont
             descriptionText.text = descriptions[index]
             

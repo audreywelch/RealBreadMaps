@@ -37,11 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Save boolean for whether or not user has already used the app
         // Only show the onboarding screen if it's a first time use
         if let rootViewController = self.window?.rootViewController {
-            
+
             let defaults = UserDefaults.standard
             let hasSeenTutorial = defaults.bool(forKey: "hasSeenTutorial") // will be false the first time
             defaults.set(true, forKey: "hasSeenTutorial")
-            
+
             if hasSeenTutorial == false {
                 let vc = rootViewController.storyboard!.instantiateViewController(withIdentifier: "InitialViewController")
                 self.window!.rootViewController = vc

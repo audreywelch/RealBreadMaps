@@ -28,6 +28,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         bakerySearchBar.tintColor = .roseRed
         
+        // Cells should determine their own height
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 150
+        
 //        self.bakeries = BakeryModelController.shared.bakeries
         
         //sortByDistance()

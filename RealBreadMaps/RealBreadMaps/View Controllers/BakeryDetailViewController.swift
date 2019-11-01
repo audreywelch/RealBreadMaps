@@ -135,10 +135,14 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         guard let bakery = bakery else { return }
         
+        // NAME
         // Make sure name of bakery displayed is specific to its location
         bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: bakery)
+        
+        // ADDRESS
         bakeryAddressLabel.text = bakery.formattedAddress
         
+        // HOURS
         if bakery.openingHours?.weekdayText != nil {
             let hoursString = bakery.openingHours?.weekdayText.joined(separator: "\n")
             bakeryHoursLabel.text = hoursString
@@ -146,9 +150,20 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             bakeryHoursLabel.text = "Please visit website for hours."
         }
         
-        bakeryWebsiteButton.setTitle(bakery.website, for: .normal)
+        // WEBSITE
+        // Account for Bread Riot Bakehouse selling at the Farmer's Market
+        if bakery.website != nil && bakery.placeId != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
+            bakeryWebsiteButton.setTitle(bakery.website, for: .normal)
+        } else if bakery.website != nil && bakery.placeId == "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
+            bakeryWebsiteButton.setTitle("https://breadriotbakehouse.com", for: .normal)
+        } else {
+            bakeryWebsiteButton.setTitle("Website unavailable", for: .normal)
+            bakeryWebsiteButton.isEnabled = false
+        }
         
-        if bakery.internationalPhoneNumber != nil {
+        // PHONE NUMBER
+        // Account for Bread Riot Bakehouse selling at the Farmer's Market
+        if bakery.internationalPhoneNumber != nil && bakery.placeId != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
             bakeryPhoneNumberButton.setTitle(bakery.internationalPhoneNumber, for: .normal)
         } else {
             bakeryPhoneNumberButton.setTitle("Phone number unavailable", for: .normal)

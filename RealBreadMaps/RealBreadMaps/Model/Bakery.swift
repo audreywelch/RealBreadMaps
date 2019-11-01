@@ -16,7 +16,7 @@ struct Bakery: Codable {
     let geometry: Geometry
     let formattedAddress: String
     let internationalPhoneNumber: String?
-    let website: String
+    let website: String?
     let openingHours: OpeningHours?
     let photos: [PhotoReferences]?
     

@@ -36,8 +36,9 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
             
             let camera = GMSCameraPosition.camera(withLatitude: BakeryModelController.shared.userLocation.latitude,
                                                       longitude: BakeryModelController.shared.userLocation.longitude,
-                                                      zoom: 5.0)
+                                                      zoom: 10.0)
             mapView.camera = camera
+            mapView.isMyLocationEnabled = true
          
         // Otherwise set initial view to the United States
         } else {

@@ -18,7 +18,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     var scrollHeight: CGFloat! = 0.0
     
     // Data for the slides
-    var titles = ["Find bakeries that make real bread", "Get more details", "Submit bakeries of your own!"]
+    var titles = ["Find bakeries that make real bread.", "Get the inside scoop.", "Share your favorite bakeries!"]
     
     var descriptions = ["Use the map or the list to find bakeries that make real bread all around the world.", "Learn about each bakery's offerings along with important information about their hours and location.", "If you know of a bakery that makes real bread that isn't on the list, submit it for review."]
     

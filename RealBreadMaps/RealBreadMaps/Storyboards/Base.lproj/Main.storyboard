@@ -15,7 +15,7 @@
         <array key="Amiri-Regular.ttf">
             <string>Amiri-Regular</string>
         </array>
-        <array key="Futura-Light-BT.ttf">
+        <array key="Futura Light BT.ttf">
             <string>FuturaBT-Light</string>
         </array>
         <array key="futura-condensed-pt-medium.otf">
@@ -605,7 +605,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messenger Café" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pxy-Gm-KnG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit website for additional information." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pxy-Gm-KnG">
                                                 <rect key="frame" x="12" y="527" width="351" height="18"/>
                                                 <fontDescription key="fontDescription" name="FuturaBT-Light" family="Futura Lt BT" pointSize="15"/>
                                                 <nil key="textColor"/>

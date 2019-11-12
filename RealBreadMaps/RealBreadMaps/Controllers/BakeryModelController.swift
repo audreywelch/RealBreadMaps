@@ -141,6 +141,12 @@ class BakeryModelController {
                 // Add the bakery object to the bakeries array
                 self.bakeries.append(self.bakery!)
                 
+                // Sort bakeries by distance from user
+
+                self.bakeries.sort { (l1, l2) -> Bool in
+                    return Double(l1.distanceFromUser!) < Double(l2.distanceFromUser!)
+                }
+
                 completion(nil)
                 return
             } catch {

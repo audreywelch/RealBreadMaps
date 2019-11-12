@@ -21,6 +21,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var bakeryWebsiteButton: UIButton!
     @IBOutlet weak var bakeryPhoneNumberButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var bottomColorBarLabel: UILabel!
     
     @IBOutlet weak var sellsLoavesImageView: UIImageView!
     @IBOutlet weak var milledInHouseImageView: UIImageView!
@@ -168,6 +169,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         } else {
             bakeryPhoneNumberButton.setTitle("Phone number unavailable", for: .normal)
         }
+        
+        bottomColorBarLabel.backgroundColor = .roseRed
+        bottomColorBarLabel.alpha = 0.75
         
     }
     

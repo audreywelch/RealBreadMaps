@@ -432,7 +432,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="807"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-1N-dNf" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="928"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="948"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8AJ-wG-nph">
                                                 <rect key="frame" x="8" y="8" width="359" height="128"/>
@@ -618,22 +618,35 @@
                                                     <constraint firstAttribute="width" secondItem="P3Z-LR-ZEz" secondAttribute="height" id="p0l-T9-cWl"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-eF-76b">
+                                                <rect key="frame" x="0.0" y="928" width="375" height="20"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.86747908880000002" blue="0.77406823729999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="D2N-f1-vZB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="E1c-uQ-St8" secondAttribute="trailing" constant="12" id="0Im-Xc-rTq"/>
                                             <constraint firstAttribute="trailing" secondItem="AJR-h9-FXd" secondAttribute="trailing" constant="12" id="2ZT-ht-gTc"/>
+                                            <constraint firstItem="iAn-eF-76b" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" id="5Jh-eZ-UZ7"/>
                                             <constraint firstItem="3ib-1H-POm" firstAttribute="top" secondItem="AJR-h9-FXd" secondAttribute="bottom" constant="12" id="5kF-vS-asq"/>
+                                            <constraint firstAttribute="bottom" secondItem="iAn-eF-76b" secondAttribute="bottom" id="8to-nm-4KF"/>
                                             <constraint firstItem="AJR-h9-FXd" firstAttribute="top" secondItem="4ol-PU-Y1I" secondAttribute="bottom" constant="4" id="DTs-LL-dzA"/>
                                             <constraint firstAttribute="trailing" secondItem="8AJ-wG-nph" secondAttribute="trailing" constant="8" id="FEo-CP-ZnV"/>
                                             <constraint firstItem="E1c-uQ-St8" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="GO7-Zd-PnP"/>
-                                            <constraint firstAttribute="bottom" secondItem="P3Z-LR-ZEz" secondAttribute="bottom" constant="20" id="H3d-7j-tMd"/>
                                             <constraint firstItem="XHF-Yk-QXY" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="KOt-Na-Wtk"/>
                                             <constraint firstItem="8AJ-wG-nph" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="8" id="O4I-Ld-TZr"/>
                                             <constraint firstAttribute="trailing" secondItem="0ys-mf-qWN" secondAttribute="trailing" constant="12" id="RU7-MP-V7c"/>
                                             <constraint firstItem="4Mv-bd-6cM" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="Rcl-EJ-qnP"/>
                                             <constraint firstAttribute="trailing" secondItem="4ol-PU-Y1I" secondAttribute="trailing" constant="12" id="S28-WM-FLW"/>
                                             <constraint firstItem="pxy-Gm-KnG" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="ThC-7R-aO0"/>
+                                            <constraint firstAttribute="trailing" secondItem="iAn-eF-76b" secondAttribute="trailing" id="U0d-jB-EqS"/>
+                                            <constraint firstItem="iAn-eF-76b" firstAttribute="top" secondItem="P3Z-LR-ZEz" secondAttribute="bottom" constant="20" id="VD4-Th-d1B"/>
                                             <constraint firstItem="E1c-uQ-St8" firstAttribute="top" secondItem="XHF-Yk-QXY" secondAttribute="bottom" constant="14" id="b38-ga-U4A"/>
                                             <constraint firstAttribute="trailing" secondItem="pxy-Gm-KnG" secondAttribute="trailing" constant="12" id="beO-xx-kMt"/>
                                             <constraint firstItem="3ib-1H-POm" firstAttribute="leading" secondItem="XHF-Yk-QXY" secondAttribute="trailing" constant="12" id="cLH-No-qNL"/>
@@ -684,6 +697,7 @@
                         <outlet property="bakeryNameLabel" destination="0ys-mf-qWN" id="BnO-3l-xjN"/>
                         <outlet property="bakeryPhoneNumberButton" destination="AJR-h9-FXd" id="RRG-Ke-S9z"/>
                         <outlet property="bakeryWebsiteButton" destination="4Mv-bd-6cM" id="SA7-w2-dnX"/>
+                        <outlet property="bottomColorBarLabel" destination="iAn-eF-76b" id="ILb-6J-d6E"/>
                         <outlet property="collectionView" destination="8AJ-wG-nph" id="AKr-U3-hkN"/>
                         <outlet property="infoLabel" destination="pxy-Gm-KnG" id="wRW-rV-MvG"/>
                         <outlet property="mapView" destination="P3Z-LR-ZEz" id="YK0-ck-2ox"/>
@@ -919,7 +933,7 @@
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfj-Oa-zo9">
                                                 <rect key="frame" x="40" y="863" width="295" height="183"/>
-                                                <mutableString key="text">My sister and I started a bakery together, and a common question we were asked was, "Where else can I find bread like this?"  Nowadays I don't make bread, I make apps. I still love bread and so I want to celebrate the bakers taking the time to make real bread.</mutableString>
+                                                <string key="text">My sister and I started a bakery together, and a common question we were asked was, "Where else can I find bread like this?"  Nowadays I don't make bread, I make apps. I still love bread and so I want to celebrate the bakers taking the time to make real bread.</string>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

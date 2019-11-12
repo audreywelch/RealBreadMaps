@@ -57,8 +57,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
 
                         if BakeryModelController.shared.userLocation != nil {
                             DispatchQueue.main.async {
+                                // Sort is performed in fetch function, so only sort in table view if
+                                // user taps on List View before Map View, therefore userLocation was nil
                                 self.sortByDistance()
-                                //self.tableView.reloadData()
                             }
                         }
                        
@@ -67,7 +68,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             }
         } else {
             bakeries = BakeryModelController.shared.bakeries
-            sortByDistance()
+            //sortByDistance()
         }
     }
     
@@ -109,8 +110,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
         
         bakeryCell.bakeryDistanceLabel.adjustsFontForContentSizeCategory = true
-        bakeryCell.imageView?.layer.cornerRadius = 10
-        bakeryCell.imageView?.layer.masksToBounds = true
+        bakeryCell.bakeryImageView?.layer.cornerRadius = 10
+        bakeryCell.bakeryImageView?.layer.masksToBounds = true
+//        bakeryCell.bakeryImageView?.layer.borderColor = UIColor.lightGray.cgColor
+//        bakeryCell.bakeryImageView?.layer.borderWidth = 0.75
         
         // Searched-for bakeries
         if searchBarIsEmpty() == false {

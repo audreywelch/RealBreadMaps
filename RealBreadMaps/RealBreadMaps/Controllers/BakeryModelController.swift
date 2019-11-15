@@ -7,6 +7,7 @@
 //
 // https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJsyPVS2jwwIcRgxML7BXE7eQ&key=APIKEYGOESHERE
 
+
 import UIKit
 import CoreLocation
 
@@ -90,6 +91,13 @@ class BakeryModelController {
     //func getBakeryInfo(with placeID: String, completion: @escaping (Error?) -> Void) {
     func getBakeryInfo(with placeID: String, completion: @escaping CompletionHandler = { _ in }) {
         
+        /*
+         Adding FIELDS parameter limits the API call billings
+         https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJsyPVS2jwwIcRgxML7BXE7eQ
+         &fields=name,geometry,formatted_address,international_phone_number,website,opening_hours,photos
+         &key=APIKEYGOESHERE
+         */
+        
         var bakeryURL = baseURL.appendingPathComponent("details")
         
         bakeryURL = bakeryURL.appendingPathComponent("json")
@@ -98,8 +106,9 @@ class BakeryModelController {
         
         let searchQueryItem = URLQueryItem(name: "placeid", value: placeID)
         let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
+        let fieldsQueryItem = URLQueryItem(name: "fields", value: "name,geometry,place_id,formatted_address,international_phone_number,website,opening_hours,photos")
         
-        components?.queryItems = [searchQueryItem, apiKeyQueryItem]
+        components?.queryItems = [searchQueryItem, fieldsQueryItem, apiKeyQueryItem]
         
         guard let requestURL = components?.url else {
             NSLog("Couldn't make requestURL from \(components)")

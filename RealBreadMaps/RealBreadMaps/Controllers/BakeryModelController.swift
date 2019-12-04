@@ -10,12 +10,16 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 
 class BakeryModelController {
     
     // Singleton
     static let shared = BakeryModelController()
     private init () {}
+    
+    // Establish a connection to Firebase database
+    var ref = Database.database().reference()
     
     // Holds the search result returned
     var bakery: Bakery?
@@ -166,6 +170,10 @@ class BakeryModelController {
                                                    servesFood: nil,
                                                    info: nil)
                 
+                // MARK: - Call the following function after each addition to Firebase & 1x per week to update the Firebase with Google info
+                // Update firebase with the google information retrieved for each bakery
+                // self.updateFirebase(bakery: newBakeryObject)
+                
                 // Add the new bakery object to an array
                 self.bakeryObjects.append(newBakeryObject)
                 
@@ -204,6 +212,22 @@ class BakeryModelController {
                 return
             }
         }.resume()
+    }
+    
+    // Update firebase with information from Google Places API
+    func updateFirebase(bakery: BakeryObject) {
+        
+        //ref.child("\(bakery.placeId)").updateChildValues(["name": bakery.name])
+        
+        ref.child("\(bakery.placeId)").child("name").setValue(bakery.name)
+        ref.child("\(bakery.placeId)").child("lat").setValue(bakery.lat)
+        ref.child("\(bakery.placeId)").child("lng").setValue(bakery.lng)
+        ref.child("\(bakery.placeId)").child("formattedAddress").setValue(bakery.formattedAddress)
+        ref.child("\(bakery.placeId)").child("internationalPhoneNumber").setValue(bakery.internationalPhoneNumber)
+        ref.child("\(bakery.placeId)").child("website").setValue(bakery.website)
+        ref.child("\(bakery.placeId)").child("weekdayText").setValue(bakery.weekdayText)
+        ref.child("\(bakery.placeId)").child("photos").setValue(bakery.photos)
+
     }
     
     //  https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAdlELUNn90Ic77d0GYqUo7v0d0_acu6zM1swdy607ebNlRA8dsGzJ8Fpz0EMoEPjUejrFZxqqxrFYjkD9ebgniXxaWR5qQfpJCWXo-sWSv2HEqhDRDc5YxVsZQgU8U0rwEhCE2Oj-LFjkXcHNbSpyVIIcGhRaB1rK41n4OOcttBLKyyl8wJJ7Rg&key=APIKEYGOESHERE

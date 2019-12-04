@@ -34,6 +34,7 @@ struct Bakery: Codable {
         return BakeryModelController.shared.locationOfUser?.distance(from: BakeryModelController.shared.locationOfBakery!)
 
     }
+
     
 }
 

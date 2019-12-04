@@ -11,6 +11,9 @@
 		841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */; };
 		841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC8FF22454C7300756504 /* AppearanceHelper.swift */; };
 		8425C53A224546C7006E1DAC /* UIColors + Custom Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */; };
+		8429F43F239606F400BFA4D3 /* FirebaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429F43E239606F400BFA4D3 /* FirebaseItem.swift */; };
+		8429F4412396076D00BFA4D3 /* BakeryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429F4402396076D00BFA4D3 /* BakeryObject.swift */; };
+		8429F443239609F700BFA4D3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429F442239609F700BFA4D3 /* Firebase.swift */; };
 		842ECE932341518800F831BD /* Amiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE8E2341518800F831BD /* Amiri-Regular.ttf */; };
 		842ECE9F2341535600F831BD /* Amiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE9E2341535600F831BD /* Amiri-Bold.ttf */; };
 		842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ECEA02342C07800F831BD /* FirebaseBakery.swift */; };
@@ -47,6 +50,9 @@
 		841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "futura-condensed-pt-medium.otf"; sourceTree = "<group>"; };
 		841DC8FF22454C7300756504 /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors + Custom Colors.swift"; sourceTree = "<group>"; };
+		8429F43E239606F400BFA4D3 /* FirebaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseItem.swift; sourceTree = "<group>"; };
+		8429F4402396076D00BFA4D3 /* BakeryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryObject.swift; sourceTree = "<group>"; };
+		8429F442239609F700BFA4D3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		842ECE8E2341518800F831BD /* Amiri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amiri-Regular.ttf"; sourceTree = "<group>"; };
 		842ECE9E2341535600F831BD /* Amiri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amiri-Bold.ttf"; sourceTree = "<group>"; };
 		842ECEA02342C07800F831BD /* FirebaseBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBakery.swift; sourceTree = "<group>"; };
@@ -103,6 +109,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8429F43D239606E100BFA4D3 /* Developer */ = {
+			isa = PBXGroup;
+			children = (
+				8429F43E239606F400BFA4D3 /* FirebaseItem.swift */,
+				8429F4402396076D00BFA4D3 /* BakeryObject.swift */,
+				8429F442239609F700BFA4D3 /* Firebase.swift */,
+			);
+			path = Developer;
+			sourceTree = "<group>";
+		};
 		84C01DE62363D75B00AFFB5D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				84F7602E22404731007892A1 /* Info.plist */,
+				8429F43D239606E100BFA4D3 /* Developer */,
 				84F7603822415345007892A1 /* Storyboards */,
 				84F7603B22415358007892A1 /* Model */,
 				84C01DE62363D75B00AFFB5D /* Controllers */,
@@ -400,7 +417,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */,
+				8429F443239609F700BFA4D3 /* Firebase.swift in Sources */,
 				84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */,
+				8429F4412396076D00BFA4D3 /* BakeryObject.swift in Sources */,
 				84F7605B2242D911007892A1 /* BakeryIDs.swift in Sources */,
 				84F381D1236A5128004AFCFD /* BottomSheetViewController.swift in Sources */,
 				84C01DE82363D7A000AFFB5D /* GoogleDistance.swift in Sources */,
@@ -408,6 +427,7 @@
 				842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */,
 				84C01DEA2363D7D900AFFB5D /* GoogleDistanceController.swift in Sources */,
 				84F7604822415611007892A1 /* SubmissionsViewController.swift in Sources */,
+				8429F43F239606F400BFA4D3 /* FirebaseItem.swift in Sources */,
 				846248CE23626A1E006F1957 /* OnboardingViewController.swift in Sources */,
 				84F760232240472F007892A1 /* AppDelegate.swift in Sources */,
 				84F76046224155D1007892A1 /* InfoViewController.swift in Sources */,

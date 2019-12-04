@@ -34,6 +34,7 @@ class BakeryModelController {
     // Array to hold saved bakeries
     var bakeries: [Bakery] = []
     var firebaseBakeries: [FirebaseBakery] = []
+    var bakeryObjects: [BakeryObject] = []
 
     // Array to hold saved photo references
     var photoReferences: [PhotoReferences] = []
@@ -139,6 +140,38 @@ class BakeryModelController {
             
             do {
                 let decodedBakery = try jsonDecoder.decode(BakeryResult.self, from: data)
+                
+                // Make sure that the photos in the decoded object are not nil
+                guard let photos = decodedBakery.result.photos else { return }
+                var photoReferenceStrings: [String] = []
+                
+                // Append each photo reference string to an array
+                for eachPhotoReference in photos {
+                    photoReferenceStrings.append(eachPhotoReference.photoReference)
+                }
+                
+                // Create an instance of a BakeryObject using the retrieved data from the Google Places API
+                let newBakeryObject = BakeryObject(name: decodedBakery.result.name,
+                                                   placeId: decodedBakery.result.placeId,
+                                                   lat: decodedBakery.result.geometry.location.lat,
+                                                   lng: decodedBakery.result.geometry.location.lng,
+                                                   formattedAddress: decodedBakery.result.formattedAddress,
+                                                   internationalPhoneNumber: decodedBakery.result.internationalPhoneNumber ?? "Phone number unavailable",
+                                                   website: decodedBakery.result.website,
+                                                   weekdayText: decodedBakery.result.openingHours?.weekdayText ?? [""],
+                                                   photos: photoReferenceStrings,
+                                                   milledInHouse: nil,
+                                                   organic: nil,
+                                                   sellsLoaves: nil,
+                                                   servesFood: nil,
+                                                   info: nil)
+                
+                // Add the new bakery object to an array
+                self.bakeryObjects.append(newBakeryObject)
+                
+                // // // // // // // // // // // // // // // // // // // //
+                
+                // Set the decoded result to the bakery object
                 self.bakery = decodedBakery.result
                 
                 // If photos is not nil, put the photo references returned into the photoReferences array
@@ -150,11 +183,18 @@ class BakeryModelController {
                 // Add the bakery object to the bakeries array
                 self.bakeries.append(self.bakery!)
                 
-                // Sort bakeries by distance from user
-
-                self.bakeries.sort { (l1, l2) -> Bool in
-                    return Double(l1.distanceFromUser!) < Double(l2.distanceFromUser!)
+                // Sort bakeries by distance from user if current location is enabled
+                if self.bakery?.distanceFromUser != nil {
+                    self.bakeries.sort { (b1, b2) -> Bool in
+                        return Double(b1.distanceFromUser!) < Double(b2.distanceFromUser!)
+                    }
+                // Otherwise sort bakeries alphabetically
+                } else {
+                    self.bakeries.sort { (b1, b2) -> Bool in
+                        return b1.name < b2.name
+                    }
                 }
+                
 
                 completion(nil)
                 return

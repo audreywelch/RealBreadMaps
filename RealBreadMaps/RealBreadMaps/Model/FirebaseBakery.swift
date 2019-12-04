@@ -16,5 +16,14 @@ struct FirebaseBakery: Codable {
     let sellsLoaves: Bool?
     let servesFood: Bool?
     let info: String?
+    
+    var name: String?
+    var lat: Double?
+    var lng: Double?
+    var formattedAddress: String?
+    var internationalPhoneNumber: String?
+    var website: String?
+    var weekdayText: [String]?
+    var photos: [String]?
 
 }

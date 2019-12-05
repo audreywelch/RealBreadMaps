@@ -50,53 +50,78 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         // Set color for icon
         let markerImageColor = GMSMarker.markerImage(with: .roseRed)
         
-        // Perform the fetch on a background queue
-        DispatchQueue.global(qos: .userInitiated).async {
-
-            // For each bakery in the firebaseBakeries array
-            for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-
-                // Use the placeID to make the GooglePlaces API call
-                BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-
-                    // Switch to main thread for UI
-                    DispatchQueue.main.async {
-
-                        // Populate the map with all the bakeries in the Bakeries array
-                        for eachBakery in BakeryModelController.shared.bakeries {
-                            
-                            let marker = GMSMarker()
-                            marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
-                            marker.icon = markerImageColor
-                            
-                            marker.title = "\(eachBakery.name)"
-                            marker.snippet = "\(eachBakery.formattedAddress)"
-                            
-                            // MARK: - TODO
-                            // Come up with new way to add the distance because I need the snippet to be only the address
-                            
-//                            // Unwrap the distance from user
-//                            guard let distanceFromUser = eachBakery.distanceFromUser else { return }
-//
-//                            // If the bakery is in the USA, Liberia, or Myanmar, use miles
-//                            if eachBakery.formattedAddress.contains("USA")
-//                                || eachBakery.formattedAddress.contains("Liberia")
-//                                || eachBakery.formattedAddress.contains("Myanmar") {
-//
-//                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles away"
-//
-//                            // Otherwise, use kilometers
-//                            } else {
-//                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToKilometers(of: distanceFromUser)) kilometers away"
-//                            }
-
-                            marker.map = self.mapView
-
-                        }
-                    }
+        // For each bakery retrieved from firebase
+        for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+            
+            // Ensure UI updates are performed on the main thread
+            DispatchQueue.main.async {
+                
+                // Create a marker
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: eachFirebaseBakery.lat ?? 0, longitude: eachFirebaseBakery.lng ?? 0)
+                marker.icon = markerImageColor
+                
+                // Unwrap names and addresses and assign them to the marker
+                if let unwrappedName = eachFirebaseBakery.name {
+                    marker.title = "\(unwrappedName)"
                 }
+                
+                if let unwrappedAddress = eachFirebaseBakery.formattedAddress {
+                    marker.snippet = "\(unwrappedAddress)"
+                }
+
+                marker.map = self.mapView
             }
         }
+        
+        // Perform the fetch on a background queue
+//        DispatchQueue.global(qos: .userInitiated).async {
+//
+//            // For each bakery in the firebaseBakeries array
+//            //for eachBakeryObject in BakeryModelController.shared.bakeryObjects {
+//            for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
+//
+//                // Use the placeID to make the GooglePlaces API call
+//                BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
+//
+//                    // Switch to main thread for UI
+//                    DispatchQueue.main.async {
+//
+//                        // Populate the map with all the bakeries in the Bakeries array
+//                        for eachBakery in BakeryModelController.shared.bakeries {
+//
+//                            let marker = GMSMarker()
+//                            marker.position = CLLocationCoordinate2D(latitude: eachBakery.geometry.location.lat ?? 0, longitude: eachBakery.geometry.location.lng ?? 0)
+//                            marker.icon = markerImageColor
+//
+//                            marker.title = "\(eachBakery.name)"
+//                            marker.snippet = "\(eachBakery.formattedAddress)"
+//
+//                            // MARK: - TODO
+//                            // Come up with new way to add the distance because I need the snippet to be only the address
+//
+////                            // Unwrap the distance from user
+////                            guard let distanceFromUser = eachBakery.distanceFromUser else { return }
+////
+////                            // If the bakery is in the USA, Liberia, or Myanmar, use miles
+////                            if eachBakery.formattedAddress.contains("USA")
+////                                || eachBakery.formattedAddress.contains("Liberia")
+////                                || eachBakery.formattedAddress.contains("Myanmar") {
+////
+////                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromUser)) miles away"
+////
+////                            // Otherwise, use kilometers
+////                            } else {
+////                                marker.snippet = "\(eachBakery.formattedAddress)\n👉 \(BakeryMapViewController.self.convertMetersToKilometers(of: distanceFromUser)) kilometers away"
+////                            }
+//
+//                            marker.map = self.mapView
+//
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
     }
 

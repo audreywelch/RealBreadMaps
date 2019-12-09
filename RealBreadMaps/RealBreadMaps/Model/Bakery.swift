@@ -21,19 +21,19 @@ struct Bakery: Codable {
     let photos: [PhotoReferences]?
     
     // Compute distance of user from bakery
-    var distanceFromUser: CLLocationDistance? {
-        BakeryModelController.shared.locationOfBakery = CLLocation(latitude: self.geometry.location.lat, longitude: self.geometry.location.lng)
-        
-        if BakeryModelController.shared.userLocation != nil {
-            BakeryModelController.shared.locationOfUser = CLLocation(latitude: BakeryModelController.shared.userLocation.latitude,
-                                                                     longitude: BakeryModelController.shared.userLocation.longitude)
-        }
-        
-
-        
-        return BakeryModelController.shared.locationOfUser?.distance(from: BakeryModelController.shared.locationOfBakery!)
-
-    }
+//    var distanceFromUser: CLLocationDistance? {
+//        BakeryModelController.shared.locationOfBakery = CLLocation(latitude: self.geometry.location.lat, longitude: self.geometry.location.lng)
+//        
+//        if BakeryModelController.shared.userLocation != nil {
+//            BakeryModelController.shared.locationOfUser = CLLocation(latitude: BakeryModelController.shared.userLocation.latitude,
+//                                                                     longitude: BakeryModelController.shared.userLocation.longitude)
+//        }
+//        
+//
+//        
+//        return BakeryModelController.shared.locationOfUser?.distance(from: BakeryModelController.shared.locationOfBakery!)
+//
+//    }
 
     
 }

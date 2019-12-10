@@ -148,6 +148,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         // Searched-for bakeries
         if searchBarIsEmpty() == false {
+            // Clear image when loading new images
+            bakeryCell.bakeryImageView.image = nil
+            
             //bakeryCell.bakeryNameLabel.text = filteredBakeries[indexPath.row].name
             bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: filteredBakeries[indexPath.row])
             
@@ -174,7 +177,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 bakeryCell.bakeryImageView.image = UIImage(named: "no_image_available")
     
             } else {
-                let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(firebaseBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
+                let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 print(imageURLString)
                 //let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0].photoReference)&key=\(GMSPlacesClientApiKey)"
                 bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)

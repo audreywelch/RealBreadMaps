@@ -22,7 +22,7 @@ class BakeryModelController {
     var ref = Database.database().reference()
     
     // Holds the search result returned
-    var bakery: Bakery?
+    //var bakery: Bakery?
     
     // Holds the user's location
     var userLocation: CLLocationCoordinate2D!
@@ -36,7 +36,7 @@ class BakeryModelController {
     var currentBakeryAddress: String?
     
     // Array to hold saved bakeries
-    var bakeries: [Bakery] = []
+    //var bakeries: [Bakery] = []
     var firebaseBakeries: [FirebaseBakery] = []
     var bakeryObjects: [BakeryObject] = []
 
@@ -78,34 +78,11 @@ class BakeryModelController {
                 
                 let responseDictionary = try jsonDecoder.decode([String: FirebaseBakery].self, from: data)
                 
-                var decodedResponse = responseDictionary.map( {$0.value} )
+                let decodedResponse = responseDictionary.map( {$0.value} )
                     
                 //print(decodedResponse)
                 
                 self.firebaseBakeries = decodedResponse
-                
-                // Sort bakeries by distance from user if current location is enabled
-                //if self.bakery?.distanceFromUser != nil {
-//                self.firebaseBakeries.sort { (b1, b2) -> Bool in
-//                    
-//                    if b1.distanceFromUser != nil {
-//                        return Double(b1.distanceFromUser!) < Double(b2.distanceFromUser!)
-//                        
-//                    } else {
-//                        return b1.name ?? "" < b2.name ?? ""
-////                        if let first = b1.name, let second = b2.name {
-////                            return first < second
-////                        }
-//                            
-//                    }
-//                        
-//                }
-                // Otherwise sort bakeries alphabetically
-//                } else {
-//                    self.bakeries.sort { (b1, b2) -> Bool in
-//                        return b1.name < b2.name
-//                    }
-//                }
 
             } catch {
                 NSLog("Error decoding FirebaseObject: \(error)")
@@ -116,7 +93,6 @@ class BakeryModelController {
     
     // Fetches additional info from Google using the placeID of each fetched FirebaseBakery
     // Saves the info as a Bakery object in the Bakeries array
-    //func getBakeryInfo(with placeID: String, completion: @escaping (Error?) -> Void) {
     func getBakeryInfo(with placeID: String, completion: @escaping CompletionHandler = { _ in }) {
         
         /*
@@ -200,34 +176,7 @@ class BakeryModelController {
                 
                 // Add the new bakery object to an array
                 self.bakeryObjects.append(newBakeryObject)
-                
-                // // // // // // // // // // // // // // // // // // // //
-                
-                // Set the decoded result to the bakery object
-                self.bakery = decodedBakery.result
-                
-                // If photos is not nil, put the photo references returned into the photoReferences array
-                if self.bakery?.photos != nil {
-                    self.photoReferences = (self.bakery?.photos)!
-                    //print(self.photoReferences)
-                }
-
-                // Add the bakery object to the bakeries array
-                self.bakeries.append(self.bakery!)
-                
-                // Sort bakeries by distance from user if current location is enabled
-//                if self.bakery?.distanceFromUser != nil {
-//                    self.bakeries.sort { (b1, b2) -> Bool in
-//                        return Double(b1.distanceFromUser!) < Double(b2.distanceFromUser!)
-//                    }
-//                // Otherwise sort bakeries alphabetically
-//                } else {
-//                    self.bakeries.sort { (b1, b2) -> Bool in
-//                        return b1.name < b2.name
-//                    }
-//                }
-                
-
+            
                 completion(nil)
                 return
             } catch {
@@ -254,83 +203,5 @@ class BakeryModelController {
 
     }
     
-    //  https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAdlELUNn90Ic77d0GYqUo7v0d0_acu6zM1swdy607ebNlRA8dsGzJ8Fpz0EMoEPjUejrFZxqqxrFYjkD9ebgniXxaWR5qQfpJCWXo-sWSv2HEqhDRDc5YxVsZQgU8U0rwEhCE2Oj-LFjkXcHNbSpyVIIcGhRaB1rK41n4OOcttBLKyyl8wJJ7Rg&key=APIKEYGOESHERE
-    
-    func fetchPhotos(with photoReference: String, completion: @escaping (Error?) -> Void) {
-        
-        guard let bakery = bakery else {
-            print("There is no bakery object available")
-            return
-            
-        }
-        
-        if bakery.photos != nil {
-            for eachReference in bakery.photos! {
-                
-                //print(eachReference.photoReference)
-                
-                let photosURL = baseURL.appendingPathComponent("photo")
-                
-                var components = URLComponents(url: photosURL, resolvingAgainstBaseURL: true)
-                
-                let widthQueryItem = URLQueryItem(name: "maxwidth", value: "400")
-                let searchQueryItem = URLQueryItem(name: "photoreference", value: eachReference.photoReference)
-                let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
-                
-                components?.queryItems = [widthQueryItem, searchQueryItem, apiKeyQueryItem]
-                
-                guard let requestURL = components?.url else {
-                    NSLog("Couldn't make requestURL from \(components)")
-                    completion(NSError())
-                    return
-                }
-                
-                //print(requestURL)
-                
-            }
-        }
-
-        completion(nil)
-        
-    }
-
 }
 
-
-
-
-// NETWORKING ATTEMPTS
-// TO COMBINE FIREBASEBAKERY & BAKERY OBJECTS AS ONE
-
-//                for eachFirebaseBakery in self.firebaseBakeries {
-//                    for eachBakery in self.bakeries {
-//                        var temp = eachFirebaseBakery
-//                        temp.bakeryInfo = eachBakery
-//                        self.tempFirebaseBakeries.append(temp)
-//                        print("FIREBASE BAKERIES WITH ADDITIONAL INFO: \(self.tempFirebaseBakeries)")
-//                    }
-//                }
-                
-                //self.tempFirebaseBakeries.append(self.bakery!)
-                
-//                // Loop through the array of firebaseBakeries (these objects were added in the initial fetchAllBakeries func
-//                for eachFirebaseBakery in self.firebaseBakeries {
-//
-//                    if eachFirebaseBakery.placeID == self.bakery?.placeId {
-//
-//                        // Will need to change the constant, so give it a temporary variable
-//                        var temp = eachFirebaseBakery
-//
-//                        // bakeryInfo is of the type `bakery` - assign the bakery object that is being decoded
-//                        // to the firebaseBakery object's bakeryInfo variable
-//                        temp.bakeryInfo = self.bakery
-//
-//                        // Append the object that now includes the additional bakeryInfo from GooglePlaces API to the temp array
-//                        self.tempFirebaseBakeries.append(temp)
-//
-//                        // Replace the array of bakeries that previously had nil bakeryInfo with an array of objects that
-//                        // contain all the information needed
-//                        self.firebaseBakeries = self.tempFirebaseBakeries
-//                    }
-//
-//                }

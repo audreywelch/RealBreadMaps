@@ -347,20 +347,20 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         mapView.layer.borderColor = UIColor.lightGray.cgColor
         
         guard let firebaseBakery = firebaseBakery else { return }
+        guard let firebaseBakeryName = firebaseBakery.name else { return }
         
-        //if firebaseBakery != nil {
-            // Set initial view to the bakery
-            let camera = GMSCameraPosition.camera(withLatitude: firebaseBakery.lat ?? 0, longitude: firebaseBakery.lng ?? 0, zoom: 10)
-            mapView.camera = camera
+        // Set initial view to the bakery
+        let camera = GMSCameraPosition.camera(withLatitude: firebaseBakery.lat ?? 0, longitude: firebaseBakery.lng ?? 0, zoom: 12)
+        mapView.camera = camera
             
-            // Create a marker for Ibis Bakery
-            let marker = GMSMarker()
-            marker.icon = GMSMarker.markerImage(with: .roseRed)
-            marker.position = CLLocationCoordinate2D(latitude: firebaseBakery.lat ?? 0, longitude: firebaseBakery.lng ?? 0)
-            marker.title = "\(firebaseBakery.name)"
-            marker.snippet = "Get Directions 👆"
-            marker.map = mapView
-        //}
+        // Create a marker for Ibis Bakery
+        let marker = GMSMarker()
+        marker.icon = GMSMarker.markerImage(with: .roseRed)
+        marker.position = CLLocationCoordinate2D(latitude: firebaseBakery.lat ?? 0, longitude: firebaseBakery.lng ?? 0)
+        marker.title = "\(firebaseBakeryName)"
+        marker.snippet = "Get Directions 👆"
+        marker.map = mapView
+        
     }
     
     // Map window tapped

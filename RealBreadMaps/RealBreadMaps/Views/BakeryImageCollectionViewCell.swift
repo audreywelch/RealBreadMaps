@@ -15,7 +15,5 @@ class BakeryImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var bakeryImageView: UIImageView!
     
-//    func displayContent(image: UIImage) {
-//        bakeryImageView.image = image
-//    }
+
 }

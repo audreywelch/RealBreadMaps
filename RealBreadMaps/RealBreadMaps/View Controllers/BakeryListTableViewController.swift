@@ -13,7 +13,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     @IBOutlet weak var bakerySearchBar: UISearchBar!
     
-    var bakeries: [Bakery] = []
+    //var bakeries: [Bakery] = []
     var firebaseBakeries: [FirebaseBakery] = []
     
     var filteredBakeries: [FirebaseBakery] = []
@@ -22,8 +22,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         super.viewDidLoad()
         
         bakerySearchBar.delegate = self
-        
-        //bakeryFetch()
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
@@ -36,41 +34,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         self.firebaseBakeries = BakeryModelController.shared.firebaseBakeries
         
         sortByDistance()
-        
-        //BakeryMapViewController.convertMetersToMiles(of: bakeries[0].distanceFromUser!)
  
-    }
-    
-    // Fetch function if user taps on List View before Map View
-    func bakeryFetch() {
-        
-        if BakeryModelController.shared.bakeries.count == 0 {
-            
-            // Perform the fetch on a background queue
-            DispatchQueue.global(qos: .userInitiated).async {
-
-                // For each bakery in the firebaseBakeries array
-                for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
-
-                    // Use the placeID to make the GooglePlaces API call
-                    BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in
-                        self.bakeries = BakeryModelController.shared.bakeries
-
-                        if BakeryModelController.shared.userLocation != nil {
-                            DispatchQueue.main.async {
-                                // Sort is performed in fetch function, so only sort in table view if
-                                // user taps on List View before Map View, therefore userLocation was nil
-                                self.sortByDistance()
-                            }
-                        }
-                       
-                    }
-                }
-            }
-        } else {
-            bakeries = BakeryModelController.shared.bakeries
-            //sortByDistance()
-        }
     }
     
     // Sort the bakeries by distance away from user and reload the table view
@@ -91,32 +55,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         }
 
     }
-    
-    // Take in a bakery and return the distance the bakery is from the user
-//    static func findDistanceFromUser(bakery: FirebaseBakery) -> CLLocationDistance? {
-//
-//        // Complete only if the bakery object has a latitude & longitude
-//        if bakery.lat != nil && bakery.lng != nil {
-//
-//            // Get a CLLocation of the bakery
-//            let locationOfBakery = CLLocation(latitude: bakery.lat!, longitude: bakery.lng!)
-//
-//            // If the user has shared location, continue
-//            if BakeryModelController.shared.userLocation != nil {
-//
-//                // Create a CLLocation out of the userLocation
-//                BakeryModelController.shared.locationOfUser = CLLocation(latitude: BakeryModelController.shared.userLocation.latitude,
-//                                                                         longitude: BakeryModelController.shared.userLocation.longitude)
-//            }
-//
-//            // Return the distance from the locationOfUser to the locationOfBakery
-//            return BakeryModelController.shared.locationOfUser?.distance(from: locationOfBakery)
-//
-//        // If the bakery doesn't have a latitude or longitude, return nil
-//        } else {
-//            return nil
-//        }
-//    }
     
     // MARK: - Table View Data Source Methods
     
@@ -148,10 +86,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         // Searched-for bakeries
         if searchBarIsEmpty() == false {
+            
             // Clear image when loading new images
             bakeryCell.bakeryImageView.image = nil
             
-            //bakeryCell.bakeryNameLabel.text = filteredBakeries[indexPath.row].name
             bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: filteredBakeries[indexPath.row])
             
             if let splitAddressArray = filteredBakeries[indexPath.row].formattedAddress?.components(separatedBy: ", ") {
@@ -159,12 +97,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             } else {
                 bakeryCell.bakeryAddressLabel.text = "Address unavailable"
             }
-            
-//            if let unwrappedDistance = BakeryListTableViewController.findDistanceFromUser(bakery: filteredBakeries[indexPath.row]) {
-//                bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
-//            } else {
-//                bakeryCell.bakeryDistanceLabel.isHidden = true
-//            }
             
             if let unwrappedDistance = filteredBakeries[indexPath.row].distanceFromUser {
                 bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
@@ -179,13 +111,12 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 print(imageURLString)
-                //let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0].photoReference)&key=\(GMSPlacesClientApiKey)"
                 bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
             }
         
         // Full list of bakeries
         } else {
-            //bakeryCell.bakeryNameLabel.text = bakeries[indexPath.row].name
+            
             bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: firebaseBakeries[indexPath.row])
             
             if let splitAddressArray = firebaseBakeries[indexPath.row].formattedAddress?.components(separatedBy: ", ") {
@@ -193,12 +124,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             } else {
                 bakeryCell.bakeryAddressLabel.text = "Address unavailable"
             }
-            
-//            if let unwrappedDistance = BakeryListTableViewController.findDistanceFromUser(bakery: firebaseBakeries[indexPath.row]) {
-//                bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
-//            } else {
-//                bakeryCell.bakeryDistanceLabel.isHidden = true
-//            }
 
             if let unwrappedDistance = firebaseBakeries[indexPath.row].distanceFromUser {
                 bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
@@ -212,7 +137,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(firebaseBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
-                //let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(bakeries[indexPath.row].photos![0].photoReference)&key=\(GMSPlacesClientApiKey)"
                 bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
                 
             }

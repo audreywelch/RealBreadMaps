@@ -48,17 +48,20 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         //self.title = bakery?.name
         self.title = BakeryModelController.shared.currentBakeryName
         
-        // Show the correct bakery
-//        for eachBakery in BakeryModelController.shared.bakeries {
-//
-//            // Compare using name & address b/c can't pass an object from the map view
-//            // and need to account for multiple bakery locations with the same name
-//            if eachBakery.name == BakeryModelController.shared.currentBakeryName
-//                && eachBakery.formattedAddress == BakeryModelController.shared.currentBakeryAddress {
-//
-//                self.bakery = eachBakery
-//            }
-//        }
+        // Show the correct bakery when tapped from mapView
+        if firebaseBakery == nil {
+            for eachBakery in BakeryModelController.shared.firebaseBakeries {
+
+                // Compare using name & address b/c can't pass an object from the map view
+                // and need to account for multiple bakery locations with the same name
+                if eachBakery.name == BakeryModelController.shared.currentBakeryName
+                    && eachBakery.formattedAddress == BakeryModelController.shared.currentBakeryAddress {
+
+                    self.firebaseBakery = eachBakery
+                }
+            }
+        }
+
         
         setupTheme()
         
@@ -115,6 +118,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         // Cast cell as a custom collection view cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BakeryImageCollectionViewCell.reuseIdentier, for: indexPath) as! BakeryImageCollectionViewCell
+        
+        // Clear image when loading new images
+        cell.bakeryImageView.image = nil
         
         let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=\(GMSPlacesClientApiKey)"
         

@@ -77,7 +77,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     func sortByDistance() {
 
         if BakeryModelController.shared.userLocation == nil {
-            return
+            firebaseBakeries.sort { (l1, l2) -> Bool in
+                return l1.name ?? "" < l2.name ?? ""
+            }
         } else {
             firebaseBakeries.sort { (l1, l2) -> Bool in
                 return Double(l1.distanceFromUser!) < Double(l2.distanceFromUser!)
@@ -173,6 +175,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(firebaseBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
+                print(imageURLString)
                 //let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0].photoReference)&key=\(GMSPlacesClientApiKey)"
                 bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
             }

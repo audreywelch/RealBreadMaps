@@ -86,20 +86,20 @@ class BakeryModelController {
                 
                 // Sort bakeries by distance from user if current location is enabled
                 //if self.bakery?.distanceFromUser != nil {
-                self.firebaseBakeries.sort { (b1, b2) -> Bool in
-                    
-                    if b1.distanceFromUser != nil {
-                        return Double(b1.distanceFromUser!) < Double(b2.distanceFromUser!)
-                        
-                    } else {
-                        return b1.name ?? "" < b2.name ?? ""
-//                        if let first = b1.name, let second = b2.name {
-//                            return first < second
-//                        }
-                            
-                    }
-                        
-                }
+//                self.firebaseBakeries.sort { (b1, b2) -> Bool in
+//                    
+//                    if b1.distanceFromUser != nil {
+//                        return Double(b1.distanceFromUser!) < Double(b2.distanceFromUser!)
+//                        
+//                    } else {
+//                        return b1.name ?? "" < b2.name ?? ""
+////                        if let first = b1.name, let second = b2.name {
+////                            return first < second
+////                        }
+//                            
+//                    }
+//                        
+//                }
                 // Otherwise sort bakeries alphabetically
 //                } else {
 //                    self.bakeries.sort { (b1, b2) -> Bool in

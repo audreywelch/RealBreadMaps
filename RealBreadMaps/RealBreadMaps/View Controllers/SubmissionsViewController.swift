@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class SubmissionsViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
+class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -40,77 +40,64 @@ class SubmissionsViewController: UIViewController, MFMailComposeViewControllerDe
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         
-        // If phone has capability of sending mail
-        if MFMailComposeViewController.canSendMail() {
+        submitToGoogleForm()
+        
+        // Change color of fields to be grayed out
+        nameTextField.textColor = .lightGray
+        locationTextField.textColor = .lightGray
+        instagramTextField.textColor = .lightGray
+        websiteTextField.textColor = .lightGray
+        reasonsTextView.textColor = .lightGray
             
-            // Create instance of mail composer
-            let email = MFMailComposeViewController()
-            email.mailComposeDelegate = self
+        // Update submit button text
+        submitButton.setTitle("Submitted!", for: .normal)
+        submitButton.tintColor = .lightGray
             
-            // Create text for recipient, subject line, and body
-            // </br> for html
-            let toRecipient = ["welch.audreyl@gmail.com"]
-            let subject = "I found real bread!"
-            let body = """
-            Name: \(nameTextField.text ?? "Unknown") \n
-            Location: \(locationTextField.text ?? "Unknown") \n
-            Instagram: \(instagramTextField.text ?? "Unknown") \n
-            Website: \(websiteTextField.text ?? "Unknown") \n
-            What I love about it: \(reasonsTextView.text ?? "Unknown") \n
-            """
+//        // Disable text fields and button
+//        nameTextField.isEnabled = false
+//        locationTextField.isEnabled = false
+//        instagramTextField.isEnabled = false
+//        websiteTextField.isEnabled = false
+//        submitButton.isEnabled = false
+//        reasonsTextView.isEditable = false
+        
+        // Create an Alert Controller to thank user for submitting a bakery
+        let ac = UIAlertController(title: "Thank you for sharing your real bread knowledge!", message: nil, preferredStyle: .alert)
+        
+        ac.addAction(UIAlertAction(title: "Add another", style: .cancel) { [weak self] _ in
             
-            // Assign the subject and body to the message
-            email.setToRecipients(toRecipient)
-            email.setSubject(subject)
-            email.setMessageBody(body, isHTML: false)
+            // Clear text fields
+            self?.nameTextField.text = ""
+            self?.locationTextField.text = ""
+            self?.instagramTextField.text = ""
+            self?.websiteTextField.text = ""
+            self?.reasonsTextView.text = ""
             
-            // Send the email
-            present(email, animated: true)
+            // Reset text color
+            self?.nameTextField.textColor = .black
+            self?.locationTextField.textColor = .black
+            self?.instagramTextField.textColor = .black
+            self?.websiteTextField.textColor = .black
+            self?.reasonsTextView.textColor = .black
             
-            // Change color of fields to be grayed out
-            nameTextField.textColor = .lightGray
-            locationTextField.textColor = .lightGray
-            instagramTextField.textColor = .lightGray
-            websiteTextField.textColor = .lightGray
-            reasonsTextView.textColor = .lightGray
-            
-            // Update submit button text
-            submitButton.setTitle("Submitted!", for: .normal)
-            submitButton.tintColor = .lightGray
-            
-            // Disable text fields and button
-            nameTextField.isEnabled = false
-            locationTextField.isEnabled = false
-            instagramTextField.isEnabled = false
-            websiteTextField.isEnabled = false
-            submitButton.isEnabled = false
-            reasonsTextView.isEditable = false
-          
-        // If phone doesn't have mail capability, let the user know with an alert message
-        } else {
-            
-            let alert = UIAlertController(title: "Mail services are not available.", message: "Enable Mail in Settings to use this feature.", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            self.present(alert, animated: true)
-            
-            print("Mail services are not available")
-            
-            return
-        }
+            self?.submitButton.setTitle("Submit", for: .normal)
+            self?.submitButton.tintColor = .ibisRed
+        })
+        
+        ac.addAction(UIAlertAction(title: "Done", style: .default) { [weak self] _ in
+            self?.navigationController?.popToRootViewController(animated: true)
+        })
+        
+        present(ac, animated: true)
+        
     }
     
     // MARK: - Delegate Methods
     
-    // MFMailComposeViewControllerDelegate Methods
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        //dismiss(animated: true, completion: nil)
-    }
-    
     // UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        // Hide keyboard when user hits return
         textField.resignFirstResponder()
         
         return true
@@ -128,14 +115,70 @@ class SubmissionsViewController: UIViewController, MFMailComposeViewControllerDe
         return true
     }
     
+    // MARK: - Google Forms Submissions
     
-    @IBAction func done(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+    func submitToGoogleForm() {
+        
+        // Form field IDs
+        let nameField = "entry.74565272"
+        let locationField = "entry.1183851362"
+        let instagramField = "entry.783211295"
+        let websiteField = "entry.2031631158"
+        let additionalInfo = "entry.934824540"
+        
+        // URL for filling out a form
+        let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfEH-DoMIZgXxIeefSx9tD3j8roy6JgBpx1mGu9k4KNxcLVMw/formResponse")!
+        
+        // Create URL Request
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        
+        // Add parameters that will make up http body
+        var postData = nameField + "=" + (nameTextField.text ?? "Unknown")
+        postData += "&" + locationField + "=" + (locationTextField.text ?? "Unknwown")
+        postData += "&" + instagramField + "=" + (instagramTextField.text ?? "Unknown")
+        postData += "&" + websiteField + "=" + (websiteTextField.text ?? "Unknown")
+        postData += "&" + additionalInfo + "=" + (reasonsTextView.text ?? "Unknown")
+        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = postData.data(using: String.Encoding.utf8)
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        
+            // Check if there is an error
+            if let error = error {
+                NSLog("Server POST error: \(error)")
+                return
+            }
+            
+            // Check for status response code
+            if let response = response as? HTTPURLResponse {
+                print("Status Code: \(response.statusCode)")
+            }
+            
+            // Check for data retrieval
+            guard let data = data else {
+                NSLog("Invalid server response data")
+                return
+            }
+                        
+//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//                print("data: \(dataString)")
+//
+//                return
+//            }
+            
+        }
+        dataTask.resume()
+ 
     }
     
 }
 
 extension UIViewController {
+    
+    // Hide keyboard when user taps anywhere in the view
     func hideKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         

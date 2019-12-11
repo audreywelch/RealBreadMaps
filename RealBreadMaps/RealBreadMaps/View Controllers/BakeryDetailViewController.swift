@@ -37,7 +37,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var mapView: GMSMapView!
     
-    //var bakery: Bakery?
     var firebaseBakery: FirebaseBakery?
     
     var imageURLStrings: [String] = []
@@ -45,7 +44,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.title = bakery?.name
         self.title = BakeryModelController.shared.currentBakeryName
         
         // Show the correct bakery when tapped from mapView

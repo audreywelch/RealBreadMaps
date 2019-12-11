@@ -13,7 +13,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     @IBOutlet weak var bakerySearchBar: UISearchBar!
     
-    //var bakeries: [Bakery] = []
     var firebaseBakeries: [FirebaseBakery] = []
     
     var filteredBakeries: [FirebaseBakery] = []
@@ -64,7 +63,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             return filteredBakeries.count
         }
 
-        //return self.bakeries.count
         return self.firebaseBakeries.count
     }
     

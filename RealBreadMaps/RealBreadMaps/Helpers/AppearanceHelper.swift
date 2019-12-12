@@ -37,11 +37,185 @@ enum Appearance {
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         
         // Tab Bar
-        UITabBar.appearance().tintColor = .roseRed // .ibisRed
+        UITabBar.appearance().tintColor = .roseRed //Colors.tabBarItemTint //.roseRed
+        UITabBar.appearance().barTintColor = Colors.tabBarTint
         
         // Text Fields / Views
         UITextField.appearance().font = thinFont
         UITextView.appearance().font = thinFont
 
+    }
+    
+    public enum Colors {
+        
+        // Custom UIColor Wrapper
+        public static let label: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor.label
+            } else {
+                return .black
+            }
+        }()
+        
+        public static let background: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor.systemBackground
+            } else {
+                return .white
+            }
+        }()
+        
+        public static var tint: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return #colorLiteral(red: 0.9921568627, green: 0.7555645778, blue: 0.6809829309, alpha: 1)
+                    } else {
+                        // Return color for Light Mode
+                        return .roseRed
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .roseRed
+            }
+        }()
+        
+        public static var tabBarItemTint: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return #colorLiteral(red: 0.9921568627, green: 0.8674790888, blue: 0.7740682373, alpha: 1)
+                    } else {
+                        // Return color for Light Mode
+                        return .roseRed
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .roseRed
+            }
+        }()
+        
+        public static var tabBarTint: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return .systemGray6
+                    } else {
+                        // Return color for Light Mode
+                        return .white
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .white
+            }
+        }()
+        
+        public static var tableViewCardTint: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return .systemGray5
+                    } else {
+                        // Return color for Light Mode
+                        return .white
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .white
+            }
+        }()
+        
+        public static var shadow: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return .systemGray3
+                    } else {
+                        // Return color for Light Mode
+                        return .lightGray
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .lightGray
+            }
+        }()
+        
+        public static var tagLighterShadow: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return .lightGray
+                    } else {
+                        // Return color for Light Mode
+                        return .gray
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .gray
+            }
+        }()
+        
+        public static var tagDarkerShadow: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return .gray
+                    } else {
+                        // Return color for Light Mode
+                        return .lightGray
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .lightGray
+            }
+        }()
+        
+        public static var button: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return .systemGray5
+                    } else {
+                        // Return color for Light Mode
+                        return .roseRed
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .roseRed
+            }
+        }()
+        
+        public static var buttonText: UIColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                    if UITraitCollection.userInterfaceStyle == .dark {
+                        // Return color for Dark Mode
+                        return .white
+                    } else {
+                        // Return color for Light Mode
+                        return .roseRed
+                    }
+                }
+            } else {
+                // Return fallback color for iOS 12 and lower
+                return .roseRed
+            }
+        }()
     }
 }

@@ -157,13 +157,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="flo-sL-zM7">
-                                <rect key="frame" x="12" y="351.5" width="351" height="194.5"/>
+                                <rect key="frame" x="12" y="351.5" width="351" height="206.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9b-id-4gm">
-                                <rect key="frame" x="159" y="558" width="57" height="48"/>
+                                <rect key="frame" x="119" y="570" width="137" height="36"/>
                                 <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButtonTapped:" destination="3Jd-2d-ERK" eventType="touchUpInside" id="HF4-AN-Y75"/>
@@ -194,11 +195,17 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="whk-vC-Bgv"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="instagramLabel" destination="FzQ-ts-BkQ" id="PBb-OQ-yqY"/>
                         <outlet property="instagramTextField" destination="QcH-LA-qrn" id="2S5-7F-Iia"/>
+                        <outlet property="introLabel" destination="fzM-mL-FC2" id="IJm-vt-Ga1"/>
+                        <outlet property="locationLabel" destination="Wpf-ih-Ip8" id="CKe-Gl-fns"/>
                         <outlet property="locationTextField" destination="xZc-zE-0KT" id="maT-VP-QDm"/>
+                        <outlet property="moreInfoLabel" destination="Hzn-R1-m9a" id="0k2-ah-wly"/>
+                        <outlet property="nameLabel" destination="hqp-jZ-ofb" id="1Z6-3H-ejp"/>
                         <outlet property="nameTextField" destination="jMS-IW-t2r" id="tAs-Fm-WIm"/>
                         <outlet property="reasonsTextView" destination="flo-sL-zM7" id="6Cq-Xe-tc1"/>
                         <outlet property="submitButton" destination="z9b-id-4gm" id="79w-CQ-veE"/>
+                        <outlet property="websiteLabel" destination="r2g-Vu-g3Z" id="KXg-mF-lt0"/>
                         <outlet property="websiteTextField" destination="sRu-xB-52F" id="hgS-WT-lmw"/>
                     </connections>
                 </viewController>
@@ -694,6 +701,7 @@
                         <outlet property="bakeryWebsiteButton" destination="4Mv-bd-6cM" id="SA7-w2-dnX"/>
                         <outlet property="bottomColorBarLabel" destination="iAn-eF-76b" id="ILb-6J-d6E"/>
                         <outlet property="collectionView" destination="8AJ-wG-nph" id="AKr-U3-hkN"/>
+                        <outlet property="contentView" destination="wIN-1N-dNf" id="XIK-2J-ado"/>
                         <outlet property="infoLabel" destination="pxy-Gm-KnG" id="wRW-rV-MvG"/>
                         <outlet property="mapView" destination="P3Z-LR-ZEz" id="YK0-ck-2ox"/>
                         <outlet property="milledInHouseImageView" destination="zmJ-Su-ENJ" id="wXa-pR-Ysa"/>
@@ -995,8 +1003,11 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="aboutMeExplainedLabel" destination="Wfj-Oa-zo9" id="IC4-Jp-Fo5"/>
+                        <outlet property="aboutMeTitleLabel" destination="Xcf-Rn-nmA" id="8PX-J8-YVV"/>
                         <outlet property="animationTextLabel" destination="dxI-yL-PsI" id="kvK-by-XKU"/>
+                        <outlet property="contentView" destination="zLV-g6-Tag" id="2mu-Al-cDv"/>
                         <outlet property="realBreadExplainedLabel" destination="qVN-L1-lfY" id="WZh-QI-Crc"/>
+                        <outlet property="realBreadTitleLabel" destination="DUh-aF-HJ6" id="QFA-oj-9tb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PP5-NP-Duf" userLabel="First Responder" sceneMemberID="firstResponder"/>

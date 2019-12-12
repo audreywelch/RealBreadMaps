@@ -49,9 +49,11 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.9921568627, green: 0.7555645778, blue: 0.6809829309, alpha: 1)
         
         // Button UI
-        view.backgroundColor = .white
+        view.backgroundColor = Appearance.Colors.background
+        findRealBreadBtn.setTitleColor(Appearance.Colors.label, for: .normal)
+        findRealBreadBtn.backgroundColor = Appearance.Colors.background
         findRealBreadBtn.layer.borderWidth = 0.25
-        findRealBreadBtn.layer.borderColor = UIColor.roseRed.cgColor
+        findRealBreadBtn.layer.borderColor = Appearance.Colors.tint.cgColor // roseRed.cgColor
         
         // Create the slides and add them
         var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -74,6 +76,11 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             //titleText.adjustsFontSizeToFitWidth = true
             titleText.font = UIFont(name: "Amiri-Bold", size: 22)
             titleText.text = titles[index]
+            if #available(iOS 13.0, *) {
+                titleText.textColor = .label
+            } else {
+                titleText.textColor = .black
+            }
             
             let descriptionText = UILabel.init(frame: CGRect(x: 32, y: titleText.frame.maxY + 10, width: scrollWidth - 64, height: 60))
             descriptionText.textAlignment = .center
@@ -81,6 +88,11 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             descriptionText.adjustsFontSizeToFitWidth = true
             descriptionText.font = Appearance.thinFont
             descriptionText.text = descriptions[index]
+            if #available(iOS 13.0, *) {
+                descriptionText.textColor = .label
+            } else {
+                descriptionText.textColor = .black
+            }
             
             slide.addSubview(imageView)
             slide.addSubview(titleText)

@@ -17,6 +17,14 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var reasonsTextView: UITextView!
     
+    @IBOutlet weak var introLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var instagramLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var moreInfoLabel: UILabel!
+    
+    
     @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
@@ -28,14 +36,39 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         websiteTextField.delegate = self
         reasonsTextView.delegate = self
         
-        submitButton.tintColor = .ibisRed
-        reasonsTextView.layer.borderWidth = 0.3
-        reasonsTextView.layer.borderColor = UIColor.lightGray.cgColor
-        reasonsTextView.layer.cornerRadius = 7
-        
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: Appearance.thinFont], for: .normal)
+        updateViews()
         
         self.hideKeyboard()
+    }
+    
+    func updateViews() {
+        
+        view.backgroundColor = Appearance.Colors.background
+        
+        submitButton.tintColor = Appearance.Colors.buttonText //.ibisRed
+        reasonsTextView.layer.borderWidth = 0.3
+        reasonsTextView.layer.borderColor = UIColor.lightGray.cgColor
+        //reasonsTextView.layer.cornerRadius = 7
+
+        introLabel.textColor = Appearance.Colors.label
+        nameLabel.textColor = Appearance.Colors.label
+        locationLabel.textColor = Appearance.Colors.label
+        instagramLabel.textColor = Appearance.Colors.label
+        websiteLabel.textColor = Appearance.Colors.label
+        moreInfoLabel.textColor = Appearance.Colors.label
+        
+        nameTextField.backgroundColor = Appearance.Colors.tabBarTint
+        locationTextField.backgroundColor = Appearance.Colors.tabBarTint
+        instagramTextField.backgroundColor = Appearance.Colors.tabBarTint
+        websiteTextField.backgroundColor = Appearance.Colors.tabBarTint
+        reasonsTextView.backgroundColor = Appearance.Colors.tabBarTint
+        
+        submitButton.backgroundColor = Appearance.Colors.background
+        submitButton.layer.borderColor = Appearance.Colors.tabBarItemTint.cgColor
+        submitButton.layer.borderWidth = 0.3
+        //submitButton.layer.cornerRadius = 7
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: Appearance.thinFont], for: .normal)
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {

@@ -27,9 +27,9 @@ class BakeryTableViewCell: UITableViewCell {
             containerView.layer.shadowRadius = 2
 //            containerView.layer.borderColor = UIColor.black.cgColor
 //            containerView.layer.borderWidth = 0.5
-            containerView.layer.shadowColor = UIColor.lightGray.cgColor
+            containerView.layer.shadowColor = Appearance.Colors.shadow.cgColor // UIColor.lightGray.cgColor
             containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
-            containerView.backgroundColor = UIColor.white
+            containerView.backgroundColor = Appearance.Colors.tableViewCardTint
         }
     }
     

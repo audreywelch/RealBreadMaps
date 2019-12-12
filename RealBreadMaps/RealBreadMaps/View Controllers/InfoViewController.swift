@@ -15,6 +15,10 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var realBreadExplainedLabel: UILabel!
     @IBOutlet weak var aboutMeExplainedLabel: UILabel!
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var realBreadTitleLabel: UILabel!
+    @IBOutlet weak var aboutMeTitleLabel: UILabel!
+    
     // Use a CLLocation manager to show user's location
     var locationManager = CLLocationManager()
     var locationCoordinates: CLLocationCoordinate2D?
@@ -22,11 +26,7 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Real Bread"
-        self.tabBarItem.title = "info"
-        
-        realBreadExplainedLabel.font = Appearance.thinFont
-        aboutMeExplainedLabel.font = Appearance.thinFont
+        updateViews()
         
         // Location retrieval requests
         if CLLocationManager.locationServicesEnabled() {
@@ -42,6 +42,25 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         super.viewWillAppear(animated)
         
         animateLabel()
+    }
+    
+    func updateViews() {
+        
+        self.navigationItem.title = "Real Bread"
+        self.tabBarItem.title = "info"
+        
+        realBreadExplainedLabel.font = Appearance.thinFont
+        aboutMeExplainedLabel.font = Appearance.thinFont
+        
+        view.backgroundColor = Appearance.Colors.background
+        contentView.backgroundColor = Appearance.Colors.background
+        
+        realBreadTitleLabel.textColor = Appearance.Colors.label
+        aboutMeTitleLabel.textColor = Appearance.Colors.label
+        realBreadExplainedLabel.textColor = Appearance.Colors.label
+        aboutMeExplainedLabel.textColor = Appearance.Colors.label
+        animationTextLabel.textColor = Appearance.Colors.label
+        
     }
     
     // Location manager retrieves user's current location and saves it to the Model Controller

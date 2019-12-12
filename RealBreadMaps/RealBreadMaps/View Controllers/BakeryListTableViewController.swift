@@ -12,7 +12,7 @@ import CoreLocation
 class BakeryListTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var bakerySearchBar: UISearchBar!
-    
+
     var firebaseBakeries: [FirebaseBakery] = []
     
     var filteredBakeries: [FirebaseBakery] = []
@@ -24,7 +24,16 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        bakerySearchBar.tintColor = .roseRed
+        self.view.backgroundColor = Appearance.Colors.tabBarTint
+        bakerySearchBar.isTranslucent = false
+        bakerySearchBar.barTintColor = Appearance.Colors.tabBarTint
+        
+        // Remove bottom border from navigation bar and search bar
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        bakerySearchBar.backgroundImage = UIImage()
+        
+        
         
         // Cells should determine their own height
         tableView.rowHeight = UITableView.automaticDimension
@@ -81,6 +90,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         bakeryCell.bakeryDistanceLabel.adjustsFontForContentSizeCategory = true
         bakeryCell.bakeryImageView?.layer.cornerRadius = 10
         bakeryCell.bakeryImageView?.layer.masksToBounds = true
+        bakeryCell.bakeryNameLabel.textColor = Appearance.Colors.label
+        bakeryCell.bakeryDistanceLabel.textColor = Appearance.Colors.label
+        bakeryCell.bakeryAddressLabel.textColor = Appearance.Colors.label
         
         // Searched-for bakeries
         if searchBarIsEmpty() == false {

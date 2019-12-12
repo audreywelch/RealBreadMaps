@@ -14,6 +14,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     // MARK: Properties
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var bakeryNameLabel: UILabel!
     @IBOutlet weak var bakeryAddressLabel: UILabel!
@@ -177,7 +178,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         bottomColorBarLabel.backgroundColor = .roseRed
-        bottomColorBarLabel.alpha = 0.75
+        //bottomColorBarLabel.alpha = 0.75
         
     }
     
@@ -211,23 +212,23 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         if firebaseBakery.organic == true {
                     
             let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            organicImageView.tintColor = .roseRed
+            organicImageView.tintColor = Appearance.Colors.tint //.roseRed
             organicImageView.image = organicIcon
                     
-            organicLabel.textColor = .black
+            organicLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.organic == nil {
                     
             let organicIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            organicImageView.tintColor = .lightGray
+            organicImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
             organicImageView.image = organicIcon
                     
-            organicLabel.textColor = .lightGray
+            organicLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
                     
         } else {
                     
             let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            organicImageView.tintColor = .gray
+            organicImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
             organicImageView.image = organicIcon
                     
             let attrString = NSAttributedString(string: "Sells Loaves",
@@ -235,7 +236,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                              NSAttributedString.Key.strikethroughColor: UIColor.lightGray])
             
             organicLabel.attributedText = attrString
-            organicLabel.textColor = .gray
+            organicLabel.textColor = Appearance.Colors.tagLighterShadow//.gray
                     
         }
                 
@@ -243,23 +244,23 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         if firebaseBakery.milledInHouse == true {
                     
             let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            milledInHouseImageView.tintColor = .roseRed
+            milledInHouseImageView.tintColor = Appearance.Colors.tint//.roseRed
             milledInHouseImageView.image = milledIcon
                     
-            milledInHouseLabel.textColor = .black
+            milledInHouseLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.milledInHouse == nil {
                     
             let milledIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            milledInHouseImageView.tintColor = .lightGray
+            milledInHouseImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
             milledInHouseImageView.image = milledIcon
                     
-            milledInHouseLabel.textColor = .lightGray
+            milledInHouseLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
                     
         } else {
                     
             let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            milledInHouseImageView.tintColor = .gray
+            milledInHouseImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
             milledInHouseImageView.image = milledIcon
                     
             let attrsString = NSAttributedString(string: "Milled In-house",
@@ -267,7 +268,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                               NSAttributedString.Key.strikethroughColor: UIColor.gray])
             
             milledInHouseLabel.attributedText = attrsString
-            milledInHouseLabel.textColor = .gray
+            milledInHouseLabel.textColor = Appearance.Colors.tagLighterShadow //.gray
                     
         }
                 
@@ -275,23 +276,23 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         if firebaseBakery.servesFood == true {
                     
             let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            servesFoodImageView.tintColor = .roseRed
+            servesFoodImageView.tintColor = Appearance.Colors.tint //.roseRed
             servesFoodImageView.image = servesFoodIcon
                     
-            servesFoodLabel.textColor = .black
+            servesFoodLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.servesFood == nil {
                     
             let servesFoodIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            servesFoodImageView.tintColor = .lightGray
+            servesFoodImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
             servesFoodImageView.image = servesFoodIcon
                     
-            servesFoodLabel.textColor = .lightGray
+            servesFoodLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
                     
         } else {
                     
             let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            servesFoodImageView.tintColor = .gray
+            servesFoodImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
             servesFoodImageView.image = servesFoodIcon
                     
             let attrsString = NSAttributedString(string: "Serves Food",
@@ -299,30 +300,30 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                               NSAttributedString.Key.strikethroughColor: UIColor.gray])
             
             servesFoodLabel.attributedText = attrsString
-            servesFoodLabel.textColor = .gray
+            servesFoodLabel.textColor = Appearance.Colors.tagLighterShadow //.gray
         }
                 
         // Sells Loaves
         if firebaseBakery.sellsLoaves == true {
                     
             let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            sellsLoavesImageView.tintColor = .roseRed
+            sellsLoavesImageView.tintColor = Appearance.Colors.tint //.roseRed
             sellsLoavesImageView.image = sellsLoavesIcon
                     
-            sellsLoavesLabel.textColor = .black
+            sellsLoavesLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.sellsLoaves == nil {
                     
             let sellsLoavesIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            sellsLoavesImageView.tintColor = .lightGray
+            sellsLoavesImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
             sellsLoavesImageView.image = sellsLoavesIcon
                     
-            sellsLoavesLabel.textColor = .lightGray
+            sellsLoavesLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
                     
         } else {
                     
             let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            sellsLoavesImageView.tintColor = .gray
+            sellsLoavesImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
             sellsLoavesImageView.image = sellsLoavesIcon
                     
             let attrsString = NSAttributedString(string: "Sells Loaves",
@@ -330,7 +331,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                               NSAttributedString.Key.strikethroughColor: UIColor.gray])
             
             sellsLoavesLabel.attributedText = attrsString
-            sellsLoavesLabel.textColor = .gray
+            sellsLoavesLabel.textColor = Appearance.Colors.tagLighterShadow //.gray
                     
         }
                 
@@ -450,6 +451,15 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.textAlignment = .center
         self.navigationItem.titleView = titleLabel
+        
+        self.view.backgroundColor = .roseRed
+        contentView.backgroundColor = Appearance.Colors.background
+        collectionView.backgroundColor = Appearance.Colors.background
+        
+        bakeryNameLabel.textColor = Appearance.Colors.label
+        bakeryAddressLabel.textColor = Appearance.Colors.label
+        bakeryHoursLabel.textColor = Appearance.Colors.label
+        infoLabel.textColor = Appearance.Colors.label
         
         // Map - Set the map style by passing the URL of the local file
         do {

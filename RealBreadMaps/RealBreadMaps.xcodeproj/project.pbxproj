@@ -16,6 +16,7 @@
 		842ECE932341518800F831BD /* Amiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE8E2341518800F831BD /* Amiri-Regular.ttf */; };
 		842ECE9F2341535600F831BD /* Amiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 842ECE9E2341535600F831BD /* Amiri-Bold.ttf */; };
 		842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ECEA02342C07800F831BD /* FirebaseBakery.swift */; };
+		844222FD23A94AB80048646B /* real-bread-gif.mov in Resources */ = {isa = PBXBuildFile; fileRef = 844222FC23A94AB80048646B /* real-bread-gif.mov */; };
 		846248CC2362672B006F1957 /* real-bread-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 846248CB2362672B006F1957 /* real-bread-launch.png */; };
 		846248CE23626A1E006F1957 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846248CD23626A1E006F1957 /* OnboardingViewController.swift */; };
 		847709F62331941C00FFE238 /* Futura-Light-BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 847709F52331941C00FFE238 /* Futura-Light-BT.ttf */; };
@@ -52,6 +53,7 @@
 		842ECE8E2341518800F831BD /* Amiri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amiri-Regular.ttf"; sourceTree = "<group>"; };
 		842ECE9E2341535600F831BD /* Amiri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amiri-Bold.ttf"; sourceTree = "<group>"; };
 		842ECEA02342C07800F831BD /* FirebaseBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBakery.swift; sourceTree = "<group>"; };
+		844222FC23A94AB80048646B /* real-bread-gif.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "real-bread-gif.mov"; sourceTree = "<group>"; };
 		846248CB2362672B006F1957 /* real-bread-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "real-bread-launch.png"; sourceTree = "<group>"; };
 		846248CD23626A1E006F1957 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		847709F52331941C00FFE238 /* Futura-Light-BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light-BT.ttf"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				842ECE8E2341518800F831BD /* Amiri-Regular.ttf */,
 				842ECE9E2341535600F831BD /* Amiri-Bold.ttf */,
 				84F7602922404731007892A1 /* Assets.xcassets */,
+				844222FC23A94AB80048646B /* real-bread-gif.mov */,
 				846248CB2362672B006F1957 /* real-bread-launch.png */,
 				84F381D2236A59CD004AFCFD /* Old Files */,
 			);
@@ -312,6 +315,7 @@
 			files = (
 				84F7602D22404731007892A1 /* LaunchScreen.storyboard in Resources */,
 				847709F62331941C00FFE238 /* Futura-Light-BT.ttf in Resources */,
+				844222FD23A94AB80048646B /* real-bread-gif.mov in Resources */,
 				841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */,
 				84F5342B233EEC1800BE25B6 /* style.json in Resources */,
 				842ECE932341518800F831BD /* Amiri-Regular.ttf in Resources */,

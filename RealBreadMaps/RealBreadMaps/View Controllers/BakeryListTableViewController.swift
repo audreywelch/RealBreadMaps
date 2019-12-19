@@ -17,6 +17,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     var filteredBakeries: [FirebaseBakery] = []
     
+    lazy var geocoder = CLGeocoder()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -258,6 +260,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 return
             }
             
+            self.geocoder.geocodeAddressString(searchTerm) { (placemarks, error) in
+                self.processResponse(withPlacemarks: placemarks, error: error)
+            }
+            
             // Filter through the array of bakeries to see if name of bakery or address contain the text entered by user
             let matchingBakeries = self.firebaseBakeries.filter({ $0.name?.lowercased().contains(searchTerm) ?? false || $0.formattedAddress?.lowercased().contains(searchTerm) ?? false })
             
@@ -273,4 +279,28 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         return bakerySearchBar.text?.isEmpty ?? true
     }
 
+    private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
+        
+        if let error = error {
+            print("Unable to Forward Geocode Address (\(error))")
+            
+            
+        } else {
+            var location: CLLocation?
+            
+            // Select the first CLPlacemark instance
+            if let placemarks = placemarks, placemarks.count > 0 {
+                location = placemarks.first?.location
+            }
+            
+            // Access the coordinate property - an instance of CLLocationCoordinate2D
+            if let location = location {
+                let coordinate = location.coordinate
+                print("\(coordinate.latitude), \(coordinate.longitude)")
+            } else {
+                print("No matching location found")
+            }
+        }
+    }
+    
 }

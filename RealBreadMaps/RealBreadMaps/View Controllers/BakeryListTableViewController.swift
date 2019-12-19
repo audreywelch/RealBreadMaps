@@ -30,7 +30,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         self.view.backgroundColor = Appearance.Colors.tabBarTint
         bakerySearchBar.isTranslucent = false
         bakerySearchBar.barTintColor = Appearance.Colors.tabBarTint
-        bakerySearchBar.placeholder = "Search by 'City, State' or by 'Name'"
+        bakerySearchBar.placeholder = "Search by 'City, State'"
         
         // Remove bottom border from navigation bar and search bar
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -96,56 +96,81 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         bakeryCell.bakeryDistanceLabel.textColor = Appearance.Colors.label
         bakeryCell.bakeryAddressLabel.textColor = Appearance.Colors.label
         
-        // Searched-for bakeries
+        // SEARCHED-FOR BAKERIES
         if searchBarIsEmpty() == false {
             
             // Clear image when loading new images
             bakeryCell.bakeryImageView.image = nil
             
+            // Name Label
             bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: filteredBakeries[indexPath.row])
             
+            // Address Label
             if let splitAddressArray = filteredBakeries[indexPath.row].formattedAddress?.components(separatedBy: ", ") {
                 bakeryCell.bakeryAddressLabel.text = determineAddressFormatting(array: splitAddressArray)
             } else {
                 bakeryCell.bakeryAddressLabel.text = "Address unavailable"
             }
             
-            if let unwrappedDistance = filteredBakeries[indexPath.row].distanceFromUser {
-                bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
-            } else {
-                print("\(filteredBakeries[indexPath.row].name) does not have a distance from user")
-                //bakeryCell.bakeryDistanceLabel.isHidden = true
+            // Distance Label
+            if let lat = filteredBakeries[indexPath.row].lat,
+                let lng = filteredBakeries[indexPath.row].lng {
+                
+                let bakeryLocation = CLLocation(latitude: lat, longitude: lng)
+                
+                // If the userSearchLocation is not nil
+                if userSearchLocation != nil {
+                    
+                    // Return the distance in meters
+                    let distanceFromTarget = bakeryLocation.distance(from: userSearchLocation!)
+                    
+                    // Display the distance in miles from the search target
+                    bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromTarget)) miles away" //\n\(bakerySearchBar.text ?? "")"
+                    
+                // If userSearchLocation is nil, just display the distance from the user
+                } else {
+                    if let unwrappedDistance = filteredBakeries[indexPath.row].distanceFromUser {
+                        bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
+                        
+                    // If user has not supplied location, label will display "-- miles away"
+                    } else {
+                        print("\(String(describing: filteredBakeries[indexPath.row].name)) does not have a distance from user")
+                    }
+                }
             }
             
+            // Photos
             if filteredBakeries[indexPath.row].photos == nil {
                 bakeryCell.bakeryImageView.image = UIImage(named: "no_image_available")
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 
                 bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
-                
-                //print(imageURLString)
+
                 //bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
             }
         
-        // Full list of bakeries
+        // FULL LIST OF BAKERIES
         } else {
             
+            // Name Label
             bakeryCell.bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: firebaseBakeries[indexPath.row])
             
+            // Address Label
             if let splitAddressArray = firebaseBakeries[indexPath.row].formattedAddress?.components(separatedBy: ", ") {
                 bakeryCell.bakeryAddressLabel.text = determineAddressFormatting(array: splitAddressArray)
             } else {
                 bakeryCell.bakeryAddressLabel.text = "Address unavailable"
             }
 
+            // Distance Label
             if let unwrappedDistance = firebaseBakeries[indexPath.row].distanceFromUser {
                 bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
             } else {
-                print("\(firebaseBakeries[indexPath.row].name) does not have a distance from user")
-                //bakeryCell.bakeryDistanceLabel.isHidden = true
+                print("\(String(describing: firebaseBakeries[indexPath.row].name)) does not have a distance from user")
             }
 
+            // Photos
             if firebaseBakeries[indexPath.row].photos == nil {
                 bakeryCell.bakeryImageView.image = UIImage(named: "no_image_available")
                 
@@ -153,7 +178,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(firebaseBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 
                 bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
-                
                 //bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
                 
             }

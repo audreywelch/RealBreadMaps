@@ -117,11 +117,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             
             if filteredBakeries[indexPath.row].photos == nil {
                 bakeryCell.bakeryImageView.image = UIImage(named: "no_image_available")
-    
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
-                print(imageURLString)
-                bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
+                
+                bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
+                
+                //print(imageURLString)
+                //bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
             }
         
         // Full list of bakeries
@@ -147,7 +149,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(firebaseBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
-                bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
+                
+                bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
+                
+                //bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
                 
             }
         }
@@ -203,7 +208,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         } else {
             return ""
         }
-  
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -129,7 +129,10 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             
         // Otherwise, load the image URL into the image view
         } else if self.firebaseBakery!.photos != nil {
-            cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
+            
+            cell.bakeryImageView.loadImage(urlString: imageURLStrings[indexPath.row])
+            
+            // cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
         }
         
         return cell
@@ -472,20 +475,66 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             NSLog("One or more of the map styles failed to load. \(error)")
         }
     }
+    
+    
 }
 
 
 // Extension of UIImageView to load URLs, convert to data, then convert to a UIImage in a background queue, but load it to the image view on the main thread
 extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
+    
+    // Load images from a cache
+    func loadImage(urlString: String) {
+        
+        // Create an image cache using NSCache
+        let imageCache = NSCache<NSString, UIImage>()
+        
+        // If the cache already contains the URLString as a key, return it
+        if let cacheImage = imageCache.object(forKey: urlString as NSString) {
+            self.image = cacheImage
+            return
+        }
+        
+        // Create a url out of the urlString
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { ( data, response, error) in
+            
+            if let error = error {
+                print("Couldn't download image: ", error)
+                return
+            }
+            
+            // Create data from the URL
+            guard let data = data else { return }
+            
+            // Create an image from the data
+            if let image = UIImage(data: data) {
+                
+                // Put the url and image into the cache
+                imageCache.setObject(image, forKey: urlString as NSString)
+                
+                // Load the image asynchronously
+                DispatchQueue.main.async {
+                    self.image = image
                 }
             }
-        }
+
+        }.resume()
+        
     }
+    
+    
+//    // ORIGINAL LOAD
+//    func load(url: URL) {
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(contentsOf: url) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        self?.image = image
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

@@ -149,6 +149,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
 
                 //bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
             }
+            
+
         
         // FULL LIST OF BAKERIES
         } else {
@@ -311,6 +313,20 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             }
 
          self.tableView.reloadData()
+        }
+        
+        // If there are no results for the searched-for bakery, display an alert controller
+        if filteredBakeries.isEmpty == true {
+            
+            let ac = UIAlertController(title: "Sorry, I'm not aware of any real bread within 100 miles of that location! Please submit a bakery if you know of one.", message: nil, preferredStyle: .alert)
+            
+            ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                self?.bakerySearchBar.text = ""
+                self?.tableView.reloadData()
+            })
+            
+            present(ac, animated: true)
+            
         }
     }
     

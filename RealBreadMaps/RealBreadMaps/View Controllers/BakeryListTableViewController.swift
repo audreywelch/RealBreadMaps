@@ -18,6 +18,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     var filteredBakeries: [FirebaseBakery] = []
     
     lazy var geocoder = CLGeocoder()
+    var userSearchLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,12 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         self.view.backgroundColor = Appearance.Colors.tabBarTint
         bakerySearchBar.isTranslucent = false
         bakerySearchBar.barTintColor = Appearance.Colors.tabBarTint
+        bakerySearchBar.placeholder = "Search by 'City, State' or by 'Name'"
         
         // Remove bottom border from navigation bar and search bar
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.backIndicatorImage = UIImage()
         bakerySearchBar.backgroundImage = UIImage()
-        
-        
         
         // Cells should determine their own height
         tableView.rowHeight = UITableView.automaticDimension
@@ -260,16 +260,32 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 return
             }
             
-            self.geocoder.geocodeAddressString(searchTerm) { (placemarks, error) in
-                self.processResponse(withPlacemarks: placemarks, error: error)
-            }
-            
+            // IF THE SEARCH TERM IS A NAME
             // Filter through the array of bakeries to see if name of bakery or address contain the text entered by user
             let matchingBakeries = self.firebaseBakeries.filter({ $0.name?.lowercased().contains(searchTerm) ?? false || $0.formattedAddress?.lowercased().contains(searchTerm) ?? false })
             
             // Set the value of the filteredBakeries to the results of the filter
             self.filteredBakeries = matchingBakeries
             
+            // IF THE SEARCH TERM IS A LOCATION
+            // Geocode the searchTerm in case it is a location
+            self.geocoder.geocodeAddressString(searchTerm) { (placemarks, error) in
+                // Process response - this appends to filteredBakeries
+                self.processResponse(withPlacemarks: placemarks, error: error)
+                
+                // Sort the order of the array based on distance from the target
+                if let userSearchLocation = self.userSearchLocation {
+                    self.filteredBakeries.sort { (l1, l2) -> Bool in
+                        return Double( CLLocation(latitude: l1.lat!, longitude: l1.lng!)
+                            .distance(from: userSearchLocation) )
+                            < Double( CLLocation(latitude: l2.lat!, longitude: l2.lng!)
+                                .distance(from: userSearchLocation) )
+                    }
+                }
+                
+                self.tableView.reloadData()
+            }
+
          self.tableView.reloadData()
         }
     }
@@ -279,11 +295,11 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         return bakerySearchBar.text?.isEmpty ?? true
     }
 
+    // Forward Geocoding
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
         
         if let error = error {
             print("Unable to Forward Geocode Address (\(error))")
-            
             
         } else {
             var location: CLLocation?
@@ -297,10 +313,40 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             if let location = location {
                 let coordinate = location.coordinate
                 print("\(coordinate.latitude), \(coordinate.longitude)")
+                
+                userSearchLocation = location
+                
+                // Get distance from entered location to other bakeries, adding to the filteredBakeries
+                // array if within 50 miles
+                findDistance(target: location)
+                
             } else {
                 print("No matching location found")
             }
         }
+    }
+    
+    // Finds distance from all bakeries to the target location
+    // If within 50 miles, adds it to the filteredBakery array
+    func findDistance(target: CLLocation) {
+        
+        for eachBakery in firebaseBakeries {
+            
+            guard let lat = eachBakery.lat, let lng = eachBakery.lng else { return }
+            
+            let bakeryLocation = CLLocation(latitude: lat, longitude: lng)
+            
+            // Returns the distance in meters
+            let distanceFromTarget = bakeryLocation.distance(from: target)
+            
+            // If the bakery is within 100 miles == 160934 meters
+            if distanceFromTarget < 160934 {
+                print("Adding \(eachBakery.name) to filtered array because it is \(distanceFromTarget) away from the searched place")
+                filteredBakeries.append(eachBakery)
+            }
+            
+        }
+        
     }
     
 }

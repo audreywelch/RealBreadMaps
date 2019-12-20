@@ -10,17 +10,25 @@ import UIKit
 
 enum Appearance {
     
+    // Non-Serif font
     static let mainTextFontTitles = UIFont(name: "FuturaCondensedPT-Medium", size: 36)
-    //(name: "Futura Condensed PT", size: 36)
+    static let tableViewFontTitles = UIFont(name: "Futura-Medium", size: 17)
     static let thinFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)
-    static let navigationFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)
+    static let thinSmallFont = UIFont(name: "FuturaBT-Light", size: 15)
     
+    // Serif font
+    static let titleFontBoldAmiri = UIFont(name: "Amiri-Bold", size: 24)
+    static let titleFontAmiri = UIFont(name: "Amiri-Regular", size: 24)
+    
+    // Font for navigation bars
+    static let navigationFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)
+
+    
+    // SAMPLE FONTS
     static let titleFontKokoro = UIFont(name: "KokoroMinchoutai", size: 24)
     static let titleFontPTSerif = UIFont(name: "PTSerif-Regular", size: 24)
     static let titleFontPlayfair = UIFont(name: "PlayfairDisplay-Regular", size: 24)
     static let titleFontOldStandard = UIFont(name: "OldStandardTT-Regular", size: 24)
-    static let titleFontAmiri = UIFont(name: "Amiri-Regular", size: 24)
-    static let titleFontBoldAmiri = UIFont(name: "Amiri-Bold", size: 24)
     
     
     static func setupTheme() {

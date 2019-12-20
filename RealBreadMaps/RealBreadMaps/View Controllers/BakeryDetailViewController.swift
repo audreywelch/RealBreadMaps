@@ -148,9 +148,13 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // NAME
         // Make sure name of bakery displayed is specific to its location
         bakeryNameLabel.text = BakeryListTableViewController.bakeryNameSpecifications(bakery: firebaseBakery)
+        bakeryNameLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: Appearance.titleFontBoldAmiri!)
+        bakeryNameLabel.adjustsFontForContentSizeCategory = true
         
         // ADDRESS
         bakeryAddressLabel.text = firebaseBakery.formattedAddress
+        bakeryAddressLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: Appearance.thinFont!)
+        bakeryAddressLabel.adjustsFontForContentSizeCategory = true
         
         // HOURS
         if firebaseBakery.weekdayText != nil {
@@ -160,6 +164,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         } else {
             bakeryHoursLabel.text = "Please visit website for hours."
         }
+        bakeryHoursLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinSmallFont!)
+        bakeryHoursLabel.adjustsFontForContentSizeCategory = true
         
         // WEBSITE
         // Account for Bread Riot Bakehouse selling at the Farmer's Market
@@ -171,6 +177,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             bakeryWebsiteButton.setTitle("Website unavailable", for: .normal)
             bakeryWebsiteButton.isEnabled = false
         }
+        bakeryWebsiteButton.titleLabel?.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: Appearance.thinFont!)
+        bakeryWebsiteButton.titleLabel?.adjustsFontForContentSizeCategory = true
         
         // PHONE NUMBER
         // Account for Bread Riot Bakehouse selling at the Farmer's Market
@@ -179,9 +187,15 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         } else {
             bakeryPhoneNumberButton.setTitle("Phone number unavailable", for: .normal)
         }
+        bakeryPhoneNumberButton.titleLabel?.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: Appearance.thinFont!)
+        bakeryPhoneNumberButton.titleLabel?.adjustsFontForContentSizeCategory = true
         
+        // INFO
+        infoLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinSmallFont!)
+        infoLabel.adjustsFontForContentSizeCategory = true
+        
+        // BOTTOM COLOR BAR
         bottomColorBarLabel.backgroundColor = .roseRed
-        //bottomColorBarLabel.alpha = 0.75
         
     }
     

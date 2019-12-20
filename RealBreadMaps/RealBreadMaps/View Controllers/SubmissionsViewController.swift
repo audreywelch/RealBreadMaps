@@ -48,14 +48,28 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         submitButton.tintColor = Appearance.Colors.buttonText //.ibisRed
         reasonsTextView.layer.borderWidth = 0.3
         reasonsTextView.layer.borderColor = UIColor.lightGray.cgColor
-        //reasonsTextView.layer.cornerRadius = 7
-
+        reasonsTextView.layer.cornerRadius = 7
+        
+        // Text Colors
         introLabel.textColor = Appearance.Colors.label
         nameLabel.textColor = Appearance.Colors.label
         locationLabel.textColor = Appearance.Colors.label
         instagramLabel.textColor = Appearance.Colors.label
         websiteLabel.textColor = Appearance.Colors.label
         moreInfoLabel.textColor = Appearance.Colors.label
+        
+        // Fonts
+        //introLabel.font =
+        nameLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
+        nameLabel.adjustsFontForContentSizeCategory = true
+        locationLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
+        locationLabel.adjustsFontForContentSizeCategory = true
+        instagramLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
+        instagramLabel.adjustsFontForContentSizeCategory = true
+        websiteLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
+        websiteLabel.adjustsFontForContentSizeCategory = true
+        // moreInfoLabel.font
+        // submitButton.
         
         nameTextField.backgroundColor = Appearance.Colors.tabBarTint
         locationTextField.backgroundColor = Appearance.Colors.tabBarTint

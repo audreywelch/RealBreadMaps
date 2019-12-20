@@ -25,6 +25,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         bakerySearchBar.delegate = self
         
+        // Dismiss the keyboard when user scrolls
+        tableView.keyboardDismissMode = .onDrag
+        
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.view.backgroundColor = Appearance.Colors.tabBarTint
@@ -45,6 +48,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         sortByDistance()
  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        // Reload table view if user taps back and then comes to the table view again
+        tableView.reloadData()
     }
     
     // Sort the bakeries by distance away from user and reload the table view
@@ -89,12 +99,20 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
         
-        bakeryCell.bakeryDistanceLabel.adjustsFontForContentSizeCategory = true
         bakeryCell.bakeryImageView?.layer.cornerRadius = 10
         bakeryCell.bakeryImageView?.layer.masksToBounds = true
+        
         bakeryCell.bakeryNameLabel.textColor = Appearance.Colors.label
+        bakeryCell.bakeryNameLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: Appearance.tableViewFontTitles!)
+        bakeryCell.bakeryNameLabel.adjustsFontForContentSizeCategory = true
+        
         bakeryCell.bakeryDistanceLabel.textColor = Appearance.Colors.label
+        bakeryCell.bakeryDistanceLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinSmallFont!)
+        bakeryCell.bakeryDistanceLabel.adjustsFontForContentSizeCategory = true
+        
         bakeryCell.bakeryAddressLabel.textColor = Appearance.Colors.label
+        bakeryCell.bakeryAddressLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinSmallFont!)
+        bakeryCell.bakeryAddressLabel.adjustsFontForContentSizeCategory = true
         
         // SEARCHED-FOR BAKERIES
         if searchBarIsEmpty() == false {
@@ -146,12 +164,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 
                 bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
-
-                //bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
             }
             
-
-        
         // FULL LIST OF BAKERIES
         } else {
             
@@ -180,7 +194,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(firebaseBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 
                 bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
-                //bakeryCell.bakeryImageView.load(url: URL(string: imageURLString)!)
                 
             }
         }
@@ -239,6 +252,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard let destinationVC = segue.destination as? BakeryDetailViewController,
             let indexPath = tableView.indexPathForSelectedRow else { return }
         
@@ -273,6 +287,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
+        searchBar.resignFirstResponder()
+        
         self.tableView.reloadData()
     }
     
@@ -292,6 +308,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             
             // IF THE SEARCH TERM IS A NAME
             // Not allowing search by name because it changes the distance to measure from a place it tries to find with the same name as the search term
+            
             // Filter through the array of bakeries to see if name of bakery or address contain the text entered by user
 //            let matchingBakeries = self.firebaseBakeries.filter({ $0.name?.lowercased().contains(searchTerm) ?? false })
                 // || $0.formattedAddress?.lowercased().contains(searchTerm) ?? false })

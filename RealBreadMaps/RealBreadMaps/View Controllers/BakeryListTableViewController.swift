@@ -125,12 +125,12 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                     let distanceFromTarget = bakeryLocation.distance(from: userSearchLocation!)
                     
                     // Display the distance in miles from the search target
-                    bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromTarget)) miles away" //\n\(bakerySearchBar.text ?? "")"
+                    bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: distanceFromTarget)) miles from \(bakerySearchBar.text?.capitalized ?? "")"
                     
                 // If userSearchLocation is nil, just display the distance from the user
                 } else {
                     if let unwrappedDistance = filteredBakeries[indexPath.row].distanceFromUser {
-                        bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
+                        bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles from you"
                         
                     // If user has not supplied location, label will display "-- miles away"
                     } else {
@@ -167,7 +167,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
 
             // Distance Label
             if let unwrappedDistance = firebaseBakeries[indexPath.row].distanceFromUser {
-                bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles away"
+                bakeryCell.bakeryDistanceLabel.text = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles from you"
             } else {
                 print("\(String(describing: firebaseBakeries[indexPath.row].name)) does not have a distance from user")
             }
@@ -272,10 +272,14 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
         self.tableView.reloadData()
     }
     
     func filterBakeries() {
+        
+        // Set filteredBakeries to none so that new searches don't get added on to the new ones
+        filteredBakeries = []
         
         DispatchQueue.main.async {
             
@@ -287,11 +291,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             }
             
             // IF THE SEARCH TERM IS A NAME
+            // Not allowing search by name because it changes the distance to measure from a place it tries to find with the same name as the search term
             // Filter through the array of bakeries to see if name of bakery or address contain the text entered by user
-            let matchingBakeries = self.firebaseBakeries.filter({ $0.name?.lowercased().contains(searchTerm) ?? false || $0.formattedAddress?.lowercased().contains(searchTerm) ?? false })
-            
-            // Set the value of the filteredBakeries to the results of the filter
-            self.filteredBakeries = matchingBakeries
+//            let matchingBakeries = self.firebaseBakeries.filter({ $0.name?.lowercased().contains(searchTerm) ?? false })
+                // || $0.formattedAddress?.lowercased().contains(searchTerm) ?? false })
+//
+//            // Set the value of the filteredBakeries to the results of the filter
+//            self.filteredBakeries = self.filteredBakeries + matchingBakeries
             
             // IF THE SEARCH TERM IS A LOCATION
             // Geocode the searchTerm in case it is a location
@@ -310,24 +316,25 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 }
                 
                 self.tableView.reloadData()
+                
+                // If there are no results for the searched-for bakery, display an alert controller
+                if self.filteredBakeries.count == 0 {
+                    
+                    let ac = UIAlertController(title: "Sorry, I'm not aware of any real bread within 100 miles of that location! Please submit a bakery if you know of one.", message: nil, preferredStyle: .alert)
+                    
+                    ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                        self?.bakerySearchBar.text = ""
+                        self?.tableView.reloadData()
+                    })
+                    
+                    self.present(ac, animated: true)
+                    
+                }
             }
-
+            
          self.tableView.reloadData()
         }
         
-        // If there are no results for the searched-for bakery, display an alert controller
-        if filteredBakeries.isEmpty == true {
-            
-            let ac = UIAlertController(title: "Sorry, I'm not aware of any real bread within 100 miles of that location! Please submit a bakery if you know of one.", message: nil, preferredStyle: .alert)
-            
-            ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                self?.bakerySearchBar.text = ""
-                self?.tableView.reloadData()
-            })
-            
-            present(ac, animated: true)
-            
-        }
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -382,6 +389,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             // If the bakery is within 100 miles == 160934 meters
             if distanceFromTarget < 160934 {
                 print("Adding \(eachBakery.name) to filtered array because it is \(distanceFromTarget) away from the searched place")
+                
+//                if filteredBakeries.contains(eachBakery) == false {
+//
+//                }
                 filteredBakeries.append(eachBakery)
             }
             

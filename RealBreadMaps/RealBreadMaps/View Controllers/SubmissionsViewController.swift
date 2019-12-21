@@ -59,7 +59,8 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         moreInfoLabel.textColor = Appearance.Colors.label
         
         // Fonts
-        //introLabel.font =
+        introLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.submissionBoldAmiri!)
+        introLabel.adjustsFontForContentSizeCategory = true
         nameLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
         nameLabel.adjustsFontForContentSizeCategory = true
         locationLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
@@ -68,8 +69,10 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         instagramLabel.adjustsFontForContentSizeCategory = true
         websiteLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
         websiteLabel.adjustsFontForContentSizeCategory = true
-        // moreInfoLabel.font
-        // submitButton.
+        moreInfoLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.submissionBoldAmiri!)
+        moreInfoLabel.adjustsFontForContentSizeCategory = true
+        submitButton.titleLabel?.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.titleFontBoldAmiri!)
+        submitButton.titleLabel?.adjustsFontForContentSizeCategory = true
         
         nameTextField.backgroundColor = Appearance.Colors.tabBarTint
         locationTextField.backgroundColor = Appearance.Colors.tabBarTint

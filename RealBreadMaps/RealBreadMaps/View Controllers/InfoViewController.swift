@@ -49,12 +49,21 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.title = "Real Bread"
         self.tabBarItem.title = "info"
         
-        realBreadExplainedLabel.font = Appearance.thinFont
-        aboutMeExplainedLabel.font = Appearance.thinFont
+        // Fonts
+        realBreadExplainedLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinFont!)
+        realBreadExplainedLabel.adjustsFontForContentSizeCategory = true
+        aboutMeExplainedLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinFont!)
+        aboutMeExplainedLabel.adjustsFontForContentSizeCategory = true
+        realBreadTitleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.submissionBoldAmiri!)
+        realBreadTitleLabel.adjustsFontForContentSizeCategory = true
+        aboutMeTitleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.submissionBoldAmiri!)
+        aboutMeTitleLabel.adjustsFontForContentSizeCategory = true
         
+        // Background Colors
         view.backgroundColor = Appearance.Colors.background
         contentView.backgroundColor = Appearance.Colors.background
         
+        // Text Colors
         realBreadTitleLabel.textColor = Appearance.Colors.label
         aboutMeTitleLabel.textColor = Appearance.Colors.label
         realBreadExplainedLabel.textColor = Appearance.Colors.label

@@ -51,6 +51,8 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         // Button UI
         view.backgroundColor = Appearance.Colors.background
         findRealBreadBtn.setTitleColor(Appearance.Colors.label, for: .normal)
+        findRealBreadBtn.titleLabel?.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: Appearance.titleFontAmiri!)
+        findRealBreadBtn.titleLabel?.adjustsFontForContentSizeCategory = true
         findRealBreadBtn.backgroundColor = Appearance.Colors.background
         findRealBreadBtn.layer.borderWidth = 0.25
         findRealBreadBtn.layer.borderColor = Appearance.Colors.tint.cgColor // roseRed.cgColor
@@ -74,7 +76,9 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             titleText.textAlignment = .center
             titleText.numberOfLines = 0
             //titleText.adjustsFontSizeToFitWidth = true
-            titleText.font = UIFont(name: "Amiri-Bold", size: 22)
+            titleText.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: Appearance.onboardingBoldAmiri!)
+            titleText.adjustsFontForContentSizeCategory = true
+                //UIFont(name: "Amiri-Bold", size: 22)
             titleText.text = titles[index]
             if #available(iOS 13.0, *) {
                 titleText.textColor = .label
@@ -86,7 +90,8 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             descriptionText.textAlignment = .center
             descriptionText.numberOfLines = 3
             descriptionText.adjustsFontSizeToFitWidth = true
-            descriptionText.font = Appearance.thinFont
+            descriptionText.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.thinFont!)
+            descriptionText.adjustsFontForContentSizeCategory = true
             descriptionText.text = descriptions[index]
             if #available(iOS 13.0, *) {
                 descriptionText.textColor = .label

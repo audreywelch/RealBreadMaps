@@ -20,17 +20,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
         
         mapView.delegate = self
         
-        // Set the map style by passing the URL of the local file
-        do {
-            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
-                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-            } else {
-                NSLog("Unable to find style.json")
-            }
-        } catch {
-            NSLog("One or more of the map styles failed to load. \(error)")
-        }
-             
         // Set initial view to the the user's location if it's not nil
         if BakeryModelController.shared.userLocation != nil {
             
@@ -69,6 +58,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                 // Unwrap names and addresses and assign them to the marker
                 if let unwrappedName = eachFirebaseBakery.name {
                     marker.title = "\(unwrappedName)"
+                    
                 }
 
                 if let unwrappedAddress = eachFirebaseBakery.formattedAddress {
@@ -79,6 +69,68 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
             }
         }
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if #available(iOS 13.0, *) {
+            mapStyling()
+        } else {
+            // Set the map style by passing the URL of the local file
+            do {
+                
+                if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                    mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                } else {
+                    NSLog("Unable to find style.json")
+                }
+            } catch {
+                NSLog("One or more of the map styles failed to load. \(error)")
+            }
+        }
+    }
+    
+    func mapStyling() {
+        
+        if #available(iOS 13.0, *) {
+            switch traitCollection.userInterfaceStyle {
+            case .dark:
+                do {
+                    
+                    if let styleURL = Bundle.main.url(forResource: "nightStyle", withExtension: "json") {
+                        mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                    } else {
+                        NSLog("Unable to find style.json")
+                    }
+                } catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            case .light:
+                do {
+                    
+                    if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                        mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                    } else {
+                        NSLog("Unable to find style.json")
+                    }
+                } catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            default:
+                do {
+                    
+                    if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                        mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                    } else {
+                        NSLog("Unable to find style.json")
+                    }
+                } catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            }
+        }
+        
     }
 
     // Function to segue to the detail view when a marker is tapped

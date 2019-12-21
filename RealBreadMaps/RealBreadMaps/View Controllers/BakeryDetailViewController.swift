@@ -61,9 +61,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             }
         }
 
-        
-        setupTheme()
-        
         labelSetUp()
         
         populateTags()
@@ -82,6 +79,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setupTheme()
         
         // Retrieve the layout and cast it to UICollectionViewFlowLayout
         guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
@@ -479,15 +478,62 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         infoLabel.textColor = Appearance.Colors.label
         
         // Map - Set the map style by passing the URL of the local file
-        do {
-            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
-                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-            } else {
-                NSLog("Unable to find style.json")
+        if #available(iOS 13.0, *) {
+            mapStyling()
+        } else {
+            // Set the map style by passing the URL of the local file
+            do {
+                
+                if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                    mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                } else {
+                    NSLog("Unable to find style.json")
+                }
+            } catch {
+                NSLog("One or more of the map styles failed to load. \(error)")
             }
-        } catch {
-            NSLog("One or more of the map styles failed to load. \(error)")
         }
+    }
+    
+    func mapStyling() {
+        
+        if #available(iOS 13.0, *) {
+            switch traitCollection.userInterfaceStyle {
+            case .dark:
+                do {
+                    
+                    if let styleURL = Bundle.main.url(forResource: "nightStyle", withExtension: "json") {
+                        mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                    } else {
+                        NSLog("Unable to find style.json")
+                    }
+                } catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            case .light:
+                do {
+                    
+                    if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                        mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                    } else {
+                        NSLog("Unable to find style.json")
+                    }
+                } catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            default:
+                do {
+                    if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                        mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                    } else {
+                        NSLog("Unable to find style.json")
+                    }
+                } catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            }
+        }
+        
     }
     
     

@@ -379,7 +379,12 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         marker.icon = GMSMarker.markerImage(with: .roseRed)
         marker.position = CLLocationCoordinate2D(latitude: firebaseBakery.lat ?? 0, longitude: firebaseBakery.lng ?? 0)
         marker.title = "\(firebaseBakeryName)"
-        marker.snippet = "Get Directions 👆"
+        
+        // If location services is enabled, show the distance from user
+        if let unwrappedDistance = firebaseBakery.distanceFromUser {
+            marker.snippet = "\(BakeryMapViewController.self.convertMetersToMiles(of: unwrappedDistance)) miles" // "Get Directions 👆"
+        }
+        
         marker.map = mapView
         
     }

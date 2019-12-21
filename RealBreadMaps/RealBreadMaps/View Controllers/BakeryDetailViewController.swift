@@ -38,6 +38,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBOutlet weak var getDirectionsButton: UIButton!
+    
     var firebaseBakery: FirebaseBakery?
     
     var imageURLStrings: [String] = []
@@ -192,6 +194,10 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // INFO
         infoLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinSmallFont!)
         infoLabel.adjustsFontForContentSizeCategory = true
+        
+        // GET DIRECTIONS
+        getDirectionsButton.titleLabel?.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: Appearance.onboardingBoldAmiri!)
+        getDirectionsButton.titleLabel?.adjustsFontForContentSizeCategory = true
         
         // BOTTOM COLOR BAR
         bottomColorBarLabel.backgroundColor = .roseRed
@@ -395,14 +401,25 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     // MARK: - Clickable Functionality
     
+    @IBAction func getDirectionsButtonTapped(_ sender: Any) {
+        
+        // https://www.google.com/maps/dir/?api=1&destination=Lodge+Bread+Company
+        
+        guard let firebaseBakery = firebaseBakery else { return }
+        
+        guard let nameForURL = firebaseBakery.name?.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
+        
+        if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
     // When label is tapped, go to google maps
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         
         guard let firebaseBakery = firebaseBakery else { return }
         
         guard let nameForURL = firebaseBakery.name?.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
-        
-        //print(nameForURL)
         
         if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
             UIApplication.shared.open(url, options: [:])
@@ -467,6 +484,11 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.textAlignment = .center
         self.navigationItem.titleView = titleLabel
+        
+        getDirectionsButton.tintColor = Appearance.Colors.buttonText //.ibisRed
+        getDirectionsButton.backgroundColor = Appearance.Colors.background
+        getDirectionsButton.layer.borderColor = Appearance.Colors.tabBarItemTint.cgColor
+        getDirectionsButton.layer.borderWidth = 0.3
         
         self.view.backgroundColor = .roseRed
         contentView.backgroundColor = Appearance.Colors.background

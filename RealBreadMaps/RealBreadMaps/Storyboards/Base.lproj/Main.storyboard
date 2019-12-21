@@ -15,7 +15,7 @@
         <array key="Amiri-Regular.ttf">
             <string>Amiri-Regular</string>
         </array>
-        <array key="Futura-Light-BT.ttf">
+        <array key="Futura Light BT.ttf">
             <string>FuturaBT-Light</string>
         </array>
         <array key="futura-condensed-pt-medium.otf">
@@ -434,7 +434,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="807"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-1N-dNf" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="948"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="978"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8AJ-wG-nph">
                                                 <rect key="frame" x="8" y="8" width="359" height="128"/>
@@ -627,7 +627,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-eF-76b">
-                                                <rect key="frame" x="0.0" y="928" width="375" height="20"/>
+                                                <rect key="frame" x="0.0" y="958" width="375" height="20"/>
                                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86747908880000002" blue="0.77406823729999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="D2N-f1-vZB"/>
@@ -636,6 +636,15 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhS-lE-NzB">
+                                                <rect key="frame" x="117.5" y="916" width="140" height="30"/>
+                                                <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="17"/>
+                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="Get Directions"/>
+                                                <connections>
+                                                    <action selector="getDirectionsButtonTapped:" destination="zGJ-4H-o08" eventType="touchUpInside" id="wwW-7x-nKR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -647,6 +656,7 @@
                                             <constraint firstItem="AJR-h9-FXd" firstAttribute="top" secondItem="4ol-PU-Y1I" secondAttribute="bottom" constant="4" id="DTs-LL-dzA"/>
                                             <constraint firstAttribute="trailing" secondItem="8AJ-wG-nph" secondAttribute="trailing" constant="8" id="FEo-CP-ZnV"/>
                                             <constraint firstItem="E1c-uQ-St8" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="GO7-Zd-PnP"/>
+                                            <constraint firstItem="nhS-lE-NzB" firstAttribute="centerX" secondItem="wIN-1N-dNf" secondAttribute="centerX" id="HPh-9S-rxk"/>
                                             <constraint firstItem="XHF-Yk-QXY" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="KOt-Na-Wtk"/>
                                             <constraint firstItem="8AJ-wG-nph" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="8" id="O4I-Ld-TZr"/>
                                             <constraint firstAttribute="trailing" secondItem="0ys-mf-qWN" secondAttribute="trailing" constant="12" id="RU7-MP-V7c"/>
@@ -655,7 +665,7 @@
                                             <constraint firstItem="E1c-uQ-St8" firstAttribute="top" secondItem="3ib-1H-POm" secondAttribute="bottom" constant="14" id="SVl-LH-Zqb"/>
                                             <constraint firstItem="pxy-Gm-KnG" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="ThC-7R-aO0"/>
                                             <constraint firstAttribute="trailing" secondItem="iAn-eF-76b" secondAttribute="trailing" id="U0d-jB-EqS"/>
-                                            <constraint firstItem="iAn-eF-76b" firstAttribute="top" secondItem="P3Z-LR-ZEz" secondAttribute="bottom" constant="20" id="VD4-Th-d1B"/>
+                                            <constraint firstItem="iAn-eF-76b" firstAttribute="top" secondItem="nhS-lE-NzB" secondAttribute="bottom" constant="12" id="VsL-IY-jsD"/>
                                             <constraint firstItem="E1c-uQ-St8" firstAttribute="top" secondItem="XHF-Yk-QXY" secondAttribute="bottom" constant="14" id="b38-ga-U4A"/>
                                             <constraint firstAttribute="trailing" secondItem="pxy-Gm-KnG" secondAttribute="trailing" constant="12" id="beO-xx-kMt"/>
                                             <constraint firstAttribute="trailing" secondItem="P3Z-LR-ZEz" secondAttribute="trailing" constant="12" id="ejf-mq-Hkf"/>
@@ -671,6 +681,7 @@
                                             <constraint firstItem="0ys-mf-qWN" firstAttribute="top" secondItem="8AJ-wG-nph" secondAttribute="bottom" constant="20" id="sQg-rp-3fY"/>
                                             <constraint firstItem="4Mv-bd-6cM" firstAttribute="top" secondItem="E1c-uQ-St8" secondAttribute="bottom" constant="12" id="tuM-Xz-5rB"/>
                                             <constraint firstItem="AJR-h9-FXd" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="uyR-dn-roY"/>
+                                            <constraint firstItem="nhS-lE-NzB" firstAttribute="top" secondItem="P3Z-LR-ZEz" secondAttribute="bottom" constant="8" id="wgL-a5-qVz"/>
                                             <constraint firstItem="0ys-mf-qWN" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="yWT-fE-28E"/>
                                             <constraint firstAttribute="trailing" secondItem="4Mv-bd-6cM" secondAttribute="trailing" constant="12" id="z37-Pu-elE"/>
                                             <constraint firstItem="4ol-PU-Y1I" firstAttribute="leading" secondItem="wIN-1N-dNf" secondAttribute="leading" constant="12" id="z3P-8v-DBZ"/>
@@ -711,6 +722,7 @@
                         <outlet property="bottomColorBarLabel" destination="iAn-eF-76b" id="ILb-6J-d6E"/>
                         <outlet property="collectionView" destination="8AJ-wG-nph" id="AKr-U3-hkN"/>
                         <outlet property="contentView" destination="wIN-1N-dNf" id="XIK-2J-ado"/>
+                        <outlet property="getDirectionsButton" destination="nhS-lE-NzB" id="xKC-Co-LBn"/>
                         <outlet property="infoLabel" destination="pxy-Gm-KnG" id="wRW-rV-MvG"/>
                         <outlet property="mapView" destination="P3Z-LR-ZEz" id="YK0-ck-2ox"/>
                         <outlet property="milledInHouseImageView" destination="zmJ-Su-ENJ" id="wXa-pR-Ysa"/>

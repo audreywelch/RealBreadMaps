@@ -36,12 +36,32 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
+        let timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(animateText), userInfo: nil, repeats: true)
+        timer.fire()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        animateLabel()
+        //animateLabel()
+        
+        
+    }
+    
+    @objc func animateText() {
+        
+        switch animationTextLabel.text {
+        case "The FDA allows for 38 different ingredients in its definition of bread...":
+            animationTextLabel.text = "... but some believe real bread can be made from 3..."
+        case "... but some believe real bread can be made from 3...":
+            animationTextLabel.text = "...flour, water, and salt."
+        case "...flour, water, and salt.":
+            animationTextLabel.text = "The FDA allows for 38 different ingredients in its definition of bread..."
+        default:
+            animationTextLabel.text = "The FDA allows for 38 different ingredients in its definition of bread..."
+            
+        }
     }
     
     func updateViews() {

@@ -434,7 +434,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="807"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-1N-dNf" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="978"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="981"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8AJ-wG-nph">
                                                 <rect key="frame" x="8" y="8" width="359" height="128"/>
@@ -627,7 +627,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-eF-76b">
-                                                <rect key="frame" x="0.0" y="958" width="375" height="20"/>
+                                                <rect key="frame" x="0.0" y="961" width="375" height="20"/>
                                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86747908880000002" blue="0.77406823729999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="D2N-f1-vZB"/>
@@ -637,9 +637,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhS-lE-NzB">
-                                                <rect key="frame" x="117.5" y="916" width="140" height="30"/>
+                                                <rect key="frame" x="117.5" y="916" width="140" height="33"/>
                                                 <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="17"/>
-                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <inset key="contentEdgeInsets" minX="20" minY="3" maxX="20" maxY="0.0"/>
                                                 <state key="normal" title="Get Directions"/>
                                                 <connections>
                                                     <action selector="getDirectionsButtonTapped:" destination="zGJ-4H-o08" eventType="touchUpInside" id="wwW-7x-nKR"/>

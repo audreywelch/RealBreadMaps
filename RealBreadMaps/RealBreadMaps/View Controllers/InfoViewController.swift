@@ -36,6 +36,7 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
+        // Timer for looping animation
         let timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(animateText), userInfo: nil, repeats: true)
         timer.fire()
         
@@ -43,9 +44,6 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //animateLabel()
-        
         
     }
     
@@ -55,8 +53,8 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         case "The FDA allows for 38 different ingredients in its definition of bread...":
             animationTextLabel.text = "... but some believe real bread can be made from 3..."
         case "... but some believe real bread can be made from 3...":
-            animationTextLabel.text = "...flour, water, and salt."
-        case "...flour, water, and salt.":
+            animationTextLabel.text = "...flour, water, and salt.\n"
+        case "...flour, water, and salt.\n":
             animationTextLabel.text = "The FDA allows for 38 different ingredients in its definition of bread..."
         default:
             animationTextLabel.text = "The FDA allows for 38 different ingredients in its definition of bread..."
@@ -74,9 +72,9 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         realBreadExplainedLabel.adjustsFontForContentSizeCategory = true
         aboutMeExplainedLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.thinFont!)
         aboutMeExplainedLabel.adjustsFontForContentSizeCategory = true
-        realBreadTitleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.submissionBoldAmiri!)
+        realBreadTitleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.infoTitleBoldAmiri!)
         realBreadTitleLabel.adjustsFontForContentSizeCategory = true
-        aboutMeTitleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.submissionBoldAmiri!)
+        aboutMeTitleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.infoTitleBoldAmiri!)
         aboutMeTitleLabel.adjustsFontForContentSizeCategory = true
         
         // Background Colors
@@ -109,104 +107,7 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         }
 
     }
-    
-    func animateLabel() {
-        
-        UIView.animate(withDuration: 5.0, animations: {
-            
-            // Fade out logo
-            self.animationTextLabel.alpha = 0
-            
-            self.animationTextLabel.text = "The FDA allows for 38 different ingredients in its definition of bread..."
-            
-            self.animationTextLabel.alpha = 1
-            
-            //self.animationTextLabel.alpha = 0
-            
-        }) { (finished) in
-            UIView.animate(withDuration: 5.0, animations: {
-                
-                self.animationTextLabel.alpha = 0
-                
-                self.animationTextLabel.text = "... but some believe real bread can be made from 3..."
-                
-                self.animationTextLabel.alpha = 1
-                
-                //self.animationTextLabel.alpha = 0
-
-            }) { (finished) in
-                UIView.animate(withDuration: 5.0, animations: {
-                    
-                    self.animationTextLabel.alpha = 0
-                
-                    self.animationTextLabel.text = "...flour, water, and salt."
-                
-                    self.animationTextLabel.alpha = 1
-                
-                    //self.animationTextLabel.alpha = 0
-                })
-            }
-        }
-        
-//
-//        UIView.animate(withDuration: 3.0) {
-//
-//            self.animationTextLabel.alpha = 0
-//
-//            self.animationTextLabel.text = "Real bread is..."
-//
-//            self.animationTextLabel.alpha = 1
-//
-//        }
-//
-//        UIView.animate(withDuration: 3.0) {
-//
-//            self.animationTextLabel.alpha = 0
-//
-//            self.animationTextLabel.text = "Easy to digest..."
-//
-//            self.animationTextLabel.alpha = 1
-//
-//        }
-//
-//        UIView.animate(withDuration: 3.0) {
-//
-//            self.animationTextLabel.alpha = 0
-//
-//            self.animationTextLabel.text = "Made with simple ingredients..."
-//
-//            self.animationTextLabel.alpha = 1
-//
-//        }
-//
-//        UIView.animate(withDuration: 3.0) {
-//
-//            self.animationTextLabel.alpha = 0
-//
-//            self.animationTextLabel.text = "Absolutely delicious!"
-//
-//            self.animationTextLabel.alpha = 1
-//
-//        }
-    
-    }
-
 
 }
 
-//extension UILabel {
-//    func animate(textString: String, duration: Double) {
-//        let characters = textString.map { $0 }
-//        var index = 0
-//        Timer.scheduledTimer(withTimeInterval: duration, repeats: true, block: { [weak self] timer in
-//            if index < textString.count {
-//                let char = characters[index]
-//                self?.text! += "\(char)"
-//                index += 1
-//            } else {
-//                timer.invalidate()
-//            }
-//        })
-//    }
-//}
 

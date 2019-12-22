@@ -20,6 +20,7 @@ enum Appearance {
     static let titleFontBoldAmiri = UIFont(name: "Amiri-Bold", size: 24)
     static let onboardingBoldAmiri = UIFont(name: "Amiri-Bold", size: 22)
     static let submissionBoldAmiri = UIFont(name: "Amiri-Bold", size: UIFont.labelFontSize)
+    static let infoTitleBoldAmiri = UIFont(name: "Amiri-Bold", size: 20)
     static let titleFontAmiri = UIFont(name: "Amiri-Regular", size: 24)
     
     // Font for navigation bars

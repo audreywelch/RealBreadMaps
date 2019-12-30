@@ -68,9 +68,10 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             
             // Subviews
             let imageView = UIImageView.init(image: UIImage.init(named: images[index]))
-            imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+            //imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+            imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width * 0.8, height: self.view.frame.size.width * 0.8)
             imageView.contentMode = .scaleAspectFit
-            imageView.center = CGPoint(x: scrollWidth/2, y: scrollHeight/2 - 50)
+            imageView.center = CGPoint(x: scrollWidth/2, y: scrollHeight/2 - 60)
             
             let titleText = UILabel.init(frame: CGRect(x: 12, y: imageView.frame.maxY + 30, width: scrollWidth - 24, height: 30))
             titleText.textAlignment = .center
@@ -114,6 +115,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         // Initial State
         pageControl.numberOfPages = titles.count
         pageControl.currentPage = 0
+        
         
     }
     

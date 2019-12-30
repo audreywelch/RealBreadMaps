@@ -965,7 +965,7 @@
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfj-Oa-zo9">
                                                 <rect key="frame" x="40" y="880.5" width="295" height="183"/>
-                                                <mutableString key="text">My sister and I helped start a bakery together, and a common question we were asked was, "Where else can I find bread like this?"  Nowadays I don't make bread, I make apps. I still love bread and so I want to celebrate the bakers taking the time to make real bread.</mutableString>
+                                                <mutableString key="text">My sister and I started a bakery together, and a common question we were asked was, "Where else can I find bread like this?"  Nowadays I don't make bread, I make apps. I still love bread, so I want to celebrate the bakers taking the time to make real bread.</mutableString>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

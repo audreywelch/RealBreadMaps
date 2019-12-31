@@ -25,9 +25,9 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) finds and uses your location in order to find bakeries nearest to you.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>$(PRODUCT_NAME) always uses your location to find bakeries nearest you.</string>
+	<string>$(PRODUCT_NAME) finds and uses your location to find bakeries nearest you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>$(PRODUCT_NAME) finds your current location while you are using the app.</string>
+	<string>$(PRODUCT_NAME) uses your location to find bakeries nearest to you while using the app.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>futura-condensed-pt-medium.otf</string>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ors-Ge-vb9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ors-Ge-vb9">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +15,7 @@
         <array key="Amiri-Regular.ttf">
             <string>Amiri-Regular</string>
         </array>
-        <array key="Futura Light BT.ttf">
+        <array key="Futura-Light-BT.ttf">
             <string>FuturaBT-Light</string>
         </array>
         <array key="futura-condensed-pt-medium.otf">
@@ -965,7 +965,7 @@
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfj-Oa-zo9">
                                                 <rect key="frame" x="40" y="880.5" width="295" height="183"/>
-                                                <mutableString key="text">My sister and I started a bakery together, and a common question we were asked was, "Where else can I find bread like this?"  Nowadays I don't make bread, I make apps. I still love bread, so I want to celebrate the bakers taking the time to make real bread.</mutableString>
+                                                <string key="text">My sister and I started a bakery together, and a common question we were asked was, "Where else can I find bread like this?"  Nowadays I don't make bread, I make apps. I still love bread, so I want to celebrate the bakers taking the time to make real bread.</string>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

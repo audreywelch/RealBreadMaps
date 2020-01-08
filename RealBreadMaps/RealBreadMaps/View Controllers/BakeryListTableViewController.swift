@@ -44,6 +44,15 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         
+
+        
+//        if BakeryModelController.shared.firebaseBakeries.count == 0 {
+//            BakeryModelController.shared.fetchAllBakeries { (error) in
+//                self.firebaseBakeries = BakeryModelController.shared.firebaseBakeries
+//                self.tableView.reloadData()
+//            }
+//        }
+        
         self.firebaseBakeries = BakeryModelController.shared.firebaseBakeries
         
         sortByDistance()
@@ -52,6 +61,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+//        if BakeryModelController.shared.firebaseBakeries.count == 0 {
+//            BakeryModelController.shared.fetchAllBakeries { (error) in
+//                self.firebaseBakeries = BakeryModelController.shared.firebaseBakeries
+//                self.tableView.reloadData()
+//            }
+//        }
         
         // Reload table view if user taps back and then comes to the table view again
         tableView.reloadData()
@@ -83,7 +99,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         if searchBarIsEmpty() == false {
             return filteredBakeries.count
         }
-
+        print(firebaseBakeries.count)
         return self.firebaseBakeries.count
     }
     

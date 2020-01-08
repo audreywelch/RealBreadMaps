@@ -9,14 +9,27 @@
 import UIKit
 import GoogleMaps
 
-class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
+
+class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
     let bakeryDetailViewController = BakeryDetailViewController()
     
+    // Use a CLLocation manager to show user's location
+    var locationManager = CLLocationManager()
+    var locationCoordinates: CLLocationCoordinate2D?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Location retrieval requests
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
         
         mapView.delegate = self
         
@@ -45,7 +58,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
             // MARK: - Call the following function after each addition to Firebase & 1x per week to update the Firebase with Google info
             // Also uncomment the updateFirebase() call inside getBakeryInfo() function
             // Use the placeID to make the GooglePlaces API call
-            BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in }
+            // BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in }
             
             // Ensure UI updates are performed on the main thread
             DispatchQueue.main.async {
@@ -89,6 +102,24 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate {
                 NSLog("One or more of the map styles failed to load. \(error)")
             }
         }
+    }
+    
+    // Location manager retrieves user's current location and saves it to the Model Controller
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let location = locations.first {
+            locationCoordinates = manager.location?.coordinate
+            print("LocationCoordinates: \(String(describing: locationCoordinates))")
+            
+            manager.stopUpdatingLocation()
+            
+            BakeryModelController.shared.userLocation = location.coordinate
+        } else {
+            print("User location is unavailable")
+            
+            BakeryModelController.shared.userLocation = nil
+        }
+
     }
     
     func mapStyling() {

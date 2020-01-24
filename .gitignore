@@ -1,2 +1,6 @@
 Constants.swift
+GoogleService-Info.plist
 .DS_Store
+*.xcuserstate
+*.xcuserdata
+

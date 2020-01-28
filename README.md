@@ -1,6 +1,5 @@
-# #RealBread Maps
 
-![0-loading](https://user-images.githubusercontent.com/26590934/57958844-d988f500-78c6-11e9-9621-a23127b3239d.png)
+<img width="400" alt="real-bread-icon" src="https://user-images.githubusercontent.com/26590934/73303874-08809600-41cc-11ea-991c-c873666d6f97.png">
 
 ## Overview
 This app helps users find killer bread - bread that is made with only the good stuff: flour, water, and salt.
@@ -21,15 +20,16 @@ This app helps users find killer bread - bread that is made with only the good s
 ## Technology Used:
 1. Google Maps API with CocoaPods
 2. Google Places Details API
-3. Firebase SDK
+3. Google Places Photos API
+4. Firebase Realtime Database
 
+<img alt="4.7-4" src="https://user-images.githubusercontent.com/26590934/73303553-898b5d80-41cb-11ea-9bfc-20ca1a5e9e3f.png">
 
-<img width="439" alt="1-mapView" src="https://user-images.githubusercontent.com/26590934/57958919-240a7180-78c7-11e9-925e-4d87516202bb.png">
+<img alt="4.7-5" src="https://user-images.githubusercontent.com/26590934/73303984-4382c980-41cc-11ea-96f3-0e4940dd64e2.png">
 
-<img width="448" alt="2-tableView" src="https://user-images.githubusercontent.com/26590934/57958927-279df880-78c7-11e9-9dd7-c06430172fdd.png">
+<img alt="4.7-6" src="https://user-images.githubusercontent.com/26590934/73303993-47aee700-41cc-11ea-9db9-5b80982705b5.png">
 
-<img width="475" alt="3-realBreadExplained" src="https://user-images.githubusercontent.com/26590934/57958932-2b317f80-78c7-11e9-8162-c9363db00142.png">
+<img alt="4.7-7" src="https://user-images.githubusercontent.com/26590934/73303999-4aa9d780-41cc-11ea-81b8-7fdc6ee6854b.png">
 
-<img width="334" alt="4-detailView" src="https://user-images.githubusercontent.com/26590934/57958946-35537e00-78c7-11e9-961b-6becc7151dd1.png">
+<img alt="4.7-8" src="https://user-images.githubusercontent.com/26590934/73304006-4da4c800-41cc-11ea-903f-2e0b2c451558.png">
 
-<img width="450" alt="5-submissionForm" src="https://user-images.githubusercontent.com/26590934/57958952-397f9b80-78c7-11e9-825f-7a901cd81e61.png">

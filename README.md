@@ -1,6 +1,6 @@
 # Real Bread
 
-<img width="300" alt="real-bread-icon" src="https://user-images.githubusercontent.com/26590934/73304286-cf94f100-41cc-11ea-9b5b-349c3ec61674.png">
+<img width="200" alt="real-bread-icon" src="https://user-images.githubusercontent.com/26590934/73304844-dd974180-41cd-11ea-8ab0-a4d8b3ff5b80.png">
 
 ## Overview
 This app helps users find killer bread - bread that is made with only the good stuff: flour, water, and salt.

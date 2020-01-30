@@ -112,7 +112,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
 //        reasonsTextView.isEditable = false
         
         // Create an Alert Controller to thank user for submitting a bakery
-        let ac = UIAlertController(title: "Thank you for sharing your real bread knowledge!", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Thank you for sharing your real bread knowledge!", message: "I can’t guarantee that all submissions will make the app, but I do review all submissions.", preferredStyle: .alert)
         
         ac.addAction(UIAlertAction(title: "Add another", style: .cancel) { [weak self] _ in
             

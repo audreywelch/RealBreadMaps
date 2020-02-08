@@ -16,6 +16,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
     @IBOutlet weak var instagramTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var reasonsTextView: UITextView!
+    @IBOutlet weak var yourNameTextField: UITextField!
     
     @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,9 +24,11 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
     @IBOutlet weak var instagramLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var moreInfoLabel: UILabel!
-    
+    @IBOutlet weak var yourNameLabel: UILabel!
     
     @IBOutlet weak var submitButton: UIButton!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,8 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         reasonsTextView.delegate = self
         
         updateViews()
+        
+        scrollView.keyboardDismissMode = .onDrag
         
         self.hideKeyboard()
     }
@@ -56,6 +61,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         locationLabel.textColor = Appearance.Colors.label
         instagramLabel.textColor = Appearance.Colors.label
         websiteLabel.textColor = Appearance.Colors.label
+        yourNameLabel.textColor = Appearance.Colors.label
         moreInfoLabel.textColor = Appearance.Colors.label
         
         // Fonts
@@ -69,6 +75,8 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         instagramLabel.adjustsFontForContentSizeCategory = true
         websiteLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
         websiteLabel.adjustsFontForContentSizeCategory = true
+        yourNameLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: Appearance.tableViewFontTitles!)
+        yourNameLabel.adjustsFontForContentSizeCategory = true
         moreInfoLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.submissionBoldAmiri!)
         moreInfoLabel.adjustsFontForContentSizeCategory = true
         submitButton.titleLabel?.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: Appearance.titleFontBoldAmiri!)
@@ -78,6 +86,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         locationTextField.backgroundColor = Appearance.Colors.tabBarTint
         instagramTextField.backgroundColor = Appearance.Colors.tabBarTint
         websiteTextField.backgroundColor = Appearance.Colors.tabBarTint
+        yourNameTextField.backgroundColor = Appearance.Colors.tabBarTint
         reasonsTextView.backgroundColor = Appearance.Colors.tabBarTint
         
         submitButton.backgroundColor = Appearance.Colors.background
@@ -97,6 +106,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         locationTextField.textColor = .lightGray
         instagramTextField.textColor = .lightGray
         websiteTextField.textColor = .lightGray
+        yourNameTextField.textColor = .lightGray
         reasonsTextView.textColor = .lightGray
             
         // Update submit button text
@@ -121,6 +131,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
             self?.locationTextField.text = ""
             self?.instagramTextField.text = ""
             self?.websiteTextField.text = ""
+            self?.yourNameTextField.text = ""
             self?.reasonsTextView.text = ""
             
             // Reset text color
@@ -128,6 +139,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
             self?.locationTextField.textColor = .black
             self?.instagramTextField.textColor = .black
             self?.websiteTextField.textColor = .black
+            self?.yourNameTextField.textColor = .black
             self?.reasonsTextView.textColor = .black
             
             self?.submitButton.setTitle("Submit", for: .normal)

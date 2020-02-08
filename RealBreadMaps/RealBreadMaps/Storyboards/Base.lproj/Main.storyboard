@@ -49,7 +49,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="vBF-AJ-j6N"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JR9-WM-LQu">
                             <connections>
-                                <segue destination="3Jd-2d-ERK" kind="show" id="8Fq-C9-IJ4"/>
+                                <segue destination="LHK-4y-k0H" kind="show" id="poW-lG-raC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -66,152 +66,464 @@
         <scene sceneID="oOo-eY-DZQ">
             <objects>
                 <viewController id="3Jd-2d-ERK" customClass="SubmissionsViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ftb-UP-P4B">
+                    <view key="view" contentMode="scaleToFill" id="5Sq-Ie-rRL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know of some real bread not on my list? I'd love to hear about it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzM-mL-FC2">
-                                <rect key="frame" x="12" y="56" width="351" height="63.5"/>
-                                <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nR0-D5-e7A">
-                                <rect key="frame" x="12" y="131.5" width="351" height="160"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PY1-F2-BhT">
-                                        <rect key="frame" x="0.0" y="0.0" width="351" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-jZ-ofb">
-                                                <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMS-IW-t2r">
-                                                <rect key="frame" x="85" y="0.0" width="266" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1JL-Ne-6bv">
-                                        <rect key="frame" x="0.0" y="42" width="351" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-ih-Ip8">
-                                                <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xZc-zE-0KT">
-                                                <rect key="frame" x="85" y="0.0" width="266" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T7f-tG-t9w">
-                                        <rect key="frame" x="0.0" y="84" width="351" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzQ-ts-BkQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcH-LA-qrn">
-                                                <rect key="frame" x="85" y="0.0" width="266" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qw6-Gx-MYx">
-                                        <rect key="frame" x="0.0" y="126" width="351" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-Vu-g3Z">
-                                                <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sRu-xB-52F">
-                                                <rect key="frame" x="85" y="0.0" width="266" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Wpf-ih-Ip8" firstAttribute="width" secondItem="hqp-jZ-ofb" secondAttribute="width" id="34w-yL-fHa"/>
-                                    <constraint firstItem="r2g-Vu-g3Z" firstAttribute="width" secondItem="hqp-jZ-ofb" secondAttribute="width" id="9sE-1T-7Df"/>
-                                    <constraint firstItem="FzQ-ts-BkQ" firstAttribute="width" secondItem="hqp-jZ-ofb" secondAttribute="width" id="Zly-qw-NdF"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell me what you love about it:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzn-R1-m9a">
-                                <rect key="frame" x="12" y="311.5" width="351" height="32"/>
-                                <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="flo-sL-zM7">
-                                <rect key="frame" x="12" y="351.5" width="351" height="206.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9b-id-4gm">
-                                <rect key="frame" x="119" y="570" width="137" height="36"/>
-                                <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="20"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitButtonTapped:" destination="3Jd-2d-ERK" eventType="touchUpInside" id="HF4-AN-Y75"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="z9b-id-4gm" firstAttribute="centerX" secondItem="Ftb-UP-P4B" secondAttribute="centerX" id="569-TE-Nff"/>
-                            <constraint firstItem="Hzn-R1-m9a" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="5VU-p1-4fB"/>
-                            <constraint firstItem="fzM-mL-FC2" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="5la-x3-jUm"/>
-                            <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="fzM-mL-FC2" secondAttribute="trailing" constant="12" id="Dmv-4Q-R7D"/>
-                            <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="flo-sL-zM7" secondAttribute="trailing" constant="12" id="Vui-8s-aqw"/>
-                            <constraint firstItem="aBW-wi-2wv" firstAttribute="bottom" secondItem="z9b-id-4gm" secondAttribute="bottom" constant="12" id="WTh-FO-lct"/>
-                            <constraint firstItem="Hzn-R1-m9a" firstAttribute="top" secondItem="nR0-D5-e7A" secondAttribute="bottom" constant="20" id="Xnf-7P-0Z8"/>
-                            <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="nR0-D5-e7A" secondAttribute="trailing" constant="12" id="aBk-68-qdq"/>
-                            <constraint firstItem="z9b-id-4gm" firstAttribute="top" secondItem="flo-sL-zM7" secondAttribute="bottom" constant="12" id="aua-ja-1jU"/>
-                            <constraint firstItem="flo-sL-zM7" firstAttribute="top" secondItem="Hzn-R1-m9a" secondAttribute="bottom" constant="8" id="bQs-h2-Zal"/>
-                            <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="Hzn-R1-m9a" secondAttribute="trailing" constant="12" id="gY0-Cq-fBa"/>
-                            <constraint firstItem="fzM-mL-FC2" firstAttribute="top" secondItem="aBW-wi-2wv" secondAttribute="top" constant="12" id="hRW-Nx-o1K"/>
-                            <constraint firstItem="nR0-D5-e7A" firstAttribute="top" secondItem="fzM-mL-FC2" secondAttribute="bottom" constant="12" id="ifo-wv-eHc"/>
-                            <constraint firstItem="flo-sL-zM7" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="kyX-bc-x99"/>
-                            <constraint firstItem="nR0-D5-e7A" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="rHr-QX-bmC"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="aBW-wi-2wv"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LH3-cb-AMH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Submissions" id="87R-oo-jSU">
                         <barButtonItem key="backBarButtonItem" title=" " id="whk-vC-Bgv"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="instagramLabel" destination="FzQ-ts-BkQ" id="PBb-OQ-yqY"/>
-                        <outlet property="instagramTextField" destination="QcH-LA-qrn" id="2S5-7F-Iia"/>
-                        <outlet property="introLabel" destination="fzM-mL-FC2" id="IJm-vt-Ga1"/>
-                        <outlet property="locationLabel" destination="Wpf-ih-Ip8" id="CKe-Gl-fns"/>
-                        <outlet property="locationTextField" destination="xZc-zE-0KT" id="maT-VP-QDm"/>
-                        <outlet property="moreInfoLabel" destination="Hzn-R1-m9a" id="0k2-ah-wly"/>
-                        <outlet property="nameLabel" destination="hqp-jZ-ofb" id="1Z6-3H-ejp"/>
-                        <outlet property="nameTextField" destination="jMS-IW-t2r" id="tAs-Fm-WIm"/>
-                        <outlet property="reasonsTextView" destination="flo-sL-zM7" id="6Cq-Xe-tc1"/>
-                        <outlet property="submitButton" destination="z9b-id-4gm" id="79w-CQ-veE"/>
-                        <outlet property="websiteLabel" destination="r2g-Vu-g3Z" id="KXg-mF-lt0"/>
-                        <outlet property="websiteTextField" destination="sRu-xB-52F" id="hgS-WT-lmw"/>
-                    </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="Ftb-UP-P4B">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know of some real bread not on my list? I'd love to hear about it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzM-mL-FC2">
+                            <rect key="frame" x="12" y="12" width="351" height="63.5"/>
+                            <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nR0-D5-e7A">
+                            <rect key="frame" x="12" y="87.5" width="351" height="160"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PY1-F2-BhT">
+                                    <rect key="frame" x="0.0" y="0.0" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-jZ-ofb">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMS-IW-t2r">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1JL-Ne-6bv">
+                                    <rect key="frame" x="0.0" y="42" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-ih-Ip8">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xZc-zE-0KT">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T7f-tG-t9w">
+                                    <rect key="frame" x="0.0" y="84" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzQ-ts-BkQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcH-LA-qrn">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qw6-Gx-MYx">
+                                    <rect key="frame" x="0.0" y="126" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-Vu-g3Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sRu-xB-52F">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Wpf-ih-Ip8" firstAttribute="width" secondItem="hqp-jZ-ofb" secondAttribute="width" id="34w-yL-fHa"/>
+                                <constraint firstItem="r2g-Vu-g3Z" firstAttribute="width" secondItem="hqp-jZ-ofb" secondAttribute="width" id="9sE-1T-7Df"/>
+                                <constraint firstItem="FzQ-ts-BkQ" firstAttribute="width" secondItem="hqp-jZ-ofb" secondAttribute="width" id="Zly-qw-NdF"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell me what you love about it:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzn-R1-m9a">
+                            <rect key="frame" x="12" y="267.5" width="351" height="32"/>
+                            <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="flo-sL-zM7">
+                            <rect key="frame" x="12" y="307.5" width="351" height="299.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9b-id-4gm">
+                            <rect key="frame" x="119" y="619" width="137" height="36"/>
+                            <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="20"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                            <state key="normal" title="Submit"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="z9b-id-4gm" firstAttribute="centerX" secondItem="Ftb-UP-P4B" secondAttribute="centerX" id="569-TE-Nff"/>
+                        <constraint firstItem="Hzn-R1-m9a" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="5VU-p1-4fB"/>
+                        <constraint firstItem="fzM-mL-FC2" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="5la-x3-jUm"/>
+                        <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="fzM-mL-FC2" secondAttribute="trailing" constant="12" id="Dmv-4Q-R7D"/>
+                        <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="flo-sL-zM7" secondAttribute="trailing" constant="12" id="Vui-8s-aqw"/>
+                        <constraint firstItem="aBW-wi-2wv" firstAttribute="bottom" secondItem="z9b-id-4gm" secondAttribute="bottom" constant="12" id="WTh-FO-lct"/>
+                        <constraint firstItem="Hzn-R1-m9a" firstAttribute="top" secondItem="nR0-D5-e7A" secondAttribute="bottom" constant="20" id="Xnf-7P-0Z8"/>
+                        <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="nR0-D5-e7A" secondAttribute="trailing" constant="12" id="aBk-68-qdq"/>
+                        <constraint firstItem="z9b-id-4gm" firstAttribute="top" secondItem="flo-sL-zM7" secondAttribute="bottom" constant="12" id="aua-ja-1jU"/>
+                        <constraint firstItem="flo-sL-zM7" firstAttribute="top" secondItem="Hzn-R1-m9a" secondAttribute="bottom" constant="8" id="bQs-h2-Zal"/>
+                        <constraint firstItem="aBW-wi-2wv" firstAttribute="trailing" secondItem="Hzn-R1-m9a" secondAttribute="trailing" constant="12" id="gY0-Cq-fBa"/>
+                        <constraint firstItem="fzM-mL-FC2" firstAttribute="top" secondItem="aBW-wi-2wv" secondAttribute="top" constant="12" id="hRW-Nx-o1K"/>
+                        <constraint firstItem="nR0-D5-e7A" firstAttribute="top" secondItem="fzM-mL-FC2" secondAttribute="bottom" constant="12" id="ifo-wv-eHc"/>
+                        <constraint firstItem="flo-sL-zM7" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="kyX-bc-x99"/>
+                        <constraint firstItem="nR0-D5-e7A" firstAttribute="leading" secondItem="aBW-wi-2wv" secondAttribute="leading" constant="12" id="rHr-QX-bmC"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="aBW-wi-2wv"/>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ocq-OJ-5br" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="2yc-T9-q2Z" userLabel="Duplicate View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know of some real bread not on my list? I'd love to hear about it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9q-hc-VBt">
+                            <rect key="frame" x="12" y="12" width="351" height="63.5"/>
+                            <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ffr-gp-55s">
+                            <rect key="frame" x="12" y="87.5" width="351" height="160"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kVA-xx-KB2">
+                                    <rect key="frame" x="0.0" y="0.0" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnF-eq-9nG">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-KB-B4P">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-pU-RVI">
+                                    <rect key="frame" x="0.0" y="42" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6X-LK-U5y">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xzg-on-ipF">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wQa-4D-6Wo">
+                                    <rect key="frame" x="0.0" y="84" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgg-lM-6Yj">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3fD-us-uRB">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mhq-fe-odc">
+                                    <rect key="frame" x="0.0" y="126" width="351" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rs-tn-txa">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4TE-VU-8M6">
+                                            <rect key="frame" x="85" y="0.0" width="266" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Bgg-lM-6Yj" firstAttribute="width" secondItem="TnF-eq-9nG" secondAttribute="width" id="Fh9-Ij-6tM"/>
+                                <constraint firstItem="8Rs-tn-txa" firstAttribute="width" secondItem="TnF-eq-9nG" secondAttribute="width" id="dFX-Hi-a4C"/>
+                                <constraint firstItem="n6X-LK-U5y" firstAttribute="width" secondItem="TnF-eq-9nG" secondAttribute="width" id="y33-jW-we5"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell me what you love about it:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6g-jY-cah">
+                            <rect key="frame" x="12" y="267.5" width="351" height="32"/>
+                            <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JUd-ei-fCB">
+                            <rect key="frame" x="12" y="307.5" width="351" height="299.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wq7-Ur-ZwO">
+                            <rect key="frame" x="119" y="619" width="137" height="36"/>
+                            <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="20"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                            <state key="normal" title="Submit"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Wq7-Ur-ZwO" firstAttribute="centerX" secondItem="2yc-T9-q2Z" secondAttribute="centerX" id="5ao-Sc-1JN"/>
+                        <constraint firstItem="N6g-jY-cah" firstAttribute="top" secondItem="ffr-gp-55s" secondAttribute="bottom" constant="20" id="6XH-NF-BVp"/>
+                        <constraint firstItem="F9q-hc-VBt" firstAttribute="top" secondItem="DvC-TX-xiS" secondAttribute="top" constant="12" id="9ta-3F-gTu"/>
+                        <constraint firstItem="DvC-TX-xiS" firstAttribute="trailing" secondItem="JUd-ei-fCB" secondAttribute="trailing" constant="12" id="Ajf-u8-9dz"/>
+                        <constraint firstItem="F9q-hc-VBt" firstAttribute="leading" secondItem="DvC-TX-xiS" secondAttribute="leading" constant="12" id="B3f-Ao-aOw"/>
+                        <constraint firstItem="Wq7-Ur-ZwO" firstAttribute="top" secondItem="JUd-ei-fCB" secondAttribute="bottom" constant="12" id="CYj-me-7a0"/>
+                        <constraint firstItem="DvC-TX-xiS" firstAttribute="bottom" secondItem="Wq7-Ur-ZwO" secondAttribute="bottom" constant="12" id="HHb-Mx-aHh"/>
+                        <constraint firstItem="N6g-jY-cah" firstAttribute="leading" secondItem="DvC-TX-xiS" secondAttribute="leading" constant="12" id="NVg-mt-RFv"/>
+                        <constraint firstItem="JUd-ei-fCB" firstAttribute="top" secondItem="N6g-jY-cah" secondAttribute="bottom" constant="8" id="Xvm-Kf-bmB"/>
+                        <constraint firstItem="DvC-TX-xiS" firstAttribute="trailing" secondItem="F9q-hc-VBt" secondAttribute="trailing" constant="12" id="YfW-X3-Dvb"/>
+                        <constraint firstItem="JUd-ei-fCB" firstAttribute="leading" secondItem="DvC-TX-xiS" secondAttribute="leading" constant="12" id="ZY9-F4-VMc"/>
+                        <constraint firstItem="DvC-TX-xiS" firstAttribute="trailing" secondItem="ffr-gp-55s" secondAttribute="trailing" constant="12" id="agd-sS-TYZ"/>
+                        <constraint firstItem="DvC-TX-xiS" firstAttribute="trailing" secondItem="N6g-jY-cah" secondAttribute="trailing" constant="12" id="bTP-aW-oIg"/>
+                        <constraint firstItem="ffr-gp-55s" firstAttribute="leading" secondItem="DvC-TX-xiS" secondAttribute="leading" constant="12" id="gLZ-lG-oMR"/>
+                        <constraint firstItem="ffr-gp-55s" firstAttribute="top" secondItem="F9q-hc-VBt" secondAttribute="bottom" constant="12" id="ixM-pl-Y10"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="DvC-TX-xiS"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="2740" y="205"/>
+        </scene>
+        <!--Submissions-->
+        <scene sceneID="te2-1W-aRW">
+            <objects>
+                <viewController id="LHK-4y-k0H" customClass="SubmissionsViewController" customModule="RealBreadMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DeJ-0y-w6E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfg-hY-3sb">
+                                <rect key="frame" x="0.0" y="44" width="375" height="907"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxN-v9-Ieg" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="907"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know of some real bread not on my list? I'd love to hear about it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsh-J3-444">
+                                                <rect key="frame" x="12" y="12" width="351" height="63.5"/>
+                                                <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vh2-Gf-jxn">
+                                                <rect key="frame" x="12" y="87.5" width="351" height="202"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9wB-Wg-lfX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="351" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bakery Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig0-9x-fK4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="34"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T9v-Xo-Ivu">
+                                                                <rect key="frame" x="114" y="0.0" width="237" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qys-Hu-iHU">
+                                                        <rect key="frame" x="0.0" y="42" width="351" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RL3-31-lmZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="34"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aS6-HL-C8x">
+                                                                <rect key="frame" x="114" y="0.0" width="237" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QGA-G7-MkZ">
+                                                        <rect key="frame" x="0.0" y="84" width="351" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQQ-lf-FIj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="34"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PFT-5h-9ob">
+                                                                <rect key="frame" x="114" y="0.0" width="237" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="91g-zV-4mU">
+                                                        <rect key="frame" x="0.0" y="126" width="351" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3X-7r-0kV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="34"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yEG-Qc-ogv">
+                                                                <rect key="frame" x="114" y="0.0" width="237" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I1p-i6-dAe">
+                                                        <rect key="frame" x="0.0" y="168" width="351" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="856-UW-EHB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="34"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-hW-uLd">
+                                                                <rect key="frame" x="114" y="0.0" width="237" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="RL3-31-lmZ" firstAttribute="width" secondItem="Ig0-9x-fK4" secondAttribute="width" id="ABx-tZ-nrx"/>
+                                                    <constraint firstItem="FQQ-lf-FIj" firstAttribute="width" secondItem="Ig0-9x-fK4" secondAttribute="width" id="aPN-eq-gnf"/>
+                                                    <constraint firstItem="856-UW-EHB" firstAttribute="width" secondItem="Ig0-9x-fK4" secondAttribute="width" id="cdN-Ou-nRg"/>
+                                                    <constraint firstItem="M3X-7r-0kV" firstAttribute="width" secondItem="Ig0-9x-fK4" secondAttribute="width" id="mgb-0H-hGA"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell me what you love about it:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frU-LV-PUx">
+                                                <rect key="frame" x="12" y="309.5" width="351" height="32"/>
+                                                <fontDescription key="fontDescription" name="Amiri-Bold" family="Amiri" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zrt-48-GdB">
+                                                <rect key="frame" x="12" y="349.5" width="351" height="175.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="zrt-48-GdB" secondAttribute="height" multiplier="2:1" id="ZlB-7R-Lks"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veP-HA-sCe">
+                                                <rect key="frame" x="119" y="537" width="137" height="36"/>
+                                                <fontDescription key="fontDescription" name="Amiri-Regular" family="Amiri" pointSize="20"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                                <state key="normal" title="Submit"/>
+                                                <connections>
+                                                    <action selector="submitButtonTapped:" destination="LHK-4y-k0H" eventType="touchUpInside" id="9H9-HK-22P"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Vh2-Gf-jxn" firstAttribute="leading" secondItem="fxN-v9-Ieg" secondAttribute="leading" constant="12" id="4ah-5p-8Lx"/>
+                                            <constraint firstAttribute="trailing" secondItem="frU-LV-PUx" secondAttribute="trailing" constant="12" id="GXX-Go-PlR"/>
+                                            <constraint firstItem="tsh-J3-444" firstAttribute="top" secondItem="fxN-v9-Ieg" secondAttribute="top" constant="12" id="Kl9-GD-F94"/>
+                                            <constraint firstAttribute="trailing" secondItem="zrt-48-GdB" secondAttribute="trailing" constant="12" id="MjS-RF-xLK"/>
+                                            <constraint firstItem="frU-LV-PUx" firstAttribute="top" secondItem="Vh2-Gf-jxn" secondAttribute="bottom" constant="20" id="Mw7-E3-nAi"/>
+                                            <constraint firstItem="zrt-48-GdB" firstAttribute="top" secondItem="frU-LV-PUx" secondAttribute="bottom" constant="8" id="Nlq-6g-N7M"/>
+                                            <constraint firstItem="frU-LV-PUx" firstAttribute="leading" secondItem="fxN-v9-Ieg" secondAttribute="leading" constant="12" id="aay-Gm-aND"/>
+                                            <constraint firstItem="Vh2-Gf-jxn" firstAttribute="top" secondItem="tsh-J3-444" secondAttribute="bottom" constant="12" id="bL4-yw-YBk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vh2-Gf-jxn" secondAttribute="trailing" constant="12" id="c01-hg-fWs"/>
+                                            <constraint firstItem="tsh-J3-444" firstAttribute="leading" secondItem="fxN-v9-Ieg" secondAttribute="leading" constant="12" id="djE-ab-VqD"/>
+                                            <constraint firstItem="zrt-48-GdB" firstAttribute="leading" secondItem="fxN-v9-Ieg" secondAttribute="leading" constant="12" id="ixA-Sw-qFu"/>
+                                            <constraint firstItem="veP-HA-sCe" firstAttribute="centerX" secondItem="fxN-v9-Ieg" secondAttribute="centerX" id="qPZ-X4-ert"/>
+                                            <constraint firstItem="veP-HA-sCe" firstAttribute="top" secondItem="zrt-48-GdB" secondAttribute="bottom" constant="12" id="rla-GO-WeB"/>
+                                            <constraint firstAttribute="trailing" secondItem="tsh-J3-444" secondAttribute="trailing" constant="12" id="zUM-sd-j4g"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fxN-v9-Ieg" firstAttribute="width" secondItem="pfg-hY-3sb" secondAttribute="width" id="2RO-de-ewL"/>
+                                    <constraint firstAttribute="bottom" secondItem="fxN-v9-Ieg" secondAttribute="bottom" id="JQj-ci-a8F"/>
+                                    <constraint firstItem="fxN-v9-Ieg" firstAttribute="leading" secondItem="pfg-hY-3sb" secondAttribute="leading" id="QKT-6G-OYm"/>
+                                    <constraint firstItem="fxN-v9-Ieg" firstAttribute="top" secondItem="5eW-68-kJS" secondAttribute="top" id="U8k-fA-ehd"/>
+                                    <constraint firstItem="fxN-v9-Ieg" firstAttribute="height" secondItem="pfg-hY-3sb" secondAttribute="height" priority="250" id="nYi-hb-Vlw"/>
+                                    <constraint firstAttribute="trailing" secondItem="fxN-v9-Ieg" secondAttribute="trailing" id="rrx-Tn-7eQ"/>
+                                    <constraint firstItem="fxN-v9-Ieg" firstAttribute="top" secondItem="pfg-hY-3sb" secondAttribute="top" id="y0J-xy-f9s"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="5eW-68-kJS"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="nbN-Hb-JRo"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MHQ-q4-UM7" firstAttribute="trailing" secondItem="pfg-hY-3sb" secondAttribute="trailing" id="4Pf-eL-1AK"/>
+                            <constraint firstItem="MHQ-q4-UM7" firstAttribute="bottom" secondItem="pfg-hY-3sb" secondAttribute="bottom" id="KUJ-Et-YNA"/>
+                            <constraint firstItem="pfg-hY-3sb" firstAttribute="top" secondItem="MHQ-q4-UM7" secondAttribute="top" id="Sb6-Ph-sY8"/>
+                            <constraint firstItem="pfg-hY-3sb" firstAttribute="leading" secondItem="MHQ-q4-UM7" secondAttribute="leading" id="ZMB-LS-n3I"/>
+                            <constraint firstItem="fxN-v9-Ieg" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="veP-HA-sCe" secondAttribute="bottom" constant="20" id="mJb-wx-9Z6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MHQ-q4-UM7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Submissions" id="Vmi-Ke-7gh"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="instagramLabel" destination="FQQ-lf-FIj" id="AiD-lk-NIR"/>
+                        <outlet property="instagramTextField" destination="PFT-5h-9ob" id="TJ7-Gy-Doy"/>
+                        <outlet property="introLabel" destination="tsh-J3-444" id="c0y-XB-7Et"/>
+                        <outlet property="locationLabel" destination="RL3-31-lmZ" id="cle-nT-UHW"/>
+                        <outlet property="locationTextField" destination="aS6-HL-C8x" id="Wmg-a5-ltr"/>
+                        <outlet property="moreInfoLabel" destination="856-UW-EHB" id="sHS-9o-tmv"/>
+                        <outlet property="nameLabel" destination="Ig0-9x-fK4" id="vom-vS-dmc"/>
+                        <outlet property="nameTextField" destination="T9v-Xo-Ivu" id="4Vw-pT-4tf"/>
+                        <outlet property="reasonsTextView" destination="zrt-48-GdB" id="7Tc-qc-kYm"/>
+                        <outlet property="scrollView" destination="pfg-hY-3sb" id="5vE-eD-Mso"/>
+                        <outlet property="submitButton" destination="veP-HA-sCe" id="c9J-it-V1l"/>
+                        <outlet property="websiteLabel" destination="M3X-7r-0kV" id="MCj-ed-qWy"/>
+                        <outlet property="websiteTextField" destination="yEG-Qc-ogv" id="1RD-nA-kUr"/>
+                        <outlet property="yourNameLabel" destination="856-UW-EHB" id="rW1-hC-Tel"/>
+                        <outlet property="yourNameTextField" destination="s4n-hW-uLd" id="mAI-Lw-mq4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofj-Cs-awp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2740" y="1072"/>
         </scene>
         <!--Name-->
         <scene sceneID="SQ1-rM-KVG">
@@ -906,7 +1218,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="qZ9-lE-ZLx"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dHh-tM-AGe">
                             <connections>
-                                <segue destination="3Jd-2d-ERK" kind="show" id="sZW-9R-uZA"/>
+                                <segue destination="LHK-4y-k0H" kind="show" id="eXK-yE-wFO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1245,7 +1557,7 @@
         <image name="organic red" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XPO-xh-c7j"/>
-        <segue reference="sZW-9R-uZA"/>
+        <segue reference="7Sr-MZ-aEM"/>
+        <segue reference="poW-lG-raC"/>
     </inferredMetricsTieBreakers>
 </document>

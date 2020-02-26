@@ -44,6 +44,9 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     var imageURLStrings: [String] = []
     
+    // Create an image cache using NSCache
+    static let imageCache = NSCache<NSString, UIImage>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -570,14 +573,15 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
 // Extension of UIImageView to load URLs, convert to data, then convert to a UIImage in a background queue, but load it to the image view on the main thread
 extension UIImageView {
     
+    
+    
     // Load images from a cache
     func loadImage(urlString: String) {
         
-        // Create an image cache using NSCache
-        let imageCache = NSCache<NSString, UIImage>()
+        
         
         // If the cache already contains the URLString as a key, return it
-        if let cacheImage = imageCache.object(forKey: urlString as NSString) {
+        if let cacheImage = BakeryDetailViewController.imageCache.object(forKey: urlString as NSString) {
             self.image = cacheImage
             return
         }
@@ -599,7 +603,7 @@ extension UIImageView {
             if let image = UIImage(data: data) {
                 
                 // Put the url and image into the cache
-                imageCache.setObject(image, forKey: urlString as NSString)
+                BakeryDetailViewController.imageCache.setObject(image, forKey: urlString as NSString)
                 
                 // Load the image asynchronously
                 DispatchQueue.main.async {

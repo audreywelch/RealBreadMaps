@@ -14,6 +14,8 @@ import Firebase
 
 class BakeryModelController {
     
+    // MARK: - Properties
+    
     // Singleton
     static let shared = BakeryModelController()
     private init () {}
@@ -24,7 +26,7 @@ class BakeryModelController {
     // Holds the search result returned
     //var bakery: Bakery?
     
-    // Holds the user's location
+    // Holds the user's location retrieved from CLLocationManager
     var userLocation: CLLocationCoordinate2D!
     
     // Holds locations needed for Bakery computed property
@@ -47,41 +49,49 @@ class BakeryModelController {
     let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
     let firebaseBaseURL = URL(string: "https://realbreadmaps.firebaseio.com/")!
 
+    // API Key
     let apiKey = GMSPlacesClientApiKey
     
+    // Completion Handler to be used with closures
     typealias CompletionHandler = (Error?) -> Void
+    
+    // MARK: - Firebase Networking
     
     // Fetches all bakeries from Firebase and saves them in an array of FirebaseBakeries
     func fetchAllBakeries(completion: @escaping CompletionHandler = { _ in }) {
         
+        // Create a request URL
         let requestURL = firebaseBaseURL.appendingPathExtension("json")
         
-        print(requestURL)
-        
+        // Decode the data
         URLSession.shared.dataTask(with: requestURL) { ( data, _, error ) in
             
+            // Unwrap the error if there is one
             if let error = error {
                 NSLog("Error fetching placeIDs from Firebase: \(error)")
                 completion(error)
                 return
             }
             
+            // Unwrap data
             guard let data = data else {
                 NSLog("No data returned from fetch for placeIDs.")
                 completion(NSError())
                 return
             }
             
+            // Create an instance of JSON decoder
             let jsonDecoder = JSONDecoder()
             
+            // Convert the data to our object
             do {
                 
                 let responseDictionary = try jsonDecoder.decode([String: FirebaseBakery].self, from: data)
                 
+                // Pull out the values from the returned response, which is a dictionary (due to Firebase format)
                 let decodedResponse = responseDictionary.map( {$0.value} )
-                    
-                //print(decodedResponse)
                 
+                // Assign the response of bakeries to the local array
                 self.firebaseBakeries = decodedResponse
 
             } catch {
@@ -90,6 +100,8 @@ class BakeryModelController {
             }
         }.resume()
     }
+    
+    // MARK: - Google API Networking to be called in order to update Firebase once per month
     
     // Fetches additional info from Google using the placeID of each fetched FirebaseBakery
     // Saves the info as a Bakery object in the Bakeries array
@@ -102,45 +114,55 @@ class BakeryModelController {
          &key=APIKEYGOESHERE
          */
         
+        // Create request URL
+        
+        // Build up the endpoint
         var bakeryURL = baseURL.appendingPathComponent("details")
         
         bakeryURL = bakeryURL.appendingPathComponent("json")
         
+        // Decompose into components needed
         var components = URLComponents(url: bakeryURL, resolvingAgainstBaseURL: true)
         
+        // Add queries
         let searchQueryItem = URLQueryItem(name: "placeid", value: placeID)
         let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
         let fieldsQueryItem = URLQueryItem(name: "fields", value: "name,geometry,place_id,formatted_address,international_phone_number,website,opening_hours,photos")
         
         components?.queryItems = [searchQueryItem, fieldsQueryItem, apiKeyQueryItem]
         
+        // Make a URL out of the components, recomposing al individual components back to a full URL
         guard let requestURL = components?.url else {
             NSLog("Couldn't make requestURL from \(components)")
             completion(NSError())
             return
         }
         
-        //print(requestURL)
-        
         var request = URLRequest(url: requestURL)
         request.httpMethod = "GET"
         
+        // Decode the data
         URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            // Unwrap error
             if let error = error {
                 NSLog("Error fetching data: \(error)")
                 completion(error)
                 return
             }
             
+            // Unwrap data
             guard let data = data else {
                 NSLog("No data returned from data task")
                 completion(NSError())
                 return
             }
             
+            // Create instance of JSON decoder
             let jsonDecoder = JSONDecoder()
             jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
             
+            // Convert the data to our object
             do {
                 let decodedBakery = try jsonDecoder.decode(BakeryResult.self, from: data)
                 

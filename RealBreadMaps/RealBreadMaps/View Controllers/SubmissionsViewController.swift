@@ -11,6 +11,8 @@ import MessageUI
 
 class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    // MARK: - Outlets & Properties
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var instagramTextField: UITextField!
@@ -45,6 +47,8 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         self.hideKeyboard()
     }
+    
+    // MARK: - UI
     
     func updateViews() {
         
@@ -97,6 +101,8 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: Appearance.thinFont], for: .normal)
     }
     
+    // MARK: - User Submission Functionality
+    
     @IBAction func submitButtonTapped(_ sender: Any) {
         
         submitToGoogleForm()
@@ -112,14 +118,6 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         // Update submit button text
         submitButton.setTitle("Submitted!", for: .normal)
         submitButton.tintColor = .lightGray
-            
-//        // Disable text fields and button
-//        nameTextField.isEnabled = false
-//        locationTextField.isEnabled = false
-//        instagramTextField.isEnabled = false
-//        websiteTextField.isEnabled = false
-//        submitButton.isEnabled = false
-//        reasonsTextView.isEditable = false
         
         // Create an Alert Controller to thank user for submitting a bakery
         let ac = UIAlertController(title: "Thank you for sharing your real bread knowledge!", message: "I can’t guarantee that all submissions will make the app, but I do review all submissions.", preferredStyle: .alert)
@@ -152,29 +150,6 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         present(ac, animated: true)
         
-    }
-    
-    // MARK: - Delegate Methods
-    
-    // UITextFieldDelegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        // Hide keyboard when user hits return
-        textField.resignFirstResponder()
-        
-        return true
-    }
-    
-    // UITextViewDelegate
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        reasonsTextView.text = textView.text
-        
-        if text == "\n" {
-            textView.resignFirstResponder()
-            
-            return false
-        }
-        return true
     }
     
     // MARK: - Google Forms Submissions
@@ -234,6 +209,29 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         }
         dataTask.resume()
  
+    }
+    
+    // MARK: - Delegate Methods
+    
+    // UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        // Hide keyboard when user hits return
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    // UITextViewDelegate
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        reasonsTextView.text = textView.text
+        
+        if text == "\n" {
+            textView.resignFirstResponder()
+            
+            return false
+        }
+        return true
     }
     
 }

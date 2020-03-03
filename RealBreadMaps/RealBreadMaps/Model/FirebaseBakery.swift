@@ -26,6 +26,7 @@ struct FirebaseBakery: Codable {
     var weekdayText: [String]?
     var photos: [String]?
     
+    // Computed property to calculate the distance from a user
     var distanceFromUser: CLLocationDistance? {
         
         // Complete only if the bakery object has a latitude & longitude

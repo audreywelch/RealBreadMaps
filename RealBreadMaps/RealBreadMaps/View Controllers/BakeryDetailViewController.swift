@@ -11,7 +11,7 @@ import GoogleMaps
 
 class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GMSMapViewDelegate {
     
-    // MARK: Properties
+    // MARK: - Outlets & Properties
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var contentView: UIView!
@@ -480,6 +480,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    // MARK: - UI & Theme
+    
     // Label and Map appearance
     func setupTheme() {
         
@@ -525,6 +527,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
+    // Account for Dark Mode
     func mapStyling() {
         
         if #available(iOS 13.0, *) {
@@ -569,16 +572,17 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
 }
 
+// MARK: - TODO
+// NOTES from Route Guys
+// Cancel any previous network calls on the cell or else a race condition with happen
+// Image Loader static class
+// multiple dequeues happening
 
 // Extension of UIImageView to load URLs, convert to data, then convert to a UIImage in a background queue, but load it to the image view on the main thread
 extension UIImageView {
     
-    
-    
     // Load images from a cache
     func loadImage(urlString: String) {
-        
-        
         
         // If the cache already contains the URLString as a key, return it
         if let cacheImage = BakeryDetailViewController.imageCache.object(forKey: urlString as NSString) {

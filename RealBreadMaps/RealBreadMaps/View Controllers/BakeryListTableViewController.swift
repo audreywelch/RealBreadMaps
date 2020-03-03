@@ -13,8 +13,12 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     @IBOutlet weak var bakerySearchBar: UISearchBar!
 
+    // MARK: - Properties
+    
+    // Holds all bakeries
     var firebaseBakeries: [FirebaseBakery] = []
     
+    // Holds bakeries that have been filtered to match search criteria
     var filteredBakeries: [FirebaseBakery] = []
     
     lazy var geocoder = CLGeocoder()
@@ -43,31 +47,17 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         // Cells should determine their own height
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
-        
 
-        
-//        if BakeryModelController.shared.firebaseBakeries.count == 0 {
-//            BakeryModelController.shared.fetchAllBakeries { (error) in
-//                self.firebaseBakeries = BakeryModelController.shared.firebaseBakeries
-//                self.tableView.reloadData()
-//            }
-//        }
-        
+        // Set the local bakeries array to hold all the bakeries in held in the model controller
         self.firebaseBakeries = BakeryModelController.shared.firebaseBakeries
         
+        // Sort the table view by the distance away from the user
         sortByDistance()
  
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-//        if BakeryModelController.shared.firebaseBakeries.count == 0 {
-//            BakeryModelController.shared.fetchAllBakeries { (error) in
-//                self.firebaseBakeries = BakeryModelController.shared.firebaseBakeries
-//                self.tableView.reloadData()
-//            }
-//        }
         
         // Reload table view if user taps back and then comes to the table view again
         tableView.reloadData()
@@ -96,16 +86,23 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        // If the search bar is being used
         if searchBarIsEmpty() == false {
+            
+            // Display cells for the amount of bakeries that have been filtered by search result
             return filteredBakeries.count
         }
-        print(firebaseBakeries.count)
+        
+        // Otherwise, return the amount for all bakeries
         return self.firebaseBakeries.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Get the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "bakeryCell", for: indexPath)
-            
+        
+        // Cast the cell as the custom bakery cell
         guard let bakeryCell = cell as? BakeryTableViewCell else { return cell }
         
         // Clear image when loading new images
@@ -216,6 +213,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         return bakeryCell
     }
     
+    // MARK: - Helper Methods for formatting
+    
+    // Adjust address formatting to account for European/Global address lengths
     func determineAddressFormatting(array: [String]) -> String {
         
         switch array.count {
@@ -241,6 +241,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         }
     }
     
+    // Account for bakeries that use the same name in Google for their different locations
+    // which don't match with their website/signage
     static func bakeryNameSpecifications(bakery: FirebaseBakery) -> String {
         
         if bakery.formattedAddress != nil && bakery.name != nil {
@@ -267,6 +269,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         }
     }
     
+    // MARK: - Segue Preparation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let destinationVC = segue.destination as? BakeryDetailViewController,
@@ -284,7 +288,9 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             destinationVC.firebaseBakery = firebaseBakery
         }
 
-        // Detail View Controller uses currentBakeryName to confirm which bakery to show - it needs to be reset to reflect the correct bakery after a detail view screen has been shown via map view selection
+        // If bakery was selected from the map view, Detail View Controller uses currentBakeryName
+        // to confirm which bakery to show - it needs to be reset to reflect the correct bakery
+        // after a detail view screen has been shown via map view selection
         BakeryModelController.shared.currentBakeryName = firebaseBakery.name
         BakeryModelController.shared.currentBakeryAddress = firebaseBakery.formattedAddress
     }
@@ -310,7 +316,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     func filterBakeries() {
         
-        // Set filteredBakeries to none so that new searches don't get added on to the new ones
+        // Set filteredBakeries to none so that new searches don't get added on to the old ones
         filteredBakeries = []
         
         DispatchQueue.main.async {
@@ -421,11 +427,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             
             // If the bakery is within 100 miles == 160934 meters
             if distanceFromTarget < 160934 {
-                print("Adding \(eachBakery.name) to filtered array because it is \(distanceFromTarget) away from the searched place")
+                // print("Adding \(eachBakery.name) to filtered array because it is \(distanceFromTarget) away from the searched place")
                 
-//                if filteredBakeries.contains(eachBakery) == false {
-//
-//                }
                 filteredBakeries.append(eachBakery)
             }
             

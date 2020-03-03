@@ -68,7 +68,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             
             // Subviews
             let imageView = UIImageView.init(image: UIImage.init(named: images[index]))
-            //imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
             imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width * 0.8, height: self.view.frame.size.width * 0.8)
             imageView.contentMode = .scaleAspectFit
             imageView.center = CGPoint(x: scrollWidth/2, y: scrollHeight/2 - 60)
@@ -76,10 +75,8 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             let titleText = UILabel.init(frame: CGRect(x: 12, y: imageView.frame.maxY + 30, width: scrollWidth - 24, height: 30))
             titleText.textAlignment = .center
             titleText.numberOfLines = 0
-            //titleText.adjustsFontSizeToFitWidth = true
             titleText.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: Appearance.onboardingBoldAmiri!)
             titleText.adjustsFontForContentSizeCategory = true
-                //UIFont(name: "Amiri-Bold", size: 22)
             titleText.text = titles[index]
             if #available(iOS 13.0, *) {
                 titleText.textColor = .label
@@ -133,9 +130,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         
         pageControl?.currentPage = Int(page)
     }
-    
-
-    
 }
 
 

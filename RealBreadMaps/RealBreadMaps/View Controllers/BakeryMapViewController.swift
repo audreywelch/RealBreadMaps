@@ -9,10 +9,11 @@
 import UIKit
 import GoogleMaps
 
-
 class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
+    
+    // MARK: - Properties
     
     let bakeryDetailViewController = BakeryDetailViewController()
     
@@ -71,7 +72,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
                 // Unwrap names and addresses and assign them to the marker
                 if let unwrappedName = eachFirebaseBakery.name {
                     marker.title = "\(unwrappedName)"
-                    
                 }
 
                 if let unwrappedAddress = eachFirebaseBakery.formattedAddress {
@@ -87,6 +87,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        // Dark mode capability
         if #available(iOS 13.0, *) {
             mapStyling()
         } else {
@@ -103,6 +104,8 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
             }
         }
     }
+    
+    // MARK: - Location Functionality
     
     // Location manager retrieves user's current location and saves it to the Model Controller
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -122,6 +125,9 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
 
     }
     
+    // MARK: - UI Styling
+    
+    // Function manages alternating between dark and light modes
     func mapStyling() {
         
         if #available(iOS 13.0, *) {
@@ -137,6 +143,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
                 } catch {
                     NSLog("One or more of the map styles failed to load. \(error)")
                 }
+                
             case .light:
                 do {
                     
@@ -148,6 +155,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
                 } catch {
                     NSLog("One or more of the map styles failed to load. \(error)")
                 }
+                
             default:
                 do {
                     
@@ -163,16 +171,20 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         }
         
     }
+    
+    // MARK: - Segue to Detail View Controller
 
     // Function to segue to the detail view when a marker is tapped
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
+        // Pass the name of the bakery and the address in order to display correct bakery in detail view
         BakeryModelController.shared.currentBakeryName = marker.title
         BakeryModelController.shared.currentBakeryAddress = marker.snippet
         
         performSegue(withIdentifier: "showDetailViewController", sender: nil)
     }
     
+    // MARK: - Helper Functions
     
     // Helper function to convert and format distances
     static func convertMetersToMiles(of distance: CLLocationDistance) -> String {
@@ -210,22 +222,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         
         return formattedDistance
     }
-    
-//    func addBottomSheetView() {
-//
-//        // Initialize the bottom sheet view controller
-//        let bottomSheetVC = BottomSheetViewController()
-//
-//        // Add Bottom Sheet as a child view
-//        self.addChild(bottomSheetVC)
-//        self.view.addSubview(bottomSheetVC.view)
-//        bottomSheetVC.didMove(toParent: self)
-//
-//        // Adjust bottom sheet frame and initial position
-//        let height = view.frame.height
-//        let width = view.frame.width
-//        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
-//    }
     
 }
 

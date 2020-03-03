@@ -47,6 +47,8 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // MARK: - Animations
+    
     @objc func animateText() {
         
         switch animationTextLabel.text {
@@ -61,6 +63,8 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
             
         }
     }
+    
+    // MARK: - UI
     
     func updateViews() {
         
@@ -90,16 +94,19 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // MARK: - Location Functionality
+    
     // Location manager retrieves user's current location and saves it to the Model Controller
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let location = locations.first {
             locationCoordinates = manager.location?.coordinate
-            print("LocationCoordinates: \(String(describing: locationCoordinates))")
+            // print("LocationCoordinates: \(String(describing: locationCoordinates))")
             
             manager.stopUpdatingLocation()
             
             BakeryModelController.shared.userLocation = location.coordinate
+            
         } else {
             print("User location is unavailable")
             

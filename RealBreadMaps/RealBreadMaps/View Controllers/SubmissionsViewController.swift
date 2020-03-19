@@ -162,6 +162,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         let instagramField = "entry.783211295"
         let websiteField = "entry.2031631158"
         let additionalInfo = "entry.934824540"
+        let yourNameField = "entry.1413554359"
         
         // URL for filling out a form
         let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfEH-DoMIZgXxIeefSx9tD3j8roy6JgBpx1mGu9k4KNxcLVMw/formResponse")!
@@ -176,6 +177,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         postData += "&" + locationField + "=" + (locationTextField.text ?? "Unknwown")
         postData += "&" + instagramField + "=" + (instagramTextField.text ?? "Unknown")
         postData += "&" + websiteField + "=" + (websiteTextField.text ?? "Unknown")
+        postData += "&" + yourNameField + "=" + (yourNameTextField.text ?? "Unknown")
         postData += "&" + additionalInfo + "=" + (reasonsTextView.text ?? "Unknown")
         
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

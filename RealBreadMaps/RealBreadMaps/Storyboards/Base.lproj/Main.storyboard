@@ -244,7 +244,7 @@
                         <outlet property="introLabel" destination="tsh-J3-444" id="c0y-XB-7Et"/>
                         <outlet property="locationLabel" destination="RL3-31-lmZ" id="cle-nT-UHW"/>
                         <outlet property="locationTextField" destination="aS6-HL-C8x" id="Wmg-a5-ltr"/>
-                        <outlet property="moreInfoLabel" destination="856-UW-EHB" id="sHS-9o-tmv"/>
+                        <outlet property="moreInfoLabel" destination="frU-LV-PUx" id="tdb-QZ-fTa"/>
                         <outlet property="nameLabel" destination="Ig0-9x-fK4" id="vom-vS-dmc"/>
                         <outlet property="nameTextField" destination="T9v-Xo-Ivu" id="4Vw-pT-4tf"/>
                         <outlet property="reasonsTextView" destination="zrt-48-GdB" id="7Tc-qc-kYm"/>

@@ -16,8 +16,6 @@ class BakeryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var bakeryImageView: UIImageView!
     
-    static let reuseIdentier = "bakeryCell"
-    
     @IBOutlet weak var containerView: UIView! {
         didSet {
             
@@ -29,6 +27,13 @@ class BakeryTableViewCell: UITableViewCell {
             containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
             containerView.backgroundColor = Appearance.Colors.tableViewCardTint
         }
+    }
+    
+    static let reuseIdentier = "bakeryCell"
+    
+    override func prepareForReuse() {
+        bakeryImageView.image = nil
+        bakeryImageView.cancelImageLoad()
     }
 
 }

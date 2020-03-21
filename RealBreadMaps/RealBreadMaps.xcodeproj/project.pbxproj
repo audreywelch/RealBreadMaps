@@ -38,6 +38,10 @@
 		84F7604C22415716007892A1 /* BakeryImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604B22415716007892A1 /* BakeryImageCollectionViewCell.swift */; };
 		84F7604E22416125007892A1 /* Bakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7604D22416125007892A1 /* Bakery.swift */; };
 		84F760572242B08A007892A1 /* BakeryModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F760562242B08A007892A1 /* BakeryModelController.swift */; };
+		84FFC2572425713800B0F92A /* AppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC2562425713800B0F92A /* AppStoreReviewManager.swift */; };
+		84FFC259242578A400B0F92A /* UserDefaults + Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC258242578A400B0F92A /* UserDefaults + Key.swift */; };
+		84FFC25D24258D8E00B0F92A /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC25C24258D8E00B0F92A /* UIImageLoader.swift */; };
+		84FFC25F2425921300B0F92A /* UIImageView + Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC25E2425921300B0F92A /* UIImageView + Load.swift */; };
 		E4A127FBFB5A5F4D1E7DEC1F /* Pods_RealBreadMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2686082C9812CD6E54A0FC8 /* Pods_RealBreadMaps.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +79,10 @@
 		84F7604B22415716007892A1 /* BakeryImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F7604D22416125007892A1 /* Bakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bakery.swift; sourceTree = "<group>"; };
 		84F760562242B08A007892A1 /* BakeryModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryModelController.swift; sourceTree = "<group>"; };
+		84FFC2562425713800B0F92A /* AppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift; sourceTree = "<group>"; };
+		84FFC258242578A400B0F92A /* UserDefaults + Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + Key.swift"; sourceTree = "<group>"; };
+		84FFC25C24258D8E00B0F92A /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
+		84FFC25E2425921300B0F92A /* UIImageView + Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Load.swift"; sourceTree = "<group>"; };
 		B2686082C9812CD6E54A0FC8 /* Pods_RealBreadMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealBreadMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49860229D3B8EF737DE6B54 /* Pods-RealBreadMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealBreadMaps.debug.xcconfig"; path = "Target Support Files/Pods-RealBreadMaps/Pods-RealBreadMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		E2552FF741871ACA41EF96D3 /* Pods-RealBreadMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealBreadMaps.release.xcconfig"; path = "Target Support Files/Pods-RealBreadMaps/Pods-RealBreadMaps.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				8425C539224546C7006E1DAC /* UIColors + Custom Colors.swift */,
+				84FFC258242578A400B0F92A /* UserDefaults + Key.swift */,
+				84FFC25E2425921300B0F92A /* UIImageView + Load.swift */,
+				84FFC25C24258D8E00B0F92A /* UIImageLoader.swift */,
 				841DC8FF22454C7300756504 /* AppearanceHelper.swift */,
+				84FFC2562425713800B0F92A /* AppStoreReviewManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -411,13 +423,17 @@
 				8429F4412396076D00BFA4D3 /* BakeryObject.swift in Sources */,
 				84F76037224068E3007892A1 /* BakeryMapViewController.swift in Sources */,
 				842ECEA12342C07800F831BD /* FirebaseBakery.swift in Sources */,
+				84FFC259242578A400B0F92A /* UserDefaults + Key.swift in Sources */,
+				84FFC2572425713800B0F92A /* AppStoreReviewManager.swift in Sources */,
 				84F7604822415611007892A1 /* SubmissionsViewController.swift in Sources */,
 				8429F43F239606F400BFA4D3 /* FirebaseItem.swift in Sources */,
 				846248CE23626A1E006F1957 /* OnboardingViewController.swift in Sources */,
 				84F760232240472F007892A1 /* AppDelegate.swift in Sources */,
+				84FFC25D24258D8E00B0F92A /* UIImageLoader.swift in Sources */,
 				84F76046224155D1007892A1 /* InfoViewController.swift in Sources */,
 				84C01DE52363953900AFFB5D /* BakeryTableViewCell.swift in Sources */,
 				84F760572242B08A007892A1 /* BakeryModelController.swift in Sources */,
+				84FFC25F2425921300B0F92A /* UIImageView + Load.swift in Sources */,
 				84F7604E22416125007892A1 /* Bakery.swift in Sources */,
 				84F10B6123481096002A2EF0 /* Constants.swift in Sources */,
 				84F7604A22415642007892A1 /* BakeryDetailViewController.swift in Sources */,
@@ -571,7 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Audrey Welch (JXA24GT8S3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = BH59G2VDQ6;
 				INFOPLIST_FILE = RealBreadMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -594,7 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Audrey Welch (JXA24GT8S3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = BH59G2VDQ6;
 				INFOPLIST_FILE = RealBreadMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

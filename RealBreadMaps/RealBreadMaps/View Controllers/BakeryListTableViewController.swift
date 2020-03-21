@@ -106,7 +106,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         guard let bakeryCell = cell as? BakeryTableViewCell else { return cell }
         
         // Clear image when loading new images
-        bakeryCell.bakeryImageView.image = nil
+        //bakeryCell.bakeryImageView.image = nil
         
         let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=\(GMSPlacesClientApiKey)"
         
@@ -176,7 +176,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(filteredBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 
-                bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
+                bakeryCell.bakeryImageView.loadImage(at: imageURLString)
             }
             
         // FULL LIST OF BAKERIES
@@ -206,8 +206,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             } else {
                 let imageURLString = "\(baseURL)photo?maxwidth=400&photoreference=\(firebaseBakeries[indexPath.row].photos![0])&key=\(GMSPlacesClientApiKey)"
                 
-                bakeryCell.bakeryImageView.loadImage(urlString: imageURLString)
-                
+                bakeryCell.bakeryImageView.loadImage(at: imageURLString)
             }
         }
         return bakeryCell
@@ -287,6 +286,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             firebaseBakery = firebaseBakeries[indexPath.row]
             destinationVC.firebaseBakery = firebaseBakery
         }
+        
+        AppStoreReviewManager.requestReviewIfAppropriate()
 
         // If bakery was selected from the map view, Detail View Controller uses currentBakeryName
         // to confirm which bakery to show - it needs to be reset to reflect the correct bakery

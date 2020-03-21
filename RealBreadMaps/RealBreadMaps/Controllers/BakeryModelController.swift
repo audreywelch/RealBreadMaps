@@ -127,9 +127,10 @@ class BakeryModelController {
         // Add queries
         let searchQueryItem = URLQueryItem(name: "placeid", value: placeID)
         let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
+        // let languageQueryItem = URLQueryItem(name: "language", value: "en")
         let fieldsQueryItem = URLQueryItem(name: "fields", value: "name,geometry,place_id,formatted_address,international_phone_number,website,opening_hours,photos")
         
-        components?.queryItems = [searchQueryItem, fieldsQueryItem, apiKeyQueryItem]
+        components?.queryItems = [searchQueryItem, fieldsQueryItem, apiKeyQueryItem] // languageQueryItem
         
         // Make a URL out of the components, recomposing al individual components back to a full URL
         guard let requestURL = components?.url else {

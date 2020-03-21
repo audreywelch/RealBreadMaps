@@ -45,7 +45,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     var imageURLStrings: [String] = []
     
     // Create an image cache using NSCache
-    static let imageCache = NSCache<NSString, UIImage>()
+    //static let imageCache = NSCache<NSString, UIImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +80,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         mapView.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,8 +126,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // Clear image when loading new images
         cell.bakeryImageView.image = nil
         
-        //let defaultImageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRZAAAAKXl1BpFclUAmGrcHUZC1nmBk5Gu6SSrbegXHbrSJ2xSDKr13jDIpKAEQpTvJjU5u0IyITt0S5apoGvv5dL5IBdy1ET8Y2ccXpImRpP4xvWuwiD85fTb9i0_IWYjbpnzUEhDrSacgBovoAs-V4RHh3UsvGhQWHhbDYuBSid5EFV7bJ49sRqwL_g&key=\(GMSPlacesClientApiKey)"
-        
         // If the bakery has no photos, display an "image unavailable" photo
         if self.firebaseBakery?.photos == nil {
             cell.bakeryImageView.image = UIImage(named: "no_image_available")
@@ -134,9 +133,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // Otherwise, load the image URL into the image view
         } else if self.firebaseBakery!.photos != nil {
             
-            cell.bakeryImageView.loadImage(urlString: imageURLStrings[indexPath.row])
-            
-            // cell.bakeryImageView.load(url: URL(string: imageURLStrings[indexPath.row]) ?? URL(string: defaultImageURL)!)
+            cell.bakeryImageView.loadImage(at: imageURLStrings[indexPath.row])
         }
         
         return cell
@@ -173,10 +170,11 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         // WEBSITE
         // Account for Bread Riot Bakehouse selling at the Farmer's Market
-        if firebaseBakery.website != nil && firebaseBakery.placeID != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
+        if firebaseBakery.website != nil { //&& firebaseBakery.placeID != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
             bakeryWebsiteButton.setTitle(firebaseBakery.website, for: .normal)
-        } else if firebaseBakery.website != nil && firebaseBakery.placeID == "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
-            bakeryWebsiteButton.setTitle("https://breadriotbakehouse.com", for: .normal)
+//        }
+//        else if firebaseBakery.website != nil && firebaseBakery.placeID == "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
+//            bakeryWebsiteButton.setTitle("https://breadriotbakehouse.com", for: .normal)
         } else {
             bakeryWebsiteButton.setTitle("Website unavailable", for: .normal)
             bakeryWebsiteButton.isEnabled = false
@@ -186,7 +184,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         // PHONE NUMBER
         // Account for Bread Riot Bakehouse selling at the Farmer's Market
-        if firebaseBakery.internationalPhoneNumber != nil && firebaseBakery.placeID != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
+        if firebaseBakery.internationalPhoneNumber != nil { //&& firebaseBakery.placeID != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
             bakeryPhoneNumberButton.setTitle(firebaseBakery.internationalPhoneNumber, for: .normal)
         } else {
             bakeryPhoneNumberButton.setTitle("Phone number unavailable", for: .normal)
@@ -474,12 +472,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
     }
     
-    
-    // When 'Done' is tapped, return to root view controller
-    @IBAction func done(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     // MARK: - UI & Theme
     
     // Label and Map appearance
@@ -572,64 +564,3 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
 }
 
-// MARK: - TODO
-// NOTES from Route Guys
-// Cancel any previous network calls on the cell or else a race condition with happen
-// Image Loader static class
-// multiple dequeues happening
-
-// Extension of UIImageView to load URLs, convert to data, then convert to a UIImage in a background queue, but load it to the image view on the main thread
-extension UIImageView {
-    
-    // Load images from a cache
-    func loadImage(urlString: String) {
-        
-        // If the cache already contains the URLString as a key, return it
-        if let cacheImage = BakeryDetailViewController.imageCache.object(forKey: urlString as NSString) {
-            self.image = cacheImage
-            return
-        }
-        
-        // Create a url out of the urlString
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { ( data, response, error) in
-            
-            if let error = error {
-                print("Couldn't download image: ", error)
-                return
-            }
-            
-            // Create data from the URL
-            guard let data = data else { return }
-            
-            // Create an image from the data
-            if let image = UIImage(data: data) {
-                
-                // Put the url and image into the cache
-                BakeryDetailViewController.imageCache.setObject(image, forKey: urlString as NSString)
-                
-                // Load the image asynchronously
-                DispatchQueue.main.async {
-                    self.image = image
-                }
-            }
-
-        }.resume()
-        
-    }
-    
-    
-//    // ORIGINAL LOAD
-//    func load(url: URL) {
-//        DispatchQueue.global().async { [weak self] in
-//            if let data = try? Data(contentsOf: url) {
-//                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-//                        self?.image = image
-//                    }
-//                }
-//            }
-//        }
-//    }
-}

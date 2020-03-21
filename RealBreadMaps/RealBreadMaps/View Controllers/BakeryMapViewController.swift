@@ -181,6 +181,8 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         BakeryModelController.shared.currentBakeryName = marker.title
         BakeryModelController.shared.currentBakeryAddress = marker.snippet
         
+        AppStoreReviewManager.requestReviewIfAppropriate()
+        
         performSegue(withIdentifier: "showDetailViewController", sender: nil)
     }
     

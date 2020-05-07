@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840E12D72463836D00C3F6C7 /* RealBreadMapsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E12D62463836D00C3F6C7 /* RealBreadMapsUITests.swift */; };
 		841DC8FC22454AFC00756504 /* Futura Light BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 841DC8FB22454AFC00756504 /* Futura Light BT.ttf */; };
 		841DC8FE22454BE700756504 /* futura-condensed-pt-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */; };
 		841DC90022454C7300756504 /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC8FF22454C7300756504 /* AppearanceHelper.swift */; };
@@ -45,7 +46,20 @@
 		E4A127FBFB5A5F4D1E7DEC1F /* Pods_RealBreadMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2686082C9812CD6E54A0FC8 /* Pods_RealBreadMaps.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		840E12D92463836D00C3F6C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84F760172240472F007892A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84F7601E2240472F007892A1;
+			remoteInfo = RealBreadMaps;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		840E12D42463836D00C3F6C7 /* RealBreadMapsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealBreadMapsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		840E12D62463836D00C3F6C7 /* RealBreadMapsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealBreadMapsUITests.swift; sourceTree = "<group>"; };
+		840E12D82463836D00C3F6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841DC8FB22454AFC00756504 /* Futura Light BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Light BT.ttf"; sourceTree = "<group>"; };
 		841DC8FD22454BE700756504 /* futura-condensed-pt-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "futura-condensed-pt-medium.otf"; sourceTree = "<group>"; };
 		841DC8FF22454C7300756504 /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
@@ -89,6 +103,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		840E12D12463836D00C3F6C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84F7601C2240472F007892A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840E12D52463836D00C3F6C7 /* RealBreadMapsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				840E12D62463836D00C3F6C7 /* RealBreadMapsUITests.swift */,
+				840E12D82463836D00C3F6C7 /* Info.plist */,
+			);
+			path = RealBreadMapsUITests;
+			sourceTree = "<group>";
+		};
 		8425C538224546A8006E1DAC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +183,7 @@
 				84F10B6023481096002A2EF0 /* Constants.swift */,
 				84F760212240472F007892A1 /* RealBreadMaps */,
 				84F7603C22415367007892A1 /* Resources */,
+				840E12D52463836D00C3F6C7 /* RealBreadMapsUITests */,
 				84F760202240472F007892A1 /* Products */,
 				DD05F09AB01B94486E71A96B /* Pods */,
 				8C40BDC4D6358E46F059F671 /* Frameworks */,
@@ -163,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				84F7601F2240472F007892A1 /* RealBreadMaps.app */,
+				840E12D42463836D00C3F6C7 /* RealBreadMapsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +293,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		840E12D32463836D00C3F6C7 /* RealBreadMapsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 840E12DD2463836D00C3F6C7 /* Build configuration list for PBXNativeTarget "RealBreadMapsUITests" */;
+			buildPhases = (
+				840E12D02463836D00C3F6C7 /* Sources */,
+				840E12D12463836D00C3F6C7 /* Frameworks */,
+				840E12D22463836D00C3F6C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				840E12DA2463836D00C3F6C7 /* PBXTargetDependency */,
+			);
+			name = RealBreadMapsUITests;
+			productName = RealBreadMapsUITests;
+			productReference = 840E12D42463836D00C3F6C7 /* RealBreadMapsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		84F7601E2240472F007892A1 /* RealBreadMaps */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84F7603122404731007892A1 /* Build configuration list for PBXNativeTarget "RealBreadMaps" */;
@@ -287,10 +337,14 @@
 		84F760172240472F007892A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Audrey Welch";
 				TargetAttributes = {
+					840E12D32463836D00C3F6C7 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 84F7601E2240472F007892A1;
+					};
 					84F7601E2240472F007892A1 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -310,11 +364,19 @@
 			projectRoot = "";
 			targets = (
 				84F7601E2240472F007892A1 /* RealBreadMaps */,
+				840E12D32463836D00C3F6C7 /* RealBreadMapsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		840E12D22463836D00C3F6C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84F7601D2240472F007892A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,6 +476,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		840E12D02463836D00C3F6C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840E12D72463836D00C3F6C7 /* RealBreadMapsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84F7601B2240472F007892A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,6 +514,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		840E12DA2463836D00C3F6C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84F7601E2240472F007892A1 /* RealBreadMaps */;
+			targetProxy = 840E12D92463836D00C3F6C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		84F760262240472F007892A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -464,6 +542,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		840E12DB2463836D00C3F6C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BH59G2VDQ6;
+				INFOPLIST_FILE = RealBreadMapsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audreywelch.RealBreadMapsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RealBreadMaps;
+			};
+			name = Debug;
+		};
+		840E12DC2463836D00C3F6C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BH59G2VDQ6;
+				INFOPLIST_FILE = RealBreadMapsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audreywelch.RealBreadMapsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RealBreadMaps;
+			};
+			name = Release;
+		};
 		84F7602F22404731007892A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -587,7 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Audrey Welch (JXA24GT8S3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BH59G2VDQ6;
 				INFOPLIST_FILE = RealBreadMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -595,6 +713,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.audreywelch.RealBreadMaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = RealBreadDevelopmentProfile;
@@ -610,7 +729,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Audrey Welch (JXA24GT8S3)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BH59G2VDQ6;
 				INFOPLIST_FILE = RealBreadMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -618,6 +737,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.audreywelch.RealBreadMaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = RealBreadDevelopmentProfile;
@@ -629,6 +749,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		840E12DD2463836D00C3F6C7 /* Build configuration list for PBXNativeTarget "RealBreadMapsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840E12DB2463836D00C3F6C7 /* Debug */,
+				840E12DC2463836D00C3F6C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		84F7601A2240472F007892A1 /* Build configuration list for PBXProject "RealBreadMaps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

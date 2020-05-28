@@ -134,7 +134,7 @@ class BakeryModelController {
         
         // Make a URL out of the components, recomposing al individual components back to a full URL
         guard let requestURL = components?.url else {
-            NSLog("Couldn't make requestURL from \(components)")
+            NSLog("Couldn't make requestURL from \(String(describing: components))")
             completion(NSError())
             return
         }

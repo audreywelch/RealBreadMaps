@@ -56,10 +56,11 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         // For each bakery retrieved from firebase
         for eachFirebaseBakery in BakeryModelController.shared.firebaseBakeries {
             
-            // MARK: - Call the following function after each addition to Firebase & 1x per week to update the Firebase with Google info
-            // Also uncomment the updateFirebase() call inside getBakeryInfo() function
+            // MARK: - 1. Call the following function after each addition to Firebase & 1x per week to update the Firebase with Google info
+            // 2. Change rules on Firebase to write: true
+            // 3. Uncomment the updateFirebase() call inside getBakeryInfo() function
             // Use the placeID to make the GooglePlaces API call
-            // BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in }
+            //BakeryModelController.shared.getBakeryInfo(with: eachFirebaseBakery.placeID) { (error) in }
             
             // Ensure UI updates are performed on the main thread
             DispatchQueue.main.async {
@@ -77,7 +78,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
                 if let unwrappedAddress = eachFirebaseBakery.formattedAddress {
                     marker.snippet = "\(unwrappedAddress)"
                 }
-
+                
                 marker.map = self.mapView
             }
         }

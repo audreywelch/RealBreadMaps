@@ -8,6 +8,9 @@
 
 import UIKit
 
+// Singleton object that manages loading for all UIImageView instances
+// in the app, resulting in using a single cache for the entire app.
+
 class UIImageLoader {
     
     static let loader = UIImageLoader()
@@ -61,6 +64,7 @@ class ImageLoader {
     // Create an image cache using NSCache
     private let imageCache = NSCache<NSString, UIImage>()
     
+    // Dictionary in the image loader keeps track of running downloads in order to cancel them later
     private var runningRequests = [UUID: URLSessionDataTask]()
     
     // Accepts URLString and completion handler
@@ -96,14 +100,16 @@ class ImageLoader {
             }
             
             // If we receive an error, we check whether the error is due to the task being canceled
-            if let error = error {
-                // Without an image or an error, ignore this
+            
+            // If there is no image or an error
+            guard let error = error else {
+                print("No image AND no error returned from data task")
                 return
             }
             
             // If the error is anything other than canceling the task, we forward it to the caller of completion
-            guard (error! as NSError).code == NSURLErrorCancelled else {
-                completion(.failure(error ?? NSError()))
+            guard (error as NSError).code == NSURLErrorCancelled else {
+                completion(.failure(error))
                 return
             }
             

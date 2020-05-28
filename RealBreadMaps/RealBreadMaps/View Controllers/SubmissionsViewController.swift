@@ -98,7 +98,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         submitButton.layer.borderWidth = 0.3
         //submitButton.layer.cornerRadius = 7
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: Appearance.thinFont], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: Appearance.thinFont as Any], for: .normal)
     }
     
     // MARK: - User Submission Functionality
@@ -197,7 +197,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
             }
             
             // Check for data retrieval
-            guard let data = data else {
+            guard data != nil else {
                 NSLog("Invalid server response data")
                 return
             }

@@ -10,7 +10,7 @@ import StoreKit
 
 enum AppStoreReviewManager {
     
-    // Specify number of times the suer must perform the review-worthy action
+    // Specify number of times the user must perform the review-worthy action
     // Review-worth actions: tap for detail view (either via map or table view)
     static let minimumReviewWorthyActionCount = 5
     

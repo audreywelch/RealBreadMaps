@@ -55,7 +55,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         findRealBreadBtn.titleLabel?.adjustsFontForContentSizeCategory = true
         findRealBreadBtn.backgroundColor = Appearance.Colors.background
         findRealBreadBtn.layer.borderWidth = 0.25
-        findRealBreadBtn.layer.borderColor = Appearance.Colors.tint.cgColor // roseRed.cgColor
+        findRealBreadBtn.layer.borderColor = Appearance.Colors.tint.cgColor
         
         // Create the slides and add them
         var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -112,8 +112,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         // Initial State
         pageControl.numberOfPages = titles.count
         pageControl.currentPage = 0
-        
-        
     }
     
     // Indicator

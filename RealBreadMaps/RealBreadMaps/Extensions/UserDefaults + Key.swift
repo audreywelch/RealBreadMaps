@@ -9,10 +9,8 @@
 import Foundation
 
 /*
- 
  Extension on UserDefaults to eliminate the need for using “stringly” typed keys when accessing values.
  Avoids accidentally mistyping a key as it can cause hard-to-find bugs.
- 
  */
 
 extension UserDefaults {

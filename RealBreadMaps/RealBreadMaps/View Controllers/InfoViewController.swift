@@ -39,12 +39,10 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         // Timer for looping animation
         let timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(animateText), userInfo: nil, repeats: true)
         timer.fire()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     // MARK: - Animations
@@ -60,7 +58,6 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
             animationTextLabel.text = "The FDA allows for 38 different ingredients in its definition of bread..."
         default:
             animationTextLabel.text = "The FDA allows for 38 different ingredients in its definition of bread..."
-            
         }
     }
     
@@ -91,7 +88,6 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         realBreadExplainedLabel.textColor = Appearance.Colors.label
         aboutMeExplainedLabel.textColor = Appearance.Colors.label
         animationTextLabel.textColor = Appearance.Colors.label
-        
     }
     
     // MARK: - Location Functionality
@@ -101,7 +97,6 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
         
         if let location = locations.first {
             locationCoordinates = manager.location?.coordinate
-            // print("LocationCoordinates: \(String(describing: locationCoordinates))")
             
             manager.stopUpdatingLocation()
             
@@ -112,9 +107,5 @@ class InfoViewController: UIViewController, CLLocationManagerDelegate {
             
             BakeryModelController.shared.userLocation = nil
         }
-
     }
-
 }
-
-

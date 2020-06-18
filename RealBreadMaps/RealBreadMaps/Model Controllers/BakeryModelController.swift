@@ -85,7 +85,6 @@ class BakeryModelController {
             
             // Convert the data to our object
             do {
-                
                 let responseDictionary = try jsonDecoder.decode([String: FirebaseBakery].self, from: data)
                 
                 // Pull out the values from the returned response, which is a dictionary (due to Firebase format)
@@ -115,7 +114,6 @@ class BakeryModelController {
          */
         
         // Create request URL
-        
         // Build up the endpoint
         var bakeryURL = baseURL.appendingPathComponent("details")
         
@@ -127,12 +125,11 @@ class BakeryModelController {
         // Add queries
         let searchQueryItem = URLQueryItem(name: "placeid", value: placeID)
         let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
-        // let languageQueryItem = URLQueryItem(name: "language", value: "en")
         let fieldsQueryItem = URLQueryItem(name: "fields", value: "name,geometry,place_id,formatted_address,international_phone_number,website,opening_hours,photos")
         
-        components?.queryItems = [searchQueryItem, fieldsQueryItem, apiKeyQueryItem] // languageQueryItem
+        components?.queryItems = [searchQueryItem, fieldsQueryItem, apiKeyQueryItem]
         
-        // Make a URL out of the components, recomposing al individual components back to a full URL
+        // Make a URL out of the components, recomposing all individual components back to a full URL
         guard let requestURL = components?.url else {
             NSLog("Couldn't make requestURL from \(String(describing: components))")
             completion(NSError())
@@ -213,8 +210,6 @@ class BakeryModelController {
     // Update firebase with information from Google Places API
     func updateFirebase(bakery: BakeryObject) {
         
-        //ref.child("\(bakery.placeId)").updateChildValues(["name": bakery.name])
-        
         ref.child("\(bakery.placeId)").child("name").setValue(bakery.name)
         ref.child("\(bakery.placeId)").child("lat").setValue(bakery.lat)
         ref.child("\(bakery.placeId)").child("lng").setValue(bakery.lng)
@@ -223,8 +218,5 @@ class BakeryModelController {
         ref.child("\(bakery.placeId)").child("website").setValue(bakery.website)
         ref.child("\(bakery.placeId)").child("weekdayText").setValue(bakery.weekdayText)
         ref.child("\(bakery.placeId)").child("photos").setValue(bakery.photos)
-
     }
-    
 }
-

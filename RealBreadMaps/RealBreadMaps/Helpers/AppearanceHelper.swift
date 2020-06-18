@@ -26,26 +26,17 @@ enum Appearance {
     
     // Font for navigation bars
     static let navigationFont = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize)!
-//    static func navigationFont(with textStyle: UIFont.TextStyle, pointSize: CGFloat) -> UIFont {
-//        guard let font = UIFont(name: "FuturaBT-Light", size: UIFont.labelFontSize) else {
-//            fatalError("Font is nil. Check the name of the font.")
-//        }
-//        return UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
-//    }
 
-    
     // SAMPLE FONTS
     static let titleFontKokoro = UIFont(name: "KokoroMinchoutai", size: 24)
     static let titleFontPTSerif = UIFont(name: "PTSerif-Regular", size: 24)
     static let titleFontPlayfair = UIFont(name: "PlayfairDisplay-Regular", size: 24)
     static let titleFontOldStandard = UIFont(name: "OldStandardTT-Regular", size: 24)
     
-    
     static func setupTheme() {
         
         // Navigation Bar
-        
-        UINavigationBar.appearance().barTintColor = .roseRed // .ibisRed
+        UINavigationBar.appearance().barTintColor = .roseRed
         UIBarButtonItem.appearance().tintColor = .white
         UINavigationBar.appearance().isTranslucent = false
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: navigationFont], for: .normal)
@@ -55,13 +46,12 @@ enum Appearance {
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         
         // Tab Bar
-        UITabBar.appearance().tintColor = .roseRed //Colors.tabBarItemTint //.roseRed
+        UITabBar.appearance().tintColor = .roseRed
         UITabBar.appearance().barTintColor = Colors.tabBarTint
         
         // Text Fields / Views
         UITextField.appearance().font = thinFont
         UITextView.appearance().font = thinFont
-
     }
     
     public enum Colors {

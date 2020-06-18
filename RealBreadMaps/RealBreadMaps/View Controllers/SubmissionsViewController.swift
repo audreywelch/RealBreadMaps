@@ -44,7 +44,6 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         updateViews()
         
         scrollView.keyboardDismissMode = .onDrag
-        
         self.hideKeyboard()
     }
     
@@ -54,7 +53,7 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         view.backgroundColor = Appearance.Colors.background
         
-        submitButton.tintColor = Appearance.Colors.buttonText //.ibisRed
+        submitButton.tintColor = Appearance.Colors.buttonText
         reasonsTextView.layer.borderWidth = 0.3
         reasonsTextView.layer.borderColor = UIColor.lightGray.cgColor
         reasonsTextView.layer.cornerRadius = 7
@@ -96,7 +95,6 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         submitButton.backgroundColor = Appearance.Colors.background
         submitButton.layer.borderColor = Appearance.Colors.tabBarItemTint.cgColor
         submitButton.layer.borderWidth = 0.3
-        //submitButton.layer.cornerRadius = 7
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: Appearance.thinFont as Any], for: .normal)
     }
@@ -149,7 +147,6 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         })
         
         present(ac, animated: true)
-        
     }
     
     // MARK: - Google Forms Submissions
@@ -169,7 +166,6 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         // Create URL Request
         var request = URLRequest(url: url)
-        
         request.httpMethod = "POST"
         
         // Add parameters that will make up http body
@@ -201,16 +197,8 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
                 NSLog("Invalid server response data")
                 return
             }
-                        
-//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-//                print("data: \(dataString)")
-//
-//                return
-//            }
-            
         }
         dataTask.resume()
- 
     }
     
     // MARK: - Delegate Methods
@@ -220,7 +208,6 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         // Hide keyboard when user hits return
         textField.resignFirstResponder()
-        
         return true
     }
     
@@ -230,12 +217,10 @@ class SubmissionsViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         if text == "\n" {
             textView.resignFirstResponder()
-            
             return false
         }
         return true
     }
-    
 }
 
 extension UIViewController {

@@ -53,7 +53,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         // Sort the table view by the distance away from the user
         sortByDistance()
- 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +64,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     // Sort the bakeries by distance away from user and reload the table view
     func sortByDistance() {
-
         if BakeryModelController.shared.userLocation == nil {
             firebaseBakeries.sort { (l1, l2) -> Bool in
                 return l1.name ?? "" < l2.name ?? ""
@@ -74,12 +72,10 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             firebaseBakeries.sort { (l1, l2) -> Bool in
                 return Double(l1.distanceFromUser!) < Double(l2.distanceFromUser!)
             }
-
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
-
     }
     
     // MARK: - Table View Data Source Methods
@@ -88,7 +84,6 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
         
         // If the search bar is being used
         if searchBarIsEmpty() == false {
-            
             // Display cells for the amount of bakeries that have been filtered by search result
             return filteredBakeries.count
         }
@@ -298,18 +293,13 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     
     // Tell the delegate that the search button was tapped
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         searchBar.resignFirstResponder()
-        
         filterBakeries()
-        
         self.tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
         searchBar.resignFirstResponder()
-        
         self.tableView.reloadData()
     }
     
@@ -327,17 +317,7 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 return
             }
             
-            // IF THE SEARCH TERM IS A NAME
-            // Not allowing search by name because it changes the distance to measure from a place it tries to find with the same name as the search term
-            
-            // Filter through the array of bakeries to see if name of bakery or address contain the text entered by user
-//            let matchingBakeries = self.firebaseBakeries.filter({ $0.name?.lowercased().contains(searchTerm) ?? false })
-                // || $0.formattedAddress?.lowercased().contains(searchTerm) ?? false })
-//
-//            // Set the value of the filteredBakeries to the results of the filter
-//            self.filteredBakeries = self.filteredBakeries + matchingBakeries
-            
-            // IF THE SEARCH TERM IS A LOCATION
+            // CURRENTLYONLY SUPPORTING SEARCH TERMS AS LOCATIONS
             // Geocode the searchTerm in case it is a location
             self.geocoder.geocodeAddressString(searchTerm) { (placemarks, error) in
                 // Process response - this appends to filteredBakeries
@@ -357,22 +337,17 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
                 
                 // If there are no results for the searched-for bakery, display an alert controller
                 if self.filteredBakeries.count == 0 {
-                    
                     let ac = UIAlertController(title: "Sorry, I'm not aware of any real bread within 100 miles of that location! Please submit a bakery if you know of one.", message: nil, preferredStyle: .alert)
                     
                     ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
                         self?.bakerySearchBar.text = ""
                         self?.tableView.reloadData()
                     })
-                    
                     self.present(ac, animated: true)
-                    
                 }
             }
-            
          self.tableView.reloadData()
         }
-        
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -382,10 +357,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
 
     // Forward Geocoding
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
-        
         if let error = error {
             print("Unable to Forward Geocode Address (\(error))")
-            
         } else {
             var location: CLLocation?
             
@@ -396,15 +369,11 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             
             // Access the coordinate property - an instance of CLLocationCoordinate2D
             if let location = location {
-                let coordinate = location.coordinate
-                print("\(coordinate.latitude), \(coordinate.longitude)")
-                
                 userSearchLocation = location
                 
                 // Get distance from entered location to other bakeries, adding to the filteredBakeries
                 // array if within 50 miles
                 findDistance(target: location)
-                
             } else {
                 print("No matching location found")
             }
@@ -414,11 +383,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
     // Finds distance from all bakeries to the target location
     // If within 50 miles, adds it to the filteredBakery array
     func findDistance(target: CLLocation) {
-        
         for eachBakery in firebaseBakeries {
-            
             guard let lat = eachBakery.lat, let lng = eachBakery.lng else { return }
-            
             let bakeryLocation = CLLocation(latitude: lat, longitude: lng)
             
             // Returns the distance in meters
@@ -426,13 +392,8 @@ class BakeryListTableViewController: UITableViewController, UISearchBarDelegate 
             
             // If the bakery is within 100 miles == 160934 meters
             if distanceFromTarget < 160934 {
-                // print("Adding \(eachBakery.name) to filtered array because it is \(distanceFromTarget) away from the searched place")
-                
                 filteredBakeries.append(eachBakery)
             }
-            
         }
-        
     }
-    
 }

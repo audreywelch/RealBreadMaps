@@ -24,6 +24,8 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
+        
         // Location retrieval requests
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -31,9 +33,7 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         }
-        
-        mapView.delegate = self
-        
+
         // Set initial view to the the user's location if it's not nil
         if BakeryModelController.shared.userLocation != nil {
             
@@ -82,7 +82,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
                 marker.map = self.mapView
             }
         }
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,7 +93,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         } else {
             // Set the map style by passing the URL of the local file
             do {
-                
                 if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
                     mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
                 } else {
@@ -123,7 +121,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
             
             BakeryModelController.shared.userLocation = nil
         }
-
     }
     
     // MARK: - UI Styling
@@ -170,7 +167,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
                 }
             }
         }
-        
     }
     
     // MARK: - Segue to Detail View Controller
@@ -205,7 +201,6 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         let formattedDistance = formatter.string(from: currentDistance as NSNumber)!
         
         return formattedDistance
-        
     }
     
     // Helper function to convert meters to kilometers
@@ -225,6 +220,4 @@ class BakeryMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         
         return formattedDistance
     }
-    
 }
-

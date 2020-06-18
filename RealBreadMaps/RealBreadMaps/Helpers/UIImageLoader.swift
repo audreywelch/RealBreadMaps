@@ -19,7 +19,7 @@ class UIImageLoader {
     private let imageLoader = ImageLoader()
     
     // Dictionary keeps track of currently active image loading tasks
-    // Map tehse based on UIImageView in order to connect individual task identifiers to UIIMageVIew instances
+    // Map these based on UIImageView in order to connect individual task identifiers to UIIMageView instances
     private var uuidMap = [UIImageView: UUID]()
     
     private init() {}

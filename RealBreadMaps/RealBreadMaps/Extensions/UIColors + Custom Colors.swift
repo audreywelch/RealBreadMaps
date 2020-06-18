@@ -21,13 +21,4 @@ extension UIColor {
     static let roseRed = UIColor(red: 0.57, green: 0.17, blue: 0.25, alpha: 1.0)
     static let mapBlue = UIColor(red: 0.92, green: 0.96, blue: 0.97, alpha: 1.0)
     
-//    static func myColor() -> UIColor {
-//        if #available(iOS 13, *) {
-//            return UIColor.init { (trait) -> UIColor in
-//                return trait.userInterfaceStyle == .dark ? UIColor.black : UIColor.white
-//            }
-//        }
-//        else { return UIColor.white }
-//    }
-    
 }

@@ -43,10 +43,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     var firebaseBakery: FirebaseBakery?
     
     var imageURLStrings: [String] = []
-    
-    // Create an image cache using NSCache
-    //static let imageCache = NSCache<NSString, UIImage>()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +63,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             }
         }
 
+        // UI Set Up Tasks
         labelSetUp()
         
         populateTags()
@@ -80,7 +78,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         mapView.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,7 +92,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
 
         // Set the direction of the user's scrolling to be swiping horizontally
         layout.scrollDirection = .horizontal
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -132,10 +128,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
             
         // Otherwise, load the image URL into the image view
         } else if self.firebaseBakery!.photos != nil {
-            
             cell.bakeryImageView.loadImage(at: imageURLStrings[indexPath.row])
         }
-        
         return cell
     }
     
@@ -169,12 +163,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         bakeryHoursLabel.adjustsFontForContentSizeCategory = true
         
         // WEBSITE
-        // Account for Bread Riot Bakehouse selling at the Farmer's Market
-        if firebaseBakery.website != nil { //&& firebaseBakery.placeID != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
+        if firebaseBakery.website != nil {
             bakeryWebsiteButton.setTitle(firebaseBakery.website, for: .normal)
-//        }
-//        else if firebaseBakery.website != nil && firebaseBakery.placeID == "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
-//            bakeryWebsiteButton.setTitle("https://breadriotbakehouse.com", for: .normal)
         } else {
             bakeryWebsiteButton.setTitle("Website unavailable", for: .normal)
             bakeryWebsiteButton.isEnabled = false
@@ -183,8 +173,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         bakeryWebsiteButton.titleLabel?.adjustsFontForContentSizeCategory = true
         
         // PHONE NUMBER
-        // Account for Bread Riot Bakehouse selling at the Farmer's Market
-        if firebaseBakery.internationalPhoneNumber != nil { //&& firebaseBakery.placeID != "ChIJZ7vNGwP1UocRlrFBI9Tr-Ws" {
+        if firebaseBakery.internationalPhoneNumber != nil {
             bakeryPhoneNumberButton.setTitle(firebaseBakery.internationalPhoneNumber, for: .normal)
         } else {
             bakeryPhoneNumberButton.setTitle("Phone number unavailable", for: .normal)
@@ -202,19 +191,15 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         // BOTTOM COLOR BAR
         bottomColorBarLabel.backgroundColor = .roseRed
-        
     }
     
     // Create URL Strings from each photoReference
     func createImageURLStrings() {
         
         let baseURL = URL(string: "https://maps.googleapis.com/maps/api/place/")!
-        
         guard self.firebaseBakery?.photos != nil else { return }
-            
         for eachReference in self.firebaseBakery!.photos! {
             imageURLStrings.append("\(baseURL)photo?maxwidth=400&photoreference=\(eachReference)&key=\(GMSPlacesClientApiKey)")
-
         }
     }
     
@@ -222,7 +207,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     func populateTags() {
         
         guard let firebaseBakery = firebaseBakery else { return }
-                
         if firebaseBakery.info == nil {
             infoLabel.isHidden = true
         } else {
@@ -233,25 +217,20 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                 
         // Organic
         if firebaseBakery.organic == true {
-                    
             let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            organicImageView.tintColor = Appearance.Colors.tint //.roseRed
+            organicImageView.tintColor = Appearance.Colors.tint
             organicImageView.image = organicIcon
-                    
             organicLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.organic == nil {
-                    
             let organicIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            organicImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            organicImageView.tintColor = Appearance.Colors.tagDarkerShadow
             organicImageView.image = organicIcon
-                    
-            organicLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            organicLabel.textColor = Appearance.Colors.tagDarkerShadow
                     
         } else {
-                    
             let organicIcon = UIImage(named: "organic red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            organicImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
+            organicImageView.tintColor = Appearance.Colors.tagLighterShadow
             organicImageView.image = organicIcon
                     
             let attrString = NSAttributedString(string: "Sells Loaves",
@@ -259,31 +238,25 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                              NSAttributedString.Key.strikethroughColor: UIColor.lightGray])
             
             organicLabel.attributedText = attrString
-            organicLabel.textColor = Appearance.Colors.tagLighterShadow//.gray
-                    
+            organicLabel.textColor = Appearance.Colors.tagLighterShadow
         }
                 
         // Milled In-House
         if firebaseBakery.milledInHouse == true {
-                    
             let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            milledInHouseImageView.tintColor = Appearance.Colors.tint//.roseRed
+            milledInHouseImageView.tintColor = Appearance.Colors.tint
             milledInHouseImageView.image = milledIcon
-                    
             milledInHouseLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.milledInHouse == nil {
-                    
             let milledIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            milledInHouseImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            milledInHouseImageView.tintColor = Appearance.Colors.tagDarkerShadow
             milledInHouseImageView.image = milledIcon
-                    
-            milledInHouseLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            milledInHouseLabel.textColor = Appearance.Colors.tagDarkerShadow
                     
         } else {
-                    
             let milledIcon = UIImage(named: "mill red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            milledInHouseImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
+            milledInHouseImageView.tintColor = Appearance.Colors.tagLighterShadow
             milledInHouseImageView.image = milledIcon
                     
             let attrsString = NSAttributedString(string: "Milled In-house",
@@ -291,31 +264,25 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                               NSAttributedString.Key.strikethroughColor: UIColor.gray])
             
             milledInHouseLabel.attributedText = attrsString
-            milledInHouseLabel.textColor = Appearance.Colors.tagLighterShadow //.gray
-                    
+            milledInHouseLabel.textColor = Appearance.Colors.tagLighterShadow
         }
                 
         // Serves Food
         if firebaseBakery.servesFood == true {
-                    
             let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            servesFoodImageView.tintColor = Appearance.Colors.tint //.roseRed
+            servesFoodImageView.tintColor = Appearance.Colors.tint
             servesFoodImageView.image = servesFoodIcon
-                    
             servesFoodLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.servesFood == nil {
-                    
             let servesFoodIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            servesFoodImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            servesFoodImageView.tintColor = Appearance.Colors.tagDarkerShadow
             servesFoodImageView.image = servesFoodIcon
-                    
-            servesFoodLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            servesFoodLabel.textColor = Appearance.Colors.tagDarkerShadow
                     
         } else {
-                    
             let servesFoodIcon = UIImage(named: "food red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            servesFoodImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
+            servesFoodImageView.tintColor = Appearance.Colors.tagLighterShadow
             servesFoodImageView.image = servesFoodIcon
                     
             let attrsString = NSAttributedString(string: "Serves Food",
@@ -323,30 +290,25 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                               NSAttributedString.Key.strikethroughColor: UIColor.gray])
             
             servesFoodLabel.attributedText = attrsString
-            servesFoodLabel.textColor = Appearance.Colors.tagLighterShadow //.gray
+            servesFoodLabel.textColor = Appearance.Colors.tagLighterShadow
         }
                 
         // Sells Loaves
         if firebaseBakery.sellsLoaves == true {
-                    
             let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            sellsLoavesImageView.tintColor = Appearance.Colors.tint //.roseRed
+            sellsLoavesImageView.tintColor = Appearance.Colors.tint
             sellsLoavesImageView.image = sellsLoavesIcon
-                    
             sellsLoavesLabel.textColor = Appearance.Colors.label
                     
         } else if firebaseBakery.sellsLoaves == nil {
-                    
             let sellsLoavesIcon = UIImage(named: "question")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            sellsLoavesImageView.tintColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            sellsLoavesImageView.tintColor = Appearance.Colors.tagDarkerShadow
             sellsLoavesImageView.image = sellsLoavesIcon
-                    
-            sellsLoavesLabel.textColor = Appearance.Colors.tagDarkerShadow //.lightGray
+            sellsLoavesLabel.textColor = Appearance.Colors.tagDarkerShadow
                     
         } else {
-                    
             let sellsLoavesIcon = UIImage(named: "bread red")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            sellsLoavesImageView.tintColor = Appearance.Colors.tagLighterShadow //.gray
+            sellsLoavesImageView.tintColor = Appearance.Colors.tagLighterShadow
             sellsLoavesImageView.image = sellsLoavesIcon
                     
             let attrsString = NSAttributedString(string: "Sells Loaves",
@@ -354,10 +316,8 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                                               NSAttributedString.Key.strikethroughColor: UIColor.gray])
             
             sellsLoavesLabel.attributedText = attrsString
-            sellsLoavesLabel.textColor = Appearance.Colors.tagLighterShadow //.gray
-                    
+            sellsLoavesLabel.textColor = Appearance.Colors.tagLighterShadow
         }
-                
     }
     
     // MARK: - Map Setup
@@ -375,7 +335,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         let camera = GMSCameraPosition.camera(withLatitude: firebaseBakery.lat ?? 0, longitude: firebaseBakery.lng ?? 0, zoom: 12)
         mapView.camera = camera
             
-        // Create a marker for Ibis Bakery
+        // Create a marker for bakery
         let marker = GMSMarker()
         marker.icon = GMSMarker.markerImage(with: .roseRed)
         marker.position = CLLocationCoordinate2D(latitude: firebaseBakery.lat ?? 0, longitude: firebaseBakery.lng ?? 0)
@@ -387,7 +347,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         marker.map = mapView
-        
     }
     
     // Map window tapped
@@ -396,9 +355,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // https://www.google.com/maps/dir/?api=1&destination=Lodge+Bread+Company
         
         guard let firebaseBakery = firebaseBakery else { return }
-        
         guard let nameForURL = firebaseBakery.name?.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
-        //print(nameForURL)
         
         if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
             UIApplication.shared.open(url, options: [:])
@@ -412,7 +369,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         // https://www.google.com/maps/dir/?api=1&destination=Lodge+Bread+Company
         
         guard let firebaseBakery = firebaseBakery else { return }
-        
         guard let nameForURL = firebaseBakery.name?.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
         
         if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
@@ -424,7 +380,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         
         guard let firebaseBakery = firebaseBakery else { return }
-        
         guard let nameForURL = firebaseBakery.name?.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "'", with: "") else { return }
         
         if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(nameForURL)") {
@@ -469,7 +424,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                 }
             }
         }
-        
     }
     
     // MARK: - UI & Theme
@@ -487,7 +441,7 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         titleLabel.textAlignment = .center
         self.navigationItem.titleView = titleLabel
         
-        getDirectionsButton.tintColor = Appearance.Colors.buttonText //.ibisRed
+        getDirectionsButton.tintColor = Appearance.Colors.buttonText
         getDirectionsButton.backgroundColor = Appearance.Colors.background
         getDirectionsButton.layer.borderColor = Appearance.Colors.tabBarItemTint.cgColor
         getDirectionsButton.layer.borderWidth = 0.3
@@ -507,7 +461,6 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
         } else {
             // Set the map style by passing the URL of the local file
             do {
-                
                 if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
                     mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
                 } else {
@@ -558,9 +511,5 @@ class BakeryDetailViewController: UIViewController, UICollectionViewDelegate, UI
                 }
             }
         }
-        
     }
-    
-    
 }
-
